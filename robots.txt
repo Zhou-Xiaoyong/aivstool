@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /legal/
+
+Sitemap: https://aivstool.com/sitemap.xml
+
+# aivstool.com - Updated June 2026
