@@ -1,7 +1,8 @@
+# robots.txt for aivstool.com
+# Generated: 2026-06-07
+
 User-agent: *
 Allow: /
-Disallow: /legal/
 
+# Sitemap
 Sitemap: https://aivstool.com/sitemap.xml
-
-# aivstool.com - Updated June 2026
