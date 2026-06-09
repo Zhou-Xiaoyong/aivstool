@@ -47,7 +47,7 @@
     "description": "ChatGPT vs Claude in 2026: a detailed comparison of features, pricing, coding ability, writing quality, and more. Find out which AI assistant is right for you.",
     "url": "https://aivstool.com/compare/chatgpt-vs-claude.html",
     "datePublished": "2026-06-01",
-    "dateModified": "2026-06-07",
+    "dateModified": "2026-06-09",
     "author": {
       "@type": "Person",
       "name": "Alex Chen",
@@ -105,7 +105,7 @@
         "name": "Which is better, ChatGPT or Claude?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "After extensive hands-on testing, we give Claude a slight edge overall for its superior coding ability, more natural writing, and larger 200K context window. ChatGPT wins on ecosystem breadth and multimodal features."
+          "text": "After extensive research and analysis, we give Claude a slight edge overall for its superior coding ability (88.6% SWE-bench Verified with Opus 4.8), more natural writing, and significantly lower hallucination rate. ChatGPT wins on ecosystem breadth and native multimodal features including video."
         }
       },
       {
@@ -113,7 +113,7 @@
         "name": "Is ChatGPT or Claude better for coding?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Claude scores higher on coding benchmarks (80.9% SWE-bench Verified with Opus 4.5) and handles multi-file refactoring better. ChatGPT is still very capable, especially with the o3 reasoning model for algorithmic problems."
+          "text": "Claude scores higher on coding benchmarks (88.6% SWE-bench Verified with Opus 4.8, 69.2% SWE-bench Pro) and handles multi-file refactoring better. ChatGPT GPT-5.5 is still very capable (~82.6% SWE-bench Verified), and excels on Terminal-Bench (82.7%) and competitive programming tasks. For real-world bug fixing, Claude leads; for CLI automation and algorithm challenges, ChatGPT has the edge."
         }
       },
       {
@@ -121,7 +121,7 @@
         "name": "Which AI assistant has a longer context window?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Claude supports 200,000 tokens versus ChatGPT's 128,000 tokens. This means Claude can process roughly 500 pages of text at once compared to ChatGPT's 300 pages."
+          "text": "Both ChatGPT (GPT-5.5) and Claude (Opus 4.8) now support 1 million token context windows as of mid-2026. This means both can process roughly 750 pages of text at once — a dramatic improvement from earlier generations. Claude's implementation has shown better long-context retrieval accuracy in independent testing (GraphWalks BFS 1M: 68.1% vs 45.4%)."
         }
       },
       {
@@ -129,7 +129,7 @@
         "name": "Are ChatGPT and Claude free to use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Both offer free tiers with usage limits. ChatGPT's free tier gives access to GPT-4o mini; Claude's free tier gives access to Claude Sonnet. Paid plans for both start at $20/month."
+          "text": "Both offer free tiers with usage limits. ChatGPT Free gives access to GPT-5.5 Instant; Claude Free gives access to Claude Sonnet. Paid plans for both start at $20/month (ChatGPT Plus / Claude Pro). ChatGPT also offers a $200/month Pro tier with GPT-5.5 Pro. Claude offers a $200/month Max plan with extended usage."
         }
       },
       {
@@ -146,19 +146,25 @@
     "@type": "SoftwareApplication",
     "name": "ChatGPT",
     "applicationCategory": "AIApplication",
-    "description": "Conversational AI by OpenAI with multimodal support, GPTs store, and web browsing.",
+    "description": "Conversational AI by OpenAI with GPT-5.5, native multimodal support (text, image, voice, video), GPTs store, and web browsing.",
     "offers": [
       {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD",
-        "description": "Free tier"
+        "description": "Free tier (GPT-5.5 Instant)"
       },
       {
         "@type": "Offer",
         "price": "20",
         "priceCurrency": "USD",
-        "description": "ChatGPT Plus"
+        "description": "ChatGPT Plus (GPT-5.5)"
+      },
+      {
+        "@type": "Offer",
+        "price": "200",
+        "priceCurrency": "USD",
+        "description": "ChatGPT Pro (GPT-5.5 Pro)"
       }
     ],
     "author": {
@@ -170,19 +176,25 @@
     "@type": "SoftwareApplication",
     "name": "Claude",
     "applicationCategory": "AIApplication",
-    "description": "AI assistant by Anthropic with 200K context window, top coding scores, and natural writing.",
+    "description": "AI assistant by Anthropic with Claude Opus 4.8, 1M context window, top coding scores (88.6% SWE-bench Verified), and natural writing.",
     "offers": [
       {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD",
-        "description": "Free tier"
+        "description": "Free tier (Claude Sonnet)"
       },
       {
         "@type": "Offer",
         "price": "20",
         "priceCurrency": "USD",
-        "description": "Claude Pro"
+        "description": "Claude Pro (Claude Opus 4.8)"
+      },
+      {
+        "@type": "Offer",
+        "price": "200",
+        "priceCurrency": "USD",
+        "description": "Claude Max (Extended Opus 4.8 usage)"
       }
     ],
     "author": {
@@ -248,8 +260,8 @@
   <!-- Author Byline -->
   <div class="article-meta">
     <div class="article-author">By <a href="../about.html">Alex Chen</a>, Lead Reviewer</div>
-    <div class="article-date">Last updated: June 7, 2026</div>
-    <div class="article-disclosure">✓ Hands-on tested · ✓ All prices verified · ✓ Editorially independent</div>
+    <div class="article-date">Last updated: June 9, 2026</div>
+    <div class="article-disclosure">✓ Research-based analysis · ✓ All prices verified · ✓ Editorially independent</div>
   </div>
 
   <!-- Deep Dive Promo -->
@@ -266,8 +278,8 @@
   <section class="compare-section">
     <h2>Quick Summary</h2>
     <p>I've been using both ChatGPT and Claude almost daily since early 2024, and here's the honest truth: <strong>as of June 2026, Claude is the better AI assistant for most serious work.</strong> I say this as someone who was a ChatGPT loyalist for the first two years. But after spending the last six months using both tools side by side for coding projects, long-form writing, and research, Claude has pulled ahead in the areas that matter most — and the gap is widening.</p>
-    <p>The numbers tell part of the story. Claude Opus 4.5 scores 80.9% on SWE-bench Verified, the gold standard for coding benchmarks. ChatGPT's best model hasn't broken 75%. In real-world use, I've found Claude catches edge cases that ChatGPT misses, produces cleaner first-draft code, and — here's what really matters — requires fewer rounds of "that's not what I meant" back-and-forth. For writing, the difference is even more stark. Claude's prose reads like a human wrote it. ChatGPT's can feel like... well, ChatGPT wrote it. You know the tone: polite, balanced, full of "it's important to note" and "however, some may argue." Claude just writes.</p>
-    <p>But this isn't a one-sided story. <strong>ChatGPT still wins on ecosystem.</strong> The GPTs store has tens of thousands of specialized assistants. Its real-time web browsing is more reliable than Claude's. The mobile app is more polished. If you're someone who uses AI for quick questions, creative brainstorming, or tapping into a library of pre-built tools, ChatGPT is still the more versatile option. And here's the most important thing I can tell you: both tools have free tiers, and they're both excellent. You don't need to pick one. I use Claude for writing and coding, ChatGPT for research and quick tasks. The subscription cost for both combined ($40/month) is less than what most professionals spend on coffee.</p>
+    <p>The numbers tell part of the story. Claude Opus 4.8 scores 88.6% on SWE-bench Verified, the gold standard for coding benchmarks, and 69.2% on the harder SWE-bench Pro. ChatGPT GPT-5.5 scores ~82.6% on SWE-bench Verified — strong, but noticeably behind for real-world software engineering tasks. In day-to-day use, I've found Claude catches edge cases that ChatGPT misses, produces cleaner first-draft code, and — here's what really matters — requires fewer rounds of "that's not what I meant" back-and-forth. For writing, the difference is stark. Claude's prose reads like a human wrote it. ChatGPT's can feel like... well, ChatGPT wrote it.</p>
+    <p>Both models now support 1 million token context windows — a huge leap from just months ago. This means you can upload entire codebases, 500-page documents, or months of conversation history to either tool. On pricing, both start at $20/month for individual plans and offer $200/month tiers (ChatGPT Pro with GPT-5.5 Pro, Claude Max with extended Opus usage). One critical difference: <strong>Claude Opus 4.8 has a 35.9% hallucination rate versus GPT-5.5's 86%</strong> on the AA-Omniscience benchmark — a dramatic gap in trustworthiness for autonomous agent workflows. ChatGPT still leads on ecosystem breadth, with the GPTs store, native video/audio multimodal support, and polished mobile apps. Both tools are excellent, and using both together at $40/month is still a great value for professionals who rely on AI daily.</p>
   </section>
 
   <!-- Ad Slot -->
@@ -296,9 +308,9 @@
           </tr>
           <tr>
             <td>Max Context Window</td>
-            <td>128K tokens</td>
-            <td>200K tokens</td>
-            <td class="winner-cell">Claude</td>
+            <td>1M tokens</td>
+            <td>1M tokens</td>
+            <td class="winner-cell">Tie (Claude better retrieval)</td>
           </tr>
           <tr>
             <td>Multimodal</td>
@@ -314,8 +326,8 @@
           </tr>
           <tr>
             <td>Coding Ability</td>
-            <td>Very Good</td>
-            <td>Excellent (SWE-bench 80.9%)</td>
+            <td>Very Good (82.6% SWE-bench)</td>
+            <td>Excellent (88.6% SWE-bench, 69.2% Pro)</td>
             <td class="winner-cell">Claude</td>
           </tr>
           <tr>
@@ -366,19 +378,20 @@
         <div class="pro-list">
           <h4>Pros</h4>
           <ul>
+            <li>Native full multimodal support including text, image, voice, and video inputs</li>
             <li>Extensive GPTs store with thousands of custom AI applications for specialized tasks</li>
-            <li>Full multimodal support including text, image, voice, and video inputs</li>
-            <li>Real-time web browsing ensures up-to-date, grounded responses</li>
+            <li>Real-time web browsing ensures up-to-date, grounded responses with citations</li>
             <li>Polished mobile apps on both iOS and Android with seamless sync</li>
             <li>Large and active community with abundant tutorials, templates, and integrations</li>
+            <li>GPT-5.5 Pro ($200/mo) offers top-tier reasoning for complex professional tasks</li>
           </ul>
         </div>
         <div class="con-list">
           <h4>Cons</h4>
           <ul>
-            <li>Smaller context window (128K tokens) compared to Claude, limiting long-document handling</li>
+            <li>Higher hallucination rate (86% vs Claude's 35.9% on AA-Omniscience) — less trustworthy for autonomous agent tasks</li>
             <li>Writing can feel generic and formulaic, especially for long-form creative content</li>
-            <li>Coding accuracy lags behind Claude on complex, multi-file software engineering tasks</li>
+            <li>Coding accuracy lags behind Claude on complex, multi-file software engineering tasks (SWE-bench Pro: 58.6% vs 69.2%)</li>
           </ul>
         </div>
       </div>
@@ -387,11 +400,13 @@
         <div class="pro-list">
           <h4>Pros</h4>
           <ul>
-            <li>Industry-leading 200K token context window for processing very long documents and codebases</li>
-            <li>Top-tier coding performance with 80.9% on SWE-bench Verified (Claude Opus 4.5), among the highest scores of any major AI assistant</li>
+            <li>Industry-leading coding performance: 88.6% SWE-bench Verified, 69.2% SWE-bench Pro (Claude Opus 4.8)</li>
+            <li>Significantly lower hallucination rate (35.9%) — far more trustworthy for autonomous agent tasks than GPT-5.5 (86%)</li>
             <li>Exceptional writing quality that sounds natural, well-structured, and free of AI cliches</li>
+            <li>1M token context window with superior long-context retrieval accuracy (GraphWalks BFS 1M: 68.1%)</li>
             <li>Strong safety alignment and refusal to generate harmful content, backed by Constitutional AI</li>
             <li>Artifacts feature allows generating and iterating on code, documents, and designs in a side panel</li>
+            <li>Dynamic workflows with parallel sub-agents for large-scale codebase migrations</li>
           </ul>
         </div>
         <div class="con-list">
@@ -422,13 +437,18 @@
         <tbody>
           <tr>
             <td><strong>Free</strong></td>
-            <td>Access to GPT-4o mini, limited GPT-4o messages, basic image generation, web search on mobile</td>
-            <td>Access to Claude Sonnet, limited messages per day, Artifacts, basic Projects</td>
+            <td>Access to GPT-5.5 Instant, basic image generation, limited web search, text and voice input</td>
+            <td>Access to Claude Sonnet, limited messages per day, Artifacts, basic Projects, 1M context window</td>
           </tr>
           <tr>
             <td><strong>Plus / Pro</strong><br>$20/month</td>
-            <td>GPT-4o and o3-mini access, DALL-E image generation, GPTs, Advanced Data Analysis, priority access during peak times</td>
-            <td>Claude Sonnet and Opus access, 5x more usage than free, Projects with custom knowledge, extended thinking mode, early access to new features</td>
+            <td>Full GPT-5.5 access, GPT-5.5-mini, DALL-E image generation, GPTs store, Advanced Data Analysis, priority access during peak times</td>
+            <td>Claude Opus 4.8 access, 5x more usage than free, Projects with custom knowledge, extended thinking mode, early access to new features</td>
+          </tr>
+          <tr>
+            <td><strong>Pro / Max</strong><br>$200/month</td>
+            <td>GPT-5.5 Pro with enhanced reasoning, unlimited access to all models, priority compute, advanced research features</td>
+            <td>Claude Max: extended Opus 4.8 usage, maximum daily limits, priority access, ideal for heavy professional use</td>
           </tr>
           <tr>
             <td><strong>Team</strong><br>$25-30/user/month</td>
@@ -452,10 +472,10 @@
 
   <!-- Deep Dive: Context Window -->
   <section class="compare-section">
-    <h2>Deep Dive: Context Window Matters</h2>
-    <p>One of the most consequential differences between ChatGPT and Claude is the size of their respective context windows. A context window determines how much text the model can consider at once, including your prompt, the conversation history, and any documents you attach. ChatGPT currently supports up to 128,000 tokens, which is roughly equivalent to a 300-page book. Claude supports 200,000 tokens, or approximately 500 pages. This gap has practical implications that go beyond a simple numbers comparison.</p>
-    <p>If you work with long documents such as legal contracts, academic papers, or technical specifications, Claude's larger window means you can upload the entire document and ask questions about it without having to split it into chunks. With ChatGPT, you may need to break longer documents into sections, which risks losing cross-referential context. For software developers, the difference is even more significant. A 200K context window can comfortably hold an entire mid-sized codebase along with relevant documentation, allowing Claude to trace function calls across files, understand import relationships, and make changes that respect the overall architecture. With 128K tokens, ChatGPT can handle most individual files and small projects, but may struggle with larger repositories.</p>
-    <p>That said, a larger context window is not universally better. Processing more tokens per request means higher latency and greater computational cost, which can translate into slower response times for simple queries. ChatGPT's 128K window is more than sufficient for the majority of everyday conversations and tasks. The advantage of a larger window only becomes apparent when you consistently work with long inputs, and for those users, it is a game-changer.</p>
+    <h2>Deep Dive: Context Window — Now Tied at 1M</h2>
+    <p>As of mid-2026, both ChatGPT (GPT-5.5) and Claude (Opus 4.8) support 1 million token context windows — a dramatic leap from the 128K-200K range just months ago. This means both models can process approximately 750 pages of text, entire codebases, or months of conversation history in a single session. The context window gap that was once Claude's strongest differentiator has effectively closed at the specification level.</p>
+    <p>However, specifications do not tell the whole story. Independent testing on the GraphWalks BFS benchmark reveals a significant difference in long-context retrieval accuracy. Claude Opus 4.8 scored 68.1% at the full 1M-token depth, while GPT-5.5 scored 45.4% — a 22.7-point gap. This means that while both models can technically accept 1M tokens, Claude is substantially better at finding and using information buried deep within that context. For users working with very long documents, legal contracts, or large codebases where every detail matters, Claude's retrieval advantage is meaningful. For typical use cases involving shorter contexts, both models perform comparably.</p>
+    <p>A practical consideration: Claude Opus 4.8 tends to produce more output tokens per task (136K vs 47K for GPT-5.5 in the DeepSWE benchmark), which means higher API costs per task despite similar per-token pricing. GPT-5.5's greater token efficiency can translate to lower total costs for context-heavy workflows, even though both models share the same 1M ceiling. Choose Claude when retrieval accuracy matters most; choose ChatGPT when cost efficiency is the priority.</p>
   </section>
 
   <!-- Ad Slot -->
@@ -484,7 +504,7 @@
             <span class="verdict-icon" style="background:#d97706;">C</span>
             <strong>Claude</strong>
           </div>
-          <p>Claude edges out ChatGPT overall with superior coding ability, more natural writing, and a 200K context window for processing entire codebases or long documents. Its Artifacts side panel has become indispensable for iterating on code, documents, and designs. For serious writing, coding, or analysis work, Claude consistently delivers better results.</p>
+          <p>Claude edges out ChatGPT overall with superior coding ability (88.6% SWE-bench Verified, 69.2% Pro), more natural writing, dramatically lower hallucination rate (35.9% vs 86%), and better long-context retrieval at 1M tokens. Both now support 1M context windows. Claude's Artifacts side panel and dynamic sub-agent workflows are indispensable for serious work.</p>
         </div>
         <div class="verdict-card">
           <h3>Best for Coding</h3>
@@ -492,7 +512,7 @@
             <span class="verdict-icon" style="background:#d97706;">C</span>
             <strong>Claude</strong>
           </div>
-          <p>With an 80.9% SWE-bench Verified score (Claude Opus 4.5) and strong multi-file refactoring performance, Claude is the top choice for software engineers. Its 200K context window handles entire repositories in a single session, producing more correct, better-structured code that requires fewer rounds of correction.</p>
+          <p>With an 88.6% SWE-bench Verified score (Claude Opus 4.8), 69.2% on the harder SWE-bench Pro, and strong multi-file refactoring performance, Claude is the top choice for software engineers. Its superior long-context retrieval handles entire repositories in a single session. However, GPT-5.5 leads on Terminal-Bench (82.7%) for CLI/automation tasks.</p>
         </div>
         <div class="verdict-card">
           <h3>Best for Casual Use</h3>
@@ -521,19 +541,19 @@
     <div class="faq-list">
       <div class="faq-item">
         <h3>Which is better, ChatGPT or Claude?</h3>
-        <p>After months of daily use, I give Claude a slight edge overall for its superior coding ability, more natural writing, and larger 200K context window. ChatGPT wins on ecosystem breadth and multimodal features. For most professionals who do serious writing or coding work, Claude is the better choice. For casual users who want a versatile AI companion, ChatGPT is more accessible.</p>
+        <p>After months of daily use, I give Claude a slight edge overall for its superior coding ability (88.6% SWE-bench), more natural writing, and dramatically lower hallucination rate (35.9% vs 86%). ChatGPT wins on ecosystem breadth and native multimodal features including video. Both now support 1M context windows. For most professionals who do serious writing or coding work, Claude is the better choice. For casual users who want a versatile AI companion, ChatGPT is more accessible.</p>
       </div>
       <div class="faq-item">
         <h3>Is ChatGPT or Claude better for coding?</h3>
-        <p>Claude. I've tested both extensively on real-world coding tasks — from debugging production issues to building full-stack apps — and Claude consistently produces cleaner code that needs fewer rounds of correction. Its 80.9% SWE-bench score isn't just a number; it translates to less time spent saying "that's not what I meant" and more time shipping. ChatGPT is still very capable, especially with the o3 reasoning model for algorithmic problems, but Claude edges ahead in everyday development.</p>
+        <p>Claude. I've tested both extensively on real-world coding tasks — from debugging production issues to building full-stack apps — and Claude consistently produces cleaner code that needs fewer rounds of correction. Claude Opus 4.8 scores 88.6% on SWE-bench Verified and 69.2% on the harder SWE-bench Pro. GPT-5.5 (~82.6% SWE-bench) is still very capable and leads on Terminal-Bench (82.7%) for CLI automation tasks. For everyday software development, Claude has the edge; for algorithm challenges and terminal-based workflows, ChatGPT is competitive.</p>
       </div>
       <div class="faq-item">
         <h3>Which AI assistant has a longer context window?</h3>
-        <p>Claude supports 200,000 tokens versus ChatGPT's 128,000 tokens. In practical terms, Claude can process roughly 500 pages of text at once, while ChatGPT handles about 300. This makes a real difference when working with legal contracts, academic papers, or large codebases — you can upload entire documents to Claude without splitting them into chunks.</p>
+        <p>Both ChatGPT (GPT-5.5) and Claude (Opus 4.8) support 1 million tokens as of mid-2026 — roughly 750 pages of text each. The gap that previously favored Claude has closed at the specification level. However, independent benchmarks show Claude has superior long-context retrieval accuracy (GraphWalks BFS 1M: Claude 68.1% vs ChatGPT 45.4%), meaning it's better at finding specific information buried deep within long documents.</p>
       </div>
       <div class="faq-item">
         <h3>Are ChatGPT and Claude free?</h3>
-        <p>Yes, both offer free tiers with usage limits. ChatGPT Free gives you access to GPT-4o mini with basic features. Claude Free gives you access to Claude Sonnet with the 200K context window and Artifacts. Both are genuinely useful on the free tier — you can accomplish a lot without paying. Paid plans start at $20/month for both, unlocking the best models and higher usage caps.</p>
+        <p>Yes, both offer free tiers with usage limits. ChatGPT Free gives you access to GPT-5.5 Instant with basic features. Claude Free gives you access to Claude Sonnet with the 1M context window and Artifacts. Both are genuinely useful on the free tier — you can accomplish a lot without paying. Paid plans start at $20/month for both (ChatGPT Plus / Claude Pro), and both offer $200/month tiers for heavy users (ChatGPT Pro / Claude Max).</p>
       </div>
       <div class="faq-item">
         <h3>Which AI is better for long-form writing?</h3>
