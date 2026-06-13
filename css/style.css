@@ -441,6 +441,17 @@ p {
   gap: 14px;
   font-size: 0.775rem;
   color: var(--text-muted);
+  align-items: center;
+}
+.compare-card .update-badge {
+  background: #ecfdf5;
+  color: #059669;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: inline-block;
+  white-space: nowrap;
 }
 .compare-card .card-arrow {
   margin-top: 14px;
