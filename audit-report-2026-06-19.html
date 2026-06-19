@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Audit Report - aivstool.com (June 19, 2026)</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; color: #1e293b; line-height: 1.6; }
+  h1 { color: #1a56db; border-bottom: 3px solid #1a56db; padding-bottom: 10px; }
+  h2 { color: #1e293b; margin-top: 32px; }
+  h3 { color: #475569; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  th, td { text-align: left; padding: 10px 12px; border: 1px solid #e2e8f0; }
+  th { background: #f1f5f9; font-weight: 700; }
+  .critical { background: #fef2f2; color: #991b1b; font-weight: 700; }
+  .high { background: #fff7ed; color: #9a3412; font-weight: 700; }
+  .medium { background: #fefce8; color: #854d0e; font-weight: 700; }
+  .ok { background: #f0fdf4; color: #166534; font-weight: 700; }
+  .summary-box { background: #eff6ff; border: 2px solid #1a56db; border-radius: 8px; padding: 20px; margin: 20px 0; }
+  code { background: #f1f5f9; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+</style>
+</head>
+<body>
+
+<h1>aivstool.com - Full Site Audit Report</h1>
+<p><strong>Date:</strong> June 19, 2026 | <strong>Pages checked:</strong> 22 HTML pages</p>
+
+<div class="summary-box">
+<h2 style="margin-top:0;">Summary</h2>
+<table>
+<tr><th>Category</th><th>Status</th><th>Issues Found</th></tr>
+<tr><td>Site Accessibility</td><td class="ok">OK</td><td>0 - Site loads correctly, no 500/404 errors</td></tr>
+<tr><td>SEO Meta Tags</td><td class="ok">OK</td><td>0 - All 22 pages have title, meta description, canonical, OG/Twitter tags</td></tr>
+<tr><td>Structured Data (JSON-LD)</td><td class="high">ISSUE</td><td>1 - Missing logo image file (images/logo.png returns 404)</td></tr>
+<tr><td>H1 Tags</td><td class="ok">OK</td><td>0 - Each page has exactly 1 H1 tag</td></tr>
+<tr><td>Sitemap & Robots</td><td class="ok">OK</td><td>0 - All 22 pages listed in sitemap.xml, robots.txt correct</td></tr>
+<tr><td>Google Analytics</td><td class="ok">OK</td><td>0 - G-1K7E3TEZXK on all 22 pages</td></tr>
+<tr><td>Internal Links</td><td class="ok">OK</td><td>0 - All internal links point to existing pages</td></tr>
+<tr><td>FTC Compliance</td><td class="critical">CRITICAL</td><td>6+ pages with unverified "hands-on testing" claims</td></tr>
+<tr><td>Content Consistency</td><td class="medium">WARNING</td><td>1 - "How We Test" vs "How We Evaluate" naming conflict</td></tr>
+<tr><td>Naming Consistency</td><td class="medium">WARNING</td><td>1 - JSON-LD description still says "We tested"</td></tr>
+</table>
+</div>
+
+<h2>1. Site Accessibility & Performance</h2>
+<p><strong>Status: OK</strong></p>
+<ul>
+<li>aivstool.com resolves correctly (Cloudflare IPs: 104.21.24.126, 172.67.218.203)</li>
+<li>Nameservers: etienne.ns.cloudflare.com, hera.ns.cloudflare.com</li>
+<li>All tested pages load successfully with full content</li>
+<li>No JavaScript errors detected</li>
+<li>No broken CSS or missing resources (except logo image - see below)</li>
+<li>Note: www.aivstool.com has no DNS record (Non-existent domain) - not critical but recommended to add</li>
+</ul>
+
+<h2>2. SEO Configuration</h2>
+<p><strong>Status: OK with 1 issue</strong></p>
+
+<h3>What's working:</h3>
+<ul>
+<li>All 22 pages have unique, descriptive title tags</li>
+<li>All 22 pages have meta descriptions (150-160 chars)</li>
+<li>All 22 pages have canonical tags</li>
+<li>All 22 pages have Open Graph and Twitter Card tags</li>
+<li>All 22 pages have JSON-LD structured data</li>
+<li>Sitemap.xml lists all 22 pages with appropriate priorities</li>
+<li>Robots.txt allows all crawlers and references sitemap</li>
+<li>Google Analytics (G-1K7E3TEZXK) present on all pages</li>
+</ul>
+
+<h3>Issue: Missing Logo Image (HIGH)</h3>
+<p>All 22 pages reference <code>https://aivstool.com/images/logo.png</code> in their JSON-LD structured data (Organization > logo > url). However, the <code>images/</code> directory is empty - no logo.png file exists. Search engines verifying this structured data will get a 404, which weakens E-E-A-T signals.</p>
+<p><strong>Fix:</strong> Create and upload a logo.png file to the images/ directory.</p>
+
+<h2>3. FTC Compliance - CRITICAL</h2>
+<p><strong>Status: CRITICAL - Testing claims reintroduced by SEO expert</strong></p>
+<p>During the June 7 audit, all "we tested" and "hands-on testing" claims were removed from the original 18 pages for FTC Act Section 5 compliance. The SEO expert subsequently added 4 new pages that extensively claim hands-on testing:</p>
+
+<table>
+<tr><th>File</th><th>Issue</th><th>Severity</th></tr>
+<tr><td>about.html</td><td>"hands-on testing", "minimum 2-week hands-on testing period", "we pay for our own subscriptions", "Tested 100+ AI tools"</td><td class="critical">CRITICAL</td></tr>
+<tr><td>how-we-test.html</td><td>Entire page describes detailed testing methodology: "2 weeks of daily hands-on use", specific benchmark tasks with numbers, "we pay for every AI tool subscription we test"</td><td class="critical">CRITICAL</td></tr>
+<tr><td>editorial-policy.html</td><td>"hands-on testing" references, "We test the tools ourselves"</td><td class="high">HIGH</td></tr>
+<tr><td>blog/chatgpt-vs-claude-review.html</td><td>"I Spent 3 Months Testing", "94 days of testing", "347 prompts", "100% hands-on", specific test results "31 out of 47 coding prompts"</td><td class="critical">CRITICAL</td></tr>
+<tr><td>best-ai-seo-tool.html</td><td>JSON-LD description: "We tested the top AI SEO tools" (2 occurrences)</td><td class="high">HIGH</td></tr>
+<tr><td>compare/chatgpt-vs-claude.html</td><td>Links to blog post with "I Spent 3 Months Testing" headline</td><td class="medium">MEDIUM</td></tr>
+</table>
+
+<p><strong>Context:</strong> These pages were added by the SEO expert to strengthen E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) signals, which Google rewards. However, if the testing claims are not based on actual testing, they violate FTC Act Section 5 (deceptive marketing). The user previously confirmed these claims were not real.</p>
+
+<p><strong>Decision needed:</strong> The user must decide whether to:</p>
+<ul>
+<li><strong>Option A:</strong> Keep the testing claims (better for SEO/E-E-A-T, but FTC risk if false)</li>
+<li><strong>Option B:</strong> Remove/modify the testing claims (FTC-safe, but weaker E-E-A-T signals)</li>
+</ul>
+
+<h2>4. Content Consistency Issues</h2>
+
+<h3>Issue: "How We Test" vs "How We Evaluate" (MEDIUM)</h3>
+<p>The June 7 audit changed all footer links and section titles from "How We Test" to "How We Evaluate". The SEO expert then created a new page at <code>how-we-test.html</code> titled "How We Test AI Tools", and all 22 pages' footer links now say "How We Test" again. However, the index.html section title still says "How We Evaluate". This creates an inconsistency.</p>
+
+<h3>Issue: best-ai-seo-tool.html JSON-LD (MEDIUM)</h3>
+<p>Two JSON-LD blocks (Article description and ItemList description) still say "We tested the top AI SEO tools" - this was missed in the previous audit pass.</p>
+
+<h2>5. Recommendations</h2>
+
+<table>
+<tr><th>#</th><th>Issue</th><th>Priority</th><th>Action</th></tr>
+<tr><td>1</td><td>Missing logo.png</td><td class="high">HIGH</td><td>Create and add logo image</td></tr>
+<tr><td>2</td><td>FTC compliance - testing claims</td><td class="critical">CRITICAL</td><td>User decision needed</td></tr>
+<tr><td>3</td><td>"How We Test" vs "How We Evaluate" inconsistency</td><td class="medium">MEDIUM</td><td>Unify naming</td></tr>
+<tr><td>4</td><td>best-ai-seo-tool.html JSON-LD "We tested"</td><td class="medium">MEDIUM</td><td>Update description</td></tr>
+<tr><td>5</td><td>www.aivstool.com no DNS record</td><td class="low">LOW</td><td>Add www CNAME in Cloudflare</td></tr>
+</table>
+
+</body>
+</html>
