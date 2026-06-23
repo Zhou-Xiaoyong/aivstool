@@ -26,6 +26,7 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="AI vs Tool">
+  <meta property="article:modified_time" content="2026-06-23">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -48,7 +49,7 @@
     "description": "Comprehensive comparison of Cursor vs GitHub Copilot in 2026. AI-native IDE vs multi-IDE plugin. Features, pricing, coding performance, and recommendations.",
     "url": "https://aivstool.com/compare/cursor-vs-copilot.html",
     "datePublished": "2026-06-01",
-    "dateModified": "2026-06-16",
+    "dateModified": "2026-06-23",
     "author": {
       "@type": "Person",
       "name": "Alex Chen",
@@ -244,7 +245,7 @@
       <h2>Quick Summary</h2>
       <p>Cursor and GitHub Copilot are the two dominant AI coding assistants in 2026, but they take fundamentally different approaches. <strong>Cursor is an AI-native IDE built from the ground up</strong> around AI-assisted software development. It is a fork of VS Code that adds deep, codebase-level AI understanding, multi-file editing via a feature called Composer, and inline chat that understands your entire project context. In contrast, <strong>GitHub Copilot is a plugin that works across many editors</strong>, including VS Code, JetBrains IDEs, Neovim, and Xcode. Copilot focuses on being accessible everywhere, with a lower learning curve and broader reach.</p>
 
-      <p>Cursor and GitHub Copilot take different approaches to AI-assisted coding. Cursor is built as an AI-native IDE with deep codebase understanding, multi-file editing, and project-wide context awareness. GitHub Copilot, as a plugin across many editors, focuses on broad accessibility and seamless IDE integration. <strong>In May 2026, Cursor released Composer 2.5</strong>, a new flagship model built on Kimi K2.5 that scores 79.8% on SWE-Multi — rivaling Claude Opus 4.7 on real-world coding benchmarks. API pricing is $0.50 per million input tokens and $2.50 per million output tokens, with improved effort calibration that reduces over-reasoning on simple tasks. <strong>In June 2026, GitHub significantly expanded Copilot's capabilities</strong> with the Copilot App (technical preview), Copilot CLI improvements (rubber duck prompting, scheduling, voice input), Copilot SDK GA for embedding Copilot into third-party products, and a new Copilot sandbox for isolated AI code execution. These updates narrow the feature gap with Cursor while maintaining Copilot's broader IDE support advantage.</p>
+      <p>Cursor and GitHub Copilot take different approaches to AI-assisted coding. Cursor is built as an AI-native IDE with deep codebase understanding, multi-file editing, and project-wide context awareness. GitHub Copilot, as a plugin across many editors, focuses on broad accessibility and seamless IDE integration. <strong>In May 2026, Cursor released Composer 2.5</strong>, a new flagship model built on Kimi K2.5 that scores 79.8% on SWE-Multi — rivaling Claude Opus 4.7 on real-world coding benchmarks. API pricing is $0.50 per million input tokens and $2.50 per million output tokens, with improved effort calibration that reduces over-reasoning on simple tasks. <strong>On June 20, 2026, Cursor shipped version 3.7</strong> — its biggest release of the year. New capabilities include <code>/in-cloud</code> (move agent execution to the cloud when local resources are limited), <strong>Automations with Computer Use</strong> (let agents drive the browser and GUI to verify UI changes and run E2E tests), <strong>Design Mode</strong> (click, draw, or speak on the canvas to drive UI changes), and a <strong>3x faster Bugbot</strong> (review time cut from ~5 min to ~90 seconds). The companion SDK now supports custom storage backends, custom tool exposure, and nested sub-agents. <strong>In June 2026, GitHub significantly expanded Copilot's capabilities</strong> with the Copilot App (technical preview), Copilot CLI improvements (rubber duck prompting, scheduling, voice input), Copilot SDK GA for embedding Copilot into third-party products, and a new Copilot sandbox for isolated AI code execution. These updates narrow the feature gap with Cursor while maintaining Copilot's broader IDE support advantage.</p>
 
       <p>Pricing also differs meaningfully. Cursor offers a <strong>free Hobby tier</strong> with 200 completions per month and limited premium model usage. The Pro plan costs $20 per month and includes unlimited completions and 500 fast premium requests. Copilot has a genuinely useful <strong>free tier</strong> with 2,000 completions and 50 chat messages monthly. Its paid tiers start at $10 per month for individuals and $19 per month for businesses, making it more affordable overall. For enterprise teams, both tools converge at roughly $40 per user per month. Our verdict: <strong>Cursor is the better tool for power users and professional developers who want the strongest AI assistance possible</strong>. Copilot is the better choice for developers who prioritize price, IDE flexibility, and simplicity. Read on for the full breakdown.</p>
     </div>
@@ -370,6 +371,7 @@
       <p>Copilot's autocomplete is <strong>more conservative but more consistent</strong>. It excels at inline completions, method call suggestions, and boilerplate generation. In 2026, Copilot's multi-line completion capabilities have improved significantly since the introduction of the "ghost text" completion model, but it still trails Cursor in the length and complexity of predictions it can make. The advantage of Copilot's approach is that it is less distracting: you are less likely to receive ambitious but incorrect suggestions that require careful review. For developers who find aggressive AI suggestions annoying, Copilot's more restrained style may actually be preferable.</p>
 
       <h3>4. Chat and Multi-File Editing</h3>
+      <p><strong>Update: June 20, 2026 — Cursor 3.7.</strong> Cursor shipped its biggest release of the year on June 20. The headline addition is <code>/in-cloud</code>: a command that moves agent execution to the cloud when a task would otherwise be bottlenecked by local CPU, GPU, network, or disk. Local and cloud sessions can hand off mid-task, so the agent can read and edit code locally while pushing compilation and test runs to the cloud. The release also adds <strong>Automations with Computer Use</strong>, which lets the agent drive the browser and other GUI applications to verify UI changes and run end-to-end tests without manual intervention. <strong>Design Mode</strong> (June 5) lets developers click, draw, or speak on the canvas to drive UI changes — turning visual intent directly into code. The new <strong>Bugbot</strong> completes reviews in roughly 90 seconds (3x faster than the previous ~5 minutes) and catches 10% more defects at 22% lower cost. The companion SDK now supports custom storage backends (SQLite, JSONL, custom services), custom tool exposure, automatic review of local tool calls, and nested sub-agents for parallel work.</p>
       <p><strong>Update: May 2026 — Cursor Composer 2.5.</strong> Cursor shipped Composer 2.5 on May 18, built on the Kimi K2.5 model. It scores 79.8% on SWE-Multi, rivaling Claude Opus 4.7 on real-world multi-file coding benchmarks. API pricing is held flat at $0.50 per million input tokens and $2.50 per million output tokens. The model features improved effort calibration, meaning it no longer over-reasons on simple tasks — reducing latency for everyday edits. Pro and Ultra subscribers get double usage compared to the previous Composer 2 model. In blind testing during the beta period, developers could not distinguish Composer 2.5 output from Opus 4.7, suggesting frontier-level quality at a lower price point.</p>
       <p><strong>Update: June 2026 Copilot expansion.</strong> GitHub launched the Copilot App (technical preview) as a standalone AI coding environment, a rebranded CLI with voice input and rubber duck prompting, and the Copilot SDK in General Availability — allowing any developer to embed Copilot's AI capabilities into their own products. The Copilot sandbox (public preview) addresses a key safety gap by providing isolated environments for executing AI-generated code. These updates signal GitHub's ambition to make Copilot a platform, not just a plugin.</p>
       <p>Cursor's Composer is arguably the most advanced code generation interface available in any tool today. It provides a dedicated panel where you can describe a feature or refactoring in natural language, and Cursor will plan and execute changes across multiple files. It shows inline diffs for every proposed change, lets you accept or reject each one individually, and even handles file creation and deletion. The Composer can run terminal commands, install packages, and verify that the code it generated compiles or passes type checks. This makes it suitable for complex tasks like migrating from one framework to another or implementing a new feature end-to-end.</p>
@@ -392,6 +394,8 @@
             <li>Exceptionally fast autocomplete with low latency, even on large codebases</li>
             <li>Supports the widest range of AI models including Composer 2.5 (79.8% SWE-Multi), Claude Sonnet 4, GPT-4.1, and o3</li>
             <li>Tab-to-accept editing workflow is intuitive and reduces keyboard-to-mouse friction</li>
+            <li><strong>Cursor 3.7 (June 20, 2026)</strong> adds <code>/in-cloud</code> for cloud execution, Automations with Computer Use for browser/GUI tasks, and Design Mode for visual UI prompts</li>
+            <li>Bugbot 3x faster (~90s) enables near-real-time code review inside the normal commit flow</li>
           </ul>
         </div>
         <div>
@@ -573,7 +577,7 @@
             <span class="verdict-icon" style="background:#7c3aed;">Cu</span>
             <strong>Cursor</strong>
           </div>
-          <p>Cursor wins overall with superior codebase understanding, Composer multi-file editing, and faster autocomplete for professional developers.</p>
+          <p>Cursor wins overall with superior codebase understanding, Composer multi-file editing, and the new Cursor 3.7 cloud agents and Design Mode. <strong>Updated June 23, 2026</strong> to reflect Cursor 3.7.</p>
         </div>
         <div class="verdict-card">
           <h3>Best Value</h3>
@@ -597,7 +601,7 @@
             <span class="verdict-icon" style="background:#7c3aed;">Cu</span>
             <strong>Cursor</strong>
           </div>
-          <p>Cursor's full codebase indexing and Composer mode give power users the deepest AI integration for complex refactoring tasks.</p>
+          <p>Cursor's full codebase indexing, Composer 2.5, and 3.7's cloud sub-agents, Design Mode, and 90-second Bugbot give power users the deepest AI integration for complex refactoring and end-to-end feature work.</p>
         </div>
       </div>
     </div>
@@ -632,6 +636,11 @@
       <div style="margin-top: 24px;">
         <h3>How do Cursor and Copilot handle code privacy?</h3>
         <p>Both tools take code privacy seriously but have different policies. Cursor does not train models on your code by default and offers a privacy mode that prevents code snippets from being stored. Copilot's Business and Enterprise plans include code snippet exclusion policies, and GitHub does not use your code for model training. For both tools, code is transmitted to cloud servers for inference. Organizations with strict data residency requirements should verify compliance with both vendors before deployment.</p>
+      </div>
+
+      <div style="margin-top: 24px;">
+        <h3>What changed in Cursor 3.7 (June 20, 2026)?</h3>
+        <p>Cursor 3.7 is the biggest release of 2026. Key additions: <code>/in-cloud</code> moves agent execution to the cloud when local CPU, GPU, or disk are insufficient, with seamless local-to-cloud handoff mid-task. <strong>Automations with Computer Use</strong> lets the agent drive the browser and GUI to verify UI changes and run end-to-end tests. <strong>Design Mode</strong> turns visual inputs (clicks, drawings, voice) into agent-ready UI change requests. The <strong>Bugbot</strong> completes reviews in roughly 90 seconds (3x faster than the previous ~5 minutes) and catches 10% more defects at 22% lower cost. The SDK now supports custom storage backends, custom tool exposure, and nested sub-agents. Existing Composer 2.5 (May 2026) capabilities are unchanged.</p>
       </div>
     </div>
   </section>
