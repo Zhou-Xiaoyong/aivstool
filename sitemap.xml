@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://aivstool.com</loc>
-    <lastmod>2026-06-23</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://aivstool.com/ai-news-weekly.html</loc>
-    <lastmod>2026-06-23</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -20,25 +20,25 @@
   </url>
   <url>
     <loc>https://aivstool.com/compare/chatgpt-vs-claude.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://aivstool.com/compare/chatgpt-vs-gemini.html</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://aivstool.com/compare/grok-vs-chatgpt.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://aivstool.com/compare/cursor-vs-copilot.html</loc>
     <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://aivstool.com/compare/midjourney-vs-dalle.html</loc>
-    <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -99,12 +99,6 @@
   <url>
     <loc>https://aivstool.com/best/best-ai-coding-assistants.html</loc>
     <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://aivstool.com/about.html</loc>
-    <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
