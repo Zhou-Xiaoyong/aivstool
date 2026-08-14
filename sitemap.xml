@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://aivstool.com/</loc>
-    <lastmod>2026-07-17</lastmod>
+    <loc>https://aivstool.com//</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://aivstool.com/about</loc>
-    <lastmod>2026-07-17</lastmod>
+    <loc>https://aivstool.com//about</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://aivstool.com/ai-news-weekly</loc>
-    <lastmod>2026-07-11</lastmod>
+    <loc>https://aivstool.com//ai-news-weekly</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -25,10 +25,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://aivstool.com/best/best-ai-chatbot-for-writing</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://aivstool.com/best/best-ai-coding-assistants</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aivstool.com/best/best-ai-seo-tool</loc>
@@ -46,17 +52,23 @@
     <loc>https://aivstool.com/best/best-ai-video-generator</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aivstool.com/best/best-ai-writer</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aivstool.com/best/best-free-ai-tools</loc>
     <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aivstool.com/best/chatgpt-alternatives-free</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -82,7 +94,7 @@
     <loc>https://aivstool.com/blog/chatgpt-vs-claude-review</loc>
     <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aivstool.com/blog/chatgpt-vs-gemini-for-research</loc>
@@ -124,13 +136,13 @@
     <loc>https://aivstool.com/compare/chatgpt-vs-claude</loc>
     <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aivstool.com/compare/chatgpt-vs-gemini</loc>
     <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aivstool.com/compare/cursor-vs-copilot</loc>
@@ -148,13 +160,13 @@
     <loc>https://aivstool.com/compare/grok-vs-chatgpt</loc>
     <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aivstool.com/compare/midjourney-vs-dalle</loc>
     <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aivstool.com/compare/notion-ai-vs-zapier</loc>
@@ -175,14 +187,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aivstool.com/editorial-policy</loc>
-    <lastmod>2026-07-17</lastmod>
+    <loc>https://aivstool.com//editorial-policy</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://aivstool.com/how-we-test</loc>
-    <lastmod>2026-07-17</lastmod>
+    <loc>https://aivstool.com//how-we-test</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
