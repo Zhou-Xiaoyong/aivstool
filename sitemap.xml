@@ -103,6 +103,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://aivstool.com/blog/can-claude-summarize-pdf</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://aivstool.com/blog/chatgpt-vs-claude-for-coding</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
@@ -117,6 +123,12 @@
   <url>
     <loc>https://aivstool.com/blog/chatgpt-vs-claude-for-data-analysis</loc>
     <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aivstool.com/blog/chatgpt-vs-claude-for-spanish</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
