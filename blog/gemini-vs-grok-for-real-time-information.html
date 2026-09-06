@@ -116,6 +116,7 @@
           <li><a href="../#categories">Categories</a></li>
           <li><a href="../#comparisons">Comparisons</a></li>
           <li><a href="../#best-of">Best Of</a></li>
+          <li><a href="../ai-news-weekly">News</a></li>
         </ul>
         <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
       </nav>
@@ -171,7 +172,7 @@
     <p>"Real-time" is the one capability where these two products are genuinely built differently. Grok is wired into the X firehose as a first-party data source. Gemini is grounded in Google Search, so it sees the web only after Google has crawled it. That architectural difference explains almost every result below — and it cuts both ways.</p>
 
     <h2>How We Tested</h2>
-    <p>On July 31 and August 1, 2026 we ran 24 time-sensitive questions through both products in parallel browser tabs, submitting each prompt to both within 60 seconds of each other so neither got a head start. Accounts: Google AI Pro (Gemini 2.5 Pro, search grounding on) and SuperGrok (Grok 4). The question set:</p>
+    <p>On July 31 and August 1, 2026 we ran 24 time-sensitive questions through both products in parallel browser tabs, submitting each prompt to both within 60 seconds of each other so neither got a head start. Accounts: Google AI Pro (Gemini 3.8 Flash, search grounding on) and SuperGrok (Grok 4.6). The question set:</p>
     <ul>
       <li><strong>12 breaking-news probes</strong> — events we independently confirmed had first been reported within the previous 15–90 minutes, spanning markets, tech product launches, sport results and weather alerts.</li>
       <li><strong>6 verifiable-fact questions</strong> — questions with a single objectively checkable answer, such as a closing index level, an official announcement time, or a published figure.</li>
@@ -182,7 +183,7 @@
     <h2>Quick Comparison Table</h2>
     <div class="compare-table-wrap">
       <table class="compare-table">
-        <thead><tr><th>Dimension</th><th>Gemini (2.5 Pro)</th><th>Grok (Grok 4)</th><th>Edge</th></tr></thead>
+        <thead><tr><th>Dimension</th><th>Gemini (2.5 Pro)</th><th>Grok (Grok 4.6)</th><th>Edge</th></tr></thead>
         <tbody>
           <tr><td>Primary live data source</td><td>Google Search index</td><td>X firehose + web search</td><td><strong>Grok</strong></td></tr>
           <tr><td>Breaking items surfaced within minutes (of 12)</td><td>5</td><td>9</td><td><strong>Grok</strong></td></tr>
@@ -241,13 +242,13 @@
   <section class="hands-on">
     <span class="hands-on-label">&#128247; Hands-On Test</span>
     <h2>We Actually Ran This</h2>
-    <p class="hands-on-intro">On July 31, 2026, starting at 14:05 UTC, we sent the prompt below to Gemini 2.5 Pro and Grok 4 within 60 seconds of each other in fresh sessions, then verified every claim and every link by opening the primary source. The prompt was repeated across all 24 questions in our set; the table reports totals across the full run.</p>
+    <p class="hands-on-intro">On July 31, 2026, starting at 14:05 UTC, we sent the prompt below to Gemini 3.8 Flash and Grok 4.6 within 60 seconds of each other in fresh sessions, then verified every claim and every link by opening the primary source. The prompt was repeated across all 24 questions in our set; the table reports totals across the full run.</p>
     <div class="hands-on-prompt-wrap">
       <div class="hands-on-prompt-label">&#128220; The exact prompt / task we used</div>
       <div class="hands-on-prompt">Answer using only information published in the last 2 hours. Question: [question]. In your answer you must: (1) state the fact plainly; (2) give the timestamp of the earliest report you are relying on, in UTC; (3) name the source and give a working link; (4) state explicitly whether the claim is confirmed by at least two independent sources, single-sourced, or unconfirmed; (5) if you have no information published in the last 2 hours, say "NO RECENT DATA" instead of answering from memory.</div>
     </div>
     <table class="hands-on-result">
-      <thead><tr><th>Metric</th><th>Gemini (2.5 Pro)</th><th>Grok (Grok 4)</th></tr></thead>
+      <thead><tr><th>Metric</th><th>Gemini (2.5 Pro)</th><th>Grok (Grok 4.6)</th></tr></thead>
       <tbody>
         <tr><td>Breaking items surfaced within minutes (of 12)</td><td>5</td><td><strong>9 &#10003;</strong></td></tr>
         <tr><td>Verifiable facts correct (of 12)</td><td><strong>11 &#10003;</strong></td><td>9</td></tr>
@@ -299,13 +300,13 @@
     <h2>Related Guides</h2>
     <div class="related-links">
       <a href="../best/best-free-ai-tools" class="related-card">
-        <h3>25 Best Free AI Tools (No Credit Card Required) - Updated June 2026</h3>
+        <h3>25 Best Free AI Tools (No Credit Card Required) - Updated September 2026</h3>
         <p>Discover the 25 best free AI tools in 2026 that require no credit card. From AI assistants and coding tools to image gen…</p>
         <span>Read guide →</span>
       </a>
       <a href="../compare/grok-vs-chatgpt" class="related-card">
         <h3>Grok vs ChatGPT (2026) - Which AI Assistant is Better?</h3>
-        <p>Grok vs ChatGPT in 2026: compare xAI's Grok 4.5 against OpenAI's GPT-5.6 on pricing, coding, real-time data, writing, an…</p>
+        <p>Grok vs ChatGPT in 2026: compare xAI's Grok 4.6 against OpenAI's GPT-5.6 on pricing, coding, real-time data, writing, an…</p>
         <span>Read guide →</span>
       </a>
       <a href="../best/best-ai-tools-for-students" class="related-card">

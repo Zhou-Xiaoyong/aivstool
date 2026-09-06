@@ -116,6 +116,7 @@
           <li><a href="../#categories">Categories</a></li>
           <li><a href="../#comparisons">Comparisons</a></li>
           <li><a href="../#best-of">Best Of</a></li>
+          <li><a href="../ai-news-weekly">News</a></li>
         </ul>
         <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
       </nav>
@@ -250,13 +251,13 @@
   <section class="hands-on">
     <span class="hands-on-label">&#128247; Hands-On Test</span>
     <h2>We Actually Ran This</h2>
-    <p class="hands-on-intro">To test Reddit's most-repeated claim we took the 612-line Express rate-limiter module we use across all our model comparisons and asked each model to return it fully refactored — five separate runs each, fresh session every time, no follow-up allowed. Run on August 6, 2026 using ChatGPT Plus (GPT-5) and Claude Pro (Opus 4.1). Line counts are from <code>wc -l</code> on the saved output.</p>
+    <p class="hands-on-intro">To test Reddit's most-repeated claim we took the 612-line Express rate-limiter module we use across all our model comparisons and asked each model to return it fully refactored — five separate runs each, fresh session every time, no follow-up allowed. Run on August 6, 2026 using ChatGPT Plus (GPT-5) and Claude Pro (Opus 5). Line counts are from <code>wc -l</code> on the saved output.</p>
     <div class="hands-on-prompt-wrap">
       <div class="hands-on-prompt-label">&#128220; The exact prompt / task we used</div>
       <div class="hands-on-prompt">Attached is rate-limiter.js (612 lines). Refactor it to (1) replace the in-memory Map store with a pluggable store interface, (2) add a sliding-window algorithm alongside the existing fixed-window one, (3) make all limits configurable per-route. Return the complete refactored file. Output every line, including code you did not change. Do not use placeholder comments, do not write "rest of the code unchanged", do not summarise. Code only.</div>
     </div>
     <table class="hands-on-result">
-      <thead><tr><th>Metric (5 runs each)</th><th>ChatGPT Plus (GPT-5)</th><th>Claude Pro (Opus 4.1)</th></tr></thead>
+      <thead><tr><th>Metric (5 runs each)</th><th>ChatGPT Plus (GPT-5)</th><th>Claude Pro (Opus 5)</th></tr></thead>
       <tbody>
         <tr><td>Complete file returned</td><td>2 of 5</td><td><strong>5 of 5</strong></td></tr>
         <tr><td>Average lines returned (612 expected)</td><td>431</td><td><strong>618</strong></td></tr>
