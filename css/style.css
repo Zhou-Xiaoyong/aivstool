@@ -1036,23 +1036,56 @@ p {
 
 /* ============================================
    Breadcrumb
+   Unified styles for all page types.
+   Handles three existing markup patterns:
+     A) <ol|ul class="breadcrumb"> with <li> children
+     B) <nav class="breadcrumb"><ul> with <li> children
+     C) <nav class="breadcrumb"><div class="breadcrumb-inner">
    ============================================ */
 .breadcrumb {
   display: flex;
   align-items: center;
+  flex-wrap: nowrap;
   gap: 6px;
   font-size: 0.8rem;
   color: var(--text-muted);
-  padding: 14px 0;
+  padding: 14px 24px;
   list-style: none;
   max-width: var(--content-max);
   margin: 0 auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
-.breadcrumb a { color: var(--text-muted); font-weight: 500; }
+.breadcrumb::-webkit-scrollbar { display: none; }
+/* Pattern B/C: when .breadcrumb wraps a list or .breadcrumb-inner */
+.breadcrumb > ul,
+.breadcrumb > ol {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.breadcrumb > .breadcrumb-inner {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 6px;
+  width: 100%;
+}
+.breadcrumb li {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.breadcrumb a { color: var(--text-muted); font-weight: 500; text-decoration: none; white-space: nowrap; }
 .breadcrumb a:hover { color: var(--primary); }
-.breadcrumb .sep { color: var(--border-medium); }
+.breadcrumb .sep { color: var(--border-medium); white-space: nowrap; }
 
 /* ============================================
    Rating & Price
