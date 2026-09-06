@@ -77,12 +77,12 @@
       {
         "@type": "Question",
         "name": "Is Claude or Gemini better for long documents?",
-        "acceptedAnswer": { "@type": "Answer", "text": "It depends on how long. Up to roughly 150,000 words (about 500 pages), Claude gave us more faithful answers in our tests: it found 18 of 20 buried facts, cited page numbers correctly, and refused to answer when a document did not contain the information. Beyond that size, Gemini 2.5 Pro's 1M-token context handles the whole corpus in one pass without chunking, and it was the only model that answered our 1,040-page cross-document questions natively." }
+        "acceptedAnswer": { "@type": "Answer", "text": "It depends on how long. Up to roughly 150,000 words (about 500 pages), Claude gave us more faithful answers in our tests: it found 18 of 20 buried facts, cited page numbers correctly, and refused to answer when a document did not contain the information. Beyond that size, Gemini 3.8 Flash's 1M-token context handles the whole corpus in one pass without chunking, and it was the only model that answered our 1,040-page cross-document questions natively." }
       },
       {
         "@type": "Question",
         "name": "How many pages can Claude and Gemini actually read at once?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Claude's standard context is 200K tokens, which held about 520 pages of dense regulatory PDF text in our test. Anthropic also offers a 1M-token context tier for Sonnet on the API. Gemini 2.5 Pro ships a 1M-token context to consumers in the Gemini app and AI Studio, which took our full 1,040-page set in a single prompt with room to spare." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Claude's standard context is 200K tokens, which held about 520 pages of dense regulatory PDF text in our test. Anthropic also offers a 1M-token context tier for Sonnet on the API. Gemini 3.8 Flash ships a 1M-token context to consumers in the Gemini app and AI Studio, which took our full 1,040-page set in a single prompt with room to spare." }
       },
       {
         "@type": "Question",
@@ -92,7 +92,7 @@
       {
         "@type": "Question",
         "name": "Which is cheaper for processing large document sets?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Gemini, at both the subscription and API level. Google AI Pro is $19.99/month and Claude Pro is $20/month, so consumer pricing is a wash, but Gemini's larger native window means fewer runs per corpus. On the API, Gemini 2.5 Pro is materially cheaper per million input tokens than Claude Opus 4.1, and Claude's 1M-token context tier carries a long-context surcharge above 200K tokens. Verify current rates on ai.google.dev/pricing and anthropic.com/pricing before budgeting." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Gemini, at both the subscription and API level. Google AI Pro is $19.99/month and Claude Pro is $20/month, so consumer pricing is a wash, but Gemini's larger native window means fewer runs per corpus. On the API, Gemini 3.8 Flash is materially cheaper per million input tokens than Claude Opus 5, and Claude's 1M-token context tier carries a long-context surcharge above 200K tokens. Verify current rates on ai.google.dev/pricing and anthropic.com/pricing before budgeting." }
       },
       {
         "@type": "Question",
@@ -167,7 +167,7 @@
       <p style="margin:0;font-size:0.9rem;color:#475569;"><strong>Editorial Note:</strong> This article is based on hands-on use of the tools from our own test accounts, combined with product documentation, benchmark data, and publicly available information. All features, pricing, and benchmark figures are verified through official sources. See our <a href="../legal/disclaimer">Disclaimer</a>.</p>
     </div>
 
-    <p><strong>Short answer: if your document set fits inside 200K tokens — roughly 500 pages of dense text — Claude is the better long-document reader. It found 18 of our 20 buried facts, quoted page numbers accurately, and never invented a citation. Past that size, Gemini 2.5 Pro wins by default: its 1M-token window was the only one that swallowed our full 1,040-page corpus in a single prompt, and it still answered 16 of 20 correctly.</strong></p>
+    <p><strong>Short answer: if your document set fits inside 200K tokens — roughly 500 pages of dense text — Claude is the better long-document reader. It found 18 of our 20 buried facts, quoted page numbers accurately, and never invented a citation. Past that size, Gemini 3.8 Flash wins by default: its 1M-token window was the only one that swallowed our full 1,040-page corpus in a single prompt, and it still answered 16 of 20 correctly.</strong></p>
 
     <p>"Long document" means very different things to different people. A 40-page lease is not the same problem as a 900-page discovery bundle. So instead of arguing about context-window numbers on a spec sheet, we built one corpus and scaled the same questions across it. Everything below comes from runs on our own paid accounts between July 30 and August 3, 2026.</p>
 
@@ -178,12 +178,12 @@
       <li><strong>3 planted contradictions</strong> — the same metric reported differently in two documents, a defined term used inconsistently, and a date that conflicts with a schedule in another file.</li>
       <li><strong>2 synthesis tasks</strong> — a 600-word executive summary, and an obligations table that can only be built by combining the contract schedules with the regulatory text.</li>
     </ul>
-    <p>We ran everything at two scales: <strong>Scale A</strong> (520 pages, ~156K tokens — fits both models natively) and <strong>Scale B</strong> (the full 1,040 pages, ~312K tokens). Models tested: Claude Opus 4.1 in Claude Pro, and Gemini 2.5 Pro in the Gemini app with Google AI Pro. Full methodology is on our <a href="../how-we-test">How We Test</a> page.</p>
+    <p>We ran everything at two scales: <strong>Scale A</strong> (520 pages, ~156K tokens — fits both models natively) and <strong>Scale B</strong> (the full 1,040 pages, ~312K tokens). Models tested: Claude Opus 5 in Claude Pro, and Gemini 3.8 Flash in the Gemini app with Google AI Pro. Full methodology is on our <a href="../how-we-test">How We Test</a> page.</p>
 
     <h2>Quick Comparison Table</h2>
     <div class="compare-table-wrap">
       <table class="compare-table">
-        <thead><tr><th>Dimension</th><th>Claude (Opus 4.1)</th><th>Gemini (2.5 Pro)</th><th>Edge</th></tr></thead>
+        <thead><tr><th>Dimension</th><th>Claude (Opus 5)</th><th>Gemini (2.5 Pro)</th><th>Edge</th></tr></thead>
         <tbody>
           <tr><td>Native context window</td><td>200K tokens (1M beta for Sonnet on API)</td><td>1M tokens</td><td><strong>Gemini</strong></td></tr>
           <tr><td>Buried facts found — Scale A (520 pp)</td><td>18 / 20</td><td>16 / 20</td><td><strong>Claude</strong></td></tr>
@@ -219,7 +219,7 @@
     <p>Rough conversions we now use for planning, based on measured token counts from our own PDFs:</p>
     <ul>
       <li><strong>200K tokens (Claude standard)</strong> ≈ 150,000 words ≈ 500–520 pages of dense text, or around 700 pages of typical business prose.</li>
-      <li><strong>1M tokens (Gemini 2.5 Pro)</strong> ≈ 750,000 words ≈ 2,500+ pages — more than any single matter we have thrown at it.</li>
+      <li><strong>1M tokens (Gemini 3.8 Flash)</strong> ≈ 750,000 words ≈ 2,500+ pages — more than any single matter we have thrown at it.</li>
       <li>Scanned PDFs cost far more tokens than digital text, and tables inflate counts unpredictably. Budget 30% headroom.</li>
     </ul>
     <p>Anthropic does offer a 1M-token context tier for Claude Sonnet through the API, with premium pricing above the 200K threshold — worth knowing if you are building a product rather than working in the chat UI. Check current limits and rates on anthropic.com and ai.google.dev before you commit; both have moved in the past six months.</p>
@@ -231,7 +231,7 @@
     <h3>Is Claude or Gemini better for long documents?</h3>
     <p>Claude under about 500 pages, Gemini above it. Claude was more accurate and never fabricated a citation at Scale A; Gemini was the only model that handled 1,040 pages natively.</p>
     <h3>How many pages can each one actually read at once?</h3>
-    <p>Claude's 200K-token window held ~520 pages of dense regulatory text in our test. Gemini 2.5 Pro's 1M-token window took all 1,040 pages with room to spare.</p>
+    <p>Claude's 200K-token window held ~520 pages of dense regulatory text in our test. Gemini 3.8 Flash's 1M-token window took all 1,040 pages with room to spare.</p>
     <h3>Do both hallucinate on very long inputs?</h3>
     <p>Yes, but differently. Gemini invented two page references and reversed one clause; Claude missed facts but never invented sources, preferring to say the information was not in the text it had.</p>
     <h3>Which is cheaper for large document sets?</h3>
@@ -250,13 +250,13 @@
   <section class="hands-on">
     <span class="hands-on-label">&#128247; Hands-On Test</span>
     <h2>We Actually Ran This</h2>
-    <p class="hands-on-intro">On July 30, 2026 we uploaded the identical 520-page Scale A document set to Claude Opus 4.1 (Claude Pro) and Gemini 2.5 Pro (Google AI Pro) in fresh sessions, then sent the prompt below verbatim to both. We checked all 20 answers and every page reference by opening the source PDFs ourselves.</p>
+    <p class="hands-on-intro">On July 30, 2026 we uploaded the identical 520-page Scale A document set to Claude Opus 5 (Claude Pro) and Gemini 3.8 Flash (Google AI Pro) in fresh sessions, then sent the prompt below verbatim to both. We checked all 20 answers and every page reference by opening the source PDFs ourselves.</p>
     <div class="hands-on-prompt-wrap">
       <div class="hands-on-prompt-label">&#128220; The exact prompt / task we used</div>
       <div class="hands-on-prompt">You have been given five documents totalling 520 pages. Answer the 20 numbered questions below. For each answer: (1) give the specific figure, date or defined term requested; (2) quote the exact sentence it comes from; (3) give the document name and page number; (4) if the documents do not contain the answer, write "NOT PRESENT" and do not guess. Then, separately, list every inconsistency you find between these documents, including conflicting figures, inconsistent use of defined terms, and conflicting dates. Do not summarise the documents.</div>
     </div>
     <table class="hands-on-result">
-      <thead><tr><th>Metric</th><th>Claude (Opus 4.1)</th><th>Gemini (2.5 Pro)</th></tr></thead>
+      <thead><tr><th>Metric</th><th>Claude (Opus 5)</th><th>Gemini (2.5 Pro)</th></tr></thead>
       <tbody>
         <tr><td>Buried facts found (of 20)</td><td><strong>18 &#10003;</strong></td><td>16</td></tr>
         <tr><td>Correct page references</td><td><strong>18 / 18 &#10003;</strong></td><td>14 / 16</td></tr>
@@ -313,7 +313,7 @@
         <span>Read guide →</span>
       </a>
       <a href="../best/best-free-ai-tools" class="related-card">
-        <h3>25 Best Free AI Tools (No Credit Card Required) - Updated June 2026</h3>
+        <h3>25 Best Free AI Tools (No Credit Card Required) - Updated September 2026</h3>
         <p>Discover the 25 best free AI tools in 2026 that require no credit card. From AI assistants and coding tools to image gen…</p>
         <span>Read guide →</span>
       </a>

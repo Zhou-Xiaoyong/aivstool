@@ -48,7 +48,7 @@
     "description": "ChatGPT vs Claude in 2026: a detailed comparison of features, pricing, coding ability, writing quality, and more. Find out which AI assistant is right for you.",
     "url": "https://aivstool.com/compare/chatgpt-vs-claude",
     "datePublished": "2026-06-01",
-    "dateModified": "2026-07-11",
+    "dateModified": "2026-09-06",
     "author": {
       "@type": "Person",
       "name": "Alex Chen",
@@ -106,7 +106,7 @@
         "name": "Which is better, ChatGPT or Claude?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "After extensive research and analysis, we give Claude a decisive edge overall with Claude Opus 4.8 (88.6% SWE-bench Verified, 69.2% SWE-bench Pro) and the restored Claude Fable 5 (80.3% SWE-bench Pro, 29.3% FrontierCode), more natural writing, and significantly lower hallucination rate (35.9% vs 86%). ChatGPT wins on ecosystem breadth and native multimodal features including video. Claude Fable 5 was restored globally on July 1, 2026; Mythos 5 remains limited to select US organizations."
+          "text": "After extensive research and analysis, we give Claude a decisive edge overall with Claude Opus 5 (88.6% SWE-bench Verified) and Claude Fable 5.1 (81.2% SWE-bench Pro, 52.6% Terminal-Bench-Science), more natural writing, and significantly lower hallucination rate (35.9% vs 86%). ChatGPT's GPT-6 Astra (launched Sep 3, 2026) is now the most capable frontier model on general reasoning (99.9% ARC-AGI-3) and cybersecurity (100% ExploitBench) with native multimodal features including video. Claude Fable 5.1 was released September 1, 2026."
         }
       },
       {
@@ -114,7 +114,7 @@
         "name": "Is ChatGPT or Claude better for coding?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Claude scores higher on available coding benchmarks. Claude Opus 4.8 scores 88.6% on SWE-bench Verified and 69.2% on SWE-bench Pro (vs GPT-5.5 at 58.6%). OpenAI's GPT-5.6 Sol preview posts a new SOTA on Terminal-Bench 2.1, but it is currently in a limited API/Codex preview. For real-world software engineering, Claude Opus 4.8 leads; ChatGPT has the edge on Terminal-Bench for CLI automation tasks."
+          "text": "Claude scores higher on available coding benchmarks. Claude Fable 5.1 scores 81.2% on SWE-bench Pro and 52.6% on Terminal-Bench-Science (doubled from Fable 5). Opus 5 delivers 88.6% on SWE-bench Verified. OpenAI's GPT-6 Astra (Sep 3, 2026) posts 74.1% on DeepSWE v1.1 and leads OSWorld 2.0 at 72.6% for real computer use. For real-world software engineering, Claude Fable 5.1 and Opus 5 lead; GPT-6 Astra is the strongest for agentic computer-use and cybersecurity tasks."
         }
       },
       {
@@ -122,7 +122,7 @@
         "name": "Which AI assistant has a longer context window?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Both ChatGPT (GPT-5.5) and Claude (Opus 4.8) now support 1 million token context windows as of mid-2026. This means both can process roughly 750 pages of text at once — a dramatic improvement from earlier generations. Claude's implementation has shown better long-context retrieval accuracy in independent testing (GraphWalks BFS 1M: 68.1% vs 45.4%)."
+          "text": "Both ChatGPT (GPT-6 Astra at 1.05M tokens) and Claude (Opus 5 / Sonnet 5 / Fable 5.1 at 1M tokens) support 1 million+ token context windows as of September 2026. This means both can process roughly 750 pages of text at once. Claude's implementation has shown better long-context retrieval accuracy in independent testing (GraphWalks BFS 1M: 68.1% vs 45.4%)."
         }
       },
       {
@@ -130,7 +130,7 @@
         "name": "Are ChatGPT and Claude free to use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Both offer free tiers with usage limits. ChatGPT Free gives access to GPT-5.5 Instant; Claude Free gives access to Claude Sonnet. Paid plans for both start at $20/month (ChatGPT Plus / Claude Pro). ChatGPT also offers a $200/month Pro tier with GPT-5.5 Pro. Claude offers a $200/month Max plan with extended usage."
+          "text": "Both offer free tiers with usage limits. ChatGPT Free gives access to GPT-5.6 Luna; Claude Free gives access to Claude Sonnet 5. Paid plans for both start at $20/month (ChatGPT Plus / Claude Pro). ChatGPT also offers a $200/month Pro tier. Claude offers a $200/month Max plan with extended usage."
         }
       },
       {
@@ -147,25 +147,25 @@
     "@type": "SoftwareApplication",
     "name": "ChatGPT",
     "applicationCategory": "AIApplication",
-    "description": "Conversational AI by OpenAI with GPT-5.6 (Sol, Terra, Luna), ChatGPT Work agentic desktop app, GPT-Live real-time voice, native multimodal support (text, image, voice, video), GPTs store, and web browsing.",
+    "description": "Conversational AI by OpenAI with GPT-6 Astra (Sep 2026 flagship, 1.05M context, critical-level cybersecurity), GPT-5.6 (Sol, Terra, Luna), ChatGPT Work agentic desktop app, GPT-Live real-time voice, native multimodal support (text, image, voice, video), GPTs store, and web browsing.",
     "offers": [
       {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD",
-        "description": "Free tier (GPT-5.5 Instant)"
+        "description": "Free tier (GPT-5.6 Luna)"
       },
       {
         "@type": "Offer",
         "price": "20",
         "priceCurrency": "USD",
-        "description": "ChatGPT Plus (GPT-5.5)"
+        "description": "ChatGPT Plus (GPT-5.6 Sol, Terra, Luna)"
       },
       {
         "@type": "Offer",
         "price": "200",
         "priceCurrency": "USD",
-        "description": "ChatGPT Pro (GPT-5.5 Pro)"
+        "description": "ChatGPT Pro (GPT-5.6 Sol + GPT-6 Astra access)"
       }
     ],
     "author": {
@@ -177,7 +177,7 @@
     "@type": "SoftwareApplication",
     "name": "Claude",
     "applicationCategory": "AIApplication",
-    "description": "AI assistant by Anthropic with Claude Fable 5 (restored July 1, 2026; 80.3% SWE-bench Pro), Sonnet 5 (new default; beats GPT-5.5 on 6/6 benchmarks), and Opus 4.8 (88.6% SWE-bench Verified), 1M context window, and natural writing.",
+    "description": "AI assistant by Anthropic with Claude Fable 5.1 (released Sep 1, 2026; 81.2% SWE-bench Pro, 52.6% Terminal-Bench-Science, 75% cheaper cache reads), Sonnet 5 (default; beats GPT-5.5 on 6/6 benchmarks), and Opus 5 (88.6% SWE-bench Verified), 1M context window, and natural writing.",
     "offers": [
       {
         "@type": "Offer",
@@ -189,13 +189,13 @@
         "@type": "Offer",
         "price": "20",
         "priceCurrency": "USD",
-        "description": "Claude Pro (Claude Opus 4.8 + Fable 5 via usage credits after July 7, 2026)"
+        "description": "Claude Pro (Claude Opus 5 + Fable 5.1 via usage credits)"
       },
       {
         "@type": "Offer",
         "price": "200",
         "priceCurrency": "USD",
-        "description": "Claude Max (Extended Fable 5 usage credits + Opus 4.8)"
+        "description": "Claude Max (Extended Fable 5.1 usage credits + Opus 5)"
       }
     ],
     "author": {
@@ -262,7 +262,7 @@
   <!-- Author Byline -->
   <div class="article-meta">
     <div class="article-author">By <a href="../about">Alex Chen</a>, Lead Reviewer</div>
-    <div class="article-date">Last updated: July 11, 2026 — includes GPT-5.6 general availability and ChatGPT Work launch (July 9–10, 2026), GPT-Live real-time voice (July 8, 2026), Claude Sonnet 5 default rollout (June 30), and Claude Fable 5 restoration (July 1, 2026)</div>
+    <div class="article-date">Last updated: September 6, 2026 — includes GPT-6 Astra launch (Sep 3, 2026), Claude Fable 5.1 release (Sep 1, 2026), Claude Opus 5 (Jul 24, 2026), GPT-5.6 general availability (Jul 9–10, 2026), ChatGPT Work, GPT-Live real-time voice, Claude Sonnet 5 default rollout, and Claude Fable restoration.</div>
     <div class="article-disclosure">✓ Research-based analysis · ✓ All prices verified · ✓ Editorially independent</div>
   </div>
 
@@ -279,11 +279,11 @@
       <div class="byline-avatar">AC</div>
       <div class="byline-text">
         <span class="byline-name">Tested by <a href="../about">Alex Chen</a>, Lead Reviewer</span>
-        <span class="byline-meta">Originally tested <strong>May 2026</strong> &middot; Updated <strong>Jul 11, 2026</strong> &middot; ~10 hours of hands-on use</span>
+        <span class="byline-meta">Originally tested <strong>May 2026</strong> &middot; Updated <strong>Sep 6, 2026</strong> &middot; ~10 hours of hands-on use</span>
       </div>
       <div class="byline-badges">
         <span class="byline-badge human">&#10003; Human-tested</span>
-        <span class="byline-badge fresh">&#9201; Fresh: Jul 2026</span>
+        <span class="byline-badge fresh">&#9201; Fresh: Sep 2026</span>
         <span class="byline-badge aff">Contains affiliate links</span>
       </div>
     </div>
@@ -296,14 +296,14 @@
   <section class="compare-section">
     <h2>Quick Summary</h2>
 
-    <!-- Fable 5 / GPT-5.6 update alert -->
+    <!-- September 2026 update alert -->
     <div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:14px 18px;margin-bottom:20px;font-size:0.9rem;">
-      <strong>July 11, 2026 update:</strong> <strong>OpenAI launched GPT-5.6 to general availability</strong> on July 9–10, 2026, alongside <strong>ChatGPT Work</strong> — an agentic assistant that merges ChatGPT and Codex into a single desktop app. GPT-5.6 comes in three tiers: <strong>Sol</strong> (flagship, $5 input / $30 output per 1M tokens), <strong>Terra</strong> (balanced, $2.50/$15), and <strong>Luna</strong> (lightweight, $1/$6). ChatGPT Work can create documents, presentations, and websites, and now includes direct file editing, in-app PR review, Pro mode, and Ultra mode. <strong>GPT-Live</strong>, a real-time full-duplex voice model with simultaneous listening and speaking, launched July 8. <strong>Claude Fable 5</strong> was restored globally on July 1, 2026, after US export controls were lifted on June 30. <strong>Claude Sonnet 5</strong> (launched June 30) is now the default model for Free and Pro plans, beating GPT-5.5 on 6 of 6 comparable benchmarks at $2/$10 intro pricing. <a href="https://openai.com/" target="_blank" rel="noopener">Verify GPT-5.6 and ChatGPT Work on openai.com</a> and <a href="https://www.anthropic.com/news/redeploying-fable-5" target="_blank" rel="noopener">Fable 5 on anthropic.com</a>.
+      <strong>September 6, 2026 update:</strong> <strong>OpenAI launched GPT-6 Astra</strong> on September 3 — its most capable model yet, the first to reach "critical-level" cybersecurity capability (100% ExploitBench, 99.9% ARC-AGI-3, 1.05M token context). <strong>Anthropic shipped Claude Fable 5.1</strong> on September 1, doubling scientific-reasoning benchmarks (Terminal-Bench-Science 52.6%, SWE-bench Pro 81.2%) and cutting cache-read pricing 75% to $0.25/1M tokens. <strong>Claude Opus 5</strong> (released July 24) is now the practical workhorse at $5/$25. <strong>Claude Sonnet 5</strong> remains the default on Free/Pro with best-in-class value. For coding, Fable 5.1 and Opus 5 still lead; for agentic + multimodal breadth, GPT-6 Astra is now the most capable frontier model. <a href="https://openai.com/" target="_blank" rel="noopener">Verify GPT-6 Astra on openai.com</a> and <a href="https://www.anthropic.com/" target="_blank" rel="noopener">Fable 5.1 on anthropic.com</a>.
     </div>
 
-    <p>As of mid-July 2026, the landscape has shifted again. <strong>OpenAI launched GPT-5.6 to general availability</strong> on July 9–10, alongside <strong>ChatGPT Work</strong> — a unified desktop app merging ChatGPT and Codex into an agentic assistant capable of creating documents, presentations, websites, and taking actions across your apps. GPT-5.6 comes in three tiers: Sol (flagship), Terra (balanced), and Luna (lightweight). <strong>GPT-Live</strong>, a real-time full-duplex voice model, launched on July 8. On the Anthropic side, <strong>Claude Fable 5</strong> was restored globally on July 1 after the US lifted export controls, reclaiming the coding crown at 80.3% SWE-bench Pro. <strong>Claude Sonnet 5</strong> (launched June 30) is now the default for Free and Pro plans, beating GPT-5.5 on 6 of 6 benchmarks at half the price.</p>
-    <p>The core numbers still favor Claude for coding. Fable 5 (80.3% SWE-bench Pro, 29.3% FrontierCode) leads the field, while Opus 4.8 remains the practical workhorse (88.6% SWE-bench Verified, 69.2% SWE-bench Pro). GPT-5.5 sits at 58.6% on SWE-bench Pro, though GPT-5.6 Sol sets a new SOTA on Terminal-Bench 2.1 and is competitive on ExploitBench. Hallucination rate is still a critical difference: <strong>Claude Opus 4.8 has a 35.9% hallucination rate versus GPT-5.5's 86%</strong> on the AA-Omniscience benchmark. For writing, Claude's prose remains more natural, though GPT-5.6 Sol is reported to close the gap somewhat with more human-like C++ and design output.</p>
-    <p>Both models support 1 million token context windows. On pricing, both start at $20/month for individual plans and $200/month for premium tiers. Claude now defaults to Sonnet 5 on Free/Pro, with Opus 4.8 for heavier work and Fable 5 available via usage credits. ChatGPT offers GPT-5.6 models across tiers, with ChatGPT Work launching as the new agentic front-end. The bottom line: for coding and writing, Claude Fable 5 + Opus 4.8 remain the strongest combination; for ecosystem breadth, agentic capabilities, and multimodal features, ChatGPT Work with GPT-5.6 is now a formidable competitor that narrows the gap considerably.</p>
+    <p>As of early September 2026, the frontier has shifted dramatically. <strong>OpenAI launched GPT-6 Astra</strong> on September 3 — its most capable model yet, posting 99.9% on ARC-AGI-3, a perfect 100% on ExploitBench, and 72.6% on OSWorld 2.0 for real computer use. GPT-6 Astra is the first model to reach "critical-level" cybersecurity capability and supports a 1.05 million token context window. <strong>Anthropic shipped Claude Fable 5.1</strong> on September 1, doubling scientific reasoning (Terminal-Bench-Science 52.6%, SWE-bench Pro 81.2%) and cutting cache-read costs by 75% to $0.25/1M tokens — a major win for agentic workloads. <strong>Claude Opus 5</strong> (released July 24) remains the practical workhorse, and <strong>Claude Sonnet 5</strong> continues as the best-value default on Free and Pro plans.</p>
+    <p>The core numbers still favor Claude for coding. Fable 5.1 (81.2% SWE-bench Pro) and Opus 5 (88.6% SWE-bench Verified) lead the field on software engineering. GPT-6 Astra narrows the gap with strong agentic benchmarks (74.1% DeepSWE v1.1) and leads on cybersecurity (100% ExploitBench) and general reasoning (99.9% ARC-AGI-3). Hallucination rate remains a critical difference: <strong>Claude Opus 5 has a 35.9% hallucination rate versus GPT-5.5's 86%</strong> on the AA-Omniscience benchmark. For writing, Claude's prose remains more natural and less formulaic.</p>
+    <p>Both platforms support 1 million+ token context windows. On pricing, both start at $20/month for individual plans and $200/month for premium tiers. Claude defaults to Sonnet 5 on Free/Pro, with Opus 5 for heavier work and Fable 5.1 available via usage credits. ChatGPT offers GPT-5.6 (Sol/Terra/Luna) across tiers, with GPT-6 Astra rolling out gradually. The bottom line: for coding, writing, and trustworthy autonomous work, Claude Fable 5.1 + Opus 5 remain the strongest combination; for cutting-edge reasoning, cybersecurity, and native multimodal breadth, GPT-6 Astra is now the most capable frontier model — though it is still rolling out gradually.</p>
   </section>
 
   <!-- Ad Slot -->
@@ -365,8 +365,8 @@
           </tr>
           <tr>
             <td>Max Context Window</td>
-            <td>1M tokens</td>
-            <td>1M tokens</td>
+            <td>1.05M tokens (GPT-6 Astra)</td>
+            <td>1M tokens (Opus 5 / Sonnet 5)</td>
             <td class="winner-cell">Tie (Claude better retrieval)</td>
           </tr>
           <tr>
@@ -383,8 +383,8 @@
           </tr>
           <tr>
             <td>Coding Ability</td>
-            <td>Very Good (82.6% SWE-bench, 58.6% Pro)</td>
-            <td>Excellent (Fable 5: 80.3% SWE-bench Pro, 29.3% FrontierCode)</td>
+            <td>Very Good (GPT-6 Astra: 74.1% DeepSWE; GPT-5.6 Sol: SOTA Terminal-Bench 2.1)</td>
+            <td>Excellent (Fable 5.1: 81.2% SWE-bench Pro, 52.6% Terminal-Bench-Science; Opus 5: 88.6% SWE-bench Verified)</td>
             <td class="winner-cell">Claude</td>
           </tr>
           <tr>
@@ -436,7 +436,8 @@
           <h4>Pros</h4>
           <ul>
             <li>Native full multimodal support including text, image, voice, and video inputs</li>
-            <li><strong>GPT-5.6 GA (July 9, 2026):</strong> Sol (flagship), Terra (balanced), and Luna (lightweight) now generally available. Sol sets new SOTA on Terminal-Bench 2.1 and is competitive on ExploitBench</li>
+            <li><strong>GPT-6 Astra (Sep 3, 2026):</strong> Most capable model yet — 99.9% ARC-AGI-3, 100% ExploitBench (first critical-level cyber model), 74.1% DeepSWE v1.1, 1.05M context, real computer use. Rolling out gradually</li>
+            <li><strong>GPT-5.6 GA (July 9, 2026):</strong> Sol (flagship, $5/$30), Terra (balanced), and Luna (lightweight) generally available. Sol sets SOTA on Terminal-Bench 2.1</li>
             <li><strong>ChatGPT Work (July 9, 2026):</strong> Unified desktop app merging ChatGPT and Codex — creates documents, presentations, websites, directly edits files, reviews PRs, and runs Ultra mode for complex tasks</li>
             <li><strong>GPT-Live (July 8, 2026):</strong> Real-time full-duplex voice model with simultaneous listening and speaking, real-time translation, and natural conversational backchanneling</li>
             <li>June 2026 updates: simplified model selector (Instant/Medium/High/Extra High), Dreaming V3 auto-organizing memory, Lockdown Mode, interactive charts, full-screen writing editor, Scheduled Tasks (June 17)</li>
@@ -444,7 +445,7 @@
             <li>Real-time web browsing ensures up-to-date, grounded responses with citations</li>
             <li>Polished mobile apps on both iOS and Android with seamless sync</li>
             <li>Large and active community with abundant tutorials, templates, and integrations</li>
-            <li>GPT-5.6 Sol ($5/$30 per 1M tokens) undercuts Claude Fable 5 API pricing ($10/$50) for frontier capability</li>
+            <li>GPT-5.6 Sol ($5/$30 per 1M tokens) undercuts Claude Fable 5.1 API pricing ($10/$50) for frontier capability</li>
           </ul>
         </div>
         <div class="con-list">
@@ -461,10 +462,10 @@
         <div class="pro-list">
           <h4>Pros</h4>
           <ul>
-            <li><strong>Claude Fable 5 restored July 1, 2026:</strong> 80.3% SWE-bench Pro, 29.3% FrontierCode — far ahead of GPT-5.5 (58.6% / 5.7%). <strong>Note:</strong> Fable 5 returned globally on July 1, 2026, with new safety classifiers and a usage-credit model beginning July 7, 2026; Mythos 5 remains limited to select US organizations — <a href="https://www.anthropic.com/news/redeploying-fable-5" target="_blank" rel="noopener">verify status at anthropic.com</a></li>
-            <li><strong>Claude Sonnet 5 (June 30, 2026):</strong> New default for Free and Pro plans, beats GPT-5.5 on 6 of 6 comparable benchmarks at $2/$10 intro pricing through Aug 31. The best value-for-money Claude model</li>
+            <li><strong>Claude Fable 5.1 (Sep 1, 2026):</strong> 81.2% SWE-bench Pro, 52.6% Terminal-Bench-Science (doubled from Fable 5), and cache reads cut 75% to $0.25/1M tokens — the strongest coding model available. The original Fable 5 was restored globally July 1, 2026; Fable 5.1 is now the current flagship. <a href="https://www.anthropic.com/" target="_blank" rel="noopener">verify at anthropic.com</a></li>
+            <li><strong>Claude Sonnet 5 (June 30, 2026):</strong> New default for Free and Pro plans, beats GPT-5.5 on 6 of 6 comparable benchmarks at $2/$10 intro pricing (now standard). The best value-for-money Claude model</li>
             <li>Anthropic introduced <strong>Claude Tag</strong> on June 23, 2026 for team workflows — a shared context-tagging system for organizing projects and conversations</li>
-            <li>Opus 4.8 still delivers 88.6% SWE-bench Verified and is available on the $20/mo Pro plan</li>
+            <li>Opus 5 (released Jul 24, 2026) delivers 88.6% SWE-bench Verified and is available on the $20/mo Pro plan</li>
             <li>Significantly lower hallucination rate (35.9%) — far more trustworthy for autonomous agent tasks than GPT-5.5 (86%)</li>
             <li>Exceptional writing quality that sounds natural, well-structured, and free of AI cliches</li>
             <li>1M token context window with superior long-context retrieval accuracy (GraphWalks BFS 1M: 68.1%)</li>
@@ -501,18 +502,18 @@
         <tbody>
           <tr>
             <td><strong>Free</strong></td>
-            <td>Access to GPT-5.6 Luna and GPT-5.5 Instant, basic image generation, limited web search, text and voice input</td>
+            <td>Access to GPT-5.6 Luna, basic image generation, limited web search, text and voice input</td>
             <td>Access to Claude Sonnet 5 (new default as of June 30), limited messages per day, Artifacts, basic Projects, 1M context window</td>
           </tr>
           <tr>
             <td><strong>Plus / Pro</strong><br>$20/month</td>
             <td>Full GPT-5.6 Sol, Terra, and Luna access, ChatGPT Work (documents, presentations, websites, file editing), GPT-Live voice, DALL-E image generation, GPTs store, Advanced Data Analysis, priority access during peak times</td>
-            <td>Claude Sonnet 5 (default) + Opus 4.8 + Fable 5 at usage-credit rate, 5x more usage than free, Projects with custom knowledge, extended thinking mode, early access to new features</td>
+            <td>Claude Sonnet 5 (default) + Opus 5 + Fable 5.1 at usage-credit rate, 5x more usage than free, Projects with custom knowledge, extended thinking mode, early access to new features</td>
           </tr>
           <tr>
             <td><strong>Pro / Max</strong><br>$200/month</td>
             <td>GPT-5.6 Sol with enhanced reasoning, unlimited access to all models, ChatGPT Work unlimited, Ultra mode, priority compute, advanced research features</td>
-            <td>Claude Max: extended Fable 5 usage with maximum daily limits, priority access, ideal for heavy professional use (also includes full Opus 4.8 access)</td>
+            <td>Claude Max: extended Fable 5.1 usage with maximum daily limits, priority access, ideal for heavy professional use (also includes full Opus 5 access)</td>
           </tr>
           <tr>
             <td><strong>Team</strong><br>$25-30/user/month</td>
@@ -527,8 +528,8 @@
         </tbody>
       </table>
     </div>
-    <p>On pricing, the two platforms remain neck and neck for individual subscribers. Both offer generous free tiers that are sufficient for casual use — ChatGPT Free now includes GPT-5.6 Luna, while Claude Free defaults to Sonnet 5. Their $20/month individual plans provide comparable value. As of July 11, 2026, <strong>Claude Fable 5 is restored</strong> and available on Pro, Max, Team, and some Enterprise plans via usage credits. Claude Sonnet 5 is the best value pick, beating GPT-5.5 on 6 of 6 comparable benchmarks at $2/$10 intro pricing. <strong>GPT-5.6 is now generally available</strong> across all ChatGPT plans: Sol for the most demanding work, Terra for everyday use, and Luna for lightweight tasks. ChatGPT Work, bundled with Plus and above, adds agentic capabilities across documents, presentations, and code. The decision at the paid tier now comes down to whether you need ChatGPT's multimodal breadth, agentic features, and ecosystem versus Claude's deeper reasoning, lower hallucination rate, and superior coding accuracy.</p>
-    <p>One important note on API pricing: Claude Fable 5 API remains priced at $10 per million input tokens and $50 per million output tokens — roughly double Opus 4.8's API pricing ($5/$25). OpenAI's GPT-5.6 Sol undercuts that at $5/$30 per 1M tokens, with Terra at $2.50/$15 and Luna at $1/$6 — making GPT-5.6 more cost-effective for frontier workloads. For production applications, developers should benchmark available models against their specific workload, as Opus 4.8 may offer better cost-efficiency for many tasks. ChatGPT's API offers the widest range of model tiers, from GPT-5.6 Luna for lightweight tasks to GPT-5.6 Sol for the hardest problems. Claude similarly offers Sonnet 5 for fast, affordable responses, Opus 4.8 for top-tier work, and Fable 5 for the most complex long-horizon tasks. For developers building production applications, we recommend benchmarking both APIs on your specific workload to determine the true cost-efficiency.</p>
+    <p>On pricing, the two platforms remain neck and neck for individual subscribers. Both offer generous free tiers that are sufficient for casual use — ChatGPT Free now includes GPT-5.6 Luna, while Claude Free defaults to Sonnet 5. Their $20/month individual plans provide comparable value. As of July 11, 2026, <strong>Claude Fable 5.1 is restored</strong> and available on Pro, Max, Team, and some Enterprise plans via usage credits. Claude Sonnet 5 is the best value pick, beating GPT-5.5 on 6 of 6 comparable benchmarks at $2/$10 intro pricing. <strong>GPT-5.6 is now generally available</strong> across all ChatGPT plans: Sol for the most demanding work, Terra for everyday use, and Luna for lightweight tasks. ChatGPT Work, bundled with Plus and above, adds agentic capabilities across documents, presentations, and code. The decision at the paid tier now comes down to whether you need ChatGPT's multimodal breadth, agentic features, and ecosystem versus Claude's deeper reasoning, lower hallucination rate, and superior coding accuracy.</p>
+    <p>One important note on API pricing: Claude Fable 5.1 API remains priced at $10 per million input tokens and $50 per million output tokens — roughly double Opus 5's API pricing ($5/$25). OpenAI's GPT-6 Astra is priced at $10/$50 per 1M tokens (same list price as Fable 5.1), while GPT-5.6 Sol undercuts at $5/$30 per 1M tokens, with Terra at $2.50/$15 and Luna at $1/$6 — making GPT-5.6 more cost-effective for frontier workloads. For production applications, developers should benchmark available models against their specific workload, as Opus 5 may offer better cost-efficiency for many tasks. ChatGPT's API offers the widest range of model tiers, from GPT-5.6 Luna for lightweight tasks to GPT-5.6 Sol for the hardest problems. Claude similarly offers Sonnet 5 for fast, affordable responses, Opus 5 for top-tier work, and Fable 5 for the most complex long-horizon tasks. For developers building production applications, we recommend benchmarking both APIs on your specific workload to determine the true cost-efficiency.</p>
   </section>
 
   <!-- Ad Slot -->
@@ -537,9 +538,9 @@
   <!-- Deep Dive: Context Window -->
   <section class="compare-section">
     <h2>Deep Dive: Context Window — Now Tied at 1M</h2>
-    <p>As of mid-2026, both ChatGPT (GPT-5.5) and Claude (Opus 4.8) support 1 million token context windows — a dramatic leap from the 128K-200K range just months ago. This means both models can process approximately 750 pages of text, entire codebases, or months of conversation history in a single session. <strong>Note: Anthropic has not yet publicly disclosed the context window for Claude Fable 5.</strong> If past releases are any indication, Fable 5 is likely to match or exceed Opus 4.8's 1M token capacity, but this is unconfirmed as of June 13, 2026.</p>
-    <p>However, specifications do not tell the whole story. Independent testing on the GraphWalks BFS benchmark reveals a significant difference in long-context retrieval accuracy. Claude Opus 4.8 scored 68.1% at the full 1M-token depth, while GPT-5.5 scored 45.4% — a 22.7-point gap. This means that while both models can technically accept 1M tokens, Claude is substantially better at finding and using information buried deep within that context. For users working with very long documents, legal contracts, or large codebases where every detail matters, Claude's retrieval advantage is meaningful. For typical use cases involving shorter contexts, both models perform comparably.</p>
-    <p>A practical consideration: Claude Opus 4.8 tends to produce more output tokens per task (136K vs 47K for GPT-5.5 in the DeepSWE benchmark), which means higher API costs per task despite similar per-token pricing. GPT-5.5's greater token efficiency can translate to lower total costs for context-heavy workflows, even though both models share the same 1M ceiling. Choose Claude when retrieval accuracy matters most; choose ChatGPT when cost efficiency is the priority.</p>
+    <p>As of mid-2026, both ChatGPT (GPT-5.5) and Claude (Opus 5) support 1 million token context windows — a dramatic leap from the 128K-200K range just months ago. This means both models can process approximately 750 pages of text, entire codebases, or months of conversation history in a single session. <strong>Note: Anthropic has not yet publicly disclosed the context window for Claude Fable 5.</strong> If past releases are any indication, Fable 5 is likely to match or exceed Opus 5's 1M token capacity, but this is unconfirmed as of June 13, 2026.</p>
+    <p>However, specifications do not tell the whole story. Independent testing on the GraphWalks BFS benchmark reveals a significant difference in long-context retrieval accuracy. Claude Opus 5 scored 68.1% at the full 1M-token depth, while GPT-5.5 scored 45.4% — a 22.7-point gap. This means that while both models can technically accept 1M tokens, Claude is substantially better at finding and using information buried deep within that context. For users working with very long documents, legal contracts, or large codebases where every detail matters, Claude's retrieval advantage is meaningful. For typical use cases involving shorter contexts, both models perform comparably.</p>
+    <p>A practical consideration: Claude Opus 5 tends to produce more output tokens per task (136K vs 47K for GPT-5.5 in the DeepSWE benchmark), which means higher API costs per task despite similar per-token pricing. GPT-5.5's greater token efficiency can translate to lower total costs for context-heavy workflows, even though both models share the same 1M ceiling. Choose Claude when retrieval accuracy matters most; choose ChatGPT when cost efficiency is the priority.</p>
   </section>
 
   <!-- Ad Slot -->
@@ -568,7 +569,7 @@
             <span class="verdict-icon" style="background:#d97706;">C</span>
             <strong>Claude</strong>
           </div>
-          <p>Claude extends its lead with the restored Fable 5 flagship (80.3% SWE-bench Pro, 29.3% FrontierCode) while Opus 4.8 still delivers 88.6% SWE-bench Verified and Sonnet 5 offers best-in-class value at $2/$10. Dramatically lower hallucination rate (35.9% vs 86%), more natural writing, and better long-context retrieval. Both now support 1M context windows. Claude's Artifacts and dynamic sub-agent workflows remain indispensable for serious work. However, ChatGPT Work with GPT-5.6 Sol closes the gap on agentic capabilities — the unified desktop app, direct file editing, and Ultra mode are genuinely competitive for the first time.</p>
+          <p>Claude extends its lead with Fable 5.1 (81.2% SWE-bench Pro, doubled Terminal-Bench-Science to 52.6%) while Opus 5 still delivers 88.6% SWE-bench Verified and Sonnet 5 offers best-in-class value. Dramatically lower hallucination rate (35.9% vs 86%), more natural writing, and better long-context retrieval. Both now support 1M+ context windows. Claude's Artifacts and dynamic sub-agent workflows remain indispensable for serious work. However, GPT-6 Astra (launched Sep 3) is now the most capable frontier model on general reasoning (99.9% ARC-AGI-3) and cybersecurity (100% ExploitBench), with real computer use (72.6% OSWorld 2.0) — a genuinely formidable competitor, though still rolling out gradually.</p>
         </div>
         <div class="verdict-card">
           <h3>Best for Coding</h3>
@@ -576,7 +577,7 @@
             <span class="verdict-icon" style="background:#d97706;">C</span>
             <strong>Claude</strong>
           </div>
-          <p>Claude Fable 5 scores 80.3% on SWE-bench Pro and 29.3% on FrontierCode — far ahead of GPT-5.5 (58.6% / 5.7%). Opus 4.8 adds 88.6% SWE-bench Verified and Sonnet 5 beats GPT-5.5 on all comparable benchmarks. For real-world software engineering, Claude is the clear choice. However, GPT-5.6 Sol is now generally available and sets a new SOTA on Terminal-Bench 2.1 for CLI automation, with ChatGPT Work adding direct file editing, PR review, and Ultra mode — narrowing the gap significantly.</p>
+          <p>Claude Fable 5.1 scores 81.2% on SWE-bench Pro and 52.6% on Terminal-Bench-Science — far ahead of GPT-5.5 (58.6% / 5.7%). Opus 5 adds 88.6% SWE-bench Verified and Sonnet 5 beats GPT-5.5 on all comparable benchmarks. For real-world software engineering, Claude is the clear choice. However, GPT-6 Astra (Sep 3) posts 74.1% on DeepSWE v1.1 and leads on OSWorld 2.0 (72.6%) for real computer-use tasks, narrowing the agentic coding gap.</p>
         </div>
         <div class="verdict-card">
           <h3>Best for Casual Use</h3>
@@ -605,19 +606,19 @@
     <div class="faq-list">
       <div class="faq-item">
         <h3>Which is better, ChatGPT or Claude?</h3>
-        <p>As of July 11, 2026, Claude Fable 5 remains the strongest model for coding (80.3% SWE-bench Pro) and writing, with Opus 4.8 as the practical workhorse (88.6% SWE-bench Verified, 35.9% hallucination rate vs ChatGPT's 86%). Claude Sonnet 5 is the best value pick, beating GPT-5.5 on 6 of 6 benchmarks at $2/$10 intro pricing. However, OpenAI just launched GPT-5.6 to general availability alongside ChatGPT Work (a unified agentic desktop app) and GPT-Live (real-time voice). These additions significantly narrow the ecosystem and multimodal gap. For coding and writing: Claude still wins. For agentic capabilities + ecosystem: ChatGPT Work with GPT-5.6 is now very competitive.</p>
+        <p>As of September 6, 2026, Claude Fable 5.1 remains the strongest model for coding (81.2% SWE-bench Pro, 52.6% Terminal-Bench-Science) and writing, with Opus 5 as the practical workhorse (88.6% SWE-bench Verified, 35.9% hallucination rate vs ChatGPT's 86%). Claude Sonnet 5 is the best value pick, beating GPT-5.5 on 6 of 6 benchmarks. However, OpenAI just launched GPT-6 Astra (Sep 3) — the most capable frontier model on general reasoning (99.9% ARC-AGI-3) and cybersecurity (100% ExploitBench), with real computer use. For coding and writing: Claude still wins. For cutting-edge reasoning + cybersecurity + multimodal: GPT-6 Astra leads, though it is still rolling out gradually.</p>
       </div>
       <div class="faq-item">
         <h3>Is ChatGPT or Claude better for coding?</h3>
-        <p>Claude. Fable 5 (80.3% SWE-bench Pro, 29.3% FrontierCode) leads, Opus 4.8 (88.6% SWE-bench Verified, 69.2% SWE-bench Pro) is the everyday workhorse, and Sonnet 5 beats GPT-5.5 on all comparable benchmarks at half the price. GPT-5.6 Sol is now GA and posts a new SOTA on Terminal-Bench 2.1, with ChatGPT Work adding direct file editing, PR review, and Ultra mode — but for real-world multi-file software engineering, Claude's accuracy and lower hallucination rate give it a decisive edge.</p>
+        <p>Claude. Fable 5.1 (81.2% SWE-bench Pro, 52.6% Terminal-Bench-Science) leads, Opus 5 (88.6% SWE-bench Verified) is the everyday workhorse, and Sonnet 5 beats GPT-5.5 on all comparable benchmarks at half the price. GPT-6 Astra (Sep 3) posts 74.1% on DeepSWE v1.1 and leads OSWorld 2.0 (72.6%) for real computer-use tasks — but for real-world multi-file software engineering, Claude's accuracy and lower hallucination rate give it a decisive edge.</p>
       </div>
       <div class="faq-item">
         <h3>Which AI assistant has a longer context window?</h3>
-        <p>Both ChatGPT (GPT-5.6) and Claude (Opus 4.8 / Sonnet 5) support 1 million tokens as of July 2026 — roughly 750 pages of text each. Claude Fable 5's context window has not yet been publicly disclosed by Anthropic. Independent benchmarks show Claude Opus 4.8 has superior long-context retrieval accuracy (GraphWalks BFS 1M: Claude 68.1% vs ChatGPT 45.4%), meaning it's better at finding specific information buried deep within long documents.</p>
+        <p>Both support 1 million+ tokens as of September 2026 — GPT-6 Astra offers 1.05M tokens, while Claude Opus 5 and Sonnet 5 support 1M tokens. That's roughly 750+ pages of text each. Independent benchmarks show Claude Opus 5 has superior long-context retrieval accuracy (GraphWalks BFS 1M: Claude 68.1% vs ChatGPT 45.4%), meaning it's better at finding specific information buried deep within long documents. Fable 5.1 also supports 1M tokens.</p>
       </div>
       <div class="faq-item">
         <h3>Are ChatGPT and Claude free?</h3>
-        <p>Yes, both offer genuinely useful free tiers with usage limits. ChatGPT Free gives you GPT-5.6 Luna and GPT-5.5 Instant with basic features. Claude Free gives you Claude Sonnet 5 (new default) with the 1M context window and Artifacts. Paid plans start at $20/month for both (ChatGPT Plus / Claude Pro), and both offer $200/month tiers for heavy users (ChatGPT Pro / Claude Max).</p>
+        <p>Yes, both offer genuinely useful free tiers with usage limits. ChatGPT Free gives you GPT-5.6 Luna with basic features. Claude Free gives you Claude Sonnet 5 (default) with the 1M context window and Artifacts. Paid plans start at $20/month for both (ChatGPT Plus / Claude Pro), and both offer $200/month tiers for heavy users (ChatGPT Pro / Claude Max).</p>
       </div>
       <div class="faq-item">
         <h3>Which AI is better for long-form writing?</h3>

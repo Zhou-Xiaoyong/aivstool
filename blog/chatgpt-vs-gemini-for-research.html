@@ -87,7 +87,7 @@
       {
         "@type": "Question",
         "name": "Does Gemini's larger context window matter for research?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes, when your sources are documents rather than web pages. Gemini 2.5 Pro's 1M-token context let us paste six full PDFs (about 240 pages) into a single session and ask cross-document questions without chunking. ChatGPT required us to upload files and rely on retrieval, which occasionally missed details buried in appendices." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, when your sources are documents rather than web pages. Gemini 3.8 Flash's 1M-token context let us paste six full PDFs (about 240 pages) into a single session and ask cross-document questions without chunking. ChatGPT required us to upload files and rely on retrieval, which occasionally missed details buried in appendices." }
       },
       {
         "@type": "Question",
@@ -212,7 +212,7 @@
     <p>Both models were correct on all 12 true claims. Neither invented a refutation, which is a meaningful improvement over what we measured on the same gauntlet a year ago.</p>
 
     <h2>Long Documents and Data Analysis</h2>
-    <p>This is where Gemini takes the lead decisively. We dropped all six PDFs (roughly 240 pages) directly into a single Gemini 2.5 Pro session — its 1M-token context window swallowed them whole. Asked which two filings disclosed conflicting figures for the same fiscal quarter, Gemini answered correctly on the first attempt and quoted both page numbers.</p>
+    <p>This is where Gemini takes the lead decisively. We dropped all six PDFs (roughly 240 pages) directly into a single Gemini 3.8 Flash session — its 1M-token context window swallowed them whole. Asked which two filings disclosed conflicting figures for the same fiscal quarter, Gemini answered correctly on the first attempt and quoted both page numbers.</p>
     <p>ChatGPT handled the same set through file upload and retrieval. It answered two of the three cross-document questions correctly but missed a detail sitting in an appendix table, because retrieval never pulled that chunk. When we narrowed the question to that specific file, it answered fine — which tells you the model was capable and the retrieval step was the bottleneck.</p>
     <p>For spreadsheet work, ChatGPT's code-interpreter-style analysis produced cleaner charts and let us download the working file; Gemini's answers were faster but harder to audit. Researchers who need reproducible numbers should prefer the one that shows its code. If your workflow is more about writing up the findings than gathering them, our <a href="./chatgpt-vs-claude-for-writing">ChatGPT vs Claude for writing</a> test covers the drafting stage.</p>
 
@@ -309,7 +309,7 @@
         <span>Read guide →</span>
       </a>
       <a href="../best/best-free-ai-tools" class="related-card">
-        <h3>25 Best Free AI Tools (No Credit Card Required) - Updated June 2026</h3>
+        <h3>25 Best Free AI Tools (No Credit Card Required) - Updated September 2026</h3>
         <p>Discover the 25 best free AI tools in 2026 that require no credit card. From AI assistants and coding tools to image gen…</p>
         <span>Read guide →</span>
       </a>
