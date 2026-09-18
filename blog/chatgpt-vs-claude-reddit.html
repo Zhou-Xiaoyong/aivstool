@@ -116,7 +116,7 @@
           <li><a href="../#categories">Categories</a></li>
           <li><a href="../#comparisons">Comparisons</a></li>
           <li><a href="../#best-of">Best Of</a></li>
-          <li><a href="../ai-news-weekly">News</a></li>
+          <li><a href="../ai-news-weekly.html">News</a></li>
         </ul>
         <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
       </nav>
@@ -139,7 +139,7 @@
     <h1>ChatGPT vs Claude on Reddit</h1>
     <p style="font-size:1.15rem;font-weight:600;color:var(--text-secondary);max-width:800px;margin:8px auto 0;">We read 240 threads, extracted the seven claims Reddit repeats most, then put every one of them on a stopwatch.</p>
     <div class="article-meta">
-      <div class="article-author">By <a href="../about">Alex Chen</a>, Lead Reviewer</div>
+      <div class="article-author">By <a href="../about.html">Alex Chen</a>, Lead Reviewer</div>
       <div class="article-date">Published: August 11, 2026</div>
       <div class="article-disclosure">Hands-on test · Benchmark data · Community feedback</div>
     </div>
@@ -150,7 +150,7 @@
     <div class="byline-inner">
       <div class="byline-avatar">AC</div>
       <div class="byline-text">
-        <span class="byline-name">Tested by <a href="../about">Alex Chen</a>, Lead Reviewer</span>
+        <span class="byline-name">Tested by <a href="../about.html">Alex Chen</a>, Lead Reviewer</span>
         <span class="byline-meta">Originally tested <strong>July 28, 2026</strong> &middot; Updated <strong>August 11, 2026</strong> &middot; ~18 hours of hands-on use</span>
       </div>
       <div class="byline-badges">
@@ -164,7 +164,7 @@
   <!-- Main Article -->
   <section class="compare-section">
     <div style="background:#eff6ff;border-left:4px solid #1a56db;border-radius:4px;padding:16px 20px;margin-bottom:24px;">
-      <p style="margin:0;font-size:0.9rem;color:#475569;"><strong>Editorial Note:</strong> This article is based on hands-on use of the tools from our own test accounts, combined with product documentation, benchmark data, and publicly available information. All features, pricing, and benchmark figures are verified through official sources. See our <a href="../legal/disclaimer">Disclaimer</a>.</p>
+      <p style="margin:0;font-size:0.9rem;color:#475569;"><strong>Editorial Note:</strong> This article is based on hands-on use of the tools from our own test accounts, combined with product documentation, benchmark data, and publicly available information. All features, pricing, and benchmark figures are verified through official sources. See our <a href="../legal/disclaimer.html">Disclaimer</a>.</p>
     </div>
 
     <p><strong>Short answer: Reddit is right more often than not. Of the seven claims we pulled from 240 threads, four held up under testing, two were half-true, and one — "ChatGPT got dumber" — we could not reproduce at all. The single most reliable piece of Reddit folk wisdom is that ChatGPT truncates long code and Claude does not: asked five times for a complete 612-line refactor, Claude returned the whole file every time and ChatGPT returned it twice.</strong></p>
@@ -173,7 +173,7 @@
 
     <h2>How We Turned Reddit Into Something Testable</h2>
     <p>We sampled 240 threads posted between February and August 2026 across r/ChatGPT, r/ClaudeAI, r/OpenAI, r/LocalLLaMA and r/singularity, keeping only threads that compared the two products directly and had at least 50 comments. We tagged every recurring assertion and kept the ones that appeared in 20 or more separate threads. Seven survived. Then we designed a concrete test for each and ran it on live accounts rather than quoting benchmarks.</p>
-    <p>One caveat worth stating up front: comment volume is not evidence. A claim repeated 200 times by the same self-selected audience is still one data point about that audience. Our full evaluation approach is on the <a href="../how-we-test">How We Test</a> page.</p>
+    <p>One caveat worth stating up front: comment volume is not evidence. A claim repeated 200 times by the same self-selected audience is still one data point about that audience. Our full evaluation approach is on the <a href="../how-we-test.html">How We Test</a> page.</p>
 
     <h2>The Seven Claims, Scored</h2>
     <div class="compare-table-wrap">
@@ -193,25 +193,25 @@
 
     <h2>Claim 1: ChatGPT Truncates Code. Claude Does Not.</h2>
     <p>This is Reddit's loudest complaint and the one that survives contact with reality most cleanly. The pattern users describe is the elision comment — <code>// ... rest of the code unchanged</code> — dropped into the middle of a file you explicitly asked to receive in full. Our five-run test is in the hands-on section below; the headline is that ChatGPT elided in three of five runs and averaged 431 of 612 lines, while Claude returned the complete file five times out of five.</p>
-    <p>Worth being fair about the cause: ChatGPT is optimising for response speed and token economy, which most users want most of the time. It is a product decision, not incompetence, and a firm instruction ("output the entire file, no omissions, no placeholder comments") fixed it in two of the three failing runs. But needing that instruction is exactly what Reddit is complaining about. Our dedicated <a href="./chatgpt-vs-claude-for-coding">ChatGPT vs Claude for coding</a> test reaches the same conclusion from a different angle.</p>
+    <p>Worth being fair about the cause: ChatGPT is optimising for response speed and token economy, which most users want most of the time. It is a product decision, not incompetence, and a firm instruction ("output the entire file, no omissions, no placeholder comments") fixed it in two of the three failing runs. But needing that instruction is exactly what Reddit is complaining about. Our dedicated <a href="./chatgpt-vs-claude-for-coding.html">ChatGPT vs Claude for coding</a> test reaches the same conclusion from a different angle.</p>
 
     <h2>Claim 2: Claude Sounds More Human</h2>
     <p>We gave both models twelve identical writing briefs — a launch email, a difficult apology to a customer, a technical explainer, a LinkedIn post and so on — then stripped the labels and had three editors rank the pairs blind. Claude was preferred in 9 of 12. The reasons were consistent: fewer tricolon list sentences, fewer "it's not just X, it's Y" constructions, and far less of the summary paragraph that restates what you just read.</p>
-    <p>ChatGPT won the two most structured briefs, where its habit of imposing headings and bullets is an asset rather than a tic. If your output is documentation or a template, that habit works for you. We break this down further in <a href="./chatgpt-vs-claude-for-writing">ChatGPT vs Claude for writing</a>.</p>
+    <p>ChatGPT won the two most structured briefs, where its habit of imposing headings and bullets is an asset rather than a tic. If your output is documentation or a template, that habit works for you. We break this down further in <a href="./chatgpt-vs-claude-for-writing.html">ChatGPT vs Claude for writing</a>.</p>
 
     <h2>Claim 3: Claude's Limits Are Brutal — On Free</h2>
-    <p>Reddit's frustration here is real but frequently mis-stated. On free accounts, we averaged 9 Claude messages before a cooldown versus roughly 30 lightweight GPT-5 messages. That is a genuine five-to-one gap in day-to-day feel. On the $20 tiers the picture changes: Claude Pro averaged 47 messages before any limit and only stopped us on three of fourteen test days, always during long Claude Code runs. We measured this in detail in <a href="./is-claude-pro-worth-it">is Claude Pro worth it</a> and the ChatGPT side in <a href="./is-chatgpt-plus-worth-it">is ChatGPT Plus worth it</a>.</p>
+    <p>Reddit's frustration here is real but frequently mis-stated. On free accounts, we averaged 9 Claude messages before a cooldown versus roughly 30 lightweight GPT-5 messages. That is a genuine five-to-one gap in day-to-day feel. On the $20 tiers the picture changes: Claude Pro averaged 47 messages before any limit and only stopped us on three of fourteen test days, always during long Claude Code runs. We measured this in detail in <a href="./is-claude-pro-worth-it.html">is Claude Pro worth it</a> and the ChatGPT side in <a href="./is-chatgpt-plus-worth-it.html">is ChatGPT Plus worth it</a>.</p>
     <p>So the accurate version of the Reddit claim is: Claude's free tier is a demo, not a workspace. Paid Claude is not meaningfully more restrictive than paid ChatGPT unless you run agents all day.</p>
 
     <h2>Claim 4: ChatGPT Simply Does More</h2>
-    <p>Uncontested. For the same $20, ChatGPT Plus includes image generation, data analysis on uploaded spreadsheets, deep research runs, voice mode, scheduled tasks and a large custom-GPT ecosystem. Claude Pro has none of those. Claude counters with Projects, Artifacts and Claude Code, which are excellent but narrower. If you are buying exactly one subscription and your work is varied, breadth wins — see <a href="../compare/chatgpt-vs-claude">ChatGPT vs Claude</a> for the full feature matrix.</p>
+    <p>Uncontested. For the same $20, ChatGPT Plus includes image generation, data analysis on uploaded spreadsheets, deep research runs, voice mode, scheduled tasks and a large custom-GPT ecosystem. Claude Pro has none of those. Claude counters with Projects, Artifacts and Claude Code, which are excellent but narrower. If you are buying exactly one subscription and your work is varied, breadth wins — see <a href="../compare/chatgpt-vs-claude.html">ChatGPT vs Claude</a> for the full feature matrix.</p>
 
     <h2>Claim 5: "Claude Refuses Everything" — Half-True, And Ageing Badly</h2>
     <p>We ran 40 prompts that are legitimate but sit near a policy edge: security research write-ups, a medication interaction question, violent fiction, competitive analysis of a rival, and so on. Claude declined 4; ChatGPT declined 3. That is nothing like the gap Reddit describes, and most of the highly-upvoted refusal screenshots we traced date from 2024 and early 2025.</p>
     <p>Where the complaint still lands is tone. When Claude does decline, it tends to add a paragraph of moral framing that reads as a lecture, while ChatGPT declines in a sentence and moves on. Same outcome, different bedside manner — and irritation is what gets upvoted.</p>
 
     <h2>Claim 6: "Claude Forgets" — Actually The Opposite</h2>
-    <p>In a 40-turn session with a specific constraint planted at turn 3, Claude still applied it correctly at turn 40; ChatGPT dropped it at turn 31 and had to be reminded. What Reddit is really experiencing is the free tier's shorter effective session plus the cooldown forcing a new chat, which destroys context. That is a limits problem wearing a memory problem's clothing. On genuinely long inputs Claude is the stronger of the two, as our <a href="./claude-vs-gemini-for-long-documents">long-document test</a> showed.</p>
+    <p>In a 40-turn session with a specific constraint planted at turn 3, Claude still applied it correctly at turn 40; ChatGPT dropped it at turn 31 and had to be reminded. What Reddit is really experiencing is the free tier's shorter effective session plus the cooldown forcing a new chat, which destroys context. That is a limits problem wearing a memory problem's clothing. On genuinely long inputs Claude is the stronger of the two, as our <a href="./claude-vs-gemini-for-long-documents.html">long-document test</a> showed.</p>
     <p>ChatGPT does have one real advantage here: persistent cross-chat memory. Claude's equivalent, Projects, is more powerful but only inside a project you set up deliberately.</p>
 
     <h2>Claim 7: "ChatGPT Got Dumber" — We Could Not Reproduce It</h2>
@@ -292,7 +292,7 @@
       </div>
     </div>
     <div class="affiliate-note">
-      <strong>Affiliate disclosure:</strong> AI vs Tool is reader-supported. Some links above are affiliate links, meaning we may earn a commission if you sign up &mdash; at <em>no extra cost to you</em>. This never influences our testing or rankings. Read our full <a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a>.
+      <strong>Affiliate disclosure:</strong> AI vs Tool is reader-supported. Some links above are affiliate links, meaning we may earn a commission if you sign up &mdash; at <em>no extra cost to you</em>. This never influences our testing or rankings. Read our full <a href="../legal/disclaimer.html#affiliate">Affiliate Disclosure</a>.
     </div>
   </section>
 
@@ -301,17 +301,17 @@
     <h2>More AI Chatbots Guides</h2>
     <p>Keep exploring — these related comparisons and guides help you decide.</p>
     <div class="related-links">
-      <a href="../best/best-ai-chatbot-for-coding" class="related-card">
+      <a href="../best/best-ai-chatbot-for-coding.html" class="related-card">
         <h3>Best AI Chatbot for Coding in 2026: 5 Ranked and Tested</h3>
         <p>We ran the same three coding tasks through Claude, ChatGPT, Gemini, Copilot Chat and Grok on live accounts. Here is the …</p>
         <span>Read guide →</span>
       </a>
-      <a href="../best/best-ai-coding-assistants" class="related-card">
+      <a href="../best/best-ai-coding-assistants.html" class="related-card">
         <h3>Best AI Coding Assistants 2026: Claude Code vs Cursor vs Copilot (Ranked)</h3>
         <p>We compared Claude Code, Cursor, and GitHub Copilot across real development tasks in 2026. Here's which AI coding assist…</p>
         <span>Read guide →</span>
       </a>
-      <a href="../best/best-ai-tools-for-students" class="related-card">
+      <a href="../best/best-ai-tools-for-students.html" class="related-card">
         <h3>Best AI Tools for Students in 2026 (Free &amp; Low-Cost Options)</h3>
         <p>Discover the best AI tools for students in 2026. We reviewed 8 AI study tools and rank the top free AI tools for student…</p>
         <span>Read guide →</span>
@@ -340,28 +340,28 @@
         <div class="footer-col">
           <h4>Popular</h4>
           <ul>
-            <li><a href="../compare/chatgpt-vs-claude">ChatGPT vs Claude</a></li>
-            <li><a href="../compare/midjourney-vs-dalle">Midjourney vs DALL-E</a></li>
-            <li><a href="../compare/cursor-vs-copilot">Cursor vs Copilot</a></li>
-            <li><a href="../best/best-ai-writer">Best AI Writer</a></li>
+            <li><a href="../compare/chatgpt-vs-claude.html">ChatGPT vs Claude</a></li>
+            <li><a href="../compare/midjourney-vs-dalle.html">Midjourney vs DALL-E</a></li>
+            <li><a href="../compare/cursor-vs-copilot.html">Cursor vs Copilot</a></li>
+            <li><a href="../best/best-ai-writer.html">Best AI Writer</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>About Us</h4>
           <ul>
-            <li><a href="../about">About AI vs Tool</a></li>
-            <li><a href="../how-we-test">How We Evaluate</a></li>
-            <li><a href="../editorial-policy">Editorial Policy</a></li>
+            <li><a href="../about.html">About AI vs Tool</a></li>
+            <li><a href="../how-we-test.html">How We Evaluate</a></li>
+            <li><a href="../editorial-policy.html">Editorial Policy</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Legal</h4>
           <ul>
-            <li><a href="../legal/privacy-policy">Privacy Policy</a></li>
-            <li><a href="../legal/terms-of-service">Terms of Service</a></li>
-            <li><a href="../legal/disclaimer">Disclaimer</a></li>
-            <li><a href="../legal/cookie-policy">Cookie Policy</a></li>
-            <li><a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a></li>
+            <li><a href="../legal/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="../legal/terms-of-service.html">Terms of Service</a></li>
+            <li><a href="../legal/disclaimer.html">Disclaimer</a></li>
+            <li><a href="../legal/cookie-policy.html">Cookie Policy</a></li>
+            <li><a href="../legal/disclaimer.html#affiliate">Affiliate Disclosure</a></li>
           </ul>
         </div>
       </div>
