@@ -151,6 +151,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://aivstool.com/blog/chatgpt-vs-claude-for-students</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://aivstool.com/blog/chatgpt-vs-claude-for-writing</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
@@ -273,6 +279,12 @@
   <url>
     <loc>https://aivstool.com/compare/elevenlabs-vs-playht</loc>
     <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aivstool.com/compare/grok-4-vs-chatgpt-5</loc>
+    <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
