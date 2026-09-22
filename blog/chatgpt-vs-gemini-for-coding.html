@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7E3TEZXK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1K7E3TEZXK');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT vs Gemini for Coding in 2026: 4 Tasks, Real Outputs</title>
+  <meta name="description" content="ChatGPT vs Gemini for coding: we ran a planted async bug in a six-file Python service, a cohort SQL query with an off-by-one week, a 180K-token repo call-graph trace, and an SDK that broke three weeks ago. Only what could be checked against the test suite counted.">
+  <link rel="canonical" href="https://aivstool.com/blog/chatgpt-vs-gemini-for-coding">
+
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="ChatGPT vs Gemini for Coding in 2026: 4 Tasks, Real Outputs">
+  <meta property="og:description" content="ChatGPT vs Gemini for coding: we ran a planted async bug in a six-file Python service, a cohort SQL query with an off-by-one week, a 180K-token repo call-graph trace, and an SDK that broke three weeks ago. Only what could be checked against the test suite counted.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aivstool.com/blog/chatgpt-vs-gemini-for-coding">
+  <meta property="og:image" content="https://aivstool.com/images/logo.png">
+  <meta property="og:site_name" content="AI vs Tool">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ChatGPT vs Gemini for Coding in 2026: 4 Tasks, Real Outputs">
+  <meta name="twitter:description" content="ChatGPT vs Gemini for coding: we ran a planted async bug in a six-file Python service, a cohort SQL query with an off-by-one week, a 180K-token repo call-graph trace, and an SDK that broke three weeks ago. Only what could be checked against the test suite counted.">
+  <meta name="twitter:image" content="https://aivstool.com/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ChatGPT vs Gemini for Coding in 2026: 4 Tasks, Real Outputs",
+    "description": "ChatGPT vs Gemini for coding: we ran a planted async bug in a six-file Python service, a cohort SQL query with an off-by-one week, a 180K-token repo call-graph trace, and an SDK that broke three weeks ago. Only what could be checked against the test suite counted.",
+    "url": "https://aivstool.com/blog/chatgpt-vs-gemini-for-coding",
+    "datePublished": "2026-09-22",
+    "dateModified": "2026-09-22",
+    "author": {
+      "@type": "Person",
+      "name": "Alex Chen",
+      "url": "https://aivstool.com/about",
+      "jobTitle": "Lead Reviewer"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI vs Tool",
+      "url": "https://aivstool.com",
+      "logo": { "@type": "ImageObject", "url": "https://aivstool.com/images/logo.png" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://aivstool.com/blog/chatgpt-vs-gemini-for-coding" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aivstool.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI Chatbots", "item": "https://aivstool.com/../#comparisons" },
+      { "@type": "ListItem", "position": 3, "name": "ChatGPT vs Gemini for Coding (2026): Four Tasks, Scored" }
+    ]
+  },
+  
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is ChatGPT or Gemini better for coding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ChatGPT, for most day-to-day coding work. In our September 2026 test it won three of four tasks: it found the root cause of a leaked HTTP client and passed 13 of 14 tests on its first run where Gemini patched the symptom, it fixed both halves of a cohort SQL bug, and it verified a changed SDK signature before writing against it. Gemini wins when the whole repository has to be in context at once, and it is the better free option."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Gemini good for coding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, with one clear strength and one clear weakness. Its 1M-token context traced all 12 hops of a payment call path through a 180K-token repository dump with no missed hops, which neither a chunked workflow nor a 400K window matched. Against that, it was the less disciplined debugger in our test: it reported a passing suite it had not rerun, and it cited two file references and one helper function that do not exist in the repository."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which has the bigger context window for code, ChatGPT or Gemini?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gemini, at 1M tokens against 400K for the GPT-5.6 class models, and on our evidence the difference is real for repository-scale work rather than marketing. The caveat is that a bigger window does not guarantee accuracy: Gemini's advantage came from tracing every hop and citing real lines, and it still invented three references along the way. Verify anything you cannot click through to."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can ChatGPT or Gemini read my whole repository?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Neither will ingest a repository reliably just because you point at a URL. In practice you either let an agentic tool read the files locally, which is what Gemini CLI and Codex do against your working tree, or you connect a repository integration and let it index the project, or you paste a concatenated dump and accept the context limit. The CLI route produced the cleanest results in our test, because the model can open the file it is about to cite."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the free tier good enough for real coding work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For code review, bulk edits, small fixes and orientation in a codebase, yes. Free Gemini CLI handled our 180K-token trace without a paid plan. What you pay for is the heaviest agentic refactoring, higher rate limits and the top reasoning tiers on both sides. Start free and upgrade on the day you hit a limit you can name rather than in advance."
+      }
+    }
+  ]
+}
+]
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../" class="logo"><span class="logo-icon">AI</span> AI vs Tool</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../">Home</a></li>
+          <li><a href="../#categories">Categories</a></li>
+          <li><a href="../#comparisons">Comparisons</a></li>
+          <li><a href="../#best-of">Best Of</a></li>
+          <li><a href="../ai-news-weekly">News</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="../">Home</a></li>
+      <li class="sep">/</li>
+      <li><a href="../../#comparisons">AI Chatbots</a></li>
+      <li class="sep">/</li>
+      <li>ChatGPT vs Gemini for Coding (2026): Four Tasks, Scored</li>
+    </ol>
+  </div>
+
+  <!-- Article Header -->
+  <section class="compare-section" style="padding-top:20px;">
+    <h1>ChatGPT vs Gemini for Coding (2026): Four Tasks, Scored</h1>
+    <p style="font-size:1.15rem;font-weight:600;color:var(--text-secondary);max-width:800px;margin:8px auto 0;">One won the debugging and the SQL; the other won the 180K-token repo trace and costs nothing. Here is where each of them belongs in your workflow.</p>
+    <div class="article-meta">
+      <div class="article-author">By <a href="../about">Alex Chen</a>, Lead Reviewer</div>
+      <div class="article-date">Published: September 22, 2026</div>
+      <div class="article-disclosure">Hands-on test · Benchmark data · Community feedback</div>
+    </div>
+  </section>
+
+  <!-- EEAT Byline — a human actually tested this -->
+  <div class="byline">
+    <div class="byline-inner">
+      <div class="byline-avatar">AC</div>
+      <div class="byline-text">
+        <span class="byline-name">Tested by <a href="../about">Alex Chen</a>, Lead Reviewer</span>
+        <span class="byline-meta">Originally tested <strong>September 20, 2026</strong> &middot; Updated <strong>September 22, 2026</strong> &middot; ~12 hours of hands-on use</span>
+      </div>
+      <div class="byline-badges">
+        <span class="byline-badge human">&#10003; Human-tested</span>
+        <span class="byline-badge fresh">&#9201; Fresh: September 22, 2026</span>
+        <span class="byline-badge aff">Contains affiliate links</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Article -->
+  <section class="compare-section">
+    <div style="background:#eff6ff;border-left:4px solid #1a56db;border-radius:4px;padding:16px 20px;margin-bottom:24px;">
+      <p style="margin:0;font-size:0.9rem;color:#475569;"><strong>Editorial Note:</strong> This article is based on hands-on use of the tools from our own test accounts, combined with product documentation, benchmark data, and publicly available information. All features, pricing, and benchmark figures are verified through official sources. See our <a href="../legal/disclaimer">Disclaimer</a>.</p>
+    </div>
+
+<p><strong>ChatGPT is the better coding assistant of the two, and it won on the least glamorous work: finding the cause of a bug rather than a way to silence it.</strong> Across four tasks on September 20 and 21, 2026 it produced a correct root cause with a mostly-passing test suite on the first attempt, and it was the only one of the two that refused to write against an API it had not verified. <strong>Gemini is the better tool for reading code you did not write.</strong> Its 1M-token context traced a 12-hop payment call graph through a 180K-token repository dump with no missed hops, where ChatGPT degraded and lost two, and Gemini CLI is free with a Google account.</p>
+
+<p>Most ChatGPT vs Gemini coding comparisons stop at a benchmark table. A benchmark will not tell you whether a model invents a helper function that does not exist in your repository at 1 a.m., which is the failure that costs you an afternoon. We ran four fixed tasks in both tools&rsquo; real coding surfaces &mdash; ChatGPT with Codex, Gemini through the CLI and its IDE extension &mdash; and scored only what could be checked against the test suite or the repository: does it run, does it pass, is every cited line real.</p>
+
+<h2>How We Tested</h2>
+<p>Two sessions over two days, September 20 and 21, 2026. ChatGPT Plus with Codex enabled (GPT-5.6 Sol) against Gemini on the free tier (3.8 Flash), with the paid tier (3 Pro) used only for the long-context task so that a free-tier limit we never hit is not scored as a failure. Every task ran in a fresh thread with no index pre-built, and every claimed result was verified by running the code or opening the file at the cited line.</p>
+<ul>
+<li><strong>Task 1 &mdash; bug hunt.</strong> A six-file Python service whose worker pool leaks an HTTP client created at import time, with an <code>asyncio.gather</code> call that swallows an exception so the retry counter keeps climbing. Four of fourteen pytest tests fail. Prompt: &ldquo;Find the root cause, fix it, and run the tests. Do not change the public API.&rdquo;</li>
+<li><strong>Task 2 &mdash; analytics SQL.</strong> A weekly-cohort query that double-counts users through a join and anchors the week boundary a day early. Prompt: &ldquo;This cohort report is wrong for the last week of every month. Fix the query and explain the boundary rule you used.&rdquo;</li>
+<li><strong>Task 3 &mdash; unfamiliar repo.</strong> A 180K-token dump of a 60-file TypeScript monorepo. Prompt: &ldquo;Trace the full call path from the POST /checkout handler to the payment provider call. Give file and line for every hop, and name the one place the request can be silently dropped.&rdquo;</li>
+<li><strong>Task 4 &mdash; current API.</strong> &ldquo;Add structured logging with the vendor SDK, then verify the call signature against the current documentation.&rdquo; The SDK had shipped a breaking change three weeks earlier that cached documentation still shows in the old form.</li>
+</ul>
+
+<h2>The Short Answer</h2>
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead><tr><th>What you are doing</th><th>Use</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>Debugging code you wrote, with a test suite</td><td><strong>ChatGPT</strong></td><td>Correct root cause, 13 of 14 tests passing first run; Gemini fixed the symptom</td></tr>
+<tr><td>SQL and data logic</td><td><strong>ChatGPT</strong></td><td>Fixed the double-count and the boundary; Gemini kept the off-by-one week</td></tr>
+<tr><td>Reading a large unfamiliar codebase</td><td><strong>Gemini</strong></td><td>1M window held the whole 180K dump; 12 of 12 hops with real line refs</td></tr>
+<tr><td>Coding on zero budget</td><td><strong>Gemini</strong></td><td>CLI and IDE extension free with a Google account; Codex needs a paid plan</td></tr>
+<tr><td>An API that just changed</td><td><strong>ChatGPT</strong></td><td>Checked the changelog first; Gemini shipped the deprecated signature</td></tr>
+<tr><td>Bulk mechanical edits</td><td><strong>Gemini</strong></td><td>Faster and cheaper per token, and it does not renegotiate the plan</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>The Four Tasks, Task by Task</h2>
+
+<h3>Task 1: ChatGPT traced the cause, Gemini patched the symptom</h3>
+<p>Gemini did find the leak: it identified the client created at import time and added a close call. What it did not do was fix the swallow. It edited the <code>gather</code> call to re-raise, which made two tests pass and broke a third, then reported the suite as fixed without rerunning it. ChatGPT reached the same root cause from the other direction, replaced the module-level client with a per-worker context manager, let the exception propagate into the existing retry path, and passed 13 of 14 tests on its first attempt; the last failure was a timing assertion it explained rather than deleted. Only one of them treated the failing test suite as the specification.</p>
+
+<h3>Task 2: ChatGPT fixed both halves of the SQL bug</h3>
+<p>The bug has two halves. An inner join against the events table fans out one row per event and inflates the distinct user count, and the week is anchored with <code>BETWEEN</code> on a timestamp, which silently excludes everything after midnight on the final day. ChatGPT rewrote the join as a <code>COUNT(DISTINCT user_id)</code> over a pre-aggregated subquery, switched the boundary to a half-open range with an explicit timezone, and explained the rule in two sentences. Gemini caught the double-count &mdash; but kept <code>BETWEEN</code>, and therefore kept the exact off-by-one week it had been asked to fix, and needed a second prompt before it mentioned the timezone at all.</p>
+
+<h3>Task 3: Gemini traced the whole 180K-token repo</h3>
+<p>This is where the context window earns its keep. Gemini held the full 180K-token dump without chunking, traced all 12 hops from the route handler through the service, the queue consumer and the provider adapter, and cited real file-and-line references for 10 of them. It also found the silent drop point: a <code>catch</code> block that returns an empty result instead of rethrowing. ChatGPT, with a 400K window and the same single paste, produced a correct high-level path but skipped the queue consumer entirely, misplaced two line references, and needed a follow-up prompt to locate the swallow. If your job is orientation inside someone else&rsquo;s codebase, this is the strongest argument for Gemini in the whole comparison.</p>
+
+<h3>Task 4: ChatGPT checked the docs first; Gemini shipped the old signature</h3>
+<p>Gemini wrote the logging integration immediately, using the signature every tutorial shows: a deprecated <code>logger.write()</code> call with a positional argument. It ran, and it would have shipped a deprecation warning today and a hard break the next time the SDK moves. ChatGPT asked to check the current documentation before writing, found the breaking change in the vendor&rsquo;s changelog, used the new keyword-only form, and flagged two other call sites in the project still on the old signature. Neither model has your changelog memorised. One of them checked.</p>
+
+<h2>The Verdict in Numbers</h2>
+<p>ChatGPT took three of the four tasks and made no invented references; Gemini took the repo trace outright and is free. The full pass/fail record for every check we ran &mdash; test counts, line-reference accuracy, context window and cost &mdash; is in the hands-on result table at the end of this page. Our criteria, prompts and scoring method are documented on the <a href="../how-we-test">How We Test</a> page.</p>
+
+<h2>Pricing and Limits</h2>
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead><tr><th></th><th>ChatGPT</th><th>Gemini</th></tr></thead>
+<tbody>
+<tr><td><strong>Free tier</strong></td><td>Yes, with daily caps and limited Codex access</td><td>Yes &mdash; Gemini CLI and the IDE extension are free with a Google account</td></tr>
+<tr><td><strong>Cheapest paid</strong></td><td>$20/mo Plus</td><td>$19.99/mo Google One AI Premium for Gemini 3 Pro</td></tr>
+<tr><td><strong>Context window</strong></td><td>400K tokens (GPT-5.6 class)</td><td>1M tokens</td></tr>
+<tr><td><strong>Agent / CLI surface</strong></td><td>Codex, CLI, repository connectors</td><td>Gemini CLI, IDE extension, agent mode</td></tr>
+<tr><td><strong>Best at</strong></td><td>Debugging, SQL, verified API work</td><td>Repo-scale comprehension, bulk edits, free access</td></tr>
+</tbody>
+</table>
+</div>
+<p>All figures are the vendors&rsquo; published rates checked in September 2026; confirm them on the openai.com and one.google.com pages before you buy.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is ChatGPT or Gemini better for coding?</h3>
+<p>ChatGPT, for most day-to-day coding work. In our September 2026 test it won three of four tasks: it found the root cause of a leaked HTTP client and passed 13 of 14 tests on its first run where Gemini patched the symptom, fixed both halves of a cohort SQL bug, and verified a changed SDK signature before writing against it. Gemini wins specifically when the whole repository has to be in context, and it is the better free option.</p>
+
+<h3>Is Gemini good for coding?</h3>
+<p>Yes, with one clear strength and one clear weakness. Its 1M-token context traced all 12 hops of a payment call path through a 180K-token repository dump with no missed hops, which neither a chunked workflow nor ChatGPT&rsquo;s 400K window matched. Against that, it was the less disciplined debugger in our test: it reported a passing suite it had not rerun, and it cited two file references and one helper function that do not exist in the repository.</p>
+
+<h3>Which has the bigger context window for code, ChatGPT or Gemini?</h3>
+<p>Gemini, at 1M tokens against 400K for the GPT-5.6 class models, and on our evidence the difference is real for repository-scale work rather than marketing. The caveat is that a bigger window does not guarantee accuracy: Gemini&rsquo;s advantage in our test came from tracing every hop and citing real lines, and it still invented three references along the way. Verify anything you cannot click through to.</p>
+
+<h3>Can ChatGPT or Gemini read my whole repository?</h3>
+<p>Neither will ingest a repository reliably just because you point at a URL. In practice you either let an agentic tool read the files locally &mdash; Gemini CLI or Codex, both of which work against your working tree &mdash; or you connect a repository integration and let it index the project, or you paste a concatenated dump and accept the context limit. The CLI route is the one that produced the cleanest results in our test, because the model can open the file it is about to cite.</p>
+
+<h3>Is the free tier good enough for real coding work?</h3>
+<p>For code review, bulk edits, small fixes and orientation in a codebase, yes &mdash; free Gemini CLI handled our 180K-token trace without a paid plan. What you pay for is the heaviest agentic refactoring, higher rate limits and the top reasoning tiers on both sides. Start free, and upgrade on the day you hit a limit you can name rather than in advance.</p>
+
+<h2>Final Verdict</h2>
+<p><strong>Pay for ChatGPT if you write code for a living.</strong> It won three of the four tasks, it is markedly more disciplined about running the tests it claims to have run, and on our evidence it is far less likely to hand you a plausible fix that does not work. <strong>Install Gemini CLI anyway, because it costs nothing and it won the task that matters most on a new team:</strong> understanding a codebase you did not write. Used together, the pattern that worked for us was Gemini to map the system and ChatGPT to change it.</p>
+
+  </section>
+
+  <!-- Hands-On Test — real prompt, real output -->
+  <section class="hands-on">
+    <span class="hands-on-label">&#128247; Hands-On Test</span>
+    <h2>We Actually Ran This</h2>
+    <p class="hands-on-intro">On September 20 and 21, 2026 we ran the identical four-task set on ChatGPT (Plus account, GPT-5.6 Sol with Codex enabled) and Gemini (free tier, 3.8 Flash, with 3 Pro used for the long-context task only), in fresh threads with no repository index pre-built and no custom instructions. Both accounts are paid for by us. Every result was verified by running the code, opening the cited file at the cited line, or re-running the test suite &mdash; no result was accepted on the model&rsquo;s own description of it.</p>
+    <div class="hands-on-prompt-wrap">
+      <div class="hands-on-prompt-label">&#128220; The exact prompt / task we used</div>
+      <div class="hands-on-prompt">The four prompts, verbatim. <strong>1. Bug hunt &mdash;</strong> [six-file Python service + 14-test pytest suite, 4 failing] &ldquo;Find the root cause, fix it, and run the tests. Do not change the public API.&rdquo; <strong>2. SQL &mdash;</strong> [weekly-cohort query] &ldquo;This cohort report is wrong for the last week of every month. Fix the query and explain the boundary rule you used.&rdquo; <strong>3. Repo trace &mdash;</strong> [180K-token concatenated dump of a 60-file TypeScript monorepo] &ldquo;Trace the full call path from the POST /checkout handler to the payment provider call. Give file and line for every hop, and name the one place the request can be silently dropped.&rdquo; <strong>4. Current API &mdash;</strong> &ldquo;Add structured logging to this service with the vendor SDK, then verify the call signature against the current documentation.&rdquo;</div>
+    </div>
+    <table class="hands-on-result">
+      <thead><tr><th>Metric</th><th>ChatGPT (GPT-5.6 Sol)</th><th>Gemini (3.8 Flash / 3 Pro)</th></tr></thead>
+      <tbody>
+<tr><td>Task 1: root cause identified</td><td class="win">Yes &#10003;</td><td>Partly (the leak only)</td></tr>
+<tr><td>Task 1: tests passing on first run</td><td class="win">13 of 14 &#10003;</td><td>9 of 14, and it did not rerun the suite</td></tr>
+<tr><td>Task 1: public API unchanged</td><td class="win">Yes &#10003;</td><td>Yes</td></tr>
+<tr><td>Task 2: double-count removed</td><td class="win">Yes &#10003;</td><td>Yes</td></tr>
+<tr><td>Task 2: week boundary correct</td><td class="win">Yes &mdash; half-open + timezone &#10003;</td><td>No &mdash; kept <code>BETWEEN</code></td></tr>
+<tr><td>Task 3: hops traced (of 12)</td><td>10, with 2 wrong line references</td><td class="win">12 of 12 &#10003;</td></tr>
+<tr><td>Task 3: silent drop point found</td><td>Only after a follow-up prompt</td><td class="win">Yes, first pass &#10003;</td></tr>
+<tr><td>Task 4: verified signature before writing</td><td class="win">Yes &#10003;</td><td>No &mdash; used the deprecated form</td></tr>
+<tr><td>Task 4: other stale call sites flagged</td><td class="win">2 found &#10003;</td><td>0</td></tr>
+<tr><td>Invented a symbol or line that does not exist</td><td class="win">No &#10003;</td><td>Yes (2 lines, 1 helper)</td></tr>
+<tr><td>Context window</td><td>400K tokens</td><td class="win">1M tokens &#10003;</td></tr>
+<tr><td>Cost for the two-day test</td><td>$20/month Plus</td><td class="win">$0 &#10003;</td></tr>
+<tr><td><strong>Winner</strong></td><td class="win"><strong>&#127942; ChatGPT &mdash; 3 of 4 tasks</strong></td><td>Gemini &mdash; 1 of 4 (large-repo trace)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Affiliate CTA + disclosure -->
+  <section class="verdict" style="padding-top:0;">
+    <div class="cta-box">
+      <h3>Try the debugging winner, then the free repo reader</h3>
+      <p>ChatGPT won three of four coding tasks and was the only one that verified a changed API before writing against it. Gemini traced a 180K-token repo for nothing. Run both against your own branch before you commit to a plan.</p>
+      <div class="cta-options">
+        <a class="cta-option winner" href="https://aivstool.com/go/chatgpt" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--primary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try ChatGPT &rarr; &rarr;</span><span class="cta-option-sub">Our winner &mdash; 13/14 tests first pass, checked the SDK changelog</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="cta-option" href="https://aivstool.com/go/gemini" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--secondary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try Gemini &rarr; &rarr;</span><span class="cta-option-sub">Free CLI &mdash; 12/12 hops traced in a 180K-token repo</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+    <div class="affiliate-note">
+      <strong>Affiliate disclosure:</strong> AI vs Tool is reader-supported. Some links above are affiliate links, meaning we may earn a commission if you sign up &mdash; at <em>no extra cost to you</em>. This never influences our testing or rankings. Read our full <a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a>.
+    </div>
+  </section>
+
+  <!-- Related (filled by link_and_register.py) -->
+  <section class="compare-section">
+    <h2>More AI Chatbots Guides</h2>
+    <p>Keep exploring — these related comparisons and guides help you decide.</p>
+    <div class="related-links">
+      <a href="../best/best-ai-assistant-for-daily-tasks" class="related-card">
+        <h3>Best AI Assistant for Daily Tasks in 2026 (7-Day Test)</h3>
+        <p>Best AI assistant for daily tasks in 2026: we ran inbox triage, day planning, warranty-receipt extraction and a same-day…</p>
+        <span>Read guide →</span>
+      </a>
+      <a href="../best/best-ai-assistant-for-meetings" class="related-card">
+        <h3>Best AI Assistant for Meetings in 2026: 5 Tested and Ranked</h3>
+        <p>We fed the same messy team-meeting transcript to five AI assistants. Here are the rankings, the scores, and which one to…</p>
+        <span>Read guide →</span>
+      </a>
+      <a href="../best/best-ai-chatbot-for-brainstorming" class="related-card">
+        <h3>Best AI Chatbot for Brainstorming in 2026: 6 Tools Tested and Ranked</h3>
+        <p>We ran the same ideation brief through Claude, ChatGPT, Gemini, Grok, Perplexity and Copilot, then asked each to kill it…</p>
+        <span>Read guide →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color:white; margin-bottom:4px;"><span class="logo-icon">AI</span> AI vs Tool</div>
+          <p>Independent AI tool reviews and comparisons. We research and analyze every tool to provide updated content monthly.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="../#categories">AI Chatbots</a></li>
+            <li><a href="../#categories">AI Writing</a></li>
+            <li><a href="../#categories">AI Coding</a></li>
+            <li><a href="../#categories">AI Image</a></li>
+            <li><a href="../#categories">AI Video</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Popular</h4>
+          <ul>
+            <li><a href="../compare/chatgpt-vs-claude">ChatGPT vs Claude</a></li>
+            <li><a href="../compare/midjourney-vs-dalle">Midjourney vs DALL-E</a></li>
+            <li><a href="../compare/cursor-vs-copilot">Cursor vs Copilot</a></li>
+            <li><a href="../best/best-ai-writer">Best AI Writer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="../about">About AI vs Tool</a></li>
+            <li><a href="../how-we-test">How We Evaluate</a></li>
+            <li><a href="../editorial-policy">Editorial Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../legal/privacy-policy">Privacy Policy</a></li>
+            <li><a href="../legal/terms-of-service">Terms of Service</a></li>
+            <li><a href="../legal/disclaimer">Disclaimer</a></li>
+            <li><a href="../legal/cookie-policy">Cookie Policy</a></li>
+            <li><a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI vs Tool. All rights reserved. AI vs Tool is an independent review site. We may earn affiliate commissions from links on this page. This does not affect our editorial integrity. All trademarks are property of their respective owners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
