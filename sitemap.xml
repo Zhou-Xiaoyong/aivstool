@@ -32,13 +32,13 @@
   </url>
   <url>
     <loc>https://aivstool.com/best/best-ai-assistant-for-daily-tasks</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aivstool.com/best/best-ai-assistant-for-meetings</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://aivstool.com/best/best-ai-chatbot-for-coding</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -205,8 +205,20 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://aivstool.com/blog/claude-vs-chatgpt-for-long-form-content</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://aivstool.com/blog/claude-vs-gemini-for-long-documents</loc>
     <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aivstool.com/blog/cursor-vs-github-copilot</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

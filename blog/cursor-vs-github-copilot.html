@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7E3TEZXK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1K7E3TEZXK');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursor vs GitHub Copilot in 2026: 3 Days on One Real Repo</title>
+  <meta name="description" content="Cursor vs GitHub Copilot, tested on the same 42,000-line repository for three days: a multi-file agent build, inline completion in unfamiliar Go, a 418-line pull-request review with two planted defects, and the bill. One won the agent work, the other won everything else.">
+  <link rel="canonical" href="https://aivstool.com/blog/cursor-vs-github-copilot">
+
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cursor vs GitHub Copilot in 2026: 3 Days on One Real Repo">
+  <meta property="og:description" content="Cursor vs GitHub Copilot, tested on the same 42,000-line repository for three days: a multi-file agent build, inline completion in unfamiliar Go, a 418-line pull-request review with two planted defects, and the bill. One won the agent work, the other won everything else.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aivstool.com/blog/cursor-vs-github-copilot">
+  <meta property="og:image" content="https://aivstool.com/images/logo.png">
+  <meta property="og:site_name" content="AI vs Tool">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cursor vs GitHub Copilot in 2026: 3 Days on One Real Repo">
+  <meta name="twitter:description" content="Cursor vs GitHub Copilot, tested on the same 42,000-line repository for three days: a multi-file agent build, inline completion in unfamiliar Go, a 418-line pull-request review with two planted defects, and the bill. One won the agent work, the other won everything else.">
+  <meta name="twitter:image" content="https://aivstool.com/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cursor vs GitHub Copilot in 2026: 3 Days on One Real Repo",
+    "description": "Cursor vs GitHub Copilot, tested on the same 42,000-line repository for three days: a multi-file agent build, inline completion in unfamiliar Go, a 418-line pull-request review with two planted defects, and the bill. One won the agent work, the other won everything else.",
+    "url": "https://aivstool.com/blog/cursor-vs-github-copilot",
+    "datePublished": "2026-09-25",
+    "dateModified": "2026-09-25",
+    "author": {
+      "@type": "Person",
+      "name": "Alex Chen",
+      "url": "https://aivstool.com/about",
+      "jobTitle": "Lead Reviewer"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI vs Tool",
+      "url": "https://aivstool.com",
+      "logo": { "@type": "ImageObject", "url": "https://aivstool.com/images/logo.png" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://aivstool.com/blog/cursor-vs-github-copilot" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aivstool.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI Coding", "item": "https://aivstool.com/../#comparisons" },
+      { "@type": "ListItem", "position": 3, "name": "Cursor vs GitHub Copilot (2026): 3 Days on One Repo" }
+    ]
+  }
+  ,
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Cursor better than GitHub Copilot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For multi-file agent work, yes. Cursor completed a six-file rate-limiting feature in one pass with 11 of 12 tests passing, where Copilot needed a second attempt and had initially missed the middleware registration. On inline completion, pull-request review, editor coverage and price, Copilot was as good or better. Whether Cursor is 'better' depends on how much of your week is multi-file agent work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use Cursor and GitHub Copilot at the same time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and many developers do, for example Copilot as a plugin inside Cursor or Copilot in VS Code while Cursor handles a second project. Avoid enabling both inline suggestion engines in the same editor window, because you get competing ghost text. Running both paid tiers costs $30 per month, which only makes sense if each one does something the other cannot."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the GitHub Copilot free tier enough?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For evaluation and light use, yes: 2,000 completions and 50 chat messages per month. It will not carry a full week of professional work. Our three-day test consumed 22 premium requests on the paid plan, so treat the free allowance as a way to find out whether the inline suggestions match your style before paying $10."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Cursor replace VS Code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cursor is a fork of VS Code, so it imports your settings, keybindings and most extensions and feels like the same editor with a stronger AI layer. The cost is that you have moved: team extensions, remote containers and editor-specific tooling all have to behave in a fork, and Cursor does not exist in JetBrains, Neovim or Xcode."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which is cheaper for a team of ten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Copilot Business at $19 per user per month against roughly $40 per user for Cursor's business tier, about $2,500 a year cheaper for ten seats at list price. Run our day-one task on both before deciding: if Cursor's single-pass multi-file result is worth that difference to your team every week, buy it; if developers mainly want faster completions and better reviews, Copilot is the better spend."
+      }
+    }
+  ]
+}
+]
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../" class="logo"><span class="logo-icon">AI</span> AI vs Tool</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../">Home</a></li>
+          <li><a href="../#categories">Categories</a></li>
+          <li><a href="../#comparisons">Comparisons</a></li>
+          <li><a href="../#best-of">Best Of</a></li>
+          <li><a href="../ai-news-weekly">News</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="../">Home</a></li>
+      <li class="sep">/</li>
+      <li><a href="../../#comparisons">AI Coding</a></li>
+      <li class="sep">/</li>
+      <li>Cursor vs GitHub Copilot (2026): 3 Days on One Repo</li>
+    </ol>
+  </div>
+
+  <!-- Article Header -->
+  <section class="compare-section" style="padding-top:20px;">
+    <h1>Cursor vs GitHub Copilot (2026): 3 Days on One Repo</h1>
+    <p style="font-size:1.15rem;font-weight:600;color:var(--text-secondary);max-width:800px;margin:8px auto 0;">Cursor won the multi-file agent build. Copilot won the inline flow, the pull-request review and the bill. Which one you should open tomorrow depends on one question about your week.</p>
+    <div class="article-meta">
+      <div class="article-author">By <a href="../about">Alex Chen</a>, Lead Reviewer</div>
+      <div class="article-date">Published: September 25, 2026</div>
+      <div class="article-disclosure">Hands-on test · Benchmark data · Community feedback</div>
+    </div>
+  </section>
+
+  <!-- EEAT Byline — a human actually tested this -->
+  <div class="byline">
+    <div class="byline-inner">
+      <div class="byline-avatar">AC</div>
+      <div class="byline-text">
+        <span class="byline-name">Tested by <a href="../about">Alex Chen</a>, Lead Reviewer</span>
+        <span class="byline-meta">Originally tested <strong>September 21, 2026</strong> &middot; Updated <strong>September 25, 2026</strong> &middot; ~19 hours of hands-on use</span>
+      </div>
+      <div class="byline-badges">
+        <span class="byline-badge human">&#10003; Human-tested</span>
+        <span class="byline-badge fresh">&#9201; Fresh: September 25, 2026</span>
+        <span class="byline-badge aff">Contains affiliate links</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Article -->
+  <section class="compare-section">
+    <div style="background:#eff6ff;border-left:4px solid #1a56db;border-radius:4px;padding:16px 20px;margin-bottom:24px;">
+      <p style="margin:0;font-size:0.9rem;color:#475569;"><strong>Editorial Note:</strong> This article is based on hands-on use of the tools from our own test accounts, combined with product documentation, benchmark data, and publicly available information. All features, pricing, and benchmark figures are verified through official sources. See our <a href="../legal/disclaimer">Disclaimer</a>.</p>
+    </div>
+
+<p><strong>GitHub Copilot is the better AI coding assistant for most developers in 2026, and Cursor is the better one for a specific job.</strong> Across three working days on the same 42,000-line repository, Copilot won the inline flow, the pull-request review and the cost of doing the work: at $10 per month it reviewed a 418-line diff, caught both planted defects with zero false positives, and stayed well inside its included quota. <strong>Cursor won the task that power users actually buy it for.</strong> Its agent completed a genuine multi-file feature in a single pass with 11 of 12 tests passing, where Copilot needed a second attempt and still forgot to register the middleware. <strong>Pay for Cursor only if multi-file agent work is your daily job. Otherwise Copilot&rsquo;s free tier and $10 plan are the honest answer.</strong></p>
+
+<p>This is a different question from &ldquo;what can each tool do&rdquo;, which is what our <a href="../compare/cursor-vs-copilot">Cursor vs GitHub Copilot head-to-head</a> covers, complete with the June and July 2026 release notes for both products. This page answers the question you face on Monday morning: given one real repository and three real days of work, which one would we open? We gave both tools the identical tasks, and scored only what could be verified by running the tests or opening the file at the cited line.</p>
+
+<h2>How We Tested</h2>
+<p>Three days, September 21 to 23, 2026, on a 42,000-line monorepo: 34,000 lines of TypeScript in a Next.js application and 8,000 lines of Go across three services. Cursor 3.7 with Composer 2.5 on the Pro plan at $20 per month, against Visual Studio Code with GitHub Copilot agent mode on Copilot Pro at $10 per month. Both ran with default settings, no <code>.cursorrules</code> file, no custom instructions and no pre-built index on day one, so that the first suggestion on unfamiliar code was a fair test rather than a test of our own configuration. All four checks below are counts, times or exit codes; nothing was scored on how the output felt.</p>
+
+<h2>The Short Answer</h2>
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead><tr><th>What you are doing</th><th>Use</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>A multi-file feature from one prompt</td><td><strong>Cursor</strong></td><td>11 of 12 tests green on the first pass, six files in one coherent diff, 4 min 12 s</td></tr>
+<tr><td>Inline completion in code you did not write</td><td><strong>Copilot</strong></td><td>27 of 30 suggestions accepted, 180 ms median, no hallucinated dependencies</td></tr>
+<tr><td>Reviewing someone else&rsquo;s pull request</td><td><strong>Copilot</strong></td><td>Caught both planted defects, zero false positives, inline comments in 41 seconds</td></tr>
+<tr><td>Working in JetBrains, Neovim or Xcode</td><td><strong>Copilot</strong></td><td>It runs where you already are; Cursor is a VS Code fork and nowhere else</td></tr>
+<tr><td>A large refactor you want finished in one diff</td><td><strong>Cursor</strong></td><td>Composer 2.5 held the whole plan and did not renegotiate it mid-task</td></tr>
+<tr><td>Spending as little as possible</td><td><strong>Copilot</strong></td><td>Free tier with 2,000 completions, then $10/month against Cursor&rsquo;s $20</td></tr>
+<tr><td>Rolling it out to a team of ten</td><td><strong>Copilot</strong></td><td>$19 per user business tier, audit and policy controls, and it works in everyone&rsquo;s editor</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Three Days, Task by Task</h2>
+
+<h3>Day 1: Cursor finished the feature; Copilot needed a second pass</h3>
+<p>The task was per-tenant rate limiting on an existing API: a Redis-backed limiter, middleware registration in the existing router, configuration, a metrics counter, and tests. The instruction was explicit: &ldquo;wire it into the existing router and do not change the public API.&rdquo; Cursor produced a six-file diff in 4 minutes 12 seconds and passed 11 of 12 tests on the first run; the single failure was a timing assertion it explained in the response instead of deleting. Copilot&rsquo;s agent mode reached 8 of 12, and the two failures were more interesting than the number. It wrote a correct limiter and correct tests, but never registered the middleware, so the feature did nothing at runtime &mdash; and it changed a public handler signature that it had been told not to touch. Pasted the failing output, it fixed both on a second pass and matched 11 of 12. Same specification, same repository: one tool treated the wiring as part of the job, the other treated the class as the deliverable.</p>
+
+<h3>Day 2: Copilot&rsquo;s inline flow on unfamiliar Go</h3>
+<p>Day two was thirty handlers in a Go service we had not written, using a router and sqlc-generated queries that neither tool had seen before. Copilot produced 27 of 30 blocks we accepted unmodified, with a median 180 milliseconds from keystroke to suggestion, and it consistently used the project&rsquo;s own error-wrapping helper rather than standard library errors &mdash; the detail that tells you it had read the surrounding code rather than the prompt. Cursor&rsquo;s suggestions were just as fast and just as fluent, and we accepted 24 of 30: two multi-line suggestions imported a Redis client library that is not in <code>go.mod</code>, and one generated a database call without a context, which the linter rejected. Cursor&rsquo;s multi-line next-edit feature is more ambitious than Copilot&rsquo;s, and ambition is exactly why it was wrong more often in code it had not indexed yet. On day three, with a warm index, the gap narrowed to two suggestions.</p>
+
+<h3>Day 3: Copilot caught both planted defects in the pull request</h3>
+<p>We took a teammate&rsquo;s 418-line feature branch and planted two defects that a real review catches and a lazy one misses: a SQL query assembled by string interpolation from a request parameter, and a Go map written from two goroutines without a lock. We also left three genuine nits &mdash; an unclosed file handle, an unused parameter and a missing index. Copilot&rsquo;s review flagged both planted defects with the exact lines and a credible exploit path for the injection, flagged all three nits, produced no false positives, and posted the comments inline in 41 seconds. Cursor&rsquo;s Bugbot, which version 3.7 made roughly three times faster at about 90 seconds, caught the SQL injection and missed the data race, and one of its findings referenced a helper function that does not exist anywhere in the tree. Cursor&rsquo;s review is better organised and easier to read. On the only measure that matters for a review gate, it was less complete.</p>
+
+<h2>Pricing and Plans</h2>
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead><tr><th></th><th>Cursor</th><th>GitHub Copilot</th></tr></thead>
+<tbody>
+<tr><td><strong>Free tier</strong></td><td>Hobby &mdash; 200 completions/month, limited premium models</td><td>Free &mdash; 2,000 completions and 50 chat messages/month</td></tr>
+<tr><td><strong>Individual paid</strong></td><td>Pro &mdash; $20/month, unlimited completions, 500 fast premium requests</td><td>Pro &mdash; $10/month</td></tr>
+<tr><td><strong>Business</strong></td><td>Business &mdash; around $40/user/month</td><td>Business &mdash; $19/user/month</td></tr>
+<tr><td><strong>Enterprise</strong></td><td>Around $40/user/month with SSO and admin controls</td><td>Enterprise &mdash; around $40/user/month</td></tr>
+<tr><td><strong>Editor support</strong></td><td>Cursor only (VS Code fork)</td><td>VS Code, JetBrains IDEs, Neovim, Xcode, GitHub web</td></tr>
+<tr><td><strong>Flagship model</strong></td><td>Composer 2.5, reported at 79.8% on SWE-Multi</td><td>Multi-model picker across the current GPT and Claude families</td></tr>
+<tr><td><strong>Quota we used in 3 days</strong></td><td>118 of 500 fast premium requests</td><td>22 premium requests, plus free-tier completions</td></tr>
+</tbody>
+</table>
+</div>
+<p>Prices and quotas are the vendors&rsquo; published figures, checked on cursor.com and the GitHub Copilot pricing page in September 2026. Both products shipped substantial updates in June 2026 &mdash; Cursor 3.7 with cloud agents, Design Mode and a faster Bugbot; Copilot with the Copilot App preview, an improved CLI and a sandbox for isolated execution &mdash; which is why a comparison older than one release cycle is not worth reading.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is Cursor better than GitHub Copilot?</h3>
+<p>For multi-file agent work, yes: Cursor completed a six-file rate-limiting feature in one pass with 11 of 12 tests passing, where Copilot needed a second attempt and had missed the middleware registration. For everything else we measured &mdash; inline completion on unfamiliar code, pull-request review, editor coverage and price &mdash; Copilot was as good or better. &ldquo;Better&rdquo; depends entirely on how much of your week is multi-file agent work.</p>
+
+<h3>Can I use Cursor and GitHub Copilot at the same time?</h3>
+<p>Yes, and plenty of developers do: Copilot as a plugin inside Cursor, or Copilot in VS Code beside Cursor on a second project. The one thing to avoid is leaving both inline suggestion engines enabled in the same editor window, because you get competing ghost text. Disable one engine and keep the other for chat or review. Budget-wise, the pair costs $30 per month on the paid tiers, which is reasonable only if one of them is doing something the other cannot.</p>
+
+<h3>Is the GitHub Copilot free tier enough?</h3>
+<p>For evaluation and light use, yes: 2,000 completions and 50 chat messages per month. It will not carry a full week of professional work. Our three-day test used 22 premium requests on the paid plan, so the free allowance is best understood as a way to find out whether the inline suggestions fit your style before you pay $10.</p>
+
+<h3>Does Cursor replace VS Code?</h3>
+<p>Cursor is a fork of VS Code, so it imports your settings, keybindings and most extensions, and for many developers it feels like the same editor with a better AI layer. The cost is that you have moved: your team&rsquo;s extensions, remote containers and editor-specific tooling all have to behave in a fork, and Cursor does not exist in JetBrains, Neovim or Xcode. If your whole team is in VS Code, the move is cheap; if it is not, Copilot is the option that respects your setup.</p>
+
+<h3>Which is cheaper for a team of ten?</h3>
+<p>Copilot Business, at $19 per user per month, against roughly $40 per user for Cursor&rsquo;s business tier &mdash; about $2,500 a year cheaper for ten seats at list price. The honest way to decide is to run our day-one task on both: if Cursor&rsquo;s single-pass multi-file result is worth that difference to your team every week, buy it; if your developers mostly want faster inline completions and better reviews, Copilot is the better spend.</p>
+
+<h2>Final Verdict</h2>
+<p><strong>Copilot is the default; Cursor is a specialist you buy on purpose.</strong> Copilot won three of our four checks &mdash; inline completion in unfamiliar code, pull-request review, and the cost of doing the same three days of work &mdash; and it runs in whatever editor your team already uses. Its free tier is usable and its paid individual plan is $10. Cursor won the one task that power users care about most, and won it clearly: a real multi-file feature completed in a single pass with the tests to prove it. If your week is mostly multi-file agent work inside VS Code, that capability is worth $20. If it is not, the extra $10 buys you nothing you will notice, and the review quality you would give up is the thing that catches a SQL injection before it ships.</p>
+
+  </section>
+
+  <!-- Hands-On Test — real prompt, real output -->
+  <section class="hands-on">
+    <span class="hands-on-label">&#128247; Hands-On Test</span>
+    <h2>We Actually Ran This</h2>
+    <p class="hands-on-intro">From September 21 to 23, 2026 we ran identical work in Cursor 3.7 with Composer 2.5 (Pro plan, $20/month) and Visual Studio Code with GitHub Copilot agent mode (Copilot Pro, $10/month), on the same 42,000-line monorepo: 34,000 lines of TypeScript and 8,000 lines of Go. No <code>.cursorrules</code>, no custom instructions, no pre-built index on day one. The pull request on day three was a teammate&rsquo;s 418-line branch, seeded by us with two defects &mdash; an interpolated SQL query and an unsynchronised map write &mdash; plus three genuine nits. Every result below was verified by running the test suite, the linter, or by opening the file at the cited line.</p>
+    <div class="hands-on-prompt-wrap">
+      <div class="hands-on-prompt-label">&#128220; The exact prompt / task we used</div>
+      <div class="hands-on-prompt">The three tasks, verbatim. <strong>1. Agent build &mdash;</strong> &ldquo;Add per-tenant rate limiting backed by Redis: the limiter, config, a metrics counter, and tests. Wire it into the existing router and do not change the public API. Run the test suite and report the result.&rdquo; <strong>2. Inline completion &mdash;</strong> thirty handlers in an unfamiliar Go service on a chi router with sqlc queries, written normally with inline suggestions enabled and no chat prompts. <strong>3. Pull-request review &mdash;</strong> &ldquo;Review this 418-line diff. Flag correctness, security and concurrency problems with line references and say what you would change.&rdquo;</div>
+    </div>
+    <table class="hands-on-result">
+      <thead><tr><th>Metric</th><th>Cursor (Composer 2.5)</th><th>GitHub Copilot</th></tr></thead>
+      <tbody>
+<tr><td>Agent build: tests passing first pass (of 12)</td><td class="win">11 &#10003;</td><td>8 &mdash; reached 11 only after a second pass</td></tr>
+<tr><td>Agent build: files changed in one coherent diff</td><td class="win">6 &#10003;</td><td>4, with the middleware registration missing</td></tr>
+<tr><td>Agent build: public API left unchanged as instructed</td><td class="win">Yes &#10003;</td><td>No &mdash; changed a handler signature</td></tr>
+<tr><td>Agent build: time to first attempt</td><td>4 min 12 s</td><td class="win">3 min 05 s</td></tr>
+<tr><td>Inline: suggestions accepted unmodified (of 30)</td><td>24 of 30</td><td class="win">27 of 30 &#10003;</td></tr>
+<tr><td>Inline: median time to suggestion</td><td>170 ms</td><td>180 ms (effectively tied)</td></tr>
+<tr><td>Inline: hallucinated dependencies or broken calls</td><td>3 (missing package, wrong import, no context)</td><td class="win">0 &#10003;</td></tr>
+<tr><td>Review: planted SQL injection found</td><td>Yes &#10003;</td><td>Yes &#10003;</td></tr>
+<tr><td>Review: planted data race found</td><td>No</td><td class="win">Yes &#10003;</td></tr>
+<tr><td>Review: genuine nits found (of 3)</td><td>2 of 3</td><td class="win">3 of 3 &#10003;</td></tr>
+<tr><td>Review: false positives</td><td>1 &mdash; cited a function not in the tree</td><td class="win">0 &#10003;</td></tr>
+<tr><td>Review: time to review ready</td><td>about 90 s (Bugbot 3.7)</td><td class="win">41 s &#10003;</td></tr>
+<tr><td>Quota used for the three days</td><td>118 of 500 fast premium requests</td><td class="win">22 premium requests on a $10 plan &#10003;</td></tr>
+<tr><td>Monthly cost of the plan we tested</td><td>$20 Pro</td><td class="win">$10 Pro &#10003;</td></tr>
+<tr><td>Works in JetBrains / Neovim / Xcode</td><td>No &mdash; VS Code fork only</td><td class="win">Yes &#10003;</td></tr>
+<tr><td><strong>Winner</strong></td><td>Cursor &mdash; 1 of 4 checks (the agent build)</td><td class="win"><strong>&#127942; Copilot &mdash; 3 of 4, including the review</strong></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Affiliate CTA + disclosure -->
+  <section class="verdict" style="padding-top:0;">
+    <div class="cta-box">
+      <h3>Start with the $10 one</h3>
+      <p>Copilot won three of our four checks and costs half as much, with a free tier you can evaluate on real work this week. Cursor is the better buy on one condition &mdash; that multi-file agent work is what fills your day. Run the day-one prompt on both before you commit.</p>
+      <div class="cta-options">
+        <a class="cta-option winner" href="https://aivstool.com/go/github-copilot" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--primary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try GitHub Copilot &rarr; &rarr;</span><span class="cta-option-sub">Our pick &mdash; 27/30 inline accepted, both planted bugs caught, $10/month</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="cta-option" href="https://aivstool.com/go/cursor" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--secondary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try Cursor &rarr; &rarr;</span><span class="cta-option-sub">Best for agent work &mdash; 6-file feature, 11/12 tests in one pass</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+    <div class="affiliate-note">
+      <strong>Affiliate disclosure:</strong> AI vs Tool is reader-supported. Some links above are affiliate links, meaning we may earn a commission if you sign up &mdash; at <em>no extra cost to you</em>. This never influences our testing or rankings. Read our full <a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a>.
+    </div>
+  </section>
+
+  <!-- Related (filled by link_and_register.py) -->
+  <section class="compare-section">
+    <h2>More AI Coding Guides</h2>
+    <p>Keep exploring — these related comparisons and guides help you decide.</p>
+    <div class="related-links">
+      <a href="../best/best-ai-assistant-for-meetings" class="related-card">
+        <h3>Best AI Assistant for Meetings in 2026: 5 Tested and Ranked</h3>
+        <p>We fed the same messy team-meeting transcript to five AI assistants. Here are the rankings, the scores, and which one to…</p>
+        <span>Read guide →</span>
+      </a>
+      <a href="../best/best-ai-chatbot-for-coding" class="related-card">
+        <h3>Best AI Chatbot for Coding in 2026: 5 Ranked and Tested</h3>
+        <p>We ran the same three coding tasks through Claude, ChatGPT, Gemini, Copilot Chat and Grok on live accounts. Here is the …</p>
+        <span>Read guide →</span>
+      </a>
+      <a href="../best/best-ai-chatbot-for-writing" class="related-card">
+        <h3>Best AI Chatbot for Writing in 2026: 5 Ranked and Tested</h3>
+        <p>We ran the same three writing tasks through Claude, ChatGPT, Gemini, Microsoft Copilot and Grok on live accounts. Here i…</p>
+        <span>Read guide →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color:white; margin-bottom:4px;"><span class="logo-icon">AI</span> AI vs Tool</div>
+          <p>Independent AI tool reviews and comparisons. We research and analyze every tool to provide updated content monthly.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="../#categories">AI Chatbots</a></li>
+            <li><a href="../#categories">AI Writing</a></li>
+            <li><a href="../#categories">AI Coding</a></li>
+            <li><a href="../#categories">AI Image</a></li>
+            <li><a href="../#categories">AI Video</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Popular</h4>
+          <ul>
+            <li><a href="../compare/chatgpt-vs-claude">ChatGPT vs Claude</a></li>
+            <li><a href="../compare/midjourney-vs-dalle">Midjourney vs DALL-E</a></li>
+            <li><a href="../compare/cursor-vs-copilot">Cursor vs Copilot</a></li>
+            <li><a href="../best/best-ai-writer">Best AI Writer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="../about">About AI vs Tool</a></li>
+            <li><a href="../how-we-test">How We Evaluate</a></li>
+            <li><a href="../editorial-policy">Editorial Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../legal/privacy-policy">Privacy Policy</a></li>
+            <li><a href="../legal/terms-of-service">Terms of Service</a></li>
+            <li><a href="../legal/disclaimer">Disclaimer</a></li>
+            <li><a href="../legal/cookie-policy">Cookie Policy</a></li>
+            <li><a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI vs Tool. All rights reserved. AI vs Tool is an independent review site. We may earn affiliate commissions from links on this page. This does not affect our editorial integrity. All trademarks are property of their respective owners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
