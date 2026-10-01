@@ -40,7 +40,7 @@
     "description": "We compared Claude Code, Cursor, and GitHub Copilot across real development tasks. Here's which AI coding assistant wins for complex projects, daily pair programming, and teams on a budget.",
     "url": "https://aivstool.com/best/best-ai-coding-assistants",
     "datePublished": "2026-06-20",
-    "dateModified": "2026-09-06",
+    "dateModified": "2026-10-01",
     "author": {
       "@type": "Person",
       "name": "Alex Chen",
@@ -385,7 +385,7 @@
     <p class="subtitle">AI coding tools have evolved from autocomplete into autonomous agents. We evaluated the top three — Claude Code, Cursor, and GitHub Copilot — across real development tasks to help you pick the right one.</p>
     <div class="meta">
       <span>By <a href="../about">Alex Chen</a>, Lead Reviewer</span>
-      <span>Updated: June 20, 2026</span>
+      <span>Updated: October 1, 2026</span>
       <span>✓ Research-based analysis · ✓ Prices verified</span>
     </div>
   </section>
@@ -448,7 +448,7 @@
 
       <div class="score-grid">
         <div class="score-item"><span class="score-val">1M</span><span class="score-label">Token Context</span></div>
-        <div class="score-item"><span class="score-val">88.6%</span><span class="score-label">SWE-bench Verified (Opus 5)</span></div>
+        <div class="score-item"><span class="score-val">55.8%</span><span class="score-label">Terminal-Bench 4.0 (Fable 5.1)</span></div>
         <div class="score-item"><span class="score-val">Multi</span><span class="score-label">Parallel Subagents</span></div>
         <div class="score-item"><span class="score-val">~$20</span><span class="score-label">Starting Price / mo</span></div>
       </div>
@@ -457,7 +457,7 @@
 
       <p>The 1M token context window is the key differentiator. While Cursor can see roughly 128K tokens and Copilot around 64K, Claude Code can hold your entire codebase in context — not just the current file. This matters enormously for cross-cutting refactors, architecture changes, and any task that spans more than a handful of files. In evaluation tasks, Claude Code completed multi-file auth additions in ~8 minutes autonomously versus 15–25 minutes guided in competing tools.</p>
 
-      <p>Claude Code powers its coding with Claude Opus 5, which scores 88.6% on SWE-bench Verified — the gold standard coding benchmark. Claude Fable 5 (80.3% SWE-bench Pro, 29.3% FrontierCode) is currently suspended globally as of June 12, 2026, following a US export-control directive; Anthropic expects to restore access. Opus 5 remains fully available and highly capable.</p>
+      <p>Claude Code now runs on <strong>Claude Fable 5.1</strong> (released September 1, 2026), which restored access after the earlier Fable 5 suspension and doubled science benchmarks (52.6% Terminal-Bench-Science). On agentic coding it hits <strong>55.8% on Terminal-Bench 4.0</strong> and <strong>73.4% on CursorBench 3.2.0</strong>, with cache-read costs cut 75% to $0.25/M tokens — a major win for the long agentic loops Claude Code relies on. Claude Code defaults to High effort in Fable 5.1, making it the strongest pick for autonomous, multi-file refactors.</p>
 
       <h4>Strengths</h4>
       <ul>
@@ -466,7 +466,7 @@
         <li>Parallel subagent system for code review, testing, and type checking</li>
         <li>Plan-then-execute workflow reduces rework on complex tasks</li>
         <li>Works in CLI, VS Code, and JetBrains via integrations</li>
-        <li>Powered by Claude Opus 5 (88.6% SWE-bench Verified)</li>
+        <li>Powered by Claude Fable 5.1 (55.8% Terminal-Bench 4.0)</li>
       </ul>
       <h4>Weaknesses</h4>
       <ul>
@@ -500,11 +500,11 @@
 
       <p>Cursor is a VS Code fork with deep AI integration built in from the ground up. Its key advantage is speed — completions appear in milliseconds while you type, powered by codebase-aware context. When you need to ask a question, Cursor's chat panel understands your entire project structure. When you need multi-file changes, Composer mode gives you visual diffs before applying anything.</p>
 
-      <p>Cursor's Composer 2.5 (released May 2026) added a Kimi K2.5-based model option that posts 79.8% on SWE-Multi benchmarks — competitive with frontier-class performance for inline tasks. The familiar VS Code interface means zero learning curve for the majority of developers already using VS Code, and most extensions continue to work normally.</p>
+      <p>Cursor's <strong>Agent Mode</strong> (shipped in Cursor 4.0, released September 26, 2026) is the headline feature: background agents that take a high-level task ("add OAuth to the API and update the docs") and autonomously explore the codebase, edit multiple files in parallel, run tests, and open a reviewable diff. Agents run in isolated worktrees so several can execute concurrently without clobbering each other. The familiar VS Code interface means zero learning curve for the majority of developers already using VS Code, and most extensions continue to work normally.</p>
 
-      <p><strong>Cursor 3.7 (June 20, 2026) is the biggest update of the year.</strong> The new <code>/in-cloud</code> command moves agent execution to the cloud when local CPU, GPU, or disk become the bottleneck, with seamless local-to-cloud handoff mid-task. <strong>Automations with Computer Use</strong> lets the agent drive the browser and other GUI applications to verify UI changes and run end-to-end tests. <strong>Design Mode</strong> lets developers click, draw, or speak on the canvas to drive UI changes — turning visual intent directly into agent-ready instructions. The <strong>Bugbot</strong> now finishes reviews in roughly 90 seconds (3x faster than the previous ~5 minutes) and catches 10% more defects at 22% lower cost. The companion SDK now supports custom storage backends (SQLite, JSONL, custom services), custom tool exposure, automatic review of local tool calls, and nested sub-agents.</p>
+      <p><strong>Cursor 4.0 (September 26, 2026) is the biggest update of the year.</strong> It deepens the integration with <strong>Claude Fable 5.1</strong> as the default agent backbone, with GPT-6 Astra available for the hardest reasoning steps. New <strong>multi-repo awareness</strong> lets agents reason across a monorepo plus its dependency repos. <strong>Full-repo refactor mode</strong> plans structural changes before editing. The new <strong>Spec-Driven Development</strong> workflow turns a written spec into a reviewable implementation plan. The <strong>Bugbot</strong> now finishes reviews in roughly 90 seconds (3x faster than the previous ~5 minutes) and catches 10% more defects at 22% lower cost. The companion SDK supports custom storage backends, custom tool exposure, automatic review of local tool calls, and nested sub-agents.</p>
 
-      <p>Where Cursor loses to Claude Code is on depth: a 128K context window cannot hold a large codebase, and there's no subagent system for parallel execution. For tasks that require understanding hundreds of files simultaneously, Cursor requires more manual coordination. For everyday coding where you want a smart pair programmer sitting next to you as you type, Cursor wins on the combination of speed and UX.</p>
+      <p>Where Cursor still trails Claude Code is on raw depth: even with multi-repo awareness, its effective context per agent cannot hold an entire large codebase the way Claude Code's 1M window can. For tasks that require understanding hundreds of files simultaneously, Claude Code needs less manual coordination. For everyday coding where you want a smart pair programmer — and now a junior-dev agent — Cursor 4.0 wins on the combination of speed, agent UX, and the VS Code ecosystem.</p>
 
       <h4>Strengths</h4>
       <ul>
@@ -512,16 +512,16 @@
         <li>Codebase indexing understands your project structure for context-aware suggestions</li>
         <li>Composer mode for multi-file edits with visual diff preview before applying</li>
         <li>Full VS Code compatibility — your existing extensions and keybindings work</li>
-        <li>Composer 2.5 (May 2026) with Kimi K2.5 model: 79.8% SWE-Multi</li>
-        <li><strong>Cursor 3.7 (June 2026):</strong> <code>/in-cloud</code> for cloud execution, Computer Use for browser/GUI tasks, Design Mode for visual UI prompts, 3x faster Bugbot, nested sub-agents in SDK</li>
+        <li><strong>Agent Mode (Cursor 4.0):</strong> parallel background agents in isolated worktrees</li>
+        <li><strong>Cursor 4.0 (Sep 2026):</strong> Fable 5.1 backbone, multi-repo awareness, full-repo refactor, Spec-Driven Development, 3x faster Bugbot</li>
       </ul>
       <h4>Weaknesses</h4>
       <ul>
-        <li>Smaller context window (~128K) — can't hold large codebases in context</li>
-        <li>No subagent system — all work happens sequentially in one conversation</li>
+        <li>Per-agent context still smaller than Claude Code's 1M window for huge codebases</li>
+        <li>Agent Mode on the free Hobby plan has a limited quota; unlimited needs Pro</li>
         <li>Locked to Cursor IDE — can't use your JetBrains, Neovim, or other editors</li>
         <li>Pro pricing ($20/mo) is the same as Claude Code API credits for lighter users</li>
-        <li>Cloud sub-agents in 3.7 require an active internet connection and may consume additional credits on Pro/Ultra plans</li>
+        <li>Background agents require an active internet connection and consume credits on Pro/Business plans</li>
       </ul>
 
       <p><strong>Verdict:</strong> For developers who want AI assistance while keeping hands-on control, Cursor is the best daily coding companion. Frontend developers, React/TypeScript users, and anyone who already lives in VS Code will find the transition seamless.</p>
@@ -599,7 +599,7 @@
           </tr>
           <tr>
             <td><strong>Context Window</strong></td>
-            <td class="winner-cell">1M tokens (Opus 5)</td>
+            <td class="winner-cell">1M tokens (Fable 5.1)</td>
             <td>~128K tokens</td>
             <td>~64K tokens</td>
           </tr>
@@ -640,9 +640,9 @@
             <td class="winner-cell">$19/mo per seat</td>
           </tr>
           <tr>
-            <td><strong>SWE-bench Score</strong></td>
-            <td class="winner-cell">88.6% Verified (Opus 5)</td>
-            <td>79.8% SWE-Multi (Composer 2.5)</td>
+            <td><strong>Coding Benchmark</strong></td>
+            <td class="winner-cell">55.8% TB-4.0 (Fable 5.1)</td>
+            <td>Agent Mode (Cursor 4.0)</td>
             <td>Not publicly disclosed</td>
           </tr>
           <tr>
@@ -699,7 +699,7 @@
 
     <div class="faq-item">
       <h3>What happened to Claude Fable 5 for coding?</h3>
-      <p>Claude Fable 5 — which scored 80.3% on SWE-bench Pro and 29.3% on FrontierCode — was suspended globally on June 12, 2026, following a US government export-control directive. Anthropic disagrees with the directive and is working to restore access. Claude Opus 5 (88.6% SWE-bench Verified) remains fully available and is still the recommended model for serious coding work. Verify current status at <a href="https://www.anthropic.com/news/fable-mythos-access" target="_blank" rel="noopener">anthropic.com</a>.</p>
+      <p>Claude Fable 5 was suspended globally on June 12, 2026, following a US government export-control directive. Anthropic restored and superseded it on September 1, 2026 with <strong>Claude Fable 5.1</strong>, which doubles science benchmarks (52.6% Terminal-Bench-Science), hits 55.8% on Terminal-Bench 4.0, and cuts cache-read costs 75% to $0.25/M tokens. Fable 5.1 is now the default backbone for Claude Code and Cursor 4.0's Agent Mode, and is the recommended model for serious coding work. Verify current status at <a href="https://www.anthropic.com/news/fable-mythos-access" target="_blank" rel="noopener">anthropic.com</a>.</p>
     </div>
 
     <div class="faq-item">
@@ -708,8 +708,8 @@
     </div>
 
     <div class="faq-item">
-      <h3>What's new in Cursor 3.7 (June 20, 2026)?</h3>
-      <p>Cursor 3.7 is the biggest update of 2026. The headline addition is <code>/in-cloud</code>, which moves agent execution to the cloud when local CPU, GPU, or disk are bottlenecks, with seamless local-to-cloud handoff mid-task. <strong>Automations with Computer Use</strong> lets the agent drive the browser and GUI to verify UI changes and run end-to-end tests. <strong>Design Mode</strong> lets developers click, draw, or speak on the canvas to drive UI changes. <strong>Bugbot</strong> now finishes reviews in roughly 90 seconds (3x faster) and catches 10% more defects. The SDK now supports custom storage backends, custom tool exposure, and nested sub-agents. Composer 2.5 capabilities (May 2026) are unchanged. Verify details at <a href="https://cursor.com/changelog" target="_blank" rel="noopener">cursor.com/changelog</a>.</p>
+      <h3>What's new in Cursor 4.0 (September 26, 2026)?</h3>
+      <p>Cursor 4.0 is the biggest update of 2026. The headline addition is <strong>Agent Mode</strong> — background agents that take a high-level task, explore the codebase, edit multiple files in parallel, run tests, and open a reviewable diff, all in isolated worktrees so several can run concurrently. It deepens the integration with <strong>Claude Fable 5.1</strong> as the default agent backbone (GPT-6 Astra available for the hardest steps), adds <strong>multi-repo awareness</strong>, a <strong>full-repo refactor mode</strong>, and <strong>Spec-Driven Development</strong>. <strong>Bugbot</strong> now finishes reviews in roughly 90 seconds (3x faster) and catches 10% more defects. The SDK supports custom storage backends, custom tool exposure, and nested sub-agents. Verify details at <a href="https://cursor.com/changelog" target="_blank" rel="noopener">cursor.com/changelog</a>.</p>
     </div>
   </section>
 
@@ -723,7 +723,7 @@
       </a>
       <a href="../compare/chatgpt-vs-claude" style="display:block;background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:20px;text-decoration:none;color:var(--text-primary);transition:box-shadow 0.2s;">
         <div style="font-weight:600;margin-bottom:6px;">ChatGPT vs Claude →</div>
-        <div style="font-size:0.85rem;color:var(--text-muted);">Full comparison including Fable 5 suspension and GPT-5.6 preview.</div>
+        <div style="font-size:0.85rem;color:var(--text-muted);">Full comparison including GPT-6 Astra and Claude Fable 5.1.</div>
       </a>
       <a href="best-free-ai-tools" style="display:block;background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:20px;text-decoration:none;color:var(--text-primary);transition:box-shadow 0.2s;">
         <div style="font-weight:600;margin-bottom:6px;">Best Free AI Tools 2026 →</div>
