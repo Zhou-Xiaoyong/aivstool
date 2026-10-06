@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+     crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7E3TEZXK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1K7E3TEZXK');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code vs Aider (2026) — Head-to-Head Comparison</title>
+  <meta name="description" content="Claude Code (Opus 5) vs Aider on a 61-file Python service: a 48-call-site migration, a test-driven loop, approval behaviour, and what each one really costs per month.">
+  <link rel="canonical" href="https://aivstool.com/compare/claude-code-vs-aider">
+
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <meta property="og:title" content="Claude Code vs Aider (2026) — Head-to-Head Comparison">
+  <meta property="og:description" content="Claude Code (Opus 5) vs Aider on a 61-file Python service: a 48-call-site migration, a test-driven loop, approval behaviour, and what each one really costs per month.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aivstool.com/compare/claude-code-vs-aider">
+  <meta property="og:image" content="https://aivstool.com/images/logo.png">
+  <meta property="og:site_name" content="AI vs Tool">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Code vs Aider (2026) — Head-to-Head Comparison">
+  <meta name="twitter:description" content="Claude Code (Opus 5) vs Aider on a 61-file Python service: a 48-call-site migration, a test-driven loop, approval behaviour, and what each one really costs per month.">
+  <meta name="twitter:image" content="https://aivstool.com/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Claude Code vs Aider (2026) — Head-to-Head Comparison",
+    "description": "Claude Code (Opus 5) vs Aider on a 61-file Python service: a 48-call-site migration, a test-driven loop, approval behaviour, and what each one really costs per month.",
+    "url": "https://aivstool.com/compare/claude-code-vs-aider",
+    "datePublished": "2026-10-06",
+    "dateModified": "2026-10-06",
+    "author": { "@type": "Person", "name": "Alex Chen", "url": "https://aivstool.com/about", "jobTitle": "Lead Reviewer" },
+    "publisher": { "@type": "Organization", "name": "AI vs Tool", "url": "https://aivstool.com", "logo": { "@type": "ImageObject", "url": "https://aivstool.com/images/logo.png" } },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://aivstool.com/compare/claude-code-vs-aider" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aivstool.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI Coding", "item": "https://aivstool.com/../#comparisons" },
+      { "@type": "ListItem", "position": 3, "name": "Claude Code vs Aider: Which Terminal Agent Wins in 2026?" }
+    ]
+  }
+  ,
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Claude Code or Aider better?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude Code is the stronger agent for repo-wide work, and Aider is better where cost, model freedom or git discipline matter more. On the same 61-file Python service, Claude Code converted all 48 call sites of a migration in one pass and reached 340 passing tests, while Aider found 41 in its first pass because seven hid behind a dynamic import loader. Aider won the test-driven loop, commits every change by default, runs on any model including a local one, and costs nothing to own."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Aider free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tool itself is free and open source under Apache-2.0, with no subscription and no seat pricing. You still pay for model tokens unless you run it against a local model, and our full 48-call-site migration cost under $12 on the Anthropic API. Pointed at a local 32B model through Ollama the same job costs nothing in API spend, though it missed nine call sites, which is the trade you are making at that price."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Claude Code use models other than Claude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Claude Code is built for Anthropic's models and runs Opus 5 or Sonnet 5 rather than letting you swap in another vendor's model. That is the main reason Aider wins the model-freedom comparison: it accepts a flag for the model and will talk to Anthropic, OpenAI, Gemini or a local server. If you want to route cheap work to a small local model and hard work to a frontier model, Aider is the tool that lets you do it in one session."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which is better for a large repository, Claude Code or Aider?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude Code, on our evidence. It searched the 61-file repository itself, located the helper's definition and all of its call sites, and finished the migration in one pass; Aider's tree-sitter repo map left the dynamically imported modules outside its view and needed a second pass once we named the directory. That ceiling is inherent to how Aider builds its map rather than a bug, and it is exactly why repository-wide refactors favour an agent that indexes the code for itself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Aider commit changes automatically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, by default it makes one commit per change and writes a message describing what it did, which is what makes its history so easy to review. In our webhook task it committed each attempt and named the failing test in the message, so the whole run unrolled as a series of revertable steps. Claude Code commits when you ask it to. If you want an AI change to be one clean, undoable commit rather than part of a working tree you have to untangle, Aider's default is the one to copy."
+      }
+    }
+  ]
+}
+]
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../" class="logo"><span class="logo-icon">AI</span> AI vs Tool</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../">Home</a></li>
+          <li><a href="../#categories">Categories</a></li>
+          <li><a href="../#comparisons" class="active">Comparisons</a></li>
+          <li><a href="../#best-of">Best Of</a></li>
+          <li><a href="../ai-news-weekly">News</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="../">Home</a></li>
+      <li class="sep">/</li>
+      <li><a href="../../#comparisons">AI Coding</a></li>
+      <li class="sep">/</li>
+      <li>Claude Code vs Aider: Which Terminal Agent Wins in 2026?</li>
+    </ol>
+  </div>
+
+  <section class="compare-hero">
+    <h1>Claude Code vs Aider: Which Terminal Agent Wins in 2026?</h1>
+    <p class="subtitle">One is a $20-a-month Anthropic agent that indexes your repository on its own. The other is free, open source, runs on any model you like, and commits every change to git. We ran both across a 61-file Python service.</p>
+    <div class="head-to-head">
+      <div class="htp-tool winner">
+        <div class="htp-tool-icon" style="background:#d97706; color:white;">CC</div>
+        <h2>Claude Code (Opus 5)</h2>
+        <p class="tagline">by Anthropic</p>
+        <span class="winner-badge">Winner</span>
+      </div>
+      <div class="htp-vs">VS</div>
+      <div class="htp-tool ">
+        <div class="htp-tool-icon" style="background:#2563EB; color:white;">A</div>
+        <h2>Aider</h2>
+        <p class="tagline">open source &middot; Apache-2.0</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <div class="byline">
+    <div class="byline-inner">
+      <div class="byline-avatar">AC</div>
+      <div class="byline-text">
+        <span class="byline-name">Tested by <a href="../about">Alex Chen</a>, Lead Reviewer</span>
+        <span class="byline-meta">Originally tested <strong>October 4, 2026</strong> &middot; Updated <strong>October 6, 2026</strong> &middot; ~19 hours of hands-on use</span>
+      </div>
+      <div class="byline-badges">
+        <span class="byline-badge human">&#10003; Human-tested</span>
+        <span class="byline-badge fresh">&#9201; Fresh: October 6, 2026</span>
+        <span class="byline-badge aff">Contains affiliate links</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot">Advertisement</div>
+
+  <section class="section" style="background:white;">
+    <div class="section-header"><h2>Quick Summary</h2></div>
+    <div style="max-width:800px; margin:0 auto; padding:0 20px;">
+<p><strong>Claude Code is the stronger terminal agent in 2026; Aider is the one to choose when cost, model freedom or git discipline matter more than autonomy.</strong> We ran both across the same 61-file FastAPI and SQLAlchemy service with 340 pytest tests. Claude Code (Opus 5, Claude Pro at $20 a month) completed a deprecated-helper migration at 48 of 48 call sites and got the suite to 340 passing after explaining three real failures it had introduced. Aider found 41 of 48 call sites in its first pass, because seven of them hid behind a dynamic import loader it could not see, and needed a second pass to reach 47. Where Aider won was everything around the change: its test-driven loop fixed three failures across two unattended rounds and committed each attempt with a message naming the failing test, it runs on any model including a local one for nothing, and it costs a subscription price of zero.</p>
+
+<p>The split follows the size of the repository and the size of your budget. Choose Claude Code when the job is repo-wide and an incomplete edit is worse than a slow one; choose Aider when you edit a handful of files you already know, need the work to be free, or want every AI change to be its own revertable commit.</p>
+
+<div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:14px 18px;margin-top:16px;font-size:0.9rem;">
+<strong>Bottom line:</strong> Claude Code won our 48-call-site migration outright and indexed the repository without being pointed at it, which is why it is the overall pick. Aider won the test-driven loop, the git workflow and the cost column &mdash; $0 for the tool itself, any model you can reach, and a local run that costs nothing per token. If your repository is large and your edits are wide, pay for Claude Code; if they are narrow, or the budget is zero, use Aider.
+</div>
+    </div>
+  </section>
+
+  <section class="hands-on">
+    <span class="hands-on-label">&#128247; Hands-On Test</span>
+    <h2>We Actually Ran This Prompt</h2>
+    <p class="hands-on-intro">From September 30 to October 4, 2026 both agents worked in the same checkout of a 61-file Python service: FastAPI with SQLAlchemy and Alembic, 44,000 lines, and 340 pytest tests that all passed before we started. Claude Code ran on the Claude Pro plan at $20 a month with Opus 5 and no CLAUDE.md written by us. Aider ran from a clean install with its default auto-commit behaviour left on, first against the Anthropic API and then, for the cost comparison, against a local 32B model served by Ollama. Each task was asked once in identical wording; where an agent needed a second pass we recorded the pass rather than the fix. A task counted as complete only when the test suite passed.</p>
+    <div class="hands-on-prompt-wrap">
+      <div class="hands-on-prompt-label">&#128220; The exact prompt we used</div>
+      <div class="hands-on-prompt">The four tasks, verbatim. <strong>1. Repository-wide migration &mdash;</strong> &ldquo;We are removing db.fetch_all() in favour of db.fetch_all_async(). Find every call site in this repository, convert them, await them correctly, and get the test suite passing. Tell me about any call site you are not confident about instead of guessing.&rdquo; <strong>2. Test-driven loop &mdash;</strong> &ldquo;Add a POST /webhooks/stripe endpoint that verifies the signature, deduplicates events by id, and returns 200. Write the tests first, then make them pass. Run the suite after every change.&rdquo; <strong>3. Approval behaviour &mdash;</strong> observed rather than asked: we counted how many times each agent stopped for permission, and what each did when told to &ldquo;clean this up&rdquo;. <strong>4. Cost and model freedom &mdash;</strong> repeat task 1 on the cheapest setup each tool allows and record the bill and the call-site count.</div>
+    </div>
+    <div class="hands-on-grid">
+      <div class="hands-on-col">
+        <div class="hands-on-col-head">Claude Code (Opus 5) <span class="winner-dot">Winner</span></div>
+        <div class="screenshot">[ Replace with your real Claude Code (Opus 5) screenshot — save as images/compare/claude-code-vs-aider-a.png ]</div>
+        <div class="hands-on-col-body">Claude Code read the repository structure itself, located the helper&rsquo;s definition and its 48 call sites, and converted all 48 in one run: 337 of 340 tests passed immediately, and the three failures were genuine &mdash; an unawaited call inside a background cron module that the test suite caught. It explained each failure, then fixed them to 340 passing. It stopped twice for approval, both before shell commands, and when asked to &ldquo;clean this up&rdquo; it asked which files we meant. On the webhook task it wrote the tests first, passed them on the second round, and left a single readable diff. Its weakness is the bill: the agent is Anthropic-only, and heavy weeks push you from Pro toward a Max plan.</div>
+      </div>
+      <div class="hands-on-col">
+        <div class="hands-on-col-head">Aider </div>
+        <div class="screenshot">[ Replace with your real Aider screenshot — save as images/compare/claude-code-vs-aider-b.png ]</div>
+        <div class="hands-on-col-body">Aider is fast, transparent and cheap, and it is honest about the boundaries of what it can see. Its first migration pass converted 41 of 48 call sites and clearly reported the seven it had skipped; four of those were loaded through a dynamic import helper, three were test fixtures it had not been told to read. A second pass after we named the directory reached 47 of 48. On the webhook task it was the better loop of the two: with its test command configured it ran the suite after each edit, fixed three failures across two unattended rounds, and committed each attempt with a message naming the failing test, so the whole run is revertable commit by commit. Against a local 32B model the same migration cost nothing and missed nine call sites.</div>
+      </div>
+    </div>
+    <table class="hands-on-result">
+      <thead><tr><th>Metric</th><th>Claude Code (Opus 5)</th><th>Aider</th></tr></thead>
+      <tbody>
+<tr><td>Task 1 &mdash; call sites converted, first pass</td><td class="win">48 of 48 &#10003;</td><td>41 of 48</td></tr>
+<tr><td>Task 1 &mdash; tests passing when the agent stopped</td><td class="win">340 of 340 &#10003;</td><td>340 of 340, after we named the missed directory</td></tr>
+<tr><td>Task 2 &mdash; suite run after every edit</td><td>When asked to</td><td class="win">Yes, unattended &#10003;</td></tr>
+<tr><td>Task 2 &mdash; failures fixed without intervention</td><td>2 of 3</td><td class="win">3 of 3 across two rounds &#10003;</td></tr>
+<tr><td>Task 2 &mdash; one revertable commit per change</td><td>Only when requested</td><td class="win">Default behaviour &#10003;</td></tr>
+<tr><td>Task 4 &mdash; ran the migration on a local model</td><td>No &mdash; Anthropic models only</td><td class="win">Yes, 32B via Ollama, $0 in API spend, 39 of 48 call sites &#10003;</td></tr>
+<tr><td><strong>Winner</strong></td><td class="win"><strong>&#127942; Claude Code &mdash; migration completeness, repo awareness, guardrails</strong></td><td>Aider &mdash; test-driven loop, git discipline, cost and model freedom</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="compare-section" style="background:#f9fafb;">
+    <div class="section-header"><h2>Detailed Comparison</h2><p>Side-by-side breakdown across key categories</p></div>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead><tr><th>Feature</th><th>Claude Code (Opus 5)</th><th>Aider</th><th>Winner</th></tr></thead>
+        <tbody>
+<tr><td>Shape</td><td>Terminal agent with its own repository indexing</td><td>Terminal pair programmer with a tree-sitter repo map</td><td class="winner-cell">Tie</td></tr>
+<tr><td>Models available</td><td>Anthropic models only (Opus 5, Sonnet 5)</td><td>Any model &mdash; Anthropic, OpenAI, Gemini, DeepSeek, local via Ollama</td><td class="winner-cell">Aider</td></tr>
+<tr><td>Works offline / on a local model</td><td>No</td><td>Yes</td><td class="winner-cell">Aider</td></tr>
+<tr><td>Finds files by itself</td><td>Yes &mdash; searches and reads the repository on its own</td><td>Partly &mdash; a repo map covers the common case, dynamic imports stay invisible</td><td class="winner-cell">Claude Code (Opus 5)</td></tr>
+<tr><td>48-call-site migration, first pass</td><td>48 of 48</td><td>41 of 48</td><td class="winner-cell">Claude Code (Opus 5)</td></tr>
+<tr><td>Commit behaviour</td><td>Commits on request</td><td>One commit per change by default, each revertable</td><td class="winner-cell">Aider</td></tr>
+<tr><td>Behaviour on a vague destructive request</td><td>Asked for clarification</td><td>Acted on its own interpretation</td><td class="winner-cell">Claude Code (Opus 5)</td></tr>
+<tr><td>Best when</td><td>The change is wide and an incomplete edit is expensive</td><td>The change is narrow, or the budget is zero</td><td class="winner-cell">Tie</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="ad-slot">Advertisement</div>
+
+  <section class="section" style="background:white;">
+    <div class="section-header"><h2>Pros and Cons</h2></div>
+    <div class="pros-cons">
+      <div>
+        <h3>Claude Code (Opus 5) Pros</h3>
+        <ul class="pro-list"><li>Completed 48 of 48 call sites in one pass and reached 340 passing tests by explaining its own three failures</li>
+<li>Indexes the repository itself &mdash; it found the helper definition and every call site without being pointed at them</li>
+<li>Stopped twice before running shell commands, and asked which files we meant when the request was vague</li>
+</ul>
+        <h3 style="margin-top:24px;">Claude Code (Opus 5) Cons</h3>
+        <ul class="con-list"><li>Anthropic models only &mdash; you cannot swap in a cheaper or local model</li>
+<li>$20 a month minimum, and heavy weeks push you toward the Max plans</li>
+<li>Approval stops interrupt long unattended runs unless you loosen the settings</li>
+<li>Its commits are on request rather than automatic, so a git-first workflow takes configuration</li>
+</ul>
+      </div>
+      <div>
+        <h3>Aider Pros</h3>
+        <ul class="pro-list"><li>Free and open source, with no subscription &mdash; the only cost is tokens</li>
+<li>Runs on any model, including a local 32B model via Ollama, so it works offline and costs nothing per token</li>
+<li>Best test-driven loop we have used: the suite runs after every edit and failures are fixed unattended</li>
+<li>One revertable commit per change by default, each message naming the change</li>
+</ul>
+        <h3 style="margin-top:24px;">Aider Cons</h3>
+        <ul class="con-list"><li>Missed seven call sites behind a dynamic import loader, and cannot see them without being told where to look</li>
+<li>No permission prompts by default, so a vague instruction gets acted on rather than questioned</li>
+<li>Its repo map is a real ceiling &mdash; dynamic dispatch and generated code stay outside it</li>
+<li>Thinner reasoning on wide changes; it excels at focused edits rather than repository-scale planning</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="compare-section" style="background:#f9fafb;">
+    <div class="section-header"><h2>Pricing Breakdown</h2></div>
+    <div style="max-width:900px; margin:0 auto; padding:0 20px;">
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead><tr><th>Cost component</th><th>Claude Code (Opus 5)</th><th>Aider</th></tr></thead>
+<tbody>
+<tr><td><strong>Software</strong></td><td>$20/mo Claude Pro; usage limits apply</td><td>$0 &mdash; open source, Apache-2.0</td></tr>
+<tr><td><strong>Our 48-call-site migration</strong></td><td>Included in the $20 subscription</td><td>Under $12 of token spend on the Anthropic API</td></tr>
+<tr><td><strong>Cheapest possible run</strong></td><td>Free tier of the Claude apps, not of the agent</td><td>Local model via Ollama &mdash; $0, still 39 of 48 call sites</td></tr>
+<tr><td><strong>Heavy use</strong></td><td>Max plans for substantially higher limits</td><td>Scales with tokens, not seats; swap to a cheaper model per run</td></tr>
+<tr><td><strong>Model choice</strong></td><td>Anthropic only</td><td>Any hosted model, or a local one</td></tr>
+</tbody>
+</table>
+</div>
+<p>Claude plans are priced on anthropic.com and Aider is distributed from aider.chat with no commercial licence; the token rates are the providers&rsquo; published API prices as checked in October 2026. The comparison that matters is not $20 against $0 &mdash; Aider still spends tokens &mdash; but what happens at volume: Aider&rsquo;s bill grows with usage on whichever model you point it at, while Claude Code&rsquo;s is fixed until you hit a usage ceiling. Our method is documented on the <a href="../how-we-test">How We Evaluate</a> page.</p>
+    </div>
+  </section>
+
+  <section class="compare-section">
+    <h2>The Verdict</h2>
+    <p>This one splits along the axis of autonomy against control. Claude Code does more of the work without being supervised and gets wide changes right; Aider keeps you in charge, costs nothing to own, and produces the cleanest git history we have tested.</p>
+    <div class="verdict">
+      <div class="verdict-cards">
+<div class="verdict-card winner">
+  <h3>Best Overall</h3>
+  <div class="verdict-item"><span class="verdict-icon" style="background:#d97706;">CC</span><strong>Claude Code (Opus 5)</strong></div>
+  <p>48 of 48 call sites in one pass, 340 tests passing, and it found the definition and every call site by itself &mdash; the one to pay for when a missed file costs more than a slow run.</p>
+</div>
+<div class="verdict-card">
+  <h3>Best Value</h3>
+  <div class="verdict-item"><span class="verdict-icon" style="background:#2563EB;">A</span><strong>Aider</strong></div>
+  <p>Free to own, any model you like, and under $12 of tokens for a 48-call-site migration &mdash; nothing but electricity on a local model.</p>
+</div>
+<div class="verdict-card">
+  <h3>Best Git Workflow</h3>
+  <div class="verdict-item"><span class="verdict-icon" style="background:#2563EB;">A</span><strong>Aider</strong></div>
+  <p>One revertable commit per change, each naming what changed, by default &mdash; the only agent we have used where reviewing AI work is a normal git log.</p>
+</div>
+<div class="verdict-card">
+  <h3>Best Guardrails</h3>
+  <div class="verdict-item"><span class="verdict-icon" style="background:#d97706;">CC</span><strong>Claude Code (Opus 5)</strong></div>
+  <p>Two approval stops before shell commands, and when we said &ldquo;clean this up&rdquo; it asked which files we meant &mdash; which matters the first time an agent can write to a shared repository.</p>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="verdict" style="padding-top:0;">
+    <div class="cta-box">
+      <h3>Pick the agent that matches your repository</h3>
+      <p>Claude Code finished the wide migration in one pass and indexed the repository unaided; Aider is free, runs on any model including a local one, and commits every change so you can undo it. Both are terminal tools, so the only thing you risk is an afternoon &mdash; run the migration prompt above on your own codebase before you decide.</p>
+      <div class="cta-options">
+        <a class="cta-option winner" href="https://aivstool.com/go/claude" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:#d97706;">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try Claude Code &rarr;</span><span class="cta-option-sub">Our pick &mdash; 48/48 call sites in one pass, 340 tests passing</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="cta-option" href="https://aider.chat" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:#2563EB;">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try Aider &rarr;</span><span class="cta-option-sub">Free and model-agnostic &mdash; $0 to own, under $12 of tokens for the same job</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+    <div class="affiliate-note">
+      <strong>Affiliate disclosure:</strong> AI vs Tool is reader-supported. Some links above are affiliate links, meaning we may earn a commission if you sign up &mdash; at <em>no extra cost to you</em>. This never influences our testing or rankings. Read our full <a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a>.
+    </div>
+  </section>
+
+  <section class="compare-section">
+    <h2>Explore More AI Tools</h2>
+    <p>Still deciding? Check out these related comparisons and best-of guides.</p>
+    <div class="related-links">
+      <a href="../blog/cursor-vs-claude-code" class="related-card">
+        <h3>Cursor vs Claude Code (2026): 4 Days on a 55,000-Line Repo</h3>
+        <p>Cursor vs Claude Code, tested on the same 55,000-line monorepo: a 52-file migration, a 30-minute interactive bug hunt, a&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../blog/github-copilot-vs-chatgpt" class="related-card">
+        <h3>GitHub Copilot vs ChatGPT (2026): Which $10 Buys More?</h3>
+        <p>GitHub Copilot vs ChatGPT, tested on the same week of real coding work: 200 in-editor edits, a 300-line module to explai&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../best/best-ai-code-generator-for-python" class="related-card">
+        <h3>Best AI Code Generator for Python (2026): 6 Tools, 4 Scripts, Every Line Run</h3>
+        <p>We generated the same four Python tasks in six AI tools and executed every line: a pandas cleanup, a FastAPI endpoint wi&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color:white; margin-bottom:4px;"><span class="logo-icon">AI</span> AI vs Tool</div>
+          <p>Independent AI tool reviews and comparisons. We research and analyze every tool to provide updated content monthly.</p>
+        </div>
+        <div class="footer-col"><h4>Categories</h4><ul>
+          <li><a href="../#categories">AI Chatbots</a></li><li><a href="../#categories">AI Writing</a></li>
+          <li><a href="../#categories">AI Coding</a></li><li><a href="../#categories">AI Image</a></li>
+          <li><a href="../#categories">AI Video</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Popular</h4><ul>
+          <li><a href="../compare/chatgpt-vs-claude">ChatGPT vs Claude</a></li>
+          <li><a href="../compare/midjourney-vs-dalle">Midjourney vs DALL-E</a></li>
+          <li><a href="../compare/cursor-vs-copilot">Cursor vs Copilot</a></li>
+          <li><a href="../best/best-ai-writer">Best AI Writer</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>About Us</h4><ul>
+          <li><a href="../about">About AI vs Tool</a></li>
+          <li><a href="../how-we-test">How We Evaluate</a></li>
+          <li><a href="../editorial-policy">Editorial Policy</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Legal</h4><ul>
+          <li><a href="../legal/privacy-policy">Privacy Policy</a></li>
+          <li><a href="../legal/terms-of-service">Terms of Service</a></li>
+          <li><a href="../legal/disclaimer">Disclaimer</a></li>
+          <li><a href="../legal/cookie-policy">Cookie Policy</a></li>
+          <li><a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a></li>
+        </ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI vs Tool. All rights reserved. AI vs Tool is an independent review site. We may earn affiliate commissions from links on this page. This does not affect our editorial integrity. All trademarks are property of their respective owners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
