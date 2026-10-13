@@ -74,13 +74,19 @@
   </url>
   <url>
     <loc>https://aivstool.com/best/best-ai-coding-assistant-for-beginners</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aivstool.com/best/best-ai-coding-assistants</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aivstool.com/best/best-ai-pair-programming-tool</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -125,6 +131,12 @@
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aivstool.com/blog/ai-coding-assistant-for-vs-code</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aivstool.com/blog/can-chatgpt-write-code</loc>
@@ -254,7 +266,7 @@
   </url>
   <url>
     <loc>https://aivstool.com/blog/github-copilot-vs-chatgpt</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -290,7 +302,7 @@
   </url>
   <url>
     <loc>https://aivstool.com/blog/is-cursor-worth-it</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -350,7 +362,7 @@
   </url>
   <url>
     <loc>https://aivstool.com/compare/github-copilot-vs-codeium</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
