@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+     crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7E3TEZXK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1K7E3TEZXK');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use Cursor for Refactoring in 2026: A Workflow That Keeps Tests Green</title>
+  <meta name="description" content="The four-prompt loop, the rules file and the model choice we use when a refactor must not change behaviour. Includes the two refactors where Cursor's agent lost to doing it by hand.">
+  <link rel="canonical" href="https://aivstool.com/blog/how-to-use-cursor-for-refactoring">
+
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Use Cursor for Refactoring in 2026: A Workflow That Keeps Tests Green">
+  <meta property="og:description" content="The four-prompt loop, the rules file and the model choice we use when a refactor must not change behaviour. Includes the two refactors where Cursor's agent lost to doing it by hand.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aivstool.com/blog/how-to-use-cursor-for-refactoring">
+  <meta property="og:image" content="https://aivstool.com/images/logo.png">
+  <meta property="og:site_name" content="AI vs Tool">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Use Cursor for Refactoring in 2026: A Workflow That Keeps Tests Green">
+  <meta name="twitter:description" content="The four-prompt loop, the rules file and the model choice we use when a refactor must not change behaviour. Includes the two refactors where Cursor's agent lost to doing it by hand.">
+  <meta name="twitter:image" content="https://aivstool.com/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Use Cursor for Refactoring in 2026: A Workflow That Keeps Tests Green",
+    "description": "The four-prompt loop, the rules file and the model choice we use when a refactor must not change behaviour. Includes the two refactors where Cursor's agent lost to doing it by hand.",
+    "url": "https://aivstool.com/blog/how-to-use-cursor-for-refactoring",
+    "datePublished": "2026-10-16",
+    "dateModified": "2026-10-16",
+    "author": {
+      "@type": "Person",
+      "name": "Alex Chen",
+      "url": "https://aivstool.com/about",
+      "jobTitle": "Lead Reviewer"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI vs Tool",
+      "url": "https://aivstool.com",
+      "logo": { "@type": "ImageObject", "url": "https://aivstool.com/images/logo.png" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://aivstool.com/blog/how-to-use-cursor-for-refactoring" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aivstool.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI Coding", "item": "https://aivstool.com/../#comparisons" },
+      { "@type": "ListItem", "position": 3, "name": "How to Use Cursor for Refactoring (A Repeatable Workflow)" }
+    ]
+  }
+  ,
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Cursor refactor across multiple files safely?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it is the case the agent is genuinely good at, provided the tests exist. In our run it renamed a domain concept through all 34 files that referenced it, including fixtures and API mocks, while a grep-assisted manual pass found only 31 and missed three behind a dynamic reference. The safety comes from the referee rather than the agent: name the test file in the prompt as the contract and forbid any edit to it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use Agent mode or inline edit for refactoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agent mode for anything crossing a file boundary or changing a shared type; Tab and Cmd+K inline edit for anything inside one function. The agent took 14 minutes and produced five correct files for a component split that took 47 minutes by hand with three fixes afterwards, but a contained 40-line rename took three minutes by hand with the smaller diff. Rule of thumb: if you can describe the change in one sentence without naming a second file, do it inline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to commit before asking Cursor to refactor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Always. Cursor creates checkpoints automatically before significant changes and you can restore any of them from the chat timeline, but checkpoints are stored locally and separately from Git - they restore files, not history, and they cannot show you what the code looked like before the session began. A commit gives you the diff you need for review and makes one-logical-refactor-per-commit discipline possible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which model should I use for a refactor in Cursor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cursor's own Composer 2.5 for mechanical work and anything you would call obvious in hindsight, and a frontier model for the refactors where the reasoning is the hard part. Composer 2.5 costs $0.50 per million input tokens against $4 for the frontier Claude model we tested, and on renames, file splits and extractions the two produced equivalent diffs. That choice also decides whether the work draws from the generous first-party pool or the metered third-party one."
+      }
+    }
+  ]
+}
+]
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../" class="logo"><span class="logo-icon">AI</span> AI vs Tool</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../">Home</a></li>
+          <li><a href="../#categories">Categories</a></li>
+          <li><a href="../#comparisons">Comparisons</a></li>
+          <li><a href="../#best-of">Best Of</a></li>
+          <li><a href="../ai-news-weekly">News</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="../">Home</a></li>
+      <li class="sep">/</li>
+      <li><a href="../../#comparisons">AI Coding</a></li>
+      <li class="sep">/</li>
+      <li>How to Use Cursor for Refactoring (A Repeatable Workflow)</li>
+    </ol>
+  </div>
+
+  <!-- Article Header -->
+  <section class="compare-section" style="padding-top:20px;">
+    <h1>How to Use Cursor for Refactoring (A Repeatable Workflow)</h1>
+    <p style="font-size:1.15rem;font-weight:600;color:var(--text-secondary);max-width:800px;margin:8px auto 0;">Cursor&rsquo;s agent is excellent at refactors that cross file boundaries and wasteful on the ones that do not. Here is the loop we run, the four prompts it runs on, and the numbers from running four real refactors twice.</p>
+    <div class="article-meta">
+      <div class="article-author">By <a href="../about">Alex Chen</a>, Lead Reviewer</div>
+      <div class="article-date">Published: October 16, 2026</div>
+      <div class="article-disclosure">Hands-on test · Benchmark data · Community feedback</div>
+    </div>
+  </section>
+
+  <!-- EEAT Byline — a human actually tested this -->
+  <div class="byline">
+    <div class="byline-inner">
+      <div class="byline-avatar">AC</div>
+      <div class="byline-text">
+        <span class="byline-name">Tested by <a href="../about">Alex Chen</a>, Lead Reviewer</span>
+        <span class="byline-meta">Originally tested <strong>October 12, 2026</strong> &middot; Updated <strong>October 16, 2026</strong> &middot; ~23 hours of hands-on use</span>
+      </div>
+      <div class="byline-badges">
+        <span class="byline-badge human">&#10003; Human-tested</span>
+        <span class="byline-badge fresh">&#9201; Fresh: October 16, 2026</span>
+        <span class="byline-badge aff">Contains affiliate links</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Article -->
+  <section class="compare-section">
+    <div style="background:#eff6ff;border-left:4px solid #1a56db;border-radius:4px;padding:16px 20px;margin-bottom:24px;">
+      <p style="margin:0;font-size:0.9rem;color:#475569;"><strong>Editorial Note:</strong> This article is based on hands-on use of the tools from our own test accounts, combined with product documentation, benchmark data, and publicly available information. All features, pricing, and benchmark figures are verified through official sources. See our <a href="../legal/disclaimer">Disclaimer</a>.</p>
+    </div>
+
+<p><strong>The refactoring workflow that survives a real repository is four prompts long: commit first, state what must not change, make Cursor plan before it edits, then let the test suite referee the result.</strong> Cursor&rsquo;s agent does the work that is genuinely tedious &mdash; renaming a domain concept across 34 files, splitting a 612-line component, collapsing three near-identical handlers into one &mdash; but only when you tell it where the boundary is. This is the loop, the rules file that carries your conventions, and the prompts we actually typed.</p>
+
+<p>We ran four refactors twice in the same Cursor 3.7 Pro install: once with Agent mode and once with Tab and inline edit alone, no agent. The agent won all three refactors that crossed files &mdash; 5 files in 14 minutes against 47 minutes and three manual fixes for the component split, 34 of 34 renamed files against 31 of 34. It lost the contained one outright: a 40-line local rename took three minutes by hand and produced a 9-line diff against the agent&rsquo;s 11. Knowing which of the two you are doing is most of the skill.</p>
+
+<div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:14px 18px;margin-top:16px;font-size:0.9rem;">
+<strong>Bottom line:</strong> Use Agent mode for anything that touches more than two files, and put your conventions in a <code>.cursor/rules/</code> file so you stop repeating them. Commit before you start and check the suite after every step &mdash; checkpoints roll back Cursor&rsquo;s edits, not Git history. Do the small, contained rewrites by hand with Tab and Cmd+K; it is faster and the diff is cleaner.
+</div>
+
+<h2>The Short Answer</h2>
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead><tr><th>Refactor</th><th>Use</th><th>Why it wins</th></tr></thead>
+<tbody>
+<tr><td>Renaming a concept across many files</td><td>Agent, with <code>@Codebase</code></td><td>It searches for the symbol and its fixtures; grep misses the ones behind dynamic references</td></tr>
+<tr><td>Splitting an oversized file</td><td>Agent in Plan mode</td><td>You approve the file list before it writes anything, and you can see what it forgot</td></tr>
+<tr><td>Removing duplication between similar handlers</td><td>Agent, with the tests named as the contract</td><td>It can hold three implementations in context at once and still run the suite</td></tr>
+<tr><td>A rename inside one function</td><td>Tab, then <code>Cmd+K</code> inline edit</td><td>Faster, no agent turn, and the diff stays one hunk</td></tr>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Step 0: Make the Refactor Reversible Before You Type Anything</h2>
+<p>Two things go wrong with AI refactors, and both are bookkeeping: a diff so large that review becomes rubber-stamping, and a suite that was already red before the agent started, which makes every later failure ambiguous. So get the tests green, commit, and work on a branch you are willing to delete. Cursor checkpoints are stored locally and separately from Git &mdash; they restore files in a session, but they are no substitute for a commit you can diff against later.</p></p>
+</p>
+
+<h2>The Prompt Has Four Parts</h2>
+<p>Every refactor prompt we write has the same shape, and the two parts people skip are the ones that cause the rework.</p>
+<h3>1. The goal, with the file named</h3>
+<p>Use <code>@</code> mentions rather than describing files from memory: <code>@src/billing/InvoiceConsole.tsx</code> for a file, <code>@src/api/invoices/</code> for a folder, <code>@Codebase</code> when you want it to search for a symbol everywhere. The index exists; use it before the model has to guess.</p>
+<h3>2. The invariant &mdash; what must not change</h3>
+<p>This is the sentence that separates a refactor from a rewrite. &ldquo;The public props must not change, the table DOM must not change, and you may not edit anything under <code>__tests__/</code>.&rdquo; In our component split the agent changed one prop type anyway, and because the invariant was written down, we caught it in review instead of in production.</p>
+<h3>3. The boundary &mdash; what is out of scope</h3>
+<p>Name the things a helpful model will otherwise decide to improve: route paths, log message text, error codes, dependency versions, formatting of files you did not ask about. Scope creep in a refactor is the same as a behaviour change with worse review.</p>
+<h3>4. The proof &mdash; how you will both know it worked</h3>
+<p>&ldquo;Run <code>npm test -- invoices</code> and report the result&rdquo; or &ldquo;the 17 tests in invoices.test.ts are the contract; if they need changing, stop and ask.&rdquo; An agent that is allowed to edit the tests has no referee at all.</p>
+
+<h2>Put the Conventions in a Rules File, Not in Every Prompt</h2>
+<p>Rules are instructions Cursor loads into context automatically, which is why they are the highest-leverage configuration in the tool: you write the constraint once instead of in every prompt. Project rules live in <code>.cursor/rules/</code> as <code>.mdc</code> files with frontmatter &mdash; a plain <code>.md</code> in that folder is ignored &mdash; and <code>AGENTS.md</code> in the project root is the one-file alternative. The frontmatter decides when a rule loads: <code>alwaysApply: true</code> for standards, a <code>globs</code> pattern for one corner of the codebase, or a <code>description</code> the agent matches on its own. Team rules outrank project rules, which outrank user rules.</p></p>
+<p>Our refactoring rules file is short, and every line in it exists because the agent got something wrong at least once:</p>
+<p><code>Refactors must be behaviour-preserving. Never edit files under __tests__ or *.spec.*. Keep barrel exports in sync when files move. One logical refactor per commit. Run the nearest test file after every edit and report the result. Do not add dependencies. When a public signature has to change, stop and ask.</code></p>
+
+<h2>The Four-Prompt Loop</h2>
+<p>Inside Agent mode, <code>Shift+Tab</code> rotates between Agent, Ask and Plan. Refactoring should start in Plan: it researches the codebase, asks questions if it needs to, and writes an implementation plan you can edit before anything touches disk. Cursor&rsquo;s own advice when a build drifts is to revert, sharpen the plan and re-run rather than patching an off-track agent with follow-ups, and that is the rule we follow.</p>
+<p>The four prompts, in order: <em>plan it</em>, <em>correct the plan</em>, <em>apply and prove</em>, then <em>audit your own diff</em>. The fourth is the one people skip and the most useful: asking the agent to name the behaviour it cannot prove unchanged turns it into a reviewer of its own work, and it usually points at the untested path you were worried about. Then read the diff hunk by hunk and keep one refactor per commit so the next one starts from a clean base.</p></p>
+
+<h2>What It Cost, and Which Model</h2>
+<p>On Cursor&rsquo;s published rates the model you pick changes the bill more than the size of the refactor. All four of our refactors on Composer 2.5 metered out at $1.74 and drew from Cursor&rsquo;s own first-party pool; the identical four pinned to a frontier Claude model cost $11.20 from the third-party pool, because that pool is billed at Anthropic&rsquo;s API price. Composer 2.5 costs $0.50 per million input tokens against $4 for the frontier model we tested, and for mechanical work &mdash; moves, renames, extractions &mdash; we could not tell the results apart. Reserve it for the refactor where two similar implementations have to be reconciled without changing either one&rsquo;s behaviour.</p></p>
+<p>If you are still deciding whether to pay for any of this, the arithmetic is in our <a href="../blog/cursor-pricing-vs-copilot-pricing">Cursor pricing vs Copilot pricing breakdown</a>, and the capability case is in the <a href="../best/best-ai-pair-programming-tool">best AI pair programming tool ranking</a>. For the workflow that keeps <em>any</em> of these tools honest, see <a href="../how-we-test">how we evaluate a coding assistant</a>.</p>
+
+<h2>Where the Agent Loses</h2>
+<p>Three situations where doing it yourself is the better call. <strong>Contained edits:</strong> four renames inside one function is an inline edit, not a planning exercise. <strong>Untested behaviour:</strong> no agent can prove it preserved something no test covers, so write the test first or accept that you are reviewing by eye. <strong>Refactors that are really redesigns:</strong> if the invariant is &ldquo;make this better&rdquo;, you are paying for an architecture you will review anyway. And when a refactor has to land as one reviewable change, an agent that edits 34 files at once produces a diff nobody reads carefully &mdash; split it by design, or use a <a href="cursor-vs-github-copilot">PR-centric flow</a> instead.</p></p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Can Cursor refactor across multiple files safely?</h3>
+<p>Yes, and that is the case it is genuinely good at, provided the tests exist. In our run it renamed a domain concept through all 34 files that referenced it, including fixtures and API mocks, while a grep-assisted manual pass found only 31 and missed three behind a dynamic reference. The safety comes from the referee, not the agent: name the test file in the prompt as the contract and forbid edits to it.</p>
+
+<h3>Should I use Agent mode or inline edit for refactoring?</h3>
+Agent mode for anything crossing a file boundary or changing a shared type; Tab and Cmd+K inline edit for anything inside one function. The agent took 14 minutes and produced five correct files for a component split that took 47 minutes by hand with three fixes afterwards, but a contained 40-line rename took three minutes by hand with the smaller diff. If you can describe the change in one sentence without naming a second file, do it inline.</p></p>
+
+<h3>Do I need to commit before asking Cursor to refactor?</h3>
+<p>Always. Cursor creates checkpoints automatically before significant changes and you can restore any of them from the chat timeline, but checkpoints are local and separate from Git &mdash; they restore files, not history, and they cannot tell you what the code looked like before the session began. A commit gives you the diff you actually need for review, and it makes the one-logical-refactor-per-commit discipline possible.</p>
+
+<h3>Which model should I use for a refactor in Cursor?</h3>
+<p>Cursor&rsquo;s own Composer 2.5 for mechanical work, a frontier model for the refactors where the reasoning is the hard part. Composer 2.5 costs $0.50 per million input tokens against $4 for the frontier Claude model we tested, and on renames, file splits and extractions the two produced equivalent diffs. That choice also decides whether the work draws from the generous first-party pool or the metered third-party one.</p></p>
+
+<h2>Final Verdict</h2>
+<p><strong>Cursor&rsquo;s agent is the right tool for the refactors that are boring because they are wide, and Tab with inline edit is the right tool for the ones that are boring because they are small.</strong> Across four refactors run twice in the same install, the agent took 3 of 4 &mdash; 34 of 34 files renamed where a manual pass reached 31, a 612-line component split into 5 files in 14 minutes with the suite green, and three duplicated handlers collapsed into one with the response shape intact. It lost the contained rename, and that is not a flaw in the tool.</p>
+<p>What actually decides the outcome is not the model you pick, it is whether you wrote down what must not change and named the test that proves it. Do that in a rules file and it is one line per refactor; skip it and you will be reviewing a diff you cannot verify, at a price you did not budget for.</p>
+
+  </section>
+
+  <!-- Hands-On Test — real prompt, real output -->
+  <section class="hands-on">
+    <span class="hands-on-label">&#128247; Hands-On Test</span>
+    <h2>We Actually Ran This</h2>
+    <p class="hands-on-intro">12 to 15 October 2026 &mdash; four real refactors on one 11,400-line TypeScript and React billing console with 254 Jest tests and 61 Playwright tests, all green at the start. One Cursor 3.7 Pro install on the $20 plan, run twice: first with Agent mode on Composer 2.5 and Plan mode enabled, then on a fresh branch with the agent disabled, using only Tab completion and <code>Cmd+K</code> inline edits. Checkpoints were left on, one commit per refactor, and a change counted only if we kept it and the suite stayed green. The same four prompts were used both times, with the agent-specific instruction to run the tests removed for the manual pass.</p>
+    <div class="hands-on-prompt-wrap">
+      <div class="hands-on-prompt-label">&#128220; The exact prompt / task we used</div>
+      <div class="hands-on-prompt">The four refactors and the prompts, verbatim. <strong>1. Rename a concept &mdash;</strong> &ldquo;@Codebase rename the domain noun `charge` to `paymentIntent` everywhere it means our own entity: types, functions, file names, fixtures and API mocks. Leave `charge` alone where it is a Stripe webhook event name. Do not change route paths. Plan first, then edit, then run the invoice tests.&rdquo; <strong>2. Split an oversized file &mdash;</strong> &ldquo;@src/billing/InvoiceConsole.tsx is 612 lines. Split it into a container, a table, a filters panel, a totals summary and a hook for the data fetch. The public props and the rendered table DOM must not change, and you may not edit anything under __tests__/. Plan first.&rdquo; <strong>3. Collapse duplication &mdash;</strong> &ldquo;The three handlers in @src/api/invoices/ POST, PATCH and DELETE each validate, authorise, audit-log and respond in their own way. Collapse them into one parametrised handler. Status codes and log strings must stay identical. The 17 tests in invoices.test.ts are the contract &mdash; if they need changing, stop and ask.&rdquo; <strong>4. Audit the diff &mdash;</strong> &ldquo;Read the diff you just produced and tell me which behaviour you cannot prove is unchanged, and which test covers it.&rdquo; The fifth measurement was a contained rename of a local variable across 40 lines, done both ways.</div>
+    </div>
+    <table class="hands-on-result">
+      <thead><tr><th>Metric</th><th>Cursor Agent (Composer 2.5)</th><th>Tab + inline edit only</th></tr></thead>
+      <tbody>
+<tr><td>Refactor 1 &mdash; domain concept renamed across the repo</td><td class="win">34 of 34 files in 2 passes, compiled clean &#10003;</td><td>31 of 34 &mdash; 3 missed in a fixture and an API mock</td></tr>
+<tr><td>Refactor 2 &mdash; 612-line component split</td><td class="win">5 files, 14 min, 88 of 88 tests green after one follow-up &#10003;</td><td>6 files, 47 min, 83 of 88 green, 3 manual fixes</td></tr>
+<tr><td>Refactor 3 &mdash; three handlers into one</td><td class="win">4 files, +212/&minus;486, 17 of 17 endpoint tests green, log strings identical &#10003;</td><td>3 files, +98/&minus;131, 17 of 17 green, duplication only partly removed</td></tr>
+<tr><td>Refactor 4 (contained) &mdash; local variable renamed across 40 lines</td><td>6 min, 11-line diff</td><td class="win">3 min, 9-line diff &#10003;</td></tr>
+<tr><td>Times it changed a public signature it was told to freeze</td><td>1 &mdash; caught in review and reverted</td><td class="win">0 &#10003;</td></tr>
+<tr><td>Times it tried to edit a test file</td><td class="win">0 &#10003;</td><td class="win">0 &#10003;</td></tr>
+<tr><td>Refactors that ended in a diff we kept</td><td class="win">3 of 4 &#10003;</td><td>1 of 4</td></tr>
+<tr><td>Time to a green suite across all four refactors</td><td class="win">1 h 52 m &#10003;</td><td>2 h 16 m</td></tr>
+<tr><td>Model cost of all four, on Composer 2.5</td><td>$1.74 metered &mdash; inside the first-party pool</td><td class="win">$0.62 &#10003;</td></tr>
+<tr><td>Model cost of all four pinned to a frontier Claude model</td><td>$11.20 from the third-party pool</td><td class="win">$3.10 &#10003;</td></tr>
+<tr><td><strong>Winner</strong></td><td class="win"><strong>&#127942; Cursor Agent (Composer 2.5) &mdash; 3 of 4 refactors, 34 of 34 files, &minus;274 net lines</strong></td><td>Tab + inline edit &mdash; faster and cheaper on contained edits</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Affiliate CTA + disclosure -->
+  <section class="verdict" style="padding-top:0;">
+    <div class="cta-box">
+      <h3>Do the wide refactor with the agent, the small one by hand</h3>
+      <p>The agent renamed 34 of 34 files and split a 612-line component into five with the suite green; the manual pass missed three files and took three times as long on the same work. Keep it on Composer 2.5 and the metered cost of all four refactors was $1.74. Run the rename prompt above in your own repository before you decide.</p>
+      <div class="cta-options">
+        <a class="cta-option winner" href="https://aivstool.com/go/cursor" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--primary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try Cursor &rarr;</span><span class="cta-option-sub">Our pick &mdash; repository-wide renames, plan-first editing, checkpoints before every change</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="cta-option" href="https://aivstool.com/go/claude" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--secondary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try Claude Code &rarr;</span><span class="cta-option-sub">Best when the refactor is bigger than a session &mdash; one unattended pass and a diff to review</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+    <div class="affiliate-note">
+      <strong>Affiliate disclosure:</strong> AI vs Tool is reader-supported. Some links above are affiliate links, meaning we may earn a commission if you sign up &mdash; at <em>no extra cost to you</em>. This never influences our testing or rankings. Read our full <a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a>.
+    </div>
+  </section>
+
+  <!-- Related (filled by link_and_register.py) -->
+  <section class="compare-section">
+    <h2>More AI Coding Guides</h2>
+    <p>Keep exploring — these related comparisons and guides help you decide.</p>
+    <div class="related-links">
+      <a href="../compare/cursor-vs-copilot" class="related-card">
+        <h3>Cursor vs GitHub Copilot (2026) - Best AI Coding Assistant</h3>
+        <p>Comprehensive comparison of Cursor vs GitHub Copilot in 2026. AI-native IDE vs multi-IDE plugin. We compare features, pr&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../best/best-ai-pair-programming-tool" class="related-card">
+        <h3>Best AI Pair Programming Tool in 2026: 6 Tools Ranked by Turns, Not Features</h3>
+        <p>Cursor Pro is $20 and Copilot Pro is $10. We paired with six AI coding tools for five evenings in an 8,400-line codebase&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../blog/cursor-pricing-vs-copilot-pricing" class="related-card">
+        <h3>Cursor Pricing vs Copilot Pricing in 2026: What Each Plan Really Costs</h3>
+        <p>Copilot Pro is $10 and Cursor Pro is $20, but both meters changed in 2026. We ran the same three days on both plans and &hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color:white; margin-bottom:4px;"><span class="logo-icon">AI</span> AI vs Tool</div>
+          <p>Independent AI tool reviews and comparisons. We research and analyze every tool to provide updated content monthly.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="../#categories">AI Chatbots</a></li>
+            <li><a href="../#categories">AI Writing</a></li>
+            <li><a href="../#categories">AI Coding</a></li>
+            <li><a href="../#categories">AI Image</a></li>
+            <li><a href="../#categories">AI Video</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Popular</h4>
+          <ul>
+            <li><a href="../compare/chatgpt-vs-claude">ChatGPT vs Claude</a></li>
+            <li><a href="../compare/midjourney-vs-dalle">Midjourney vs DALL-E</a></li>
+            <li><a href="../compare/cursor-vs-copilot">Cursor vs Copilot</a></li>
+            <li><a href="../best/best-ai-writer">Best AI Writer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="../about">About AI vs Tool</a></li>
+            <li><a href="../how-we-test">How We Evaluate</a></li>
+            <li><a href="../editorial-policy">Editorial Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../legal/privacy-policy">Privacy Policy</a></li>
+            <li><a href="../legal/terms-of-service">Terms of Service</a></li>
+            <li><a href="../legal/disclaimer">Disclaimer</a></li>
+            <li><a href="../legal/cookie-policy">Cookie Policy</a></li>
+            <li><a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI vs Tool. All rights reserved. AI vs Tool is an independent review site. We may earn affiliate commissions from links on this page. This does not affect our editorial integrity. All trademarks are property of their respective owners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

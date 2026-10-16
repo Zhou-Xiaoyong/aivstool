@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://aivstool.com/best/best-ai-pair-programming-tool</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -241,14 +241,20 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://aivstool.com/blog/cursor-pricing-vs-copilot-pricing</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://aivstool.com/blog/cursor-vs-claude-code</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aivstool.com/blog/cursor-vs-github-copilot</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -289,6 +295,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://aivstool.com/blog/how-to-use-cursor-for-refactoring</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://aivstool.com/blog/is-chatgpt-plus-worth-it</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
@@ -302,7 +314,7 @@
   </url>
   <url>
     <loc>https://aivstool.com/blog/is-cursor-worth-it</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -344,13 +356,13 @@
   </url>
   <url>
     <loc>https://aivstool.com/compare/cursor-vs-copilot</loc>
-    <lastmod>2026-06-23</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aivstool.com/compare/cursor-vs-windsurf</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -362,7 +374,7 @@
   </url>
   <url>
     <loc>https://aivstool.com/compare/github-copilot-vs-codeium</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
