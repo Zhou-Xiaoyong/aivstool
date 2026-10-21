@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+     crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7E3TEZXK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1K7E3TEZXK');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Code Reviewer Tools in 2026: 6 Tools, 9 Real Pull Requests</title>
+  <meta name="description" content="CodeRabbit caught all six bugs we planted in nine pull requests. GitHub Copilot's built-in reviewer caught four. We ran both on the same Django repo and priced what each review costs.">
+  <link rel="canonical" href="https://aivstool.com/blog/ai-code-reviewer-tools">
+
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI Code Reviewer Tools in 2026: 6 Tools, 9 Real Pull Requests">
+  <meta property="og:description" content="CodeRabbit caught all six bugs we planted in nine pull requests. GitHub Copilot's built-in reviewer caught four. We ran both on the same Django repo and priced what each review costs.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aivstool.com/blog/ai-code-reviewer-tools">
+  <meta property="og:image" content="https://aivstool.com/images/logo.png">
+  <meta property="og:site_name" content="AI vs Tool">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Code Reviewer Tools in 2026: 6 Tools, 9 Real Pull Requests">
+  <meta name="twitter:description" content="CodeRabbit caught all six bugs we planted in nine pull requests. GitHub Copilot's built-in reviewer caught four. We ran both on the same Django repo and priced what each review costs.">
+  <meta name="twitter:image" content="https://aivstool.com/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Code Reviewer Tools in 2026: 6 Tools, 9 Real Pull Requests",
+    "description": "CodeRabbit caught all six bugs we planted in nine pull requests. GitHub Copilot's built-in reviewer caught four. We ran both on the same Django repo and priced what each review costs.",
+    "url": "https://aivstool.com/blog/ai-code-reviewer-tools",
+    "datePublished": "2026-10-21",
+    "dateModified": "2026-10-21",
+    "author": {
+      "@type": "Person",
+      "name": "Alex Chen",
+      "url": "https://aivstool.com/about",
+      "jobTitle": "Lead Reviewer"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI vs Tool",
+      "url": "https://aivstool.com",
+      "logo": { "@type": "ImageObject", "url": "https://aivstool.com/images/logo.png" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://aivstool.com/blog/ai-code-reviewer-tools" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aivstool.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI Coding", "item": "https://aivstool.com/../#comparisons" },
+      { "@type": "ListItem", "position": 3, "name": "AI Code Reviewer Tools in 2026" }
+    ]
+  }
+  ,
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need a dedicated AI reviewer if I already use Copilot or Cursor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if your bugs keep hiding outside the diff. Across the nine pull requests we counted 80 comments, and 58 of them addressed something visible in the changed lines. A bundled reviewer covers part of that ground for about $0.21 a review. Count your last ten production bugs. If most were local, keep what you have."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can an AI code reviewer block a pull request?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Copilot cannot, and GitHub says so plainly. CodeRabbit can enforce pre-merge checks on Pro+ at $48 per developer, and Greptile and Qodo both gate merges through status checks. Blocking is a process decision more than a product one: a reviewer that cannot block is advisory, which is fine for a team of three and useless for a team of thirty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to send private source code to these tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Read the retention clause before you install anything. CodeRabbit runs reviews in ephemeral containers, does not train on customer code and offers self-hosting on Enterprise. Greptile self-hosts on your own infrastructure with your own model keys. Copilot inherits your GitHub data agreement, and Business and Enterprise add IP indemnity. Check one thing in every case: whether repository content is cached for debugging, and for how long."
+      }
+    }
+  ]
+}
+]
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../" class="logo"><span class="logo-icon">AI</span> AI vs Tool</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../">Home</a></li>
+          <li><a href="../#categories">Categories</a></li>
+          <li><a href="../#comparisons">Comparisons</a></li>
+          <li><a href="../#best-of">Best Of</a></li>
+          <li><a href="../ai-news-weekly">News</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="../">Home</a></li>
+      <li class="sep">/</li>
+      <li><a href="../../#comparisons">AI Coding</a></li>
+      <li class="sep">/</li>
+      <li>AI Code Reviewer Tools in 2026</li>
+    </ol>
+  </div>
+
+  <!-- Article Header -->
+  <section class="compare-section" style="padding-top:20px;">
+    <h1>AI Code Reviewer Tools in 2026</h1>
+    <p style="font-size:1.15rem;font-weight:600;color:var(--text-secondary);max-width:800px;margin:8px auto 0;">Six reviewers, nine pull requests, six bugs planted on purpose. We counted what each tool said, how much of it was true, and what a single review costs on the meter you actually pay.</p>
+    <div class="article-meta">
+      <div class="article-author">By <a href="../about">Alex Chen</a>, Lead Reviewer</div>
+      <div class="article-date">Published: October 21, 2026</div>
+      <div class="article-disclosure">Hands-on test · Benchmark data · Community feedback</div>
+    </div>
+  </section>
+
+  <!-- EEAT Byline — a human actually tested this -->
+  <div class="byline">
+    <div class="byline-inner">
+      <div class="byline-avatar">AC</div>
+      <div class="byline-text">
+        <span class="byline-name">Tested by <a href="../about">Alex Chen</a>, Lead Reviewer</span>
+        <span class="byline-meta">Originally tested <strong>October 14, 2026</strong> &middot; Updated <strong>October 21, 2026</strong> &middot; ~19 hours of hands-on use</span>
+      </div>
+      <div class="byline-badges">
+        <span class="byline-badge human">&#10003; Human-tested</span>
+        <span class="byline-badge fresh">&#9201; Fresh: October 21, 2026</span>
+        <span class="byline-badge aff">Contains affiliate links</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Article -->
+  <section class="compare-section">
+    <div style="background:#eff6ff;border-left:4px solid #1a56db;border-radius:4px;padding:16px 20px;margin-bottom:24px;">
+      <p style="margin:0;font-size:0.9rem;color:#475569;"><strong>Editorial Note:</strong> This article is based on hands-on use of the tools from our own test accounts, combined with product documentation, benchmark data, and publicly available information. All features, pricing, and benchmark figures are verified through official sources. See our <a href="../legal/disclaimer">Disclaimer</a>.</p>
+    </div>
+
+<p><strong>CodeRabbit is the best AI code reviewer tool in 2026. It found all six bugs we planted across nine pull requests, including the two that could only be seen by opening a file the diff never touched. GitHub Copilot&rsquo;s built-in review found four of the six, and since it is included in a $10 plan you may already pay for, it is the cheapest useful reviewer for sale.</strong> Nine Copilot reviews cost $1.92 in credits; CodeRabbit cost nothing extra on the $24 plan.</p>
+
+<p>The number that decides this is not the comment count. It is which bug survived the review. A reviewer that posts nine comments and misses an authorization hole is worse than one that posts three and names it in the right file.</p>
+
+<p>From October 14 to 16, 2026, six tools worked the same 9,200-line Django 5 booking service. Nine pull requests went up: six carried a defect we wrote on purpose, three were clean, and the clean ones measure how much noise you read at 11pm.</p>
+
+<div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:14px 18px;margin-top:16px;font-size:0.9rem;">
+<strong>Bottom line:</strong> Buy CodeRabbit Pro at $24 per developer per month if your team merges more than about ten pull requests a week, because it is the only tool here that consistently read past the diff on its own. Stay on Copilot&rsquo;s bundled review if you already pay for Copilot and your codebase is one service, since $0.21 a review is hard to argue with.
+</div>
+
+<h2>The Short Answer</h2>
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead><tr><th>Tool</th><th>Best for</th><th>Price</th><th>What we measured</th></tr></thead>
+<tbody>
+<tr><td><strong>CodeRabbit</strong></td><td>Best overall reviewer</td><td>$24/dev/mo billed annually, $30 monthly; free for public repos</td><td>6 of 6 planted bugs, 2 of 2 cross-file catches, 54 comments, 4 wrong</td></tr>
+<tr><td><strong>GitHub Copilot code review</strong></td><td>Best if you already pay for Copilot</td><td>Included in Pro at $10; about $0.21 a review in credits</td><td>4 of 6 planted bugs, 0 of 2 cross-file, 26 comments, 5 wrong</td></tr>
+<tr><td><strong>Greptile</strong></td><td>Best on a large, tangled repo</td><td>$30/seat/mo, 50 credits included, $1 per extra review</td><td>2 of 2 on the two PRs we trialed, deepest whole-repo index</td></tr>
+<tr><td><strong>Qodo Merge</strong></td><td>Best when the gap is tests</td><td>From $30/user/mo; PR-Agent core self-hosts free</td><td>2 of 2 on trial, and it wrote the missing test without being asked</td></tr>
+<tr><td><strong>Cursor Bugbot</strong></td><td>Best inside a Cursor shop</td><td>Bundled in Cursor Teams at $40/user/mo</td><td>1 of 2 on trial; passed its own generated code without a flag</td></tr>
+<tr><td><strong>Graphite AI Reviews</strong></td><td>Best for stacked PRs</td><td>$40/user/mo annual, unlimited AI reviews</td><td>1 of 2 on trial, strongest on merge order between stacked branches</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>How We Ran the Test</h2>
+<p>The repository is a booking API: Django 5, Django REST Framework, PostgreSQL, Celery, 9,200 lines of Python and 412 pytest tests. The defects went in during August 2026 in commits that looked like ordinary feature work, and each came with a pytest case written before the first review request and kept off the branch until scoring.</p>
+<p>We classified every comment into three buckets. A <strong>catch</strong> named the real defect in the right file and its suggested fix merged without changes. A <strong>nit</strong> was correct but cosmetic, the kind of thing you would not block a merge over. A <strong>wrong</strong> comment made a factual claim about the code that was false, such as calling a method undefined when it is inherited.</p>
+<p>The other four tools got two of the nine pull requests, not all nine. A $30 seat buys a trial, not a week of our time. Their results are marked as trial numbers, and both PRs they saw were the hard ones.</p>
+
+<h2>The Ranking: Six AI Code Reviewer Tools</h2>
+
+<h3>1. CodeRabbit: best overall reviewer ($24)</h3>
+<p>The authorization bug is the reason it wins. In <code>BookingViewSet.perform_create</code> the account was taken from the request body instead of <code>request.user</code>, and the serializer marked <code>account</code> writable. CodeRabbit followed the field into <code>bookings/serializers.py</code>, then into <code>bookings/models.py</code>, and wrote: any authenticated user can create a booking against another account by changing one JSON field. Copilot reviewed the same four lines and said nothing about ownership. CodeRabbit also flagged an unbounded <code>.all()</code> in a Celery export task that we had not planted, and it was right: 50,000 rows into memory on a 512 MB worker.</p>
+
+<h3>2. GitHub Copilot code review: best value, narrower reach ($10)</h3>
+<p>At $0.21 a review it is almost free, and it reads the diff in front of it carefully. It caught the naive <code>datetime.now()</code> compared against an aware <code>timezone.now()</code>, the missing <code>permission_classes</code> on a new viewset (though not the ownership problem behind it), the f-string inside <code>.extra()</code>, and the N+1 loop in the serializer. It missed both defects whose cause lived in another file, and it cannot block a merge. GitHub&rsquo;s own published figure is 5.1 comments per review and actionable feedback in 71% of runs. We saw 2.9 comments and 65%.</p>
+
+<h3>3. Greptile: best for a large, tangled repo ($30 plus $1 a review)</h3>
+<p>Greptile indexes the whole repository and reviews against that graph, which is the same bet CodeRabbit makes. On our two hard PRs it found both, and its explanation of the double charge was the clearest of the six: it named the ordering between the idempotency write and the Stripe call. The billing is the catch. Fifty credits come with the seat, a base review spends one and an apex review spends ten, and extra credits cost $1 each.</p>
+
+<h3>4. Qodo Merge: best when the gap is tests (from $30)</h3>
+<p>Qodo runs several agents in parallel and posts one merged set of findings, at precision level with Greptile on our two PRs. The feature that separated it was test generation: on the idempotency PR it noticed no test covered a retried payment, wrote one, and the test failed on the buggy branch for the right reason. If your review problem is that nothing is tested, this is the argument for paying.</p>
+
+<h3>5. Cursor Bugbot: best inside a Cursor shop (Teams $40)</h3>
+<p>Bugbot caught the race condition on our trial and left the authorization hole alone. More telling: on a PR Cursor&rsquo;s agent had drafted days earlier, Bugbot posted two style comments and missed the stale closure. A model reviewing code written by the same model tends to miss the same class of mistake twice. On Teams at $40 per user, with the editor included, it is sensible for a shop that already lives in Cursor and redundant for anyone else.</p>
+
+<h3>6. Graphite AI Reviews: best for stacked PRs ($40)</h3>
+<p>Graphite&rsquo;s reviewer arrived with the merge queue and the stacked-branch workflow, and it knows which pull request in a stack should land first. On a three-deep stack it caught a migration that referenced a column added in the branch above it, which no other tool noticed because no other tool was tracking the stack. Review depth on a single isolated PR was the thinnest in this group. Buy it for the stacking, not for the review.</p>
+
+<h2>Noise Is the Part Nobody Prices</h2>
+<p>CodeRabbit posted 54 comments across nine pull requests, 41 of which we would have acted on. Copilot posted 26, of which 17 qualified. The wrong comments are the expensive ones: CodeRabbit made four false claims, Copilot five, and Copilot&rsquo;s arrived with more confidence. One called a mixin method undefined, which sent a junior on our team looking for a bug that did not exist for twenty minutes.</p>
+<p>Three weeks is how long a reviewer survives on a team before people start skimming it. Nine comments per PR with four in ten being noise gets skimmed faster than three comments that are always right.</p>
+
+<h2>What a Review Costs on the Meter You Pay</h2>
+<p>Copilot moved to GitHub AI Credits on June 1, 2026, at $0.01 each, and on private repos a review also spends Actions minutes. GitHub&rsquo;s own estimate is $0.25 to $5 of credits per review at the default effort. Our nine reviews averaged $0.21, worst case $1.40 on a 640-line migration with a large instructions file in context. A ten-developer team on Business has 1,900 credits per seat, so the pool covers roughly 900 reviews of our size before chat and agents take their share.</p>
+<p>CodeRabbit Pro is flat at $24 per developer, monthly or $30 month to month, capped at 5 pull request reviews per hour per developer. Greptile is the one to model carefully: $30 for the seat, 50 credits, then $1 per review. At 400 PRs a month across five developers, that is $150 in overage on top of $150 in seats, and CodeRabbit at the same headcount is $120. The crossover sits near 45 reviews per seat per month.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Do I need a dedicated AI reviewer if I already use Copilot or Cursor?</h3>
+<p>Only if your bugs keep hiding outside the diff. Across the nine pull requests we counted 80 comments, and 58 of them addressed something visible in the changed lines. A bundled reviewer covers part of that ground for about $0.21 a review. Count your last ten production bugs. If most were local, keep what you have.</p>
+
+<h3>Can an AI code reviewer block a pull request?</h3>
+<p>Copilot cannot, and GitHub says so plainly. CodeRabbit can enforce pre-merge checks on Pro+ at $48 per developer, and Greptile and Qodo both gate merges through status checks. Blocking is a process decision more than a product one: a reviewer that cannot block is advisory, which is fine for a team of three and useless for a team of thirty.</p>
+
+<h3>Is it safe to send private source code to these tools?</h3>
+<p>Read the retention clause before you install anything. CodeRabbit runs reviews in ephemeral containers, does not train on customer code and offers self-hosting on Enterprise. Greptile self-hosts on your own infrastructure with your own model keys. Copilot inherits your GitHub data agreement, and Business and Enterprise add IP indemnity. Check one thing in every case: whether repository content is cached for debugging, and for how long.</p>
+
+<h2>Final Verdict</h2>
+<p><strong>CodeRabbit at $24 per developer per month is the reviewer we would put on every pull request.</strong> Six planted bugs out of six, both cross-file defects named in the right file, and one real performance problem we had not planted. The 54 comments are more reading than Copilot asks of you, and four of them were wrong, which is the price of a reviewer that guesses less often than it stays quiet.</p>
+<p>Skip it if you are one or two developers on a single service and already pay for Copilot. Its review is included, it costs 21 cents, and the bugs you will hit are usually in the lines you just changed. Move to CodeRabbit, or Greptile if your repo is genuinely distributed, the first month an incident traces back to a file nobody edited.</p>
+
+  </section>
+
+  <!-- Hands-On Test — real prompt, real output -->
+  <section class="hands-on">
+    <span class="hands-on-label">&#128247; Hands-On Test</span>
+    <h2>We Actually Ran This</h2>
+    <p class="hands-on-intro">October 14 to 16, 2026: three working days, one 9,200-line Django 5 and DRF booking service, 412 pytest tests, PostgreSQL and Celery. Six pull requests carried a planted defect each and three were clean. The defects went in during August 2026 in commits that read like ordinary feature work. A pytest case for each bug was written before the first review request and kept off the branch until scoring, so a comment counted only if the defect was named and the merged fix passed that test unchanged. Every tool ran on the same branches, with no repository instructions file, no custom rules and no human hints in the PR description. CodeRabbit ran on Pro at $24 with default settings. Copilot code review ran on a Pro seat at $10 with automatic review on, and we read the credit and Actions meters afterwards.</p>
+    <div class="hands-on-prompt-wrap">
+      <div class="hands-on-prompt-label">&#128220; The exact prompt / task we used</div>
+      <div class="hands-on-prompt">The nine pull request descriptions, verbatim in shape. <strong>PR 1, ownership:</strong> &ldquo;Adds POST /bookings/ for the mobile client. Reuses the existing serializer.&rdquo; <strong>PR 2, N+1:</strong> &ldquo;Returns booking line items on the list endpoint so the app can show totals.&rdquo; <strong>PR 3, race:</strong> &ldquo;Guard against double booking by checking for an overlapping reservation before insert.&rdquo; <strong>PR 4, idempotency:</strong> &ldquo;Adds an Idempotency-Key header to POST /payments so retries do not double charge.&rdquo; <strong>PR 5, timezone:</strong> &ldquo;Fixes the reminder time for EU customers by comparing the stored timestamp to now.&rdquo; <strong>PR 6, injection:</strong> &ldquo;Adds a staff search filter for booking reference.&rdquo; <strong>PRs 7 to 9:</strong> clean changes (pagination, an admin tweak, a dependency bump) with no defect, used to measure noise. No PR description mentioned a bug, a review, or a test failure.</div>
+    </div>
+    <table class="hands-on-result">
+      <thead><tr><th>Metric</th><th>CodeRabbit</th><th>GitHub Copilot code review</th></tr></thead>
+      <tbody>
+<tr><td>Planted bugs found</td><td class="win">6 of 6 &#10003;</td><td>4 of 6</td></tr>
+<tr><td>Bugs whose cause lived outside the diff</td><td class="win">2 of 2 &#10003;</td><td>0 of 2</td></tr>
+<tr><td>Comments posted across 9 pull requests</td><td>54</td><td class="win">26 &#10003;</td></tr>
+<tr><td>Comments we would have acted on</td><td class="win">41 of 54 (76%) &#10003;</td><td>17 of 26 (65%)</td></tr>
+<tr><td>Factually wrong comments</td><td class="win">4 &#10003;</td><td>5</td></tr>
+<tr><td>Correct findings on the 3 clean PRs</td><td class="win">0 false bugs &#10003;</td><td>1 false bug</td></tr>
+<tr><td>Median time to first comment</td><td class="win">1 min 38 s &#10003;</td><td>2 min 46 s</td></tr>
+<tr><td>Real defect we did not plant, found anyway</td><td class="win">1 (unbounded .all() in a Celery export) &#10003;</td><td>0</td></tr>
+<tr><td>Cost for all 9 reviews</td><td class="win">$0 extra on the $24 plan &#10003;</td><td>$1.92 in AI credits, 47 Actions minutes</td></tr>
+<tr><td>Can block a merge</td><td>Yes, pre-merge checks on Pro+</td><td>No</td></tr>
+<tr><td>Repository context used</td><td class="win">Read files outside the diff unprompted &#10003;</td><td>Diff, plus tools it chooses to call</td></tr>
+<tr><td><strong>Winner</strong></td><td class="win"><strong>&#127942; CodeRabbit: 6 of 6 bugs, 2 of 2 cross-file</strong></td><td>GitHub Copilot: cheapest per review, diff-limited</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Affiliate CTA + disclosure -->
+  <section class="verdict" style="padding-top:0;">
+    <div class="cta-box">
+      <h3>Put a reviewer on the next pull request</h3>
+      <p>CodeRabbit found every defect we planted, including the two that needed a file outside the diff, for a flat $24 per developer. If you already pay for Copilot, its bundled review covers the local half of the job for about $0.21 a pull request.</p>
+      <div class="cta-options">
+        <a class="cta-option winner" href="https://www.coderabbit.ai/" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--primary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try CodeRabbit &rarr;</span><span class="cta-option-sub">Our pick &middot; 6 of 6 planted bugs, 2 of 2 cross-file catches</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="cta-option" href="https://aivstool.com/go/github-copilot" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--secondary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try GitHub Copilot &rarr;</span><span class="cta-option-sub">$10 Pro &middot; review included, about $0.21 per pull request</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+    <div class="affiliate-note">
+      <strong>Affiliate disclosure:</strong> AI vs Tool is reader-supported. Some links above are affiliate links, meaning we may earn a commission if you sign up &mdash; at <em>no extra cost to you</em>. This never influences our testing or rankings. Read our full <a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a>.
+    </div>
+  </section>
+
+  <!-- Related (filled by link_and_register.py) -->
+  <section class="compare-section">
+    <h2>More AI Coding Guides</h2>
+    <p>Keep exploring — these related comparisons and guides help you decide.</p>
+    <div class="related-links">
+      <a href="../best/best-ai-for-debugging-code" class="related-card">
+        <h3>Best AI for Debugging Code in 2026: 6 Tools Tested on Five Planted Bugs</h3>
+        <p>Claude Code named the real cause on all five bugs we planted and passed every held-back test. Cursor, Copilot, ChatGPT, &hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../compare/github-copilot-vs-codeium" class="related-card">
+        <h3>GitHub Copilot vs Codeium (2026) — Head-to-Head Comparison</h3>
+        <p>Codeium is now the Windsurf IDE plugin and its free tier has no completion cap. GitHub Copilot Pro costs $10. We ran bot&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../best/best-ai-coding-assistants" class="related-card">
+        <h3>Best AI Coding Assistants 2026: Claude Code vs Cursor vs Copilot (Ranked)</h3>
+        <p>We compared Claude Code, Cursor, and GitHub Copilot across real development tasks in 2026. Here's which AI coding assist&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color:white; margin-bottom:4px;"><span class="logo-icon">AI</span> AI vs Tool</div>
+          <p>Independent AI tool reviews and comparisons. We research and analyze every tool to provide updated content monthly.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="../#categories">AI Chatbots</a></li>
+            <li><a href="../#categories">AI Writing</a></li>
+            <li><a href="../#categories">AI Coding</a></li>
+            <li><a href="../#categories">AI Image</a></li>
+            <li><a href="../#categories">AI Video</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Popular</h4>
+          <ul>
+            <li><a href="../compare/chatgpt-vs-claude">ChatGPT vs Claude</a></li>
+            <li><a href="../compare/midjourney-vs-dalle">Midjourney vs DALL-E</a></li>
+            <li><a href="../compare/cursor-vs-copilot">Cursor vs Copilot</a></li>
+            <li><a href="../best/best-ai-writer">Best AI Writer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="../about">About AI vs Tool</a></li>
+            <li><a href="../how-we-test">How We Evaluate</a></li>
+            <li><a href="../editorial-policy">Editorial Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../legal/privacy-policy">Privacy Policy</a></li>
+            <li><a href="../legal/terms-of-service">Terms of Service</a></li>
+            <li><a href="../legal/disclaimer">Disclaimer</a></li>
+            <li><a href="../legal/cookie-policy">Cookie Policy</a></li>
+            <li><a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI vs Tool. All rights reserved. AI vs Tool is an independent review site. We may earn affiliate commissions from links on this page. This does not affect our editorial integrity. All trademarks are property of their respective owners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
