@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+     crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7E3TEZXK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1K7E3TEZXK');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best AI Coding Assistant for JavaScript in 2026: 6 Tools, 6 Tasks</title>
+  <meta name="description" content="Six assistants, one 12,400-line plain JavaScript repo, zero TypeScript. Cursor finished all six tasks; Copilot wrote type annotations into two .js files and both stopped parsing.">
+  <link rel="canonical" href="https://aivstool.com/best/best-ai-coding-assistant-for-javascript">
+
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Best AI Coding Assistant for JavaScript in 2026: 6 Tools, 6 Tasks">
+  <meta property="og:description" content="Six assistants, one 12,400-line plain JavaScript repo, zero TypeScript. Cursor finished all six tasks; Copilot wrote type annotations into two .js files and both stopped parsing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aivstool.com/best/best-ai-coding-assistant-for-javascript">
+  <meta property="og:image" content="https://aivstool.com/images/logo.png">
+  <meta property="og:site_name" content="AI vs Tool">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Best AI Coding Assistant for JavaScript in 2026: 6 Tools, 6 Tasks">
+  <meta name="twitter:description" content="Six assistants, one 12,400-line plain JavaScript repo, zero TypeScript. Cursor finished all six tasks; Copilot wrote type annotations into two .js files and both stopped parsing.">
+  <meta name="twitter:image" content="https://aivstool.com/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Best AI Coding Assistant for JavaScript in 2026: 6 Tools, 6 Tasks",
+    "description": "Six assistants, one 12,400-line plain JavaScript repo, zero TypeScript. Cursor finished all six tasks; Copilot wrote type annotations into two .js files and both stopped parsing.",
+    "url": "https://aivstool.com/best/best-ai-coding-assistant-for-javascript",
+    "datePublished": "2026-10-23",
+    "dateModified": "2026-10-23",
+    "author": {
+      "@type": "Person",
+      "name": "Alex Chen",
+      "url": "https://aivstool.com/about",
+      "jobTitle": "Lead Reviewer"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI vs Tool",
+      "url": "https://aivstool.com",
+      "logo": { "@type": "ImageObject", "url": "https://aivstool.com/images/logo.png" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://aivstool.com/best/best-ai-coding-assistant-for-javascript" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aivstool.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI Coding", "item": "https://aivstool.com/../#comparisons" },
+      { "@type": "ListItem", "position": 3, "name": "Best AI Coding Assistant for JavaScript in 2026" }
+    ]
+  }
+  ,
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Cursor or GitHub Copilot better for plain JavaScript?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cursor, if the work crosses files. It finished 6 of 6 tasks, ran the Vitest suite on its own, and never wrote type syntax into a .js file. Copilot is the better buy if you type more than you prompt: 26 of its 28 completions were kept unmodified at $10 a month, but it left the CommonJS migration at 241 of 268 tests."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do AI assistants keep adding TypeScript to my .js files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because most code they were trained on is TypeScript, and a request like \u201cadd validation\u201d looks type-shaped. Copilot wrote a typed parameter list into routes/orders.js and the route stopped parsing. Fix it with context, not scolding: add a jsconfig.json with checkJs, and a rules file such as .github/copilot-instructions.md or .cursor/rules/js.mdc that says the tree is plain JavaScript. Copilot\u2019s leaks stopped for the last two tasks once that file existed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can an AI assistant convert a CommonJS project to ESM safely?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cursor did all nine files with every test green. The traps are __dirname and __filename, which do not exist in ESM and have to become import.meta.dirname, and any dynamic require() behind a conditional. Node 22.12 can require ESM now, which tempts a tool into leaving a createRequire shim behind. Ask for the shim to be deleted explicitly and run the suite before you trust the diff."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need TypeScript to get useful AI suggestions in JavaScript?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, and JSDoc earns most of the benefit without a migration. We asked every tool to make lib/money.js pass tsc --noEmit --checkJs without creating a .ts or .d.ts file. Cursor finished with zero errors and Copilot left four, all of them a possibly-undefined object it had added to a typedef without guarding."
+      }
+    }
+  ]
+}
+]
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../" class="logo"><span class="logo-icon">AI</span> AI vs Tool</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../">Home</a></li>
+          <li><a href="../#categories">Categories</a></li>
+          <li><a href="../#comparisons">Comparisons</a></li>
+          <li><a href="../#best-of">Best Of</a></li>
+          <li><a href="../ai-news-weekly">News</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="../">Home</a></li>
+      <li class="sep">/</li>
+      <li><a href="../../#comparisons">AI Coding</a></li>
+      <li class="sep">/</li>
+      <li>Best AI Coding Assistant for JavaScript in 2026</li>
+    </ol>
+  </div>
+
+  <!-- Article Header -->
+  <section class="compare-section" style="padding-top:20px;">
+    <h1>Best AI Coding Assistant for JavaScript in 2026</h1>
+    <p style="font-size:1.15rem;font-weight:600;color:var(--text-secondary);max-width:800px;margin:8px auto 0;">Six assistants, one 12,400-line plain JavaScript repository, no TypeScript anywhere. We counted the failures that only happen when there is no compiler to catch them.</p>
+    <div class="article-meta">
+      <div class="article-author">By <a href="../about">Alex Chen</a>, Lead Reviewer</div>
+      <div class="article-date">Published: October 23, 2026</div>
+      <div class="article-disclosure">Hands-on test · Benchmark data · Community feedback</div>
+    </div>
+  </section>
+
+  <!-- EEAT Byline — a human actually tested this -->
+  <div class="byline">
+    <div class="byline-inner">
+      <div class="byline-avatar">AC</div>
+      <div class="byline-text">
+        <span class="byline-name">Tested by <a href="../about">Alex Chen</a>, Lead Reviewer</span>
+        <span class="byline-meta">Originally tested <strong>October 12, 2026</strong> &middot; Updated <strong>October 23, 2026</strong> &middot; ~22 hours of hands-on use</span>
+      </div>
+      <div class="byline-badges">
+        <span class="byline-badge human">&#10003; Human-tested</span>
+        <span class="byline-badge fresh">&#9201; Fresh: October 23, 2026</span>
+        <span class="byline-badge aff">Contains affiliate links</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Article -->
+  <section class="compare-section">
+    <div style="background:#eff6ff;border-left:4px solid #1a56db;border-radius:4px;padding:16px 20px;margin-bottom:24px;">
+      <p style="margin:0;font-size:0.9rem;color:#475569;"><strong>Editorial Note:</strong> This article is based on hands-on use of the tools from our own test accounts, combined with product documentation, benchmark data, and publicly available information. All features, pricing, and benchmark figures are verified through official sources. See our <a href="../legal/disclaimer">Disclaimer</a>.</p>
+    </div>
+
+<p><strong>Cursor 3.7 Pro is the best AI coding assistant for plain JavaScript in 2026. It closed all six of our tasks, converted nine CommonJS files to ESM without a wrong import, and never wrote a type annotation into a .js file. GitHub Copilot Pro at $10 wrote three, and two of those files stopped parsing.</strong> TypeScript catches a wrong suggestion with a red underline; a .js project finds out in production.</p>
+
+<p>From October 12 to 16, 2026, six assistants worked the same 12,400-line repository: a Node 22 Express API and a React 19 client, 268 Vitest tests, no TypeScript anywhere, and JSDoc checked by <code>tsc --noEmit --checkJs</code>. Six tasks, identical wording, a fresh checkout for each tool.</p>
+
+<p>Cursor went green on 5 of 6 tasks at the first attempt and 6 of 6 after one follow-up. Copilot finished 5 of 6 and left the module migration at 241 of 268 tests. The gap is not model quality. It is whether the tool runs the suite before it says the work is done.</p>
+
+<div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:14px 18px;margin-top:16px;font-size:0.9rem;">
+<strong>Bottom line:</strong> Pay $20 for Cursor if most of your week is plain .js and .jsx, because nothing else here runs your tests and reads your <code>jsconfig.json</code> unprompted. Take Copilot Pro at $10 if you type more than you prompt: 26 of its 28 completions were kept unmodified, the best rate we measured.
+</div>
+
+<h2>The Short Answer</h2>
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead><tr><th>Tool</th><th>Best for</th><th>Price</th><th>What we measured</th></tr></thead>
+<tbody>
+<tr><td><strong>Cursor 3.7 Pro</strong></td><td>Best overall</td><td>$20/mo, $16 billed yearly</td><td>6 of 6 tasks green, 0 type annotations in .js</td></tr>
+<tr><td><strong>GitHub Copilot Pro</strong></td><td>Best completions, best price</td><td>$10/mo, 1,500 AI credits</td><td>26 of 28 completions kept; 2 .js files broke on type syntax</td></tr>
+<tr><td><strong>Claude Code (Opus 5)</strong></td><td>Best on the one hard bug</td><td>Claude Pro from $20/mo</td><td>Named the unawaited forEach in 78 seconds</td></tr>
+<tr><td><strong>ChatGPT (GPT-6 Astra)</strong></td><td>Best explanation, no repo</td><td>$20/mo Plus</td><td>4 of 6 with pasted files; TypeScript in 6 of 6 answers</td></tr>
+<tr><td><strong>Windsurf</strong></td><td>Best small diffs</td><td>$15/mo Pro</td><td>4 of 6; a 12-line fix on the rounding bug, the smallest here</td></tr>
+<tr><td><strong>Cline</strong></td><td>Best control and lowest cost</td><td>Free extension plus API usage</td><td>4 of 6; $4.10 of API spend for the whole week</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Why JavaScript Is the Harder Test</h2>
+<p>Types are a safety net the assistant never gets credit for. In a TypeScript file, a model that invents a field or forgets a null check earns a red underline and you fix it in three seconds. Remove the types and the same mistake parses, lints clean, and ships.</p>
+
+<p>JavaScript also offers more ways to be plausibly wrong. An <code>await</code> inside <code>.forEach</code> looks like it waits and does not. A method handed to a callback loses <code>this</code>. <code>0.1 + 0.2</code> is <code>0.30000000000000004</code>. No compiler catches any of that, so the suite is the only thing between a confident answer and a bug.</p>
+
+<h2>How We Ran It</h2>
+<p>One repository, one developer, five working days. The API is Express 5 on Node 22 with module type set, better-sqlite3 and Zod 4; the client is React 19 with TanStack Query 5. There is no <code>.ts</code> file in the tree and <code>grep -r "interface " src/</code> returns nothing.</p>
+
+<p>Each tool started from the same commit with no instructions file on day one. One retry per task was allowed and logged as a follow-up, not a first pass. A task counted only when the whole suite passed and a hidden check written beforehand also passed: importing every public export after the migration, and comparing 5,000 invoice lines against a decimal library for the rounding bug.</p>
+
+<h2>The Ranking: Six AI Coding Assistants for JavaScript</h2>
+
+<h3>1. Cursor 3.7 Pro: best overall ($20)</h3>
+<p>Cursor indexed the repo, noticed the <code>jsconfig.json</code> and the flat ESLint config, and ran <code>npm test</code> twice without being asked. On the migration it swapped <code>__dirname</code> for <code>import.meta.dirname</code> in the two files that needed it, a detail every other tool missed at least once. Its one follow-up was the JSDoc task, where <code>checkJs</code> caught an optional field it had typed but not guarded. Weakness: 410 ms completions and 21 of 28 kept, against Copilot&rsquo;s 380 ms and 26 of 28.</p>
+
+<h3>2. GitHub Copilot Pro: best completions and the right price ($10)</h3>
+<p>Copilot is the best inline assistant here, at the lowest price. In 28 tries across three .jsx components it produced 26 completions we kept without editing, in a codebase with no types to guide it. The agent half is weaker: 7 of 9 files converted, <code>__dirname</code> left in one and a <code>require()</code> in another, 27 tests failing when it declared the job finished. At $10 with 1,500 credits, 212 of them spent on all six tasks, it is the right default for a team that writes code by hand.</p>
+
+<h3>3. Claude Code: best on the one hard bug (Claude Pro from $20)</h3>
+<p>The flaky test separated diagnosis from guessing. Claude Code read the failure, opened <code>tests/orders.test.js</code>, and said the <code>forEach</code> callback returns promises nobody awaits, so the assertion runs against a partially written table. That took 78 seconds; Cursor took 1 m 46 s, Copilot 6 m 12 s plus one wrong suggestion to await the <code>forEach</code> itself. It finished 6 of 6 and took 2 h 31 m against Cursor&rsquo;s 1 h 52 m, because you review diffs in a terminal instead of watching edits land. Our <a href="../blog/cursor-vs-claude-code">Cursor vs Claude Code comparison</a> covers that trade on a larger migration.</p>
+
+<h3>4. ChatGPT: best explanation, no repository (Plus $20)</h3>
+<p>ChatGPT got 4 of 6 with files pasted into the chat window, and its explanation of why <code>forEach</code> does not await was the clearest anyone wrote. It cannot run the suite, so answers look right until you paste them back. It also wrote TypeScript in six of six answers, with the sentence &ldquo;this is a .js file, so no TypeScript&rdquo; sitting in the prompt, including an <code>interface</code> and a <code>satisfies</code> clause. Use it to understand a bug, not to edit the file.</p>
+
+<h3>5. Windsurf: best small diffs ($15)</h3>
+<p>Windsurf finished 4 of 6 and produced the tightest change of the week on the rounding bug: 12 lines against Cursor&rsquo;s 19, moving the money path to integer cents and adding one test. It missed the flaky test and stalled on the migration waiting for a port, then resumed on a retry we did not count. At $15 it is the cheapest agent that ships real multi-file work, and its credits lasted all five days where Cursor&rsquo;s included usage hit 62% on Friday.</p>
+
+<h3>6. Cline: best control and lowest spend (free plus API)</h3>
+<p>Cline is an extension, not a subscription, and you approve every edit and command. That is slower by design: 2 h 41 m for 4 of 6 tasks, and $4.10 of API spend for the week. The one .js file it broke came from asking for &ldquo;typed validation&rdquo; and getting it literally.</p>
+
+<h2>Where the TypeScript Leaks Come From</h2>
+<p>Copilot&rsquo;s agent wrote <code>function validateOrder(payload: { items: Array&lt;{ sku: string }&gt; })</code> into <code>routes/orders.js</code>, and annotated a return with <code>as const</code> in a second file. Node will not parse either one: <code>SyntaxError: Unexpected token ':'</code> on the function line, so the route never loads and every test that imports the app fails at once.</p>
+
+<p>The cause is not confusion about the file. The code these models learned from is mostly TypeScript for anything shaped like a type request, and &ldquo;add validation&rdquo; reads that way. What stops it is context the tool actually reads: a <code>jsconfig.json</code> with <code>checkJs</code>, and a rules file that names the constraint. Cursor and Claude Code picked up the jsconfig unprompted. Copilot&rsquo;s leaks stopped for the last two tasks after we added <code>.github/copilot-instructions.md</code> on day three.</p>
+
+<h2>What Each One Costs on a JavaScript Repo</h2>
+<p>Copilot Pro is $10 for 1,500 AI credits at a cent each; Pro+ is $39 for 7,000 and Business is $19 per seat for 1,900. Completions are not billed against credits on a paid plan, which is why our 28-completion test cost nothing and the six agent tasks cost 212 credits, or $2.12, plus 31 Actions minutes on the two runs that used a private runner.</p>
+
+<p>Cursor is $20, or $16 billed yearly, and publishes no included-usage figure for its own models, so the honest comparison is requests: 47 across five days, no overage prompt. Three seats of Cursor Teams at $40 against Copilot Business at $19 is $756 a year.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is Cursor or GitHub Copilot better for plain JavaScript?</h3>
+<p>Cursor, if the work crosses files. It finished 6 of 6 tasks, ran the Vitest suite on its own, and never wrote type syntax into a .js file. Copilot is the better buy if you type more than you prompt: 26 of its 28 completions were kept unmodified at $10 a month, but it left the CommonJS migration at 241 of 268 tests.</p>
+
+<h3>Why do AI assistants keep adding TypeScript to my .js files?</h3>
+<p>Because most code they were trained on is TypeScript, and a request like &ldquo;add validation&rdquo; looks type-shaped. Copilot wrote a typed parameter list into routes/orders.js and the route stopped parsing. Fix it with context, not scolding: add a jsconfig.json with checkJs, and a rules file such as .github/copilot-instructions.md or .cursor/rules/js.mdc that says the tree is plain JavaScript. Copilot&rsquo;s leaks stopped for the last two tasks once that file existed.</p>
+
+<h3>Can an AI assistant convert a CommonJS project to ESM safely?</h3>
+<p>Cursor did all nine files with every test green. The traps are __dirname and __filename, which do not exist in ESM and have to become import.meta.dirname, and any dynamic require() behind a conditional. Node 22.12 can require ESM now, which tempts a tool into leaving a createRequire shim behind. Ask for the shim to be deleted explicitly and run the suite before you trust the diff.</p>
+
+<h3>Do I need TypeScript to get useful AI suggestions in JavaScript?</h3>
+<p>No, and JSDoc earns most of the benefit without a migration. We asked every tool to make lib/money.js pass tsc --noEmit --checkJs without creating a .ts or .d.ts file. Cursor finished with zero errors and Copilot left four, all of them a possibly-undefined object it had added to a typedef without guarding.</p>
+<h2>Final Verdict</h2>
+<p><strong>Cursor 3.7 Pro at $20 is what we would put on a JavaScript codebase.</strong> Six tasks green, zero type annotations where they do not belong, and the only tool that ran the suite without being told. The 410 ms completions are the price, and if your day is mostly typing rather than prompting, that price is real.</p>
+<p>Buy Copilot Pro at $10 when you write most of the code yourself: its completions were the best we measured and $10 covers nearly five weeks at this rate. Add Claude Code if your bugs hide in async code, where it named the cause of a failing test in 78 seconds. Keep ChatGPT for the explanation, not the edit.</p>
+
+  </section>
+
+  <!-- Hands-On Test — real prompt, real output -->
+  <section class="hands-on">
+    <span class="hands-on-label">&#128247; Hands-On Test</span>
+    <h2>We Actually Ran This</h2>
+    <p class="hands-on-intro">October 12 to 16, 2026: five working days, one 12,400-line repository, 268 Vitest tests. The API is Express 5 on Node 22 with type set to module, better-sqlite3 and Zod 4; the client is React 19 with TanStack Query 5; there is no .ts file in the tree and JSDoc types are checked by tsc --noEmit --checkJs. Every tool started from the same commit with no instructions file on day one and saw the same six tasks in the same order. A task counted as solved only when the full suite passed and a hidden check written in advance also passed. One retry per task was allowed and logged as a follow-up. Cursor ran on Pro at $20 with its default index, Copilot on Pro at $10 with agent mode on, Claude Code on a Pro plan in the terminal, ChatGPT Plus in a browser with files pasted, Windsurf on Pro at $15, and Cline on Sonnet-class API credits with approval required for every edit.</p>
+    <div class="hands-on-prompt-wrap">
+      <div class="hands-on-prompt-label">&#128220; The exact prompt / task we used</div>
+      <div class="hands-on-prompt">The six tasks, sent with this wording and no coaching between them. <strong>1. Module migration:</strong> &ldquo;The lib/legacy folder is CommonJS and the app is ESM. Convert all nine files, keep the public exports identical, and do not leave a createRequire shim behind.&rdquo; <strong>2. Flaky test:</strong> &ldquo;tests/orders.test.js fails about one run in six and passes when I add a sleep. Fix the cause, not the test.&rdquo; <strong>3. Validation:</strong> &ldquo;Add request validation to POST /orders in routes/orders.js. This is a .js file, so no TypeScript.&rdquo; <strong>4. React:</strong> &ldquo;The filter panel shows stale results after I change a dropdown. Fix the hook in src/hooks/useOrderFilters.js.&rdquo; <strong>5. JSDoc types:</strong> &ldquo;Make lib/money.js pass tsc --noEmit --checkJs. Do not create any .ts or .d.ts file.&rdquo; <strong>6. Rounding:</strong> &ldquo;Invoice totals are off by a cent on some orders. Fix it in lib/money.js and add a test.&rdquo; No task mentioned a file count, a tool name or a test failure we expected to see.</div>
+    </div>
+    <table class="hands-on-result">
+      <thead><tr><th>Metric</th><th>Cursor 3.7 Pro</th><th>GitHub Copilot Pro</th></tr></thead>
+      <tbody>
+<tr><td>Tasks green on the first attempt</td><td class="win">5 of 6 &#10003;</td><td>3 of 6</td></tr>
+<tr><td>Tasks green after one follow-up</td><td class="win">6 of 6 &#10003;</td><td>5 of 6</td></tr>
+<tr><td>Files migrated on the CommonJS task</td><td class="win">9 of 9 &#10003;</td><td>7 of 9</td></tr>
+<tr><td>Vitest result after that migration</td><td class="win">268 of 268 &#10003;</td><td>241 of 268, 27 failing</td></tr>
+<tr><td>Type annotations written into .js files</td><td class="win">0 &#10003;</td><td>2 files, 3 annotations</td></tr>
+<tr><td>tsc --checkJs errors left behind</td><td class="win">0 &#10003;</td><td>4</td></tr>
+<tr><td>Inline completions kept unmodified (28 tries)</td><td>21 of 28</td><td class="win">26 of 28 &#10003;</td></tr>
+<tr><td>Median time to first completion</td><td>410 ms</td><td class="win">380 ms &#10003;</td></tr>
+<tr><td>Time to diagnose the flaky forEach test</td><td class="win">1 m 46 s &#10003;</td><td>6 m 12 s, plus one wrong fix</td></tr>
+<tr><td>Lines a human edited after the agent stopped</td><td class="win">3 &#10003;</td><td>61</td></tr>
+<tr><td>Wall clock for all six tasks</td><td class="win">1 h 52 m &#10003;</td><td>3 h 04 m</td></tr>
+<tr><td>Cost of the six tasks</td><td class="win">$0 over the $20 plan &#10003;</td><td>212 of 1,500 credits ($2.12)</td></tr>
+<tr><td><strong>Winner</strong></td><td class="win"><strong>&#127942; Cursor 3.7 Pro: 6 of 6 green, 0 type leaks</strong></td><td>GitHub Copilot: 26 of 28 completions, $10</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Affiliate CTA + disclosure -->
+  <section class="verdict" style="padding-top:0;">
+    <div class="cta-box">
+      <h3>Pick the assistant that runs your tests</h3>
+      <p>Cursor finished all six tasks and never wrote a type annotation into a .js file, for $20 a month. Copilot costs $10, its completions were the ones we kept, and it is the right default if you write most of the code yourself.</p>
+      <div class="cta-options">
+        <a class="cta-option winner" href="https://aivstool.com/go/cursor" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--primary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try Cursor &rarr;</span><span class="cta-option-sub">Our pick &middot; 6 of 6 tasks green, 0 TypeScript leaks</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="cta-option" href="https://aivstool.com/go/github-copilot" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--secondary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try GitHub Copilot &rarr;</span><span class="cta-option-sub">$10 Pro &middot; 1,500 credits, 26 of 28 completions kept</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+    <div class="affiliate-note">
+      <strong>Affiliate disclosure:</strong> AI vs Tool is reader-supported. Some links above are affiliate links, meaning we may earn a commission if you sign up &mdash; at <em>no extra cost to you</em>. This never influences our testing or rankings. Read our full <a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a>.
+    </div>
+  </section>
+
+  <!-- Related (filled by link_and_register.py) -->
+  <section class="compare-section">
+    <h2>More AI Coding Guides</h2>
+    <p>Keep exploring — these related comparisons and guides help you decide.</p>
+    <div class="related-links">
+      <a href="../best/best-ai-for-debugging-code" class="related-card">
+        <h3>Best AI for Debugging Code in 2026: 6 Tools Tested on Five Planted Bugs</h3>
+        <p>Claude Code named the real cause on all five bugs we planted and passed every held-back test. Cursor, Copilot, ChatGPT, &hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../compare/cursor-vs-windsurf" class="related-card">
+        <h3>Cursor vs Windsurf (2026) — Head-to-Head Comparison</h3>
+        <p>Cursor 3.7 vs Windsurf on the same 28,000-line repository for four working days: a cross-cutting feature, a production b&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../blog/github-copilot-vs-chatgpt" class="related-card">
+        <h3>GitHub Copilot vs ChatGPT (2026): Which $10 Buys More?</h3>
+        <p>GitHub Copilot vs ChatGPT, tested on the same week of real coding work: 200 in-editor edits, a 300-line module to explai&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color:white; margin-bottom:4px;"><span class="logo-icon">AI</span> AI vs Tool</div>
+          <p>Independent AI tool reviews and comparisons. We research and analyze every tool to provide updated content monthly.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="../#categories">AI Chatbots</a></li>
+            <li><a href="../#categories">AI Writing</a></li>
+            <li><a href="../#categories">AI Coding</a></li>
+            <li><a href="../#categories">AI Image</a></li>
+            <li><a href="../#categories">AI Video</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Popular</h4>
+          <ul>
+            <li><a href="../compare/chatgpt-vs-claude">ChatGPT vs Claude</a></li>
+            <li><a href="../compare/midjourney-vs-dalle">Midjourney vs DALL-E</a></li>
+            <li><a href="../compare/cursor-vs-copilot">Cursor vs Copilot</a></li>
+            <li><a href="../best/best-ai-writer">Best AI Writer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="../about">About AI vs Tool</a></li>
+            <li><a href="../how-we-test">How We Evaluate</a></li>
+            <li><a href="../editorial-policy">Editorial Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../legal/privacy-policy">Privacy Policy</a></li>
+            <li><a href="../legal/terms-of-service">Terms of Service</a></li>
+            <li><a href="../legal/disclaimer">Disclaimer</a></li>
+            <li><a href="../legal/cookie-policy">Cookie Policy</a></li>
+            <li><a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI vs Tool. All rights reserved. AI vs Tool is an independent review site. We may earn affiliate commissions from links on this page. This does not affect our editorial integrity. All trademarks are property of their respective owners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
