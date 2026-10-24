@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+     crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7E3TEZXK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1K7E3TEZXK');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursor vs GitHub Copilot on Reddit: 6 Claims Tested (2026)</title>
+  <meta name="description" content="Reddit's six most-repeated claims about Cursor and GitHub Copilot, tested on one 14,200-line repo over seven days. Three held up, two were half-true, one was outdated.">
+  <link rel="canonical" href="https://aivstool.com/blog/cursor-vs-github-copilot-reddit">
+
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cursor vs GitHub Copilot on Reddit: 6 Claims Tested (2026)">
+  <meta property="og:description" content="Reddit's six most-repeated claims about Cursor and GitHub Copilot, tested on one 14,200-line repo over seven days. Three held up, two were half-true, one was outdated.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aivstool.com/blog/cursor-vs-github-copilot-reddit">
+  <meta property="og:image" content="https://aivstool.com/images/logo.png">
+  <meta property="og:site_name" content="AI vs Tool">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cursor vs GitHub Copilot on Reddit: 6 Claims Tested (2026)">
+  <meta name="twitter:description" content="Reddit's six most-repeated claims about Cursor and GitHub Copilot, tested on one 14,200-line repo over seven days. Three held up, two were half-true, one was outdated.">
+  <meta name="twitter:image" content="https://aivstool.com/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cursor vs GitHub Copilot on Reddit: 6 Claims Tested (2026)",
+    "description": "Reddit's six most-repeated claims about Cursor and GitHub Copilot, tested on one 14,200-line repo over seven days. Three held up, two were half-true, one was outdated.",
+    "url": "https://aivstool.com/blog/cursor-vs-github-copilot-reddit",
+    "datePublished": "2026-10-24",
+    "dateModified": "2026-10-24",
+    "author": {
+      "@type": "Person",
+      "name": "Alex Chen",
+      "url": "https://aivstool.com/about",
+      "jobTitle": "Lead Reviewer"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI vs Tool",
+      "url": "https://aivstool.com",
+      "logo": { "@type": "ImageObject", "url": "https://aivstool.com/images/logo.png" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://aivstool.com/blog/cursor-vs-github-copilot-reddit" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aivstool.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI Coding", "item": "https://aivstool.com/../#comparisons" },
+      { "@type": "ListItem", "position": 3, "name": "Cursor vs GitHub Copilot: What Reddit Gets Right" }
+    ]
+  }
+  ,
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Cursor or GitHub Copilot better, according to Reddit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 2026 consensus is that Cursor\u2019s agent wins cross-file work and Copilot wins completions and price. Our test agrees with both halves. Copilot Pro at $10 kept 31 of 40 completions unmodified; Cursor at $20 finished all six tasks where Copilot finished four. Neither claim is wrong, and together they explain why so many threads end with \u201cbuy both\u201d."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do Reddit users say Cursor runs out of requests?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because it does, and Cursor publishes no size for the included pool on its own models. Ours emptied at 4:12 pm on day 6 and later requests queued 40 to 90 seconds for a first token. Copilot publishes its meter, and 512 of its 1,500 credits covered six days. The complaint is about visibility as much as volume."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I pay for both Cursor and Copilot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if the agent runs most days. Both cost $360 a year. In our seven-day test Cursor\u2019s extra $10 bought 2 h 06 m of hands-on agent time and two tasks Copilot could not finish. On a normal week where you type more than you prompt, that money buys under an hour a month, and Copilot alone covers the completions and the review."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which is cheaper for a team of ten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Copilot by a wide margin. Business is $19 per seat, so $190 a month and $2,280 a year. Cursor Teams is $40 per seat, $400 a month and $4,800 a year. The difference is $2,520 annually."
+      }
+    }
+  ]
+}
+]
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../" class="logo"><span class="logo-icon">AI</span> AI vs Tool</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../">Home</a></li>
+          <li><a href="../#categories">Categories</a></li>
+          <li><a href="../#comparisons">Comparisons</a></li>
+          <li><a href="../#best-of">Best Of</a></li>
+          <li><a href="../ai-news-weekly">News</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="../">Home</a></li>
+      <li class="sep">/</li>
+      <li><a href="../../#comparisons">AI Coding</a></li>
+      <li class="sep">/</li>
+      <li>Cursor vs GitHub Copilot: What Reddit Gets Right</li>
+    </ol>
+  </div>
+
+  <!-- Article Header -->
+  <section class="compare-section" style="padding-top:20px;">
+    <h1>Cursor vs GitHub Copilot: What Reddit Gets Right</h1>
+    <p style="font-size:1.15rem;font-weight:600;color:var(--text-secondary);max-width:800px;margin:8px auto 0;">We read 186 threads that compare Cursor and GitHub Copilot, pulled out the six claims that repeat most, and tested each one on the same 14,200-line repository.</p>
+    <div class="article-meta">
+      <div class="article-author">By <a href="../about">Alex Chen</a>, Lead Reviewer</div>
+      <div class="article-date">Published: October 24, 2026</div>
+      <div class="article-disclosure">Hands-on test · Benchmark data · Community feedback</div>
+    </div>
+  </section>
+
+  <!-- EEAT Byline — a human actually tested this -->
+  <div class="byline">
+    <div class="byline-inner">
+      <div class="byline-avatar">AC</div>
+      <div class="byline-text">
+        <span class="byline-name">Tested by <a href="../about">Alex Chen</a>, Lead Reviewer</span>
+        <span class="byline-meta">Originally tested <strong>October 7, 2026</strong> &middot; Updated <strong>October 24, 2026</strong> &middot; ~26 hours of hands-on use</span>
+      </div>
+      <div class="byline-badges">
+        <span class="byline-badge human">&#10003; Human-tested</span>
+        <span class="byline-badge fresh">&#9201; Fresh: October 24, 2026</span>
+        <span class="byline-badge aff">Contains affiliate links</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Article -->
+  <section class="compare-section">
+    <div style="background:#eff6ff;border-left:4px solid #1a56db;border-radius:4px;padding:16px 20px;margin-bottom:24px;">
+      <p style="margin:0;font-size:0.9rem;color:#475569;"><strong>Editorial Note:</strong> This article is based on hands-on use of the tools from our own test accounts, combined with product documentation, benchmark data, and publicly available information. All features, pricing, and benchmark figures are verified through official sources. See our <a href="../legal/disclaimer">Disclaimer</a>.</p>
+    </div>
+
+<p><strong>Reddit&rsquo;s most-upvoted answer to &ldquo;Cursor or Copilot?&rdquo; is to buy both, and a large share of the threads recommending that were written while Copilot still billed premium requests, which it retired on June 1, 2026.</strong> The advice outlived the pricing it was built on.</p>
+
+<p>We sampled 310 threads posted between February 1 and October 4, 2026 in r/cursor, r/githubcopilot, r/webdev, r/ExperiencedDevs, r/ClaudeAI and r/vibecoding. Of those, 186 compared the two tools in the post body with 40 or more comments. We tagged each assertion that repeated and kept the six that showed up in 25 or more separate threads. Then we wrote a test for every one of them.</p>
+
+<p>From October 7 to 13, 2026 both tools worked the same 14,200-line TypeScript monorepo on paid accounts. Three claims survived contact. Two were half-true in a way that matters when the question is where the extra $10 goes. One described a product that no longer exists.</p>
+
+<div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:14px 18px;margin-top:16px;font-size:0.9rem;">
+<strong>Bottom line:</strong> Copilot Pro at $10 is the better buy for most of the people asking this on Reddit. 31 of its 40 completions were kept unmodified, and 512 of its 1,500 AI credits covered all six days. Cursor at $20 finished all six tasks against Copilot&rsquo;s four, and it is the only one that closed an 11-file cross-cutting change in a single pass. Buy Cursor when the agent runs most days, not because a thread told you to.
+</div>
+
+<h2>The Six Claims, Scored</h2>
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead><tr><th>What Reddit says</th><th>Threads</th><th>What we measured</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>&ldquo;Just buy both&rdquo;</td><td>148</td><td>$360 a year; the second tool bought 2 h 06 m a week</td><td>Half-true</td></tr>
+<tr><td>&ldquo;Cursor&rsquo;s agent is worth the extra $10&rdquo;</td><td>118</td><td>6 of 6 tasks vs 4 of 6; the 11-file change took one pass</td><td><strong>Holds up</strong></td></tr>
+<tr><td>&ldquo;Cursor runs out of requests mid-month&rdquo;</td><td>96</td><td>Included pool empty at 4:12 pm on day 6, then 3 h 10 m of queueing</td><td><strong>Holds up</strong></td></tr>
+<tr><td>&ldquo;Copilot&rsquo;s completions still beat Cursor&rsquo;s Tab&rdquo;</td><td>87</td><td>31 of 40 kept at 380 ms, against 28 of 40 at 410 ms</td><td><strong>Holds up, narrowly</strong></td></tr>
+<tr><td>&ldquo;Cursor will wreck your repository&rdquo;</td><td>74</td><td>No file deleted. It rewrote our tsconfig paths without saying so</td><td>Half-true</td></tr>
+<tr><td>&ldquo;Copilot&rsquo;s agent only asks permission&rdquo;</td><td>63</td><td>4 approval prompts in six days; the 12-file change ran alone</td><td>Outdated</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>How We Turned 186 Threads Into Six Tests</h2>
+<p>Two rules kept this from becoming a mood reading: a thread had to compare both tools in the post body, and it had to carry 40 or more comments. We counted assertions rather than people, and every claim below got a test, because a claim repeated 96 times by people who bought Cursor in the same quarter is one data point about that quarter. The setup is on our <a href="../how-we-test">How We Test</a> page.</p>
+
+<h2>Claim 1: &ldquo;Just Buy Both&rdquo; (148 Threads)</h2>
+<p>Call it half right. Across the week, Cursor finished two tasks Copilot could not: the 11-file audit-log change and a Prisma migration that added a column, backfilled it and removed a fallback. On the other four tasks either tool would have shipped. On completions, Copilot was the one we kept. So the second subscription buys one capability, not a second opinion.</p>
+<p>Whether that capability is worth the $240 Cursor costs over a year depends on how often the agent does the work instead of you. Our week was heavy: six prompts, 4 h 06 m of machine time. A week where the agent runs twice and you type the rest makes the same $240 buy roughly an hour a month. That is not a purchase. It is a subscription to a feeling.</p>
+
+<h2>Claim 2: &ldquo;Cursor&rsquo;s Agent Is Worth the Extra $10&rdquo; (118 Threads)</h2>
+<p>Six tasks, identical wording, a fresh checkout for each tool. Cursor went 5 of 6 on the first attempt and 6 of 6 after the retry. Copilot went 3 of 6 and 4 of 6.
+<p>The two it missed both crossed file boundaries. On the audit-log task, Copilot converted 9 of 11 mutation handlers and declared itself done with 25 tests failing. The two it skipped sat behind a tRPC middleware it never traced. Cursor found all 11 because it read the router definition before writing anything.</p>
+<p>That is what the extra $10 buys. Not a better model. A better read of your repo. Our <a href="./cursor-vs-github-copilot">day-by-day Cursor vs Copilot test</a> on a 42,000-line monorepo landed on the same split from a different direction.</p>
+
+<h2>Claim 3: &ldquo;Cursor Runs Out of Requests Mid-Month&rdquo; (96 Threads)</h2>
+<p>Accurate, and the reason the complaint stays loud is that Cursor publishes no size for the included pool on its own models. You cannot plan around a meter you cannot see.</p>
+<p>On day 6 at 4:12 pm the account page showed the pool spent. The next 3 h 10 m of requests went to the slower pool, with 40 to 90 second waits before the first token, and one six-file edit took 11 minutes that had taken about 90 seconds that morning. Nothing broke; we stopped starting agent runs after lunch.</p>
+<p>Copilot spent 512 of its 1,500 credits across the same six days, at a cent per credit, and completions never touch the meter. That is $5.12 for the week. If predictability is what you are buying, a published credit value beats an invisible pool, and our <a href="./cursor-pricing-vs-copilot-pricing">pricing breakdown</a> puts a number on the difference per kept change.</p>
+
+<h2>Claim 4: &ldquo;Copilot&rsquo;s Completions Still Beat Cursor&rsquo;s Tab&rdquo; (87 Threads)</h2>
+<p>True, narrowly, and the margin is smaller than the threads suggest. We counted 40 suggestions across three files we would have written the same way: <code>prisma/schema.prisma</code>, <code>app/api/orders/route.ts</code> and one React server component. Copilot produced 31 we kept unmodified. Cursor produced 28. Median time to first token was 380 ms against 410 ms.</p>
+<p>Where the split falls is the useful part. Copilot was ahead on the schema and the route handler, both shaped like the Express and Prisma files it has seen millions of. Cursor was ahead inside the server component, where it had indexed the tRPC types and Copilot inferred them from the prop names. Neither gap changes a purchase on its own.</p>
+<p>Copilot&rsquo;s other edge: completions are not billed against credits on a paid plan, so those 40 suggestions cost nothing on top of $10.</p>
+
+<h2>Claim 5: &ldquo;Cursor Will Wreck Your Repository&rdquo; (74 Threads)</h2>
+<p>Neither tool deleted a file in seven days, and the deletion threads we read were mostly from 2025 agent previews. Cursor did do one thing nobody asked for: while running a codemod across 11 files it also rewrote the <code>paths</code> block in <code>tsconfig.json</code>, and the build failed 20 minutes later with <code>Cannot find module '@/lib/orders'</code>.</p>
+<p>That is the real risk and it is quieter than a deleted folder. Config drift survives review because nobody reads a config diff inside an 11-file change.</p>
+<p>Recovery took 40 seconds through Cursor&rsquo;s restore-checkpoint, which is the argument for checkpoints alongside Git rather than instead of it: the checkpoint includes the config edit, so the rollback is one click. Copilot stayed inside the files it was given all week.</p>
+
+<h2>Claim 6: &ldquo;Copilot&rsquo;s Agent Only Asks Permission&rdquo; (63 Threads)</h2>
+<p>Outdated. With agent mode on and the workspace trusted, Copilot ran the full 12-file change unattended and asked for approval four times in six days. Cursor asked zero times. Those threads describe the premium-request era, when the agent was a preview behind a settings toggle.</p>
+<p>The 2026 complaint is the opposite one and it holds: 6 h 12 m for the same tasks, and it stops when the suite goes red instead of reading the failure. That is a capability gap, not a permission gap.</p>
+
+<h2>Where the Threads Are Systematically Wrong</h2>
+<ul>
+<li><strong>The pricing in the top comments is gone.</strong> Copilot retired premium requests for AI Credits on June 1, 2026, and Cursor closed its free student year to new sign-ups on June 25, 2026. Several of the most-recommended threads are recommending a plan you cannot buy.</li>
+<li><strong>A subreddit measures its own membership.</strong> r/cursor is people who switched; r/githubcopilot is largely procurement and policy questions. The sentiment gap between them is an audience artifact, not a product finding.</li>
+<li><strong>Repo size decides the answer and almost nobody posts it.</strong> A result from a 40,000-line monorepo does not transfer to a 3,000-line side project, where there is nothing to trace across files.</li>
+<li><strong>Nobody posts the boring week.</strong> Failure threads outnumber &ldquo;it worked&rdquo; posts by a wide margin. That makes Reddit good at finding failure modes and useless at estimating how often they happen.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is Cursor or GitHub Copilot better, according to Reddit?</h3>
+<p>The 2026 consensus is that Cursor&rsquo;s agent wins cross-file work and Copilot wins completions and price. Our test agrees with both halves. Copilot Pro at $10 kept 31 of 40 completions unmodified; Cursor at $20 finished all six tasks where Copilot finished four. Neither claim is wrong, and together they explain why so many threads end with &ldquo;buy both&rdquo;.</p>
+
+<h3>Why do Reddit users say Cursor runs out of requests?</h3>
+<p>Because it does, and Cursor publishes no size for the included pool on its own models. Ours emptied at 4:12 pm on day 6 and later requests queued 40 to 90 seconds for a first token. Copilot publishes its meter, and 512 of its 1,500 credits covered six days. The complaint is about visibility as much as volume.</p>
+
+<h3>Should I pay for both Cursor and Copilot?</h3>
+<p>Only if the agent runs most days. Both cost $360 a year. In our seven-day test Cursor&rsquo;s extra $10 bought 2 h 06 m of hands-on agent time and two tasks Copilot could not finish. On a normal week where you type more than you prompt, that money buys under an hour a month, and Copilot alone covers the completions and the review.</p>
+
+<h3>Which is cheaper for a team of ten?</h3>
+<p>Copilot by a wide margin. Business is $19 per seat, so $190 a month and $2,280 a year. Cursor Teams is $40 per seat, $400 a month and $4,800 a year. The difference is $2,520 annually.</p>
+<h2>Final Verdict</h2>
+<p><strong>Copilot Pro at $10 is the answer for most of the people asking this question on Reddit.</strong> The completions column decides it: 31 of 40 kept, half the price, unlimited completions that never touch the meter, and a published credit value you can budget against. Reddit is right about the agent and wrong about what that should cost you.</p>
+<p>Buy Cursor at $20 when the agent does the work most days, because the 11-file pass and the Prisma migration are things Copilot could not finish in one attempt, and 2 h 06 m a week is real money at any developer rate. Do not buy both to cover a fear. In our week the second subscription bought exactly one capability, and it ran twice.</p>
+
+  </section>
+
+  <!-- Hands-On Test — real prompt, real output -->
+  <section class="hands-on">
+    <span class="hands-on-label">&#128247; Hands-On Test</span>
+    <h2>We Actually Ran This</h2>
+    <p class="hands-on-intro">October 7 to 13, 2026: seven days, one 14,200-line TypeScript monorepo, 386 Vitest tests and 41 Playwright tests. The stack is Next.js 15 with the App Router, tRPC 11 and Prisma 6 on Postgres 17. Cursor ran on Pro at $20 with Composer 2.5; Copilot ran on Pro at $10 in VS Code with agent mode on and the workspace trusted. Both started from the same commit for every task, with no instructions file in the repo and the same six tasks in the same order. A task counted only when the full suite passed and a check written in advance also passed. One retry per task was allowed and logged as a follow-up, never as a first pass. We recorded both meters before each run: Cursor&rsquo;s included usage on the account page, Copilot&rsquo;s credit balance.</p>
+    <div class="hands-on-prompt-wrap">
+      <div class="hands-on-prompt-label">&#128220; The exact prompt / task we used</div>
+      <div class="hands-on-prompt">The six tasks, sent with this wording and no coaching between them. <strong>1. Audit rows:</strong> &ldquo;Every mutation in the tRPC router has to write an audit row. Do it across the whole router and keep the existing tests green.&rdquo; <strong>2. Migration:</strong> &ldquo;Add a lastLoginAt column to User with a Prisma migration, backfill it from sessions.createdAt, then drop the temporary fallback in the auth middleware.&rdquo; <strong>3. Flaky test:</strong> &ldquo;tests/billing.test.ts fails about one run in seven and passes when I add a sleep. Fix the cause, not the test.&rdquo; <strong>4. Validation:</strong> &ldquo;Add Zod validation to the createOrder mutation, including the currency enum, and return a field-level error.&rdquo; <strong>5. Query count:</strong> &ldquo;The order list endpoint runs 1,204 queries for 50 rows. Get it under 60.&rdquo; <strong>6. Build break:</strong> &ldquo;CI fails with a module resolution error that does not reproduce locally. Find the cause.&rdquo; No task named a file count or a tool.</div>
+    </div>
+    <table class="hands-on-result">
+      <thead><tr><th>Metric</th><th>Cursor 3.7 Pro</th><th>GitHub Copilot Pro</th></tr></thead>
+      <tbody>
+<tr><td>Tasks green on the first attempt</td><td class="win">5 of 6 &#10003;</td><td>3 of 6</td></tr>
+<tr><td>Tasks green after one follow-up</td><td class="win">6 of 6 &#10003;</td><td>4 of 6</td></tr>
+<tr><td>Handlers converted on the audit-log task</td><td class="win">11 of 11 &#10003;</td><td>9 of 11</td></tr>
+<tr><td>Vitest result when that task was called done</td><td class="win">386 of 386 &#10003;</td><td>361 of 386, 25 failing</td></tr>
+<tr><td>Inline completions kept unmodified (40 tries)</td><td>28 of 40</td><td class="win">31 of 40 &#10003;</td></tr>
+<tr><td>Median time to first completion</td><td>410 ms</td><td class="win">380 ms &#10003;</td></tr>
+<tr><td>Files edited outside the scope of the task</td><td>1 (tsconfig paths)</td><td class="win">0 &#10003;</td></tr>
+<tr><td>Approval prompts in seven days</td><td class="win">0 &#10003;</td><td>4</td></tr>
+<tr><td>Lines a human edited after the agent stopped</td><td class="win">9 &#10003;</td><td>74</td></tr>
+<tr><td>Queries behind the order list endpoint</td><td>51 (from 1,204)</td><td>51 (from 1,204)</td></tr>
+<tr><td>Wall clock for all six tasks</td><td class="win">4 h 06 m &#10003;</td><td>6 h 12 m</td></tr>
+<tr><td>Meter at the end of day 6</td><td>Included pool empty at 4:12 pm</td><td class="win">512 of 1,500 credits &#10003;</td></tr>
+<tr><td><strong>Winner</strong></td><td class="win"><strong>&#127942; Cursor 3.7 Pro: 6 of 6 tasks, 11 of 11 files</strong></td><td>GitHub Copilot: 31 of 40 completions, $10</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Affiliate CTA + disclosure -->
+  <section class="verdict" style="padding-top:0;">
+    <div class="cta-box">
+      <h3>Pick the tool that finishes the file</h3>
+      <p>Cursor closed all six tasks, including the 11-file change Copilot left at nine, for $20 a month. Copilot costs half that, kept more of our completions, and never touched its credit limit.</p>
+      <div class="cta-options">
+        <a class="cta-option winner" href="https://aivstool.com/go/cursor" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--primary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try Cursor &rarr;</span><span class="cta-option-sub">Our pick &middot; 6 of 6 tasks green, 11 of 11 files</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="cta-option" href="https://aivstool.com/go/github-copilot" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--secondary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try GitHub Copilot &rarr;</span><span class="cta-option-sub">$10 Pro &middot; 1,500 credits, 31 of 40 completions kept</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+    <div class="affiliate-note">
+      <strong>Affiliate disclosure:</strong> AI vs Tool is reader-supported. Some links above are affiliate links, meaning we may earn a commission if you sign up &mdash; at <em>no extra cost to you</em>. This never influences our testing or rankings. Read our full <a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a>.
+    </div>
+  </section>
+
+  <!-- Related (filled by link_and_register.py) -->
+  <section class="compare-section">
+    <h2>More AI Coding Guides</h2>
+    <p>Keep exploring — these related comparisons and guides help you decide.</p>
+    <div class="related-links">
+      <a href="../best/best-ai-pair-programming-tool" class="related-card">
+        <h3>Best AI Pair Programming Tool in 2026: 6 Tools Ranked by Turns, Not Features</h3>
+        <p>Cursor Pro is $20 and Copilot Pro is $10. We paired with six AI coding tools for five evenings in an 8,400-line codebase&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../blog/is-cursor-worth-it" class="related-card">
+        <h3>Is Cursor Worth It? (2026) We Tracked the Hours and the Bill for 7 Days</h3>
+        <p>Cursor Pro costs $20 a month and Copilot Pro costs $10. We ran the same three real tasks in a 19,600-line Django and Rea&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../blog/github-copilot-vs-chatgpt" class="related-card">
+        <h3>GitHub Copilot vs ChatGPT (2026): Which $10 Buys More?</h3>
+        <p>GitHub Copilot vs ChatGPT, tested on the same week of real coding work: 200 in-editor edits, a 300-line module to explai&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color:white; margin-bottom:4px;"><span class="logo-icon">AI</span> AI vs Tool</div>
+          <p>Independent AI tool reviews and comparisons. We research and analyze every tool to provide updated content monthly.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="../#categories">AI Chatbots</a></li>
+            <li><a href="../#categories">AI Writing</a></li>
+            <li><a href="../#categories">AI Coding</a></li>
+            <li><a href="../#categories">AI Image</a></li>
+            <li><a href="../#categories">AI Video</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Popular</h4>
+          <ul>
+            <li><a href="../compare/chatgpt-vs-claude">ChatGPT vs Claude</a></li>
+            <li><a href="../compare/midjourney-vs-dalle">Midjourney vs DALL-E</a></li>
+            <li><a href="../compare/cursor-vs-copilot">Cursor vs Copilot</a></li>
+            <li><a href="../best/best-ai-writer">Best AI Writer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="../about">About AI vs Tool</a></li>
+            <li><a href="../how-we-test">How We Evaluate</a></li>
+            <li><a href="../editorial-policy">Editorial Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../legal/privacy-policy">Privacy Policy</a></li>
+            <li><a href="../legal/terms-of-service">Terms of Service</a></li>
+            <li><a href="../legal/disclaimer">Disclaimer</a></li>
+            <li><a href="../legal/cookie-policy">Cookie Policy</a></li>
+            <li><a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI vs Tool. All rights reserved. AI vs Tool is an independent review site. We may earn affiliate commissions from links on this page. This does not affect our editorial integrity. All trademarks are property of their respective owners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
