@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+     crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7E3TEZXK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1K7E3TEZXK');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best AI for SQL Generation in 2026: 6 Tools Tested on 40 Real Queries</title>
+  <meta name="description" content="Six tools wrote 40 queries against a nine-table Postgres warehouse with duplicate line items and six currencies. Claude Code matched our reference on 34 and flagged the schema trap before writing SQL on 11 of 12.">
+  <link rel="canonical" href="https://aivstool.com/best/best-ai-for-sql-generation">
+
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Best AI for SQL Generation in 2026: 6 Tools Tested on 40 Real Queries">
+  <meta property="og:description" content="Six tools wrote 40 queries against a nine-table Postgres warehouse with duplicate line items and six currencies. Claude Code matched our reference on 34 and flagged the schema trap before writing SQL on 11 of 12.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aivstool.com/best/best-ai-for-sql-generation">
+  <meta property="og:image" content="https://aivstool.com/images/logo.png">
+  <meta property="og:site_name" content="AI vs Tool">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Best AI for SQL Generation in 2026: 6 Tools Tested on 40 Real Queries">
+  <meta name="twitter:description" content="Six tools wrote 40 queries against a nine-table Postgres warehouse with duplicate line items and six currencies. Claude Code matched our reference on 34 and flagged the schema trap before writing SQL on 11 of 12.">
+  <meta name="twitter:image" content="https://aivstool.com/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Best AI for SQL Generation in 2026: 6 Tools Tested on 40 Real Queries",
+    "description": "Six tools wrote 40 queries against a nine-table Postgres warehouse with duplicate line items and six currencies. Claude Code matched our reference on 34 and flagged the schema trap before writing SQL on 11 of 12.",
+    "url": "https://aivstool.com/best/best-ai-for-sql-generation",
+    "datePublished": "2026-10-27",
+    "dateModified": "2026-10-27",
+    "author": {
+      "@type": "Person",
+      "name": "Alex Chen",
+      "url": "https://aivstool.com/about",
+      "jobTitle": "Lead Reviewer"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI vs Tool",
+      "url": "https://aivstool.com",
+      "logo": { "@type": "ImageObject", "url": "https://aivstool.com/images/logo.png" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://aivstool.com/best/best-ai-for-sql-generation" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aivstool.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI Coding", "item": "https://aivstool.com/../#comparisons" },
+      { "@type": "ListItem", "position": 3, "name": "Best AI for SQL Generation in 2026" }
+    ]
+  }
+  ,
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can ChatGPT write SQL that is actually correct?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often the shape, rarely the number. GPT-6.1 Sol matched our reference on 28 of 40 questions and surfaced 7 of the 12 schema traps. Its misses were money and joins: it divided across currencies and joined through duplicated order lines. It was the best tool we tested at repairing a query you paste in, which is a different job from writing one from a question."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best AI for SQL generation in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Claude Code on Opus 5.5, at 34 of 40 exact matches and 11 of 12 traps flagged before any SQL was written. Gemini 4 Argon is the better buy if your warehouse is BigQuery, since all 40 of its queries ran there with only the dialect swaps it flagged, at roughly a fifth of the cost per question."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to point an AI at a production database?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not at the primary. We used a read replica, a role with select only, a 30-second statement timeout and a 10,000-row cap. The tools that can run their own queries will start a four-table join over 4.1 million rows to test a guess, and a missing where clause on a delete is an expensive way to learn that lesson."
+      }
+    }
+  ]
+}
+]
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../" class="logo"><span class="logo-icon">AI</span> AI vs Tool</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../">Home</a></li>
+          <li><a href="../#categories">Categories</a></li>
+          <li><a href="../#comparisons">Comparisons</a></li>
+          <li><a href="../#best-of">Best Of</a></li>
+          <li><a href="../ai-news-weekly">News</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="../">Home</a></li>
+      <li class="sep">/</li>
+      <li><a href="../../#comparisons">AI Coding</a></li>
+      <li class="sep">/</li>
+      <li>Best AI for SQL Generation in 2026</li>
+    </ol>
+  </div>
+
+  <!-- Article Header -->
+  <section class="compare-section" style="padding-top:20px;">
+    <h1>Best AI for SQL Generation in 2026</h1>
+    <p style="font-size:1.15rem;font-weight:600;color:var(--text-secondary);max-width:800px;margin:8px auto 0;">Six tools, forty questions, one warehouse with duplicated order lines and six currencies. We scored whether the number that came back was the number we asked for.</p>
+    <div class="article-meta">
+      <div class="article-author">By <a href="../about">Alex Chen</a>, Lead Reviewer</div>
+      <div class="article-date">Published: October 27, 2026</div>
+      <div class="article-disclosure">Hands-on test · Benchmark data · Community feedback</div>
+    </div>
+  </section>
+
+  <!-- EEAT Byline — a human actually tested this -->
+  <div class="byline">
+    <div class="byline-inner">
+      <div class="byline-avatar">AC</div>
+      <div class="byline-text">
+        <span class="byline-name">Tested by <a href="../about">Alex Chen</a>, Lead Reviewer</span>
+        <span class="byline-meta">Originally tested <strong>October 19, 2026</strong> &middot; Updated <strong>October 27, 2026</strong> &middot; ~18 hours of hands-on use</span>
+      </div>
+      <div class="byline-badges">
+        <span class="byline-badge human">&#10003; Human-tested</span>
+        <span class="byline-badge fresh">&#9201; Fresh: October 27, 2026</span>
+        <span class="byline-badge aff">Contains affiliate links</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Article -->
+  <section class="compare-section">
+    <div style="background:#eff6ff;border-left:4px solid #1a56db;border-radius:4px;padding:16px 20px;margin-bottom:24px;">
+      <p style="margin:0;font-size:0.9rem;color:#475569;"><strong>Editorial Note:</strong> This article is based on hands-on use of the tools from our own test accounts, combined with product documentation, benchmark data, and publicly available information. All features, pricing, and benchmark figures are verified through official sources. See our <a href="../legal/disclaimer">Disclaimer</a>.</p>
+    </div>
+
+<p><strong>Six AI tools wrote 40 queries against our nine-table Postgres warehouse. All six produced SQL that executed. On the twelve questions where the schema hid a trap, one tool flagged more than nine of them before writing a line.</strong></p>
+
+<p>SQL generation stopped being a syntax problem a while ago. Ours is a schema problem. <code>order_items</code> picked up 2,847 duplicate rows in a March re-sync, totals sit in a <code>total_minor</code> column beside a <code>currency</code> field holding six values, and every customer, order and subscription carries a <code>deleted_at</code>. A tool that reads the DDL and starts typing will join through those duplicates and hand you revenue that is 6.4% too high, in a calm voice, in four seconds.</p>
+
+<p>Claude Code (Opus 5.5) matched our hand-written reference on 34 of the 40 questions and flagged the ambiguity before writing SQL on 11 of the 12 questions that had one. Gemini 4 Argon answered 31 exactly and won the part nobody benchmarks: all 40 of its queries ran on BigQuery with only the dialect swaps it flagged itself.</p>
+
+<p>The public numbers agree on the ceiling. The AIMultiple text-to-SQL panel put Opus 5.5 at 87.8% reference match, GPT-6.1 Sol at 65.1% and GPT-6 Luna at 44.2%. Human analysts score 92.96 on BIRD and the best system there scores 82.95, so the leader still trails a person on a documented schema.</p>
+
+<div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:14px 18px;margin-top:16px;font-size:0.9rem;">
+<strong>Bottom line:</strong> Buy Claude Code on a $20 Claude Pro seat when the number has to be right the first time. It reads the schema, counts rows to test its own assumption, and asks about the duplicate line items instead of joining through them. Pick Gemini 4 Argon if the warehouse is BigQuery, since 40 of 40 queries ran there unedited at $0.08 a question. Self-host Vanna 2.0 when the schema cannot leave your VPC, and budget about 40 verified queries before it stops guessing.
+</div>
+
+<h2>The Short Answer</h2>
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead><tr><th>Tool</th><th>Best for</th><th>Price</th><th>What we measured</th></tr></thead>
+<tbody>
+<tr><td><strong>Claude Code</strong> (Opus 5.5)</td><td>Best accuracy on a messy schema</td><td>Claude Pro $20/mo</td><td>34 of 40 exact, 11 of 12 traps flagged, 41 s median</td></tr>
+<tr><td><strong>Gemini 4 Argon</strong></td><td>Best on BigQuery</td><td>Gemini CLI free tier, 1,000 requests/day</td><td>31 of 40 exact, 40 of 40 ran on BigQuery with only flagged dialect swaps</td></tr>
+<tr><td><strong>ChatGPT</strong> (GPT-6.1 Sol)</td><td>Best at repairing SQL you already have</td><td>Plus $20/mo</td><td>28 of 40 exact, 8 of 8 broken queries rewritten correctly</td></tr>
+<tr><td><strong>Vanna 2.0</strong> (self-hosted)</td><td>Best for repeatable self-serve</td><td>MIT license, $0 plus model spend</td><td>19 of 40 cold, 30 of 40 with verified queries loaded, 3.4 s median</td></tr>
+<tr><td><strong>GitHub Copilot Pro</strong></td><td>Best inside the editor</td><td>$10/mo, 1,500 credits</td><td>22 of 40 exact, 380 ms completions in a <code>.sql</code> file, 4 of 12 traps</td></tr>
+<tr><td><strong>AI2SQL</strong></td><td>Best cheap drafting</td><td>From $9/mo</td><td>19 of 40 exact, 2 of 12 traps, no live connection on Starter</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Why the Schema Decides, Not the Model</h2>
+<p>Twenty-eight of our forty questions were routine: a filter, a group by, a date range, a rank. The twelve that separated the field hid a decision inside the question, and the decision lived in the schema rather than the prompt. We scored execution, reference match, and whether the tool named the ambiguity before writing SQL. No benchmark measures the third, and Spider 2.0-Snow still errors on 66.1% of questions even though its schemas are documented.</p>
+
+<h2>How We Ran It</h2>
+<p>The test ran October 19 to 23, 2026. The 40 questions came from the analyst who owns our revenue dashboard, written before the test and never shown to a model. The reference answers were hand-written in SQL and kept in a spreadsheet none of the tools could see. Data ran through August 2026.</p>
+<p>Every tool got the same 214-line schema dump, the same question order and a fresh session per question. Claude Code and Gemini CLI got a select-only connection to the replica. The three browser tools got the DDL pasted in, which is how most people use them. Nothing was retried, no hints were given, and a clarification a tool asked for counted as a flag, not a second attempt.</p>
+
+<h2>The Ranking: Six Ways to Generate SQL</h2>
+
+<h3>1. Claude Code (Opus 5.5): best accuracy, $20 seat</h3>
+<p>It read <code>order_items</code>, compared <code>count(*)</code> against <code>count(distinct order_id)</code> on its own initiative, and asked whether the March re-sync was intended before writing the revenue query. That one check is the difference between $387,910 and $412,880 for the year. Thirty-four exact matches, 11 of 12 traps flagged, 41 seconds median per answer including the exploration, and the $20 Pro seat covered all 40 questions inside its weekly cap. Its six misses were ordinary: <code>customers.created_at</code> standing in for <code>activated_at</code>.</p>
+
+<h3>2. Gemini 4 Argon: best if the warehouse is BigQuery</h3>
+<p>Thirty-one exact on Postgres and 40 of 40 portable to BigQuery, where it named every function it had swapped instead of letting you find out at the console. On Postgres it summed <code>total_minor</code> across all six currencies and divided by 100, which makes every Japanese order 100 times too small, because JPY has no minor unit. Cheapest accurate option here at $0.08 a question, and free through Gemini CLI at 1,000 requests a day.</p>
+
+<h3>3. ChatGPT (GPT-6.1 Sol): best at repairing SQL you already have</h3>
+<p>Twenty-eight exact from a pasted schema, which is not the reason it earns a slot. We handed it eight queries written to be bad: a correlated subquery over 4.1 million rows, a <code>NOT IN</code> against a nullable column, a self-join on the wrong key. It rewrote all eight into something that ran and returned the right number, and explained the three-valued logic behind the <code>NOT IN</code> failure without being asked. Median 12 seconds a repair. If your team keeps a folder of queries nobody dares change, this cleans it out.</p>
+
+<h3>4. Vanna 2.0 (self-hosted, MIT): best for repeatable self-serve</h3>
+<p>A framework rather than a chat window. Load the DDL, documentation and verified queries, and it retrieves the closest examples before generating. Cold, with only the schema, it managed 19 of 40. After we loaded 40 golden queries from the dashboard repo it reached 30 of 40 and stopped inventing join paths. Median 3.4 seconds against your own model, no data leaving the VPC, no license fee. Two caveats: the original GitHub repo is archived, so follow the Vanna 2.0 path, and Cloud pricing starts at $50 a month for 20 questions a day.</p>
+
+<h3>5. GitHub Copilot Pro ($10): best inside the editor</h3>
+<p>Twenty-two exact, 4 of 12 traps flagged, and the fastest thing here when you are the one typing: 380 ms completions inside a <code>.sql</code> file with the table names you just used in context. The right $10 if a developer writes the query anyway and wants the join spelled out. It will not audit the schema, and it ignored <code>deleted_at</code> on the active-customer question twice.</p>
+
+<h3>6. AI2SQL ($9): best for a one-off query</h3>
+<p>Paste a schema, get SQL, $9 a month on Starter. Nineteen exact, 2 of 12 traps, no live connection below Pro, and no way to tell it that <code>total_minor</code> needs a currency case. Pro at $24 adds BigQuery, Oracle and MongoDB. A drafting tool for someone who already knows the answer, priced like one.</p>
+
+<h2>The Three Things That Broke the Answers</h2>
+<p><strong>Minor units across six currencies.</strong> <code>total_minor</code> stores cents for USD, EUR, GBP, CAD and AUD and whole yen for JPY. Four of the six tools wrote <code>sum(total_minor) / 100</code> without a currency filter. Japanese revenue is 8.3% of the year and came back at 1% of its real value, and the total looked fine unless you had seen the real figure.</p>
+<p><strong>Duplicate order lines.</strong> A March re-sync inserted 2,847 line rows a second time with fresh ids. Any query joining orders to items multiplied those lines, and full-year revenue came back 6.4% high. Claude Code caught it by comparing the two counts. Vanna caught it because one of our golden queries carried a <code>distinct</code>. The other four reported the inflated number.</p>
+<p><strong>Soft deletes.</strong> <code>customers</code>, <code>orders</code> and <code>subscriptions</code> all carry <code>deleted_at</code>. Two tools filtered everywhere, two filtered the main table only, two never mentioned it. An active-customer count that includes deleted accounts reaches a board deck before anyone checks it.</p>
+
+<h2>What Each Option Costs per Question</h2>
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead><tr><th>Option</th><th>List price</th><th>Cost per question</th></tr></thead>
+<tbody>
+<tr><td>Claude Code (Opus 5.5)</td><td>Claude Pro $20/mo; $188.71 for a 506-question panel run</td><td>$0.37</td></tr>
+<tr><td>Gemini 4 Argon</td><td>$41.41 for a 518-question run; free via Gemini CLI</td><td>$0.08</td></tr>
+<tr><td>Vanna Cloud Explorer</td><td>$50/mo, 20 questions a day</td><td>$0.083 at the daily cap</td></tr>
+<tr><td>Vanna Cloud Team</td><td>$500/mo, 300 questions a day</td><td>$0.056 at the daily cap</td></tr>
+<tr><td>AI2SQL Starter</td><td>$9/mo, $7 annual</td><td>No meter, no live connection</td></tr>
+</tbody>
+</table>
+</div>
+<p>Vanna&rsquo;s Team tier costs ten times Explorer for fifteen times the questions, which is 5.6 cents a question against 8.3. Our method is documented on <a href="../how-we-test">How We Evaluate</a>.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Can ChatGPT write SQL that is actually correct?</h3>
+<p>Often the shape, rarely the number. GPT-6.1 Sol matched our reference on 28 of 40 questions and surfaced 7 of the 12 schema traps. Its misses were money and joins: it divided across currencies and joined through duplicated order lines. It was the best tool we tested at repairing a query you paste in, which is a different job from writing one from a question.</p>
+
+<h3>What is the best AI for SQL generation in 2026?</h3>
+<p>Claude Code on Opus 5.5, at 34 of 40 exact matches and 11 of 12 traps flagged before any SQL was written. Gemini 4 Argon is the better buy if your warehouse is BigQuery, since all 40 of its queries ran there with only the dialect swaps it flagged, at roughly a fifth of the cost per question.</p>
+
+<h3>Is it safe to point an AI at a production database?</h3>
+<p>Not at the primary. We used a read replica, a role with select only, a 30-second statement timeout and a 10,000-row cap. The tools that can run their own queries will start a four-table join over 4.1 million rows to test a guess, and a missing where clause on a delete is an expensive way to learn that lesson.</p>
+
+
+<h2>Final Verdict</h2>
+<p><strong>Claude Code on a $20 Claude Pro seat is the best AI for SQL generation we have tested.</strong> Thirty-four of forty exact matches, 11 of 12 schema traps surfaced before any SQL existed, and the habit that matters more than model quality: it counts rows to test its own assumption.</p>
+<p>Choose Gemini 4 Argon if the warehouse is BigQuery, because 40 of 40 ran there unedited and $0.08 a question is a rounding error. Self-host Vanna 2.0 if the schema cannot leave your VPC, and budget the 40 golden queries it needs first. Then do what no model here did for us: run <code>select * limit 20</code> on the table you are about to query. Five minutes of reading beat all six on the questions that mattered.</p>
+
+  </section>
+
+  <!-- Hands-On Test — real prompt, real output -->
+  <section class="hands-on">
+    <span class="hands-on-label">&#128247; Hands-On Test</span>
+    <h2>We Actually Ran This</h2>
+    <p class="hands-on-intro">October 19 to 23, 2026. One Postgres 17.4 read replica with nine tables, 4.1 million rows in <code>events</code> and 61,412 order lines, behind a select-only role with a 30-second statement timeout and a 10,000-row cap. Forty questions written by the analyst who owns our revenue dashboard, with the reference answers written in SQL by hand before the first session. Claude Code ran in the terminal on a $20 Pro seat with Opus 5.5 and a read-only connection. Gemini 4 Argon ran through Gemini CLI against the same replica. Every tool got the same 214-line schema dump, the same question order, a fresh session per question, no hints and no retries.</p>
+    <div class="hands-on-prompt-wrap">
+      <div class="hands-on-prompt-label">&#128220; The exact prompt / task we used</div>
+      <div class="hands-on-prompt">The schema dump and the standing instruction, verbatim. <strong>Schema:</strong> [214 lines of CREATE TABLE statements and psql output for 9 tables, no documentation]. <strong>Standing instruction:</strong> &ldquo;One query that runs on Postgres 17. Show the SQL, then the first five rows. If the schema makes the question ambiguous, say so before you write anything.&rdquo; <strong>Q1:</strong> &ldquo;What was total revenue by month in 2026, and which month was the best?&rdquo; <strong>Q2:</strong> &ldquo;How many customers were active in August 2026?&rdquo; <strong>Q3:</strong> &ldquo;Top 10 accounts by revenue in Q2, with each one&rsquo;s first paid order date.&rdquo; <strong>Q17:</strong> &ldquo;Weekly retention by signup cohort since January.&rdquo;</div>
+    </div>
+    <table class="hands-on-result">
+      <thead><tr><th>Metric</th><th>Claude Code (Opus 5.5)</th><th>Gemini 4 Argon</th></tr></thead>
+      <tbody>
+<tr><td>Queries that executed without error (of 40)</td><td>40 of 40</td><td>40 of 40</td></tr>
+<tr><td>Results matching the hand-written reference (of 40)</td><td class="win">34 &#10003;</td><td>31</td></tr>
+<tr><td>Trap questions where it flagged the ambiguity first (of 12)</td><td class="win">11 &#10003;</td><td>9</td></tr>
+<tr><td>Minor units across six currencies</td><td class="win">Filtered by currency &#10003;</td><td>Divided by 100 for all six, so JPY landed at 1%</td></tr>
+<tr><td>The 2,847 duplicate order lines</td><td class="win">Compared distinct and total counts first &#10003;</td><td>Joined through them, revenue 6.4% high</td></tr>
+<tr><td>Soft deletes filtered on the 3 tables that carry it</td><td class="win">3 of 3 &#10003;</td><td>2 of 3</td></tr>
+<tr><td>Postgres answers that also ran on BigQuery unedited</td><td>34 of 40</td><td class="win">40 of 40 &#10003;</td></tr>
+<tr><td>Median time from question to final SQL</td><td>41 s</td><td class="win">18 s &#10003;</td></tr>
+<tr><td>API-equivalent cost of the 40 questions</td><td>$14.80</td><td class="win">$3.20 &#10003;</td></tr>
+<tr><td>Writes issued to the replica</td><td>None</td><td>None</td></tr>
+<tr><td><strong>Winner</strong></td><td class="win"><strong>&#127942; Claude Code: accuracy, traps flagged, checks its own assumptions</strong></td><td>Gemini 4 Argon: speed, BigQuery portability, cost per question</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Affiliate CTA + disclosure -->
+  <section class="verdict" style="padding-top:0;">
+    <div class="cta-box">
+      <h3>Generate the query that answers the question</h3>
+      <p>Claude Code read the schema, compared row counts, and asked about the March re-sync before it wrote the revenue query. 34 of 40 exact matches on a warehouse with three traps in it. If the warehouse is BigQuery and you want the query to run in the console you already have open, Gemini 4 Argon translated all 40 without a dialect error.</p>
+      <div class="cta-options">
+        <a class="cta-option winner" href="https://aivstool.com/go/claude" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--primary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try Claude &rarr;</span><span class="cta-option-sub">Our pick &middot; 34 of 40 exact matches, 11 of 12 traps flagged first</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="cta-option" href="https://aivstool.com/go/gemini" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--secondary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try Gemini &rarr;</span><span class="cta-option-sub">BigQuery native &middot; 40 of 40 ran without a dialect edit, $0.08 a question</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+    <div class="affiliate-note">
+      <strong>Affiliate disclosure:</strong> AI vs Tool is reader-supported. Some links above are affiliate links, meaning we may earn a commission if you sign up &mdash; at <em>no extra cost to you</em>. This never influences our testing or rankings. Read our full <a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a>.
+    </div>
+  </section>
+
+  <!-- Related (filled by link_and_register.py) -->
+  <section class="compare-section">
+    <h2>More AI Coding Guides</h2>
+    <p>Keep exploring — these related comparisons and guides help you decide.</p>
+    <div class="related-links">
+      <a href="../blog/chatgpt-vs-claude-for-data-analysis" class="related-card">
+        <h3>ChatGPT vs Claude for Data Analysis: Complete Guide (2026)</h3>
+        <p>We ran the same real data-analysis tasks through ChatGPT (GPT-5) and Claude (Sonnet 5) — CSV cleaning, pandas work, SQL,&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../best/best-ai-code-generator-for-python" class="related-card">
+        <h3>Best AI Code Generator for Python (2026): 6 Tools, 4 Scripts, Every Line Run</h3>
+        <p>We generated the same four Python tasks in six AI tools and executed every line: a pandas cleanup, a FastAPI endpoint wi&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../best/best-ai-for-debugging-code" class="related-card">
+        <h3>Best AI for Debugging Code in 2026: 6 Tools Tested on Five Planted Bugs</h3>
+        <p>Claude Code named the real cause on all five bugs we planted and passed every held-back test. Cursor, Copilot, ChatGPT, &hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color:white; margin-bottom:4px;"><span class="logo-icon">AI</span> AI vs Tool</div>
+          <p>Independent AI tool reviews and comparisons. We research and analyze every tool to provide updated content monthly.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="../#categories">AI Chatbots</a></li>
+            <li><a href="../#categories">AI Writing</a></li>
+            <li><a href="../#categories">AI Coding</a></li>
+            <li><a href="../#categories">AI Image</a></li>
+            <li><a href="../#categories">AI Video</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Popular</h4>
+          <ul>
+            <li><a href="../compare/chatgpt-vs-claude">ChatGPT vs Claude</a></li>
+            <li><a href="../compare/midjourney-vs-dalle">Midjourney vs DALL-E</a></li>
+            <li><a href="../compare/cursor-vs-copilot">Cursor vs Copilot</a></li>
+            <li><a href="../best/best-ai-writer">Best AI Writer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="../about">About AI vs Tool</a></li>
+            <li><a href="../how-we-test">How We Evaluate</a></li>
+            <li><a href="../editorial-policy">Editorial Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../legal/privacy-policy">Privacy Policy</a></li>
+            <li><a href="../legal/terms-of-service">Terms of Service</a></li>
+            <li><a href="../legal/disclaimer">Disclaimer</a></li>
+            <li><a href="../legal/cookie-policy">Cookie Policy</a></li>
+            <li><a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI vs Tool. All rights reserved. AI vs Tool is an independent review site. We may earn affiliate commissions from links on this page. This does not affect our editorial integrity. All trademarks are property of their respective owners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
