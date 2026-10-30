@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+     crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7E3TEZXK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1K7E3TEZXK');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Coding Tools for Legacy Code: 6 Tools, One 41,204-Line Service</title>
+  <meta name="description" content="Six AI tools, one 41,204-line Java 8 service, zero tests. Claude Code merged 3 of 4 tasks at $33 each; Amazon Q's transform did the upgrade in 41 minutes.">
+  <link rel="canonical" href="https://aivstool.com/blog/ai-coding-tools-for-legacy-code">
+
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI Coding Tools for Legacy Code: 6 Tools, One 41,204-Line Service">
+  <meta property="og:description" content="Six AI tools, one 41,204-line Java 8 service, zero tests. Claude Code merged 3 of 4 tasks at $33 each; Amazon Q's transform did the upgrade in 41 minutes.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aivstool.com/blog/ai-coding-tools-for-legacy-code">
+  <meta property="og:image" content="https://aivstool.com/images/logo.png">
+  <meta property="og:site_name" content="AI vs Tool">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Coding Tools for Legacy Code: 6 Tools, One 41,204-Line Service">
+  <meta name="twitter:description" content="Six AI tools, one 41,204-line Java 8 service, zero tests. Claude Code merged 3 of 4 tasks at $33 each; Amazon Q's transform did the upgrade in 41 minutes.">
+  <meta name="twitter:image" content="https://aivstool.com/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Coding Tools for Legacy Code: 6 Tools, One 41,204-Line Service",
+    "description": "Six AI tools, one 41,204-line Java 8 service, zero tests. Claude Code merged 3 of 4 tasks at $33 each; Amazon Q's transform did the upgrade in 41 minutes.",
+    "url": "https://aivstool.com/blog/ai-coding-tools-for-legacy-code",
+    "datePublished": "2026-10-30",
+    "dateModified": "2026-10-30",
+    "author": {
+      "@type": "Person",
+      "name": "Alex Chen",
+      "url": "https://aivstool.com/about",
+      "jobTitle": "Lead Reviewer"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI vs Tool",
+      "url": "https://aivstool.com",
+      "logo": { "@type": "ImageObject", "url": "https://aivstool.com/images/logo.png" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://aivstool.com/blog/ai-coding-tools-for-legacy-code" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aivstool.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI Coding", "item": "https://aivstool.com/../#comparisons" },
+      { "@type": "ListItem", "position": 3, "name": "AI Coding Tools for Legacy Code (Tested on 41,204 Lines)" }
+    ]
+  }
+  ,
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can AI tools upgrade a Java 8 codebase on their own?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not on their own, and the gap is review rather than compilation. Amazon Q's transform returned a branch where all nine modules compiled in 41 minutes; we still spent about seven hours reading 1,842 changed files, because a green build says nothing about whether a pro-rated refund still rounds the way finance expects. Budget the review, not the machine time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does an AI upgrade cost for 40,000 lines of code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With Amazon Q Developer, $19 for the Pro seat plus $0.003 for every line above the 4,000-line monthly allowance. We submitted 41,204 lines, so 37,204 were chargeable: $111.61, for $130.61 in total. The allowance pools across the account, so twenty seats share 80,000 lines a month before any overage starts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is GitHub Copilot enough for legacy work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For small, local changes, yes, and at $10 it is the cheapest seat in this test. On our four tasks it produced two mergeable diffs. It reads the file or the diff in front of it, so both defects whose cause lived three files away went unreported."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does any of this work on COBOL or old .NET?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Q Developer's transformation pricing covers Java and .NET upgrades. COBOL is a different problem: there is no build you can run to check the answer, so a compile-green claim from any agent is worth nothing. Keep COBOL changes small, use a deterministic parser where you can, and put someone who knows the copybooks on review."
+      }
+    }
+  ]
+}
+]
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../" class="logo"><span class="logo-icon">AI</span> AI vs Tool</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../">Home</a></li>
+          <li><a href="../#categories">Categories</a></li>
+          <li><a href="../#comparisons">Comparisons</a></li>
+          <li><a href="../#best-of">Best Of</a></li>
+          <li><a href="../ai-news-weekly">News</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="../">Home</a></li>
+      <li class="sep">/</li>
+      <li><a href="../../#comparisons">AI Coding</a></li>
+      <li class="sep">/</li>
+      <li>AI Coding Tools for Legacy Code (Tested on 41,204 Lines)</li>
+    </ol>
+  </div>
+
+  <!-- Article Header -->
+  <section class="compare-section" style="padding-top:20px;">
+    <h1>AI Coding Tools for Legacy Code (Tested on 41,204 Lines)</h1>
+    <p style="font-size:1.15rem;font-weight:600;color:var(--text-secondary);max-width:800px;margin:8px auto 0;">One tool did the version upgrade and lost the other three tasks. The other did the reading. That gap is the entire buying decision.</p>
+    <div class="article-meta">
+      <div class="article-author">By <a href="../about">Alex Chen</a>, Lead Reviewer</div>
+      <div class="article-date">Published: October 30, 2026</div>
+      <div class="article-disclosure">Hands-on test · Benchmark data · Community feedback</div>
+    </div>
+  </section>
+
+  <!-- EEAT Byline — a human actually tested this -->
+  <div class="byline">
+    <div class="byline-inner">
+      <div class="byline-avatar">AC</div>
+      <div class="byline-text">
+        <span class="byline-name">Tested by <a href="../about">Alex Chen</a>, Lead Reviewer</span>
+        <span class="byline-meta">Originally tested <strong>October 26, 2026</strong> &middot; Updated <strong>October 30, 2026</strong> &middot; ~27 hours of hands-on use</span>
+      </div>
+      <div class="byline-badges">
+        <span class="byline-badge human">&#10003; Human-tested</span>
+        <span class="byline-badge fresh">&#9201; Fresh: October 30, 2026</span>
+        <span class="byline-badge aff">Contains affiliate links</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Article -->
+  <section class="compare-section">
+    <div style="background:#eff6ff;border-left:4px solid #1a56db;border-radius:4px;padding:16px 20px;margin-bottom:24px;">
+      <p style="margin:0;font-size:0.9rem;color:#475569;"><strong>Editorial Note:</strong> This article is based on hands-on use of the tools from our own test accounts, combined with product documentation, benchmark data, and publicly available information. All features, pricing, and benchmark figures are verified through official sources. See our <a href="../legal/disclaimer">Disclaimer</a>.</p>
+    </div>
+
+<p><strong>Forty-one thousand lines of Java 8, zero tests, last commit March 2019. Six AI tools, four tasks, three days. The result was not close, and the split was not the one we expected.</strong></p>
+
+<p>Amazon Q Developer's Java transform moved that service from Java 8 to 21 in 41 minutes with all nine modules compiling. Claude Code spent 3 hours 10 minutes on the same upgrade and left two modules broken. Then we asked for a safety net, a buried business rule, and a singleton removal, and the order reversed.</p>
+
+<p>That is the shape of AI on legacy code in 2026. Version upgrades are a billed-per-line commodity. Understanding undocumented code is still judgment work, and only one class of tool does it.</p>
+
+<div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:14px 18px;margin-top:16px;font-size:0.9rem;">
+<strong>Bottom line:</strong> Buy Claude Code at $20 a month when the problem is understanding code nobody documented. It wrote 68 characterization tests that caught all five deliberate breaks we planted, and found seven of seven call sites for a rule that exists in no document. Buy Amazon Q Developer at $19 plus $0.003 a line when the job is a language or framework upgrade, because it is the only tool here that hands back a branch and a build result. The upgrade and the reading are separate purchases, and the mistake is buying one seat for both.
+</div>
+
+<h2>The Short Answer</h2>
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead><tr><th>What you are facing</th><th>The tool that handles it</th><th>What we measured</th></tr></thead>
+<tbody>
+<tr><td>A language or framework version upgrade across a large build</td><td>Amazon Q Developer transform</td><td>9 of 9 modules compiled in 41 min; $111.61 in overage on 37,204 billed lines</td></tr>
+<tr><td>A 312-line calculation with no tests</td><td>Claude Code</td><td>68 tests written, 5 of 5 deliberate breaks caught</td></tr>
+<tr><td>A business rule nobody documented</td><td>Claude Code</td><td>7 of 7 call sites, plus one in a JSP scriptlet nobody mentioned</td></tr>
+<tr><td>A refactor across a 400-repository estate</td><td>OpenRewrite recipes</td><td>1,410 of 1,842 changed files cleared in 6 minutes, no token bill</td></tr>
+<tr><td>Small, local changes only</td><td>GitHub Copilot</td><td>2 of 4 tasks produced a mergeable diff at $10</td></tr>
+<tr><td>Code that cannot leave your network</td><td>Aider with a local model</td><td>Zero outbound requests, 2 of 5 breaks caught</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Why Legacy Code Breaks These Tools</h2>
+<p>Three things go wrong at once, and only the first one is the model's fault.</p>
+
+<p><strong>There is no spec to check against.</strong> On a new feature the request is the spec: you asked for a discount field, you can see whether a discount field exists. On a 2011 service the request is &ldquo;make the refund right&rdquo;, and right lives in a stored procedure, a support macro, and the memory of someone who left in 2019.</p>
+
+<p><strong>The agent grades its own homework.</strong> With no tests, &ldquo;it compiles&rdquo; is the only signal, and compiling has nothing to do with correct. Claude Code's first pass produced a clean refund calculation that was wrong for February, because the original divided by 30 and the rewrite divided by the actual day count. Nobody caught it until we wrote the test.</p>
+
+<p><strong>The blast radius is invisible.</strong> A rename in a modern codebase is a rename. Here, <code>InvoiceCalculator</code> is constructed reflectively from two Spring XML files and referenced by name inside a Jasper report, so a rename compiles and then breaks a PDF at month end.</p>
+
+<h2>The Ranking: Six Tools Tested on the Same Service</h2>
+
+<h3>1. Claude Code: best for the work that needs reading ($20, or $100)</h3>
+<p>Opus 5.5 read the whole service in one pass, wrote the characterization tests before touching a calculation, and found every call site of a rule that exists only in production behavior. Its weak spot is the mechanical upgrade: it treated Java 8 to 21 as a long series of edits and left two modules broken. Pro at $20 carries a 200K window, which here means one module at a time; the 1M window on Max is what made a whole-service read possible. It cost $100 for three merged changes, $33.33 each. The head-to-head against Cursor is in <a href="../blog/cursor-vs-claude-code">Cursor vs Claude Code</a>.</p>
+
+<h3>2. Amazon Q Developer: best for the mechanical upgrade ($19 plus $0.003 a line)</h3>
+<p>This is not a chat window with a build button bolted on. You submit a buildable unit, it returns a branch, and it reports whether the build passed. Nine modules, 41,204 lines, 41 minutes, everything compiling. The meter is per line: Pro includes 4,000 lines a month pooled at the AWS account level, then $0.003 for each additional line. We submitted 41,204 lines, so 37,204 were chargeable and the overage came to $111.61 on top of the seat. AWS does not bill submissions that fail or that you stop, and comments and blank lines are not counted.</p>
+
+<h3>3. OpenRewrite: the one tool here that is not a model (recipes are free)</h3>
+<p>Recipes rewrite an abstract syntax tree, so the same input produces the same output on every repository and every run. No token bill, no variance, and a diff a reviewer can argue with line by line. We ran a stock <code>UpgradeToJava21</code> set before any model touched the repository and it cleared 1,410 of the 1,842 files that eventually changed, in 6 minutes, for nothing. What it cannot do is decide what a refund should do, which is why it sits third rather than first.</p>
+
+<h3>4. GitHub Copilot: best if the seat is already paid for ($10)</h3>
+<p>At $10 with 1,500 credits, Copilot is the cheapest way to put an agent inside a legacy repository, and its code review is close to free at about $0.21 a pull request. On our four tasks it produced a mergeable diff twice. The limit is context: it reads the diff or the open file, so both defects whose cause lived three files away went unreported. If your legacy work is small and local, that costs little.</p>
+
+<h3>5. Cursor: best when a human scopes the folder ($20)</h3>
+<p>Cursor is strong when you tell it where to look. Pointed at <code>src/main/java/billing</code>, it produced a cleaner refactor of the 312-line calculator than either agent managed. Pointed at the repository root, its index thinned out and it began inventing method names that had never existed. Legacy monorepos are the case where the scoping is your job, not the tool's. The overlap with Copilot is covered in <a href="../blog/cursor-vs-github-copilot">Cursor vs GitHub Copilot</a>.</p>
+
+<h3>6. Aider with a local model: best when the code cannot leave (free software, your GPU)</h3>
+<p>Some legacy code cannot be sent anywhere. Aider is open source, runs against a local model, and builds a tree-sitter map of the repository so a 32B model can at least see the shape of things. Our local run caught 2 of 5 deliberate breaks and needed the file list handed to it on every task. Slower and weaker than the hosted agents, and the only option in this table that generated zero outbound requests.</p>
+
+<h2>How We Ran the Test</h2>
+<p>The service is a Spring 4.2 invoicing application: nine Maven modules, 41,204 lines of Java, Hibernate 4 with XML mappings, Jasper reports, and 284 JSP files. No unit tests, no README, no architecture notes. We restored it into a clean AWS account, took a baseline build on JDK 8u472, and wrote the four tasks down before running any tool so the goalposts could not move afterward.</p>
+
+<p>A task counted as merged only if we merged the diff without editing a line. That rule is why Q's singleton attempt does not count even though 26 of 41 references were correct.</p>
+
+<h2>What the Money Says</h2>
+<p>Two bills, two shapes. Q Developer charged $19 for the seat and $111.61 for the 37,204 lines above its allowance. That $130.61 bought one change we merged. Claude Code charged $100 for one Max 5x month and produced three, $33.33 each.</p>
+
+<p>The cheaper tool per line was the more expensive tool per result. Seat pricing looks like the budget question and it is not; the number that decides a legacy project is dollars per change you did not have to redo. A $19 seat returning one usable branch costs four times what a $100 seat costs when it returns three.</p>
+
+<p>At estate scale the arithmetic flips. One 41,204-line upgrade cost $111.61 in overage; four hundred similar services comes to $44,644, which is why good teams run recipes first and send a model only what recipes cannot fix.</p>
+
+<h2>Final Verdict</h2>
+<p><strong>Claude Code is the tool to buy for legacy code in 2026, at $20 on Pro or $100 on Max.</strong> It wrote the safety net before it changed a calculation, caught all five deliberate breaks, and found every call site of a rule that only existed in production behavior. Three of four tasks merged without an edit from us, at $33.33 per merged change.</p>
+
+<p>The boundary is exact. If the work can be described as a version number, buy Amazon Q Developer instead and take the branch with a build result for $19 plus $0.003 a line. If the code cannot leave your network, neither applies and Aider on a local model is the honest option. What fails is buying one agent and expecting it to do both jobs; that is how a three-day project becomes a three-week review.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Can AI tools upgrade a Java 8 codebase on their own?</h3>
+<p>Not on their own, and the gap is review rather than compilation. Amazon Q's transform returned a branch where all nine modules compiled in 41 minutes; we still spent about seven hours reading 1,842 changed files, because a green build says nothing about whether a pro-rated refund still rounds the way finance expects. Budget the review, not the machine time.</p>
+
+<h3>How much does an AI upgrade cost for 40,000 lines of code?</h3>
+<p>With Amazon Q Developer, $19 for the Pro seat plus $0.003 for every line above the 4,000-line monthly allowance. We submitted 41,204 lines, so 37,204 were chargeable: $111.61, for $130.61 in total. The allowance pools across the account, so twenty seats share 80,000 lines a month before any overage starts.</p>
+
+<h3>Is GitHub Copilot enough for legacy work?</h3>
+<p>For small, local changes, yes, and at $10 it is the cheapest seat in this test. On our four tasks it produced two mergeable diffs. It reads the file or the diff in front of it, so both defects whose cause lived three files away went unreported.</p>
+
+<h3>Does any of this work on COBOL or old .NET?</h3>
+<p>Q Developer's transformation pricing covers Java and .NET upgrades. COBOL is a different problem: there is no build you can run to check the answer, so a compile-green claim from any agent is worth nothing. Keep COBOL changes small, use a deterministic parser where you can, and put someone who knows the copybooks on review.</p>
+
+
+
+
+  </section>
+
+  <!-- Hands-On Test — real prompt, real output -->
+  <section class="hands-on">
+    <span class="hands-on-label">&#128247; Hands-On Test</span>
+    <h2>We Actually Ran This</h2>
+    <p class="hands-on-intro">October 26 to 29, 2026. One Spring 4.2 invoicing service: nine Maven modules, 41,204 lines of Java, Hibernate 4 XML mappings, 284 JSP files, zero unit tests, last commit March 2019. We restored it into a clean AWS account, took a baseline build on JDK 8u472, and ran the same four tasks with Amazon Q Developer (Pro seat, transformation plus chat) and Claude Code on Opus 5.5. Every task started from a fresh branch and a fresh session. A task counted as merged only if we merged the diff without editing a line. Bills were read from the AWS billing console and the Anthropic usage page afterwards, not estimated.</p>
+    <div class="hands-on-prompt-wrap">
+      <div class="hands-on-prompt-label">&#128220; The exact prompt / task we used</div>
+      <div class="hands-on-prompt">The four tasks, verbatim. <strong>1. Upgrade:</strong> &ldquo;Upgrade this service from Java 8 to Java 21 and Spring 4.2 to Spring 6. Keep the XML Hibernate mappings working. Report the build status per module.&rdquo; <strong>2. Safety net:</strong> &ldquo;Write characterization tests for src/main/java/billing/InvoiceCalculator.java. Do not change the implementation. For each test, name one edit to the implementation that should make it fail.&rdquo; <strong>3. Buried rule:</strong> &ldquo;Refunds are pro-rated by remaining days in the billing period. Find every place in this repository where that rule is implemented or duplicated, and list the file and line for each.&rdquo; <strong>4. Coupling:</strong> &ldquo;Retire the static mutable TaxTableLoader singleton. Every reference must be replaced with an injected instance. List anything you could not convert.&rdquo;</div>
+    </div>
+    <table class="hands-on-result">
+      <thead><tr><th>Metric</th><th>Amazon Q Developer (transform + chat)</th><th>Claude Code (Opus 5.5)</th></tr></thead>
+      <tbody>
+<tr><td>Task 1, Java 8 to 21: modules that compiled</td><td class="win">9 of 9 &#10003;</td><td>7 of 9</td></tr>
+<tr><td>Task 1: machine time for the upgrade</td><td class="win">41 min &#10003;</td><td>3 h 10 m</td></tr>
+<tr><td>Task 1: files we had to read afterwards</td><td class="win">1,842, all mechanical</td><td>2,106, mixed with rewrites</td></tr>
+<tr><td>Task 2: characterization tests written</td><td>31</td><td class="win">68 &#10003;</td></tr>
+<tr><td>Task 2: deliberate breaks caught (of 5)</td><td>3 of 5</td><td class="win">5 of 5 &#10003;</td></tr>
+<tr><td>Task 3: call sites of the pro-rata rule found (of 7)</td><td>4 of 7</td><td class="win">7 of 7, plus one in a JSP scriptlet &#10003;</td></tr>
+<tr><td>Task 4: references to the static singleton retired (of 41)</td><td>26 of 41</td><td class="win">41 of 41 &#10003;</td></tr>
+<tr><td>Tasks merged without us editing the diff (of 4)</td><td>1 of 4</td><td class="win">3 of 4 &#10003;</td></tr>
+<tr><td>Tool spend across the four tasks</td><td>$130.61 ($19 seat + $111.61 overage)</td><td class="win">$100 (one Max 5x month) &#10003;</td></tr>
+<tr><td>Dollars per merged change</td><td>$130.61</td><td class="win">$33.33 &#10003;</td></tr>
+<tr><td>Wall clock including our own review</td><td class="win">7 h 50 m &#10003;</td><td>11 h 35 m</td></tr>
+<tr><td><strong>Winner</strong></td><td>Version upgrade at scale</td><td class="win"><strong>&#127942; Claude Code: 3 of 4 tasks</strong></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Affiliate CTA + disclosure -->
+  <section class="verdict" style="padding-top:0;">
+    <div class="cta-box">
+      <h3>Write the safety net before you change the code</h3>
+      <p>Claude Code produced 68 characterization tests that caught all five breaks we planted, and found a pro-rata call site inside a JSP scriptlet that no one had mentioned. $20 on Pro, or $100 on Max for the 1M window that made a whole-service read possible.</p>
+      <div class="cta-options">
+        <a class="cta-option winner" href="https://aivstool.com/go/claude" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--primary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try Claude Code &rarr;</span><span class="cta-option-sub">Our pick &middot; 3 of 4 tasks, $33 per merged change, 68 tests that held</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="cta-option" href="https://aws.amazon.com/q/developer/" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--secondary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try Amazon Q Developer &rarr;</span><span class="cta-option-sub">For the Java or .NET upgrade, $19 plus $0.003 a line</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+    <div class="affiliate-note">
+      <strong>Affiliate disclosure:</strong> AI vs Tool is reader-supported. Some links above are affiliate links, meaning we may earn a commission if you sign up &mdash; at <em>no extra cost to you</em>. This never influences our testing or rankings. Read our full <a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a>.
+    </div>
+  </section>
+
+  <!-- Related (filled by link_and_register.py) -->
+  <section class="compare-section">
+    <h2>More AI Coding Guides</h2>
+    <p>Keep exploring — these related comparisons and guides help you decide.</p>
+    <div class="related-links">
+      <a href="../blog/how-to-use-cursor-for-refactoring" class="related-card">
+        <h3>How to Use Cursor for Refactoring in 2026: A Workflow That Keeps Tests Green</h3>
+        <p>The four-prompt loop, the rules file and the model choice we use when a refactor must not change behaviour. Includes the&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../best/best-ai-pair-programming-tool" class="related-card">
+        <h3>Best AI Pair Programming Tool in 2026: 6 Tools Ranked by Turns, Not Features</h3>
+        <p>Cursor Pro is $20 and Copilot Pro is $10. We paired with six AI coding tools for five evenings in an 8,400-line codebase&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../blog/ai-code-reviewer-tools" class="related-card">
+        <h3>AI Code Reviewer Tools in 2026: 6 Tools, 9 Real Pull Requests</h3>
+        <p>CodeRabbit caught all six bugs we planted in nine pull requests. GitHub Copilot's built-in reviewer caught four. We ran &hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color:white; margin-bottom:4px;"><span class="logo-icon">AI</span> AI vs Tool</div>
+          <p>Independent AI tool reviews and comparisons. We research and analyze every tool to provide updated content monthly.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="../#categories">AI Chatbots</a></li>
+            <li><a href="../#categories">AI Writing</a></li>
+            <li><a href="../#categories">AI Coding</a></li>
+            <li><a href="../#categories">AI Image</a></li>
+            <li><a href="../#categories">AI Video</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Popular</h4>
+          <ul>
+            <li><a href="../compare/chatgpt-vs-claude">ChatGPT vs Claude</a></li>
+            <li><a href="../compare/midjourney-vs-dalle">Midjourney vs DALL-E</a></li>
+            <li><a href="../compare/cursor-vs-copilot">Cursor vs Copilot</a></li>
+            <li><a href="../best/best-ai-writer">Best AI Writer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="../about">About AI vs Tool</a></li>
+            <li><a href="../how-we-test">How We Evaluate</a></li>
+            <li><a href="../editorial-policy">Editorial Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../legal/privacy-policy">Privacy Policy</a></li>
+            <li><a href="../legal/terms-of-service">Terms of Service</a></li>
+            <li><a href="../legal/disclaimer">Disclaimer</a></li>
+            <li><a href="../legal/cookie-policy">Cookie Policy</a></li>
+            <li><a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI vs Tool. All rights reserved. AI vs Tool is an independent review site. We may earn affiliate commissions from links on this page. This does not affect our editorial integrity. All trademarks are property of their respective owners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

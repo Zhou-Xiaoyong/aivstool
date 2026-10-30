@@ -104,7 +104,7 @@
   </url>
   <url>
     <loc>https://aivstool.com/best/best-ai-pair-programming-tool</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -152,7 +152,7 @@
   </url>
   <url>
     <loc>https://aivstool.com/blog/ai-code-reviewer-tools</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -165,6 +165,12 @@
   <url>
     <loc>https://aivstool.com/blog/ai-coding-assistant-for-vs-code</loc>
     <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aivstool.com/blog/ai-coding-tools-for-legacy-code</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -278,7 +284,7 @@
   </url>
   <url>
     <loc>https://aivstool.com/blog/cursor-vs-claude-code</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
