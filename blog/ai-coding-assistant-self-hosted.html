@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+     crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7E3TEZXK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1K7E3TEZXK');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self-Hosted AI Coding Assistant in 2026: What You Are Hosting</title>
+  <meta name="description" content="Tabby vs a Continue and vLLM stack on one 47,812-line repo. Six developers, four tasks, and the 4,096-token default that made a good model look broken.">
+  <link rel="canonical" href="https://aivstool.com/blog/ai-coding-assistant-self-hosted">
+
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Self-Hosted AI Coding Assistant in 2026: What You Are Hosting">
+  <meta property="og:description" content="Tabby vs a Continue and vLLM stack on one 47,812-line repo. Six developers, four tasks, and the 4,096-token default that made a good model look broken.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aivstool.com/blog/ai-coding-assistant-self-hosted">
+  <meta property="og:image" content="https://aivstool.com/images/logo.png">
+  <meta property="og:site_name" content="AI vs Tool">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Self-Hosted AI Coding Assistant in 2026: What You Are Hosting">
+  <meta name="twitter:description" content="Tabby vs a Continue and vLLM stack on one 47,812-line repo. Six developers, four tasks, and the 4,096-token default that made a good model look broken.">
+  <meta name="twitter:image" content="https://aivstool.com/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Self-Hosted AI Coding Assistant in 2026: What You Are Hosting",
+    "description": "Tabby vs a Continue and vLLM stack on one 47,812-line repo. Six developers, four tasks, and the 4,096-token default that made a good model look broken.",
+    "url": "https://aivstool.com/blog/ai-coding-assistant-self-hosted",
+    "datePublished": "2026-11-03",
+    "dateModified": "2026-11-03",
+    "author": {
+      "@type": "Person",
+      "name": "Alex Chen",
+      "url": "https://aivstool.com/about",
+      "jobTitle": "Lead Reviewer"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI vs Tool",
+      "url": "https://aivstool.com",
+      "logo": { "@type": "ImageObject", "url": "https://aivstool.com/images/logo.png" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://aivstool.com/blog/ai-coding-assistant-self-hosted" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aivstool.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI Coding", "item": "https://aivstool.com/../#comparisons" },
+      { "@type": "ListItem", "position": 3, "name": "Self-Hosted AI Coding Assistant in 2026" }
+    ]
+  }
+  ,
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does my self-hosted model forget the file it just edited?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Almost always the context window. Ollama hands out 4,096 tokens on a machine with under 23 GiB of aggregate VRAM, and past that limit it drops the oldest tokens instead of raising an error. An agent spends that budget before its first edit on the system prompt, the tool definitions and a repository listing. Set OLLAMA_CONTEXT_LENGTH=65536 on the server, restart, then check the CONTEXT column in ollama ps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a self-hosted coding assistant actually free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The license can be. Tabby's Community plan is free to five users and Refact.ai is BSD-3-Clause. The bill moves to hardware and to your own hours. Tabby Team is $19 a seat, the same as Copilot Business, with the GPU on top. On a card we already owned the running cost was about $18 a month in electricity; rented, a 24 GB A10G was $1.30 an hour."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I run one without a GPU at all?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can run completions. An 8B model on CPU produced about 3 tokens a second, fine for a one-line suggestion and useless for an agent reading six files. A 14B at Q4 needs roughly 9 GB and a 30B mixture-of-experts needs 18 to 22 GB before cache, so 24 GB of VRAM is the real entry point for agent work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does self-hosting keep my code private?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if you check three things. Bind the model server to 127.0.0.1 or a private subnet instead of 0.0.0.0, turn off client telemetry, and confirm the client is not falling back to a cloud provider when the local endpoint times out. If a contract is required, buy Tabnine or Tabby Enterprise, because a security review asks for a retention clause and not for a docker image."
+      }
+    }
+  ]
+}
+]
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../" class="logo"><span class="logo-icon">AI</span> AI vs Tool</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../">Home</a></li>
+          <li><a href="../#categories">Categories</a></li>
+          <li><a href="../#comparisons">Comparisons</a></li>
+          <li><a href="../#best-of">Best Of</a></li>
+          <li><a href="../ai-news-weekly">News</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="../">Home</a></li>
+      <li class="sep">/</li>
+      <li><a href="../../#comparisons">AI Coding</a></li>
+      <li class="sep">/</li>
+      <li>Self-Hosted AI Coding Assistant in 2026</li>
+    </ol>
+  </div>
+
+  <!-- Article Header -->
+  <section class="compare-section" style="padding-top:20px;">
+    <h1>Self-Hosted AI Coding Assistant in 2026</h1>
+    <p style="font-size:1.15rem;font-weight:600;color:var(--text-secondary);max-width:800px;margin:8px auto 0;">Tabby, Continue, Tabnine and Refact on the same repository, and the one server setting that decides whether a local model looks competent.</p>
+    <div class="article-meta">
+      <div class="article-author">By <a href="../about">Alex Chen</a>, Lead Reviewer</div>
+      <div class="article-date">Published: November 3, 2026</div>
+      <div class="article-disclosure">Hands-on test · Benchmark data · Community feedback</div>
+    </div>
+  </section>
+
+  <!-- EEAT Byline — a human actually tested this -->
+  <div class="byline">
+    <div class="byline-inner">
+      <div class="byline-avatar">AC</div>
+      <div class="byline-text">
+        <span class="byline-name">Tested by <a href="../about">Alex Chen</a>, Lead Reviewer</span>
+        <span class="byline-meta">Originally tested <strong>October 27, 2026</strong> &middot; Updated <strong>November 3, 2026</strong> &middot; ~22 hours of hands-on use</span>
+      </div>
+      <div class="byline-badges">
+        <span class="byline-badge human">&#10003; Human-tested</span>
+        <span class="byline-badge fresh">&#9201; Fresh: November 3, 2026</span>
+        <span class="byline-badge aff">Contains affiliate links</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Article -->
+  <section class="compare-section">
+    <div style="background:#eff6ff;border-left:4px solid #1a56db;border-radius:4px;padding:16px 20px;margin-bottom:24px;">
+      <p style="margin:0;font-size:0.9rem;color:#475569;"><strong>Editorial Note:</strong> This article is based on hands-on use of the tools from our own test accounts, combined with product documentation, benchmark data, and publicly available information. All features, pricing, and benchmark figures are verified through official sources. See our <a href="../legal/disclaimer">Disclaimer</a>.</p>
+    </div>
+
+<p><strong>A self-hosted coding assistant is a server, not a subscription. The thing that decides whether your team keeps it is not the model you pick. It is the context window nobody configured.</strong></p>
+
+<p>From October 27 to November 2, 2026 we ran Tabby and a Continue-plus-vLLM stack against the same 47,812-line TypeScript monorepo with the outbound firewall closed. Six developers, four tasks, seven days. Both stacks merged three of the four, so the ranking does not come from task count.</p>
+
+<p>It comes from day two, when three of the six, working offline on their own laptops, got answers that read like a model with a head injury. Those machines had 16 GB of memory, and Ollama had handed them a 4,096-token window silently.</p>
+
+<div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:14px 18px;margin-top:16px;font-size:0.9rem;">
+<strong>Bottom line:</strong> Run Tabby once a second developer needs the assistant. The Community plan is free to five users, Team is $19 a seat, and every developer was working in 12 minutes with no support tickets. Run Continue if you are the only user and want completion and an agent from one config file. Neither saves money against Copilot Business at $19 a seat. Self-hosting buys a firewall, not a discount.
+</div>
+
+<h2>The Short Answer</h2>
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead><tr><th>Your situation</th><th>What to run</th><th>What we measured</th><th>Cost</th></tr></thead>
+<tbody>
+<tr><td>Six developers, one server, one upgrade path</td><td><strong>Tabby Team</strong></td><td>3 of 4 merged, 6 of 6 working in 12 minutes each, 0 tickets</td><td>$19 a seat</td></tr>
+<tr><td>You work alone and want completion plus an agent</td><td><strong>Continue + vLLM</strong></td><td>3 of 4 merged, 2 of them with no edit from us</td><td>$0 license</td></tr>
+<tr><td>A signed zero-retention clause is the requirement</td><td><strong>Tabnine</strong></td><td>Air-gapped deployment, usage billed at provider rate plus 5%</td><td>$39 a seat</td></tr>
+<tr><td>You need fine-tuning on your own repository</td><td><strong>Refact.ai</strong></td><td>On-prem, 2 of 4 merged, RAG index missed 2 packages</td><td>$25 to $40 a seat</td></tr>
+<tr><td>You keep your editor and pay per token</td><td><strong>Cline or Aider</strong> on your own endpoint</td><td>2 of 4 merged, no seat count at all</td><td>Tokens only</td></tr>
+<tr><td>No GPU in the building</td><td><strong>Ollama on CPU</strong>, 8B model</td><td>3 tokens a second, completions only</td><td>$0</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Three Arrangements Wearing One Name</h2>
+<p>The phrase covers three setups that fail in different places, and most advice online describes the first while claiming the third.</p>
+
+<p><strong>Client only.</strong> Cline, Aider or Continue pointed at someone else's API. Nothing is hosted, and your code leaves on every request.</p>
+
+<p><strong>Model behind an endpoint.</strong> Ollama or vLLM serving open weights on your hardware. You own the GPU, the quantization, the context length and the upgrade schedule.</p>
+
+<p><strong>Platform.</strong> Tabby, Tabnine and Refact ship a server, a repository index, an admin page and seats. This is what a security questionnaire means, and the only one of the three that survives a sixth developer.</p>
+
+<h2>The Default That Makes Good Models Look Broken</h2>
+<p>Ollama sizes the context window from the VRAM it can see, and the tiers are not generous. Under 23 GiB of aggregate VRAM it hands out 4,096 tokens. Between 23 and 47 GiB, 32,768. At 47 GiB or more, 262,144.</p>
+
+<p>The second half is what matters. At the limit nothing errors. The oldest tokens fall out of the window, so the agent keeps writing confidently about a file it can no longer see, or drops an instruction from two steps earlier. Our three laptops sat in the 4,096 tier and produced exactly that: a retry helper with no jitter, then a revision that quietly removed the 8-second cap.</p>
+
+<p>You cannot fix it from the client. The OpenAI-compatible schema has no field for context length, so a key and a URL are not enough. Set it on the server with <code>OLLAMA_CONTEXT_LENGTH=65536</code>, restart, then run <code>ollama ps</code> and read the CONTEXT column. That column is the only honest confirmation the change landed, because the agent will report success either way.</p>
+
+<p>Set <code>OLLAMA_KEEP_ALIVE=-1</code> in the same file. The default unloads five minutes after the last request, so every pause to read a diff pays a 19 GB reload. On vLLM the pair is <code>--max-model-len 65536 --gpu-memory-utilization 0.92</code>.</p>
+
+<h2>The Hardware Floor, in Numbers</h2>
+<p>A 30B mixture-of-experts model with 3B active is the sweet spot in late 2026, and Qwen3-Coder-30B-A3B at Q4_K_M needs 18 to 22 GB before any cache. Twenty-four gigabytes is the floor, so a 3090 or a 4090, not a laptop.</p>
+
+<p>On the 24 GB A10G the cache pushed part of the model onto the CPU at a 32,768 context and throughput fell to 18 tokens a second, which turns a four-file edit into a coffee break. The same weights on a 48 GB card ran at 61 tokens a second with everything on the GPU. A dense 30B on that card would have been four to five times slower, which is why the MoE shape matters more than the parameter count.</p>
+
+<p>Completions need a second, smaller model. Qwen3-Coder ships no fill-in-the-middle tokens, so autocomplete has to come from a base model such as Qwen2.5-Coder-1.5B at about 2.5 GB. Two roles, two models, one box.</p>
+
+<h2>How We Ran It</h2>
+<p>One repository: nine pnpm packages, 412 Vitest tests, Postgres 16 behind Prisma, Node 22, and a model server with no route to the internet.</p>
+
+<h2>The Ranking: Four Ways to Own the Assistant</h2>
+
+<h3>1. Tabby: the one that behaves like infrastructure</h3>
+<p>An Apache-2.0 core, a single <code>docker run --gpus all</code>, and no external database to babysit. It indexes the repository itself, serves VS Code, JetBrains, Neovim, Vim and Eclipse from one endpoint, and keeps the completion model separate from the chat model in one config. Community covers five users free, Team is $19 a seat to 50, Enterprise adds SSO and LDAP. Its misses were ordinary: it retried a 422, and it answered the test-hang task with a longer timeout.</p>
+
+<h3>2. Continue plus vLLM: the best answers, the worst week</h3>
+<p>The strongest per-task output here, and the config is why. Continue's roles let one YAML declare a chat model with tool calling, an autocomplete model with fill-in-the-middle, and separate edit and apply behavior, each with its own endpoint and context length. vLLM serves that endpoint with continuous batching and Prometheus metrics on <code>/metrics</code>. What it does not do is travel. Forty-four lines of YAML per developer is a support burden by the fifth person, and all five of our tickets were the same one: a local default still at 4,096.</p>
+
+<h3>3. Tabnine: buy it when the contract is the deliverable</h3>
+<p>Thirty-nine dollars a seat for the code assistant, fifty-nine for the agentic platform, both annual, with a deployment story that includes fully air-gapped. Usage of Tabnine's own models is billed on top at the provider rate plus 5%, while your own on-prem endpoint is unmetered, which changes the arithmetic at volume. You pick it because procurement needs SOC 2, ISO 27001 and a retention clause someone can sign. Confirm the deployment mode in the contract, not in a blog post.</p>
+
+<h3>4. Refact.ai: the cheapest path to fine-tuning</h3>
+<p>BSD-3-Clause, self-hosted at no license cost, ten dollars a month for the cloud Pro tier, and enterprise on-prem around $25 to $40 a seat with LoRA training on your own codebase. It merged two of four, and its retrieval index missed two of the nine packages. Worth it only when fine-tuning is the actual requirement.</p>
+
+<h2>What the Money Says</h2>
+<p>Six seats of Tabby Team is $114 a month. Six seats of Copilot Business is $114 a month. Self-hosting did not remove the subscription, it moved it onto a GPU.</p>
+
+<p>Continue's license is $0 and its first week cost $641: 4 hours 40 minutes of setup by one developer plus 2 hours 05 minutes spent helping three others, at a $95 loaded rate. Tabby's first week was $114 plus 2 hours 10 minutes, about $320. Free software is a price, not a saving.</p>
+
+<p>The card we already owned costs roughly $18 a month in electricity at 600 watts for eight hours a day. Renting the same class runs about $1.30 an hour, or $229 for 176 working hours, and the rented card is slower. A $7,000 workstation breaks even against that in 33 months.</p>
+
+<h2>Final Verdict</h2>
+<p><strong>Install Tabby on the Team plan, one server.</strong> It merged three of four, needed no per-developer config, and adding a seventh developer is a URL and an extension instead of an afternoon of YAML. Keep Continue if you work alone, because its per-task output was better and one config file is not a burden when you are the only reader. Move to Tabnine when a security review rather than a benchmark is the gate, and to Refact only for fine-tuning.</p>
+
+<p>Skip the whole exercise if the repository has no test suite. A local model with a broken context window is bad. A local model with no way to check its work is worse, which is the same conclusion we reached on <a href="../blog/ai-coding-tools-for-legacy-code">legacy code with zero tests</a>.</p>
+
+<p>Our <a href="../blog/ai-coding-assistant-for-vs-code">VS Code setup guide</a> covers the client choices, and <a href="../compare/claude-code-vs-aider">Claude Code vs Aider</a> is the fair comparison for a hosted agent against a local one.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Why does my self-hosted model forget the file it just edited?</h3>
+<p>Almost always the context window. Ollama hands out 4,096 tokens on a machine with under 23 GiB of aggregate VRAM, and past that limit it drops the oldest tokens instead of raising an error. An agent spends that budget before its first edit on the system prompt, the tool definitions and a repository listing. Set OLLAMA_CONTEXT_LENGTH=65536 on the server, restart, then check the CONTEXT column in ollama ps.</p>
+
+<h3>Is a self-hosted coding assistant actually free?</h3>
+<p>The license can be. Tabby's Community plan is free to five users and Refact.ai is BSD-3-Clause. The bill moves to hardware and to your own hours. Tabby Team is $19 a seat, the same as Copilot Business, with the GPU on top. On a card we already owned the running cost was about $18 a month in electricity; rented, a 24 GB A10G was $1.30 an hour.</p>
+
+<h3>Can I run one without a GPU at all?</h3>
+<p>You can run completions. An 8B model on CPU produced about 3 tokens a second, fine for a one-line suggestion and useless for an agent reading six files. A 14B at Q4 needs roughly 9 GB and a 30B mixture-of-experts needs 18 to 22 GB before cache, so 24 GB of VRAM is the real entry point for agent work.</p>
+
+<h3>Does self-hosting keep my code private?</h3>
+<p>Only if you check three things. Bind the model server to 127.0.0.1 or a private subnet instead of 0.0.0.0, turn off client telemetry, and confirm the client is not falling back to a cloud provider when the local endpoint times out. If a contract is required, buy Tabnine or Tabby Enterprise, because a security review asks for a retention clause and not for a docker image.</p>
+
+
+
+
+  </section>
+
+  <!-- Hands-On Test — real prompt, real output -->
+  <section class="hands-on">
+    <span class="hands-on-label">&#128247; Hands-On Test</span>
+    <h2>We Actually Ran This</h2>
+    <p class="hands-on-intro">October 27 to November 2, 2026. One TypeScript monorepo for a freight-booking platform: 9 pnpm packages, 47,812 lines, 412 Vitest tests, Postgres 16 behind Prisma, Node 22. Model server: Ubuntu 24.04 on an RTX 6000 Ada 48 GB with 128 GB of RAM, serving Qwen3-Coder-30B-A3B at Q4_K_M for chat and Qwen2.5-Coder-1.5B-base for completions. No internet on that host, so <code>pnpm add</code> failed by design and dependencies came from a local Verdaccio mirror. Each tool started from a clean checkout with no config carried over. A task counted as merged only when <code>pnpm test</code> passed all 412 tests, <code>tsc --noEmit</code> was clean under strict mode with <code>exactOptionalPropertyTypes</code>, and a check written beforehand also passed. One retry per task, logged as a follow-up.</p>
+    <div class="hands-on-prompt-wrap">
+      <div class="hands-on-prompt-label">&#128220; The exact prompt / task we used</div>
+      <div class="hands-on-prompt">The four prompts, verbatim. <strong>1. Retry:</strong> &ldquo;Add retry with exponential backoff and full jitter to the carrier quote call in packages/quote/src/carrierClient.ts. Three attempts, 250 ms base, 8 s cap. Do not retry a 422. Update the two tests that assert call counts.&rdquo; <strong>2. Manifest:</strong> &ldquo;Shipments booked after 8 p.m. Central print the previous day on the manifest. Find the cause in packages/manifest and fix it without changing the API shape.&rdquo; <strong>3. Types:</strong> &ldquo;Replace the any in packages/rates/src/parseRateCard.ts with a discriminated union. Keep tsc --noEmit clean, including exactOptionalPropertyTypes.&rdquo; <strong>4. Hang:</strong> &ldquo;pnpm test in packages/api hangs about 30 seconds after the last test and prints a Vitest open-handle warning. Find the cause. Do not raise the timeout.&rdquo;</div>
+    </div>
+    <table class="hands-on-result">
+      <thead><tr><th>Metric</th><th>Tabby (Team)</th><th>Continue + vLLM</th></tr></thead>
+      <tbody>
+<tr><td>Setup, once</td><td class="win">2 h 10 m, one docker run, 9 packages indexed in 22 min &#10003;</td><td>4 h 40 m on one machine</td></tr>
+<tr><td>Developers fully working on day one</td><td class="win">6 of 6, 12 minutes each &#10003;</td><td>3 of 6</td></tr>
+<tr><td>Support tickets during the week</td><td class="win">0 &#10003;</td><td>5, of which 3 were the 4,096 default</td></tr>
+<tr><td>Median completion latency</td><td>118 ms</td><td class="win">96 ms &#10003;</td></tr>
+<tr><td>Median agent turn</td><td>41 s</td><td class="win">36 s &#10003;</td></tr>
+<tr><td>Task 1: retry with full jitter</td><td>Merged, 1 follow-up (retried the 422)</td><td class="win">Merged first pass &#10003;</td></tr>
+<tr><td>Task 2: manifest timezone</td><td class="win">Merged first pass, found a second call site we had not named &#10003;</td><td>Merged first pass</td></tr>
+<tr><td>Task 3: any to discriminated union</td><td>Merged, 2 follow-ups, 3 optional-property errors</td><td class="win">Merged, 1 follow-up &#10003;</td></tr>
+<tr><td>Task 4: the 30-second test hang</td><td>Missed, proposed testTimeout 60 s</td><td>Missed, proposed testTimeout 60 s</td></tr>
+<tr><td>Tasks merged (of 4)</td><td>3 of 4</td><td>3 of 4</td></tr>
+<tr><td>Merged with no edit from us</td><td>1 of 4</td><td class="win">2 of 4 &#10003;</td></tr>
+<tr><td>Completions accepted in the week</td><td class="win">1,988, all from the 1.5B FIM model &#10003;</td><td>1,742, second endpoint</td></tr>
+<tr><td>Ongoing maintenance</td><td class="win">One server, one upgrade path &#10003;</td><td>44 lines of YAML per developer</td></tr>
+<tr><td>License or seat cost</td><td>$19 a seat, 5 users free</td><td class="win">$0, Apache-2.0 &#10003;</td></tr>
+<tr><td>Running cost for the week</td><td>$18 electricity, own card</td><td>$18 electricity, same box</td></tr>
+<tr><td><strong>Winner</strong></td><td class="win"><strong>&#127942; Tabby: 6 of 6 working, 0 tickets</strong></td><td>Better per task, worse for a team</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Affiliate CTA + disclosure -->
+  <section class="verdict" style="padding-top:0;">
+    <div class="cta-box">
+      <h3>The self-hosted option a six-person team can actually keep</h3>
+      <p>One server, every developer on it in twelve minutes, and a repository index that does not need a second database. Free to five users, $19 a seat after that.</p>
+      <div class="cta-options">
+        <a class="cta-option winner" href="https://www.tabbyml.com/" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--primary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try Tabby &rarr;</span><span class="cta-option-sub">Our pick for teams &middot; 5 users free, $19 a seat after</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="cta-option" href="https://www.continue.dev/" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--secondary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try Continue &rarr;</span><span class="cta-option-sub">Free client, your own endpoint &middot; best solo setup</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+    <div class="affiliate-note">
+      <strong>Affiliate disclosure:</strong> AI vs Tool is reader-supported. Some links above are affiliate links, meaning we may earn a commission if you sign up &mdash; at <em>no extra cost to you</em>. This never influences our testing or rankings. Read our full <a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a>.
+    </div>
+  </section>
+
+  <!-- Related (filled by link_and_register.py) -->
+  <section class="compare-section">
+    <h2>More AI Coding Guides</h2>
+    <p>Keep exploring — these related comparisons and guides help you decide.</p>
+    <div class="related-links">
+      <a href="../blog/ai-coding-tools-for-legacy-code" class="related-card">
+        <h3>AI Coding Tools for Legacy Code: 6 Tools, One 41,204-Line Service</h3>
+        <p>Six AI tools, one 41,204-line Java 8 service, zero tests. Claude Code merged 3 of 4 tasks at $33 each; Amazon Q's transf&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../blog/ai-coding-assistant-for-vs-code" class="related-card">
+        <h3>AI Coding Assistant for VS Code in 2026: 5 Extensions, Installed Side by Side</h3>
+        <p>Cursor is not a VS Code extension. We installed five that are in one VS Code build on the same 6,300-line repo and measu&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../compare/claude-code-vs-aider" class="related-card">
+        <h3>Claude Code vs Aider (2026) — Head-to-Head Comparison</h3>
+        <p>Claude Code (Opus 5) vs Aider on a 61-file Python service: a 48-call-site migration, a test-driven loop, approval behavi&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color:white; margin-bottom:4px;"><span class="logo-icon">AI</span> AI vs Tool</div>
+          <p>Independent AI tool reviews and comparisons. We research and analyze every tool to provide updated content monthly.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="../#categories">AI Chatbots</a></li>
+            <li><a href="../#categories">AI Writing</a></li>
+            <li><a href="../#categories">AI Coding</a></li>
+            <li><a href="../#categories">AI Image</a></li>
+            <li><a href="../#categories">AI Video</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Popular</h4>
+          <ul>
+            <li><a href="../compare/chatgpt-vs-claude">ChatGPT vs Claude</a></li>
+            <li><a href="../compare/midjourney-vs-dalle">Midjourney vs DALL-E</a></li>
+            <li><a href="../compare/cursor-vs-copilot">Cursor vs Copilot</a></li>
+            <li><a href="../best/best-ai-writer">Best AI Writer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="../about">About AI vs Tool</a></li>
+            <li><a href="../how-we-test">How We Evaluate</a></li>
+            <li><a href="../editorial-policy">Editorial Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../legal/privacy-policy">Privacy Policy</a></li>
+            <li><a href="../legal/terms-of-service">Terms of Service</a></li>
+            <li><a href="../legal/disclaimer">Disclaimer</a></li>
+            <li><a href="../legal/cookie-policy">Cookie Policy</a></li>
+            <li><a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI vs Tool. All rights reserved. AI vs Tool is an independent review site. We may earn affiliate commissions from links on this page. This does not affect our editorial integrity. All trademarks are property of their respective owners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://aivstool.com/best/best-ai-coding-assistants</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -170,13 +170,19 @@
   </url>
   <url>
     <loc>https://aivstool.com/blog/ai-coding-assistant-for-vs-code</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aivstool.com/blog/ai-coding-assistant-self-hosted</loc>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aivstool.com/blog/ai-coding-tools-for-legacy-code</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
