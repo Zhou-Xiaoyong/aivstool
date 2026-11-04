@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+     crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7E3TEZXK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1K7E3TEZXK');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code vs Cursor for Agents in 2026: Same Model, Different Harness</title>
+  <meta name="description" content="Four agent tasks on one 26,412-line Rust workspace, same model on both sides. Claude Code merged 4 of 4 and Cursor finished 1.8x faster. Where each one breaks.">
+  <link rel="canonical" href="https://aivstool.com/blog/claude-code-vs-cursor-for-agents">
+
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude Code vs Cursor for Agents in 2026: Same Model, Different Harness">
+  <meta property="og:description" content="Four agent tasks on one 26,412-line Rust workspace, same model on both sides. Claude Code merged 4 of 4 and Cursor finished 1.8x faster. Where each one breaks.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aivstool.com/blog/claude-code-vs-cursor-for-agents">
+  <meta property="og:image" content="https://aivstool.com/images/logo.png">
+  <meta property="og:site_name" content="AI vs Tool">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Code vs Cursor for Agents in 2026: Same Model, Different Harness">
+  <meta name="twitter:description" content="Four agent tasks on one 26,412-line Rust workspace, same model on both sides. Claude Code merged 4 of 4 and Cursor finished 1.8x faster. Where each one breaks.">
+  <meta name="twitter:image" content="https://aivstool.com/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Claude Code vs Cursor for Agents in 2026: Same Model, Different Harness",
+    "description": "Four agent tasks on one 26,412-line Rust workspace, same model on both sides. Claude Code merged 4 of 4 and Cursor finished 1.8x faster. Where each one breaks.",
+    "url": "https://aivstool.com/blog/claude-code-vs-cursor-for-agents",
+    "datePublished": "2026-11-04",
+    "dateModified": "2026-11-04",
+    "author": {
+      "@type": "Person",
+      "name": "Alex Chen",
+      "url": "https://aivstool.com/about",
+      "jobTitle": "Lead Reviewer"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI vs Tool",
+      "url": "https://aivstool.com",
+      "logo": { "@type": "ImageObject", "url": "https://aivstool.com/images/logo.png" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://aivstool.com/blog/claude-code-vs-cursor-for-agents" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aivstool.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI Coding", "item": "https://aivstool.com/../#comparisons" },
+      { "@type": "ListItem", "position": 3, "name": "Claude Code vs Cursor for Agents in 2026" }
+    ]
+  }
+  ,
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Claude Code really included in the $20 Claude Pro plan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Claude Code ships with Pro at $20 a month, Max at $100 and Ultra at $200, and it draws on the same usage pool as chat, so a long terminal session and a long conversation spend the same allowance. The free plan does not include it. We ran this test on Max because four agent tasks a week on Opus 5.5 will reach a Pro plan's 5-hour window quickly, and when you reach it you either wait, upgrade, or turn on usage credits billed at standard API rates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I run Claude models inside Cursor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "From Premium up. The $30 Premium tier includes Cursor's own models and Grok, and it bills third-party models such as Claude and GPT at API list price on top of the subscription. The $8 Plus tier is Grok only. Our four tasks in Opus 5.5 cost $38.40, which is the number to budget from rather than the price on the plan card."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Cursor's cloud agents ask before they run commands?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. They run in an isolated VM on a branch of your repository and hand back a pull request without stopping for approval, which is why the first setup step is a spend limit. Claude Code in the terminal asks by default; you can widen that with per-tool allow rules, auto-approve edits, or run it in a container with prompts off. Which model you prefer matters less than which of those two defaults suits the task."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which one keeps working when my laptop is closed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both, with different amounts of preparation. Cursor's cloud agents run on its infrastructure and can be started from the web, the iOS app, Slack, Linear, a GitHub comment or the API. Claude Code has cloud sessions you enter with --cloud and pull back with --teleport, cloud scheduled tasks created with /schedule, and claude -p for pipelines. Cursor's version needs an environment built first, which cost us 26 minutes and two failed builds."
+      }
+    }
+  ]
+}
+]
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../" class="logo"><span class="logo-icon">AI</span> AI vs Tool</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../">Home</a></li>
+          <li><a href="../#categories">Categories</a></li>
+          <li><a href="../#comparisons">Comparisons</a></li>
+          <li><a href="../#best-of">Best Of</a></li>
+          <li><a href="../ai-news-weekly">News</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="../">Home</a></li>
+      <li class="sep">/</li>
+      <li><a href="../../#comparisons">AI Coding</a></li>
+      <li class="sep">/</li>
+      <li>Claude Code vs Cursor for Agents in 2026</li>
+    </ol>
+  </div>
+
+  <!-- Article Header -->
+  <section class="compare-section" style="padding-top:20px;">
+    <h1>Claude Code vs Cursor for Agents in 2026</h1>
+    <p style="font-size:1.15rem;font-weight:600;color:var(--text-secondary);max-width:800px;margin:8px auto 0;">Four delegated tasks, one Rust workspace, the same model on both sides, and the permission prompt that decides which tool you actually keep.</p>
+    <div class="article-meta">
+      <div class="article-author">By <a href="../about">Alex Chen</a>, Lead Reviewer</div>
+      <div class="article-date">Published: November 4, 2026</div>
+      <div class="article-disclosure">Hands-on test · Benchmark data · Community feedback</div>
+    </div>
+  </section>
+
+  <!-- EEAT Byline — a human actually tested this -->
+  <div class="byline">
+    <div class="byline-inner">
+      <div class="byline-avatar">AC</div>
+      <div class="byline-text">
+        <span class="byline-name">Tested by <a href="../about">Alex Chen</a>, Lead Reviewer</span>
+        <span class="byline-meta">Originally tested <strong>October 28, 2026</strong> &middot; Updated <strong>November 4, 2026</strong> &middot; ~19 hours of hands-on use</span>
+      </div>
+      <div class="byline-badges">
+        <span class="byline-badge human">&#10003; Human-tested</span>
+        <span class="byline-badge fresh">&#9201; Fresh: November 4, 2026</span>
+        <span class="byline-badge aff">Contains affiliate links</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Article -->
+  <section class="compare-section">
+    <div style="background:#eff6ff;border-left:4px solid #1a56db;border-radius:4px;padding:16px 20px;margin-bottom:24px;">
+      <p style="margin:0;font-size:0.9rem;color:#475569;"><strong>Editorial Note:</strong> This article is based on hands-on use of the tools from our own test accounts, combined with product documentation, benchmark data, and publicly available information. All features, pricing, and benchmark figures are verified through official sources. See our <a href="../legal/disclaimer">Disclaimer</a>.</p>
+    </div>
+
+<p><strong>On November 2 we handed both tools the same 1,840-line Rust module and asked for a four-stage split. Claude Code returned one branch in 1 hour 12 minutes. Cursor returned three pull requests in 38 minutes, and one of them renamed a public function nobody had asked it to touch.</strong></p>
+
+<p>Speed went to Cursor. The merge went to Claude Code: four of four tasks against three of four, on the same model, in the same repository.</p>
+
+<p>That result says less about Opus 5.5 than about where the loop runs. Claude Code is a session that stops and asks. Cursor's cloud agents are a queue that does not. Each design moves your attention to a different part of the week.</p>
+
+<div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:14px 18px;margin-top:16px;font-size:0.9rem;">
+<strong>Bottom line:</strong> Put Claude Code on the large, vaguely specified changes, where a wrong assumption costs a day. It merged all four, never needed a spend cap, and the 41 permission prompts are the feature rather than the friction. Put Cursor on a week of twenty small fixes: its cloud agents beat Claude Code on time for every task, and supervising five parallel runs in the Agents Window is something a terminal cannot do. Budget Cursor's Claude usage at API list price, because the $30 Premium plan includes Grok, not Opus.
+</div>
+
+<h2>The Short Answer</h2>
+<div class="compare-table-wrap">
+<table class="compare-table">
+<thead><tr><th>Your situation</th><th>What to run</th><th>What we found</th><th>List price</th></tr></thead>
+<tbody>
+<tr><td>Large refactors, one reviewer, diffs read in a terminal</td><td><strong>Claude Code</strong> on Max</td><td>4 of 4 merged, 41 prompts, $0 model spend</td><td>$100</td></tr>
+<tr><td>Twenty small fixes a week across several repos</td><td><strong>Cursor</strong> Premium</td><td>3 of 4, agent time 1 h 22 m against 2 h 30 m</td><td>$30 plus usage</td></tr>
+<tr><td>You already pay for Claude Pro</td><td><strong>Claude Code</strong></td><td>4 of 4 on Max; Pro draws on the same pool</td><td>$20, shared pool</td></tr>
+<tr><td>Overnight runs with nobody watching</td><td><strong>Cursor</strong> cloud agents</td><td>0 approval prompts, one public rename to revert</td><td>$30 plus usage</td></tr>
+<tr><td>CI, cron and pipelines</td><td><strong>Claude Code</strong></td><td><code>claude -p</code> and cloud scheduled tasks</td><td>$100</td></tr>
+<tr><td>Six developers sharing one set of rules</td><td><strong>Cursor</strong> Teams</td><td>Team rules outrank project rules, then user</td><td>$30 a seat</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>The Split That Actually Matters</h2>
+<p>Claude Code starts in a directory. It reads <code>CLAUDE.md</code>, works the task in front of it, and stops before an edit or a shell command when the permission mode says to ask. Ours asked 41 times across four tasks, roughly one interruption every four minutes of agent time.</p>
+
+<p>Cursor's cloud agent runs in an isolated VM with a prepared environment, works on its own branch, and hands back a pull request with screenshots, videos and logs. There is no prompt to answer because nobody is at the keyboard. The documentation is direct about it, and the first thing it asks you to configure is a spend limit.</p>
+
+<p>The trade is where you spend attention. With Cursor you spend it at the end, on a diff that can run to 900 lines. With Claude Code you spend it in the middle, thirty seconds at a time, and you catch the bad call while it is still one line.</p>
+
+<p>Neither is efficient. They fail on different days.</p>
+
+<h2>The Hook That Fires Late</h2>
+<p>Both tools run hooks from the repository, and we configured both to run <code>cargo fmt</code> after every <code>.rs</code> edit. Cursor keeps them in <code>.cursor/hooks.json</code>, which also applies to cloud agents.</p>
+
+<p>One line in Cursor's hook documentation accounts for our worst pull request of the week. Hooks do not run during the early exploratory turns in a read-only environment. They start once the agent has a writable environment. The agent explored for six turns, then wrote code, and the formatter that should have run on every edit was not live yet. Two files arrived unformatted and <code>cargo fmt --check</code> went red in CI.</p>
+
+<p>Claude Code's hook fired from the first edit. That single difference produced one of the four follow-ups we filed against Cursor.</p>
+
+<h2>Rules, Memory, and the File Both Tools Read</h2>
+<p>Cursor reads <code>.cursor/rules</code>, <code>AGENTS.md</code>, user rules and team rules, applied team first, then project, then user. A nested <code>AGENTS.md</code> activates only inside its own subtree, which is the behavior you want when one crate in a workspace carries its own conventions.</p>
+
+<p>Claude Code reads <code>CLAUDE.md</code>, which can stand in for <code>AGENTS.md</code>, and keeps an auto memory between sessions. Running <code>/init</code> produced 61 lines from our 14 crates in under two minutes.</p>
+
+<p>Day two is where that memory earned its keep. Without us editing anything, Claude Code carried forward a note that a new <code>sqlx</code> query needs <code>cargo sqlx prepare</code> before the offline build. That is the sentence every team writes on a wiki once and then ignores.</p>
+
+<h2>What Four Tasks Cost</h2>
+<p>Claude Code ships with every paid Claude plan and shares one usage pool with chat: Pro at $20 a month, Max at $100, Ultra at $200. Free does not include it. We ran Max, hit the 5-hour window twice on October 30, and waited 38 minutes in total. Every retry after that was free, so we retried instead of arguing with the model.</p>
+
+<p>Cursor's pricing page now lists five individual tiers drawing on a pool it shares with Grok: Free, Plus at $8, Premium at $30, Super at $100, Ultra at $200, with Teams from $30 a seat. Plus runs Grok models only. From Premium up, third-party models are billed at API list price on top of the subscription.</p>
+
+<p>Four tasks on Opus 5.5 cost $38.40, about $9.60 each. At four tasks a week that is close to $166 a month of model spend before the $30 subscription, against $100 flat for Claude Code.</p>
+
+<p>The cheap path is real, though. We re-ran Task 1 on Grok, which Premium includes, and it merged with two follow-ups instead of none. If your backlog tolerates one extra review round, Cursor costs $30 and Claude Code costs $100. That is the honest version of the price gap.</p>
+
+<h2>Final Verdict</h2>
+<p><strong>Put Claude Code on Max and give it the work you would otherwise hand to an engineer for a day.</strong> Four of four merged, one follow-up in total, no time spent setting a budget. The 41 prompts are the reason: they are where a wrong assumption gets caught before it becomes 400 lines of diff.</p>
+
+<p>Choose Cursor when the unit of work is small and the count is high. It was faster on all four tasks, its review pane held five parallel runs without turning into a tab hunt, and Bugbot on the pull request flagged a null case in Task 3 that we had missed ourselves.</p>
+
+<p>Nothing stops you running both. Cursor's editor is a VS Code fork and Claude Code runs in its terminal, which is how one of us worked from Thursday onward.</p>
+
+<p>Our <a href="../blog/cursor-vs-claude-code">Cursor vs Claude Code comparison</a> reads the editor differences line by line, <a href="../blog/is-cursor-worth-it">Is Cursor worth it</a> runs the same arithmetic for a solo developer, and <a href="../compare/claude-code-vs-aider">Claude Code vs Aider</a> is the fair test if you would rather keep the agent local.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is Claude Code really included in the $20 Claude Pro plan?</h3>
+<p>Yes. Claude Code ships with Pro at $20 a month, Max at $100 and Ultra at $200, and it draws on the same usage pool as chat, so a long terminal session and a long conversation spend the same allowance. The free plan does not include it. We ran this test on Max because four agent tasks a week on Opus 5.5 will reach a Pro plan's 5-hour window quickly, and when you reach it you either wait, upgrade, or turn on usage credits billed at standard API rates.</p>
+
+<h3>Can I run Claude models inside Cursor?</h3>
+<p>From Premium up. The $30 Premium tier includes Cursor's own models and Grok, and it bills third-party models such as Claude and GPT at API list price on top of the subscription. The $8 Plus tier is Grok only. Our four tasks in Opus 5.5 cost $38.40, which is the number to budget from rather than the price on the plan card.</p>
+
+<h3>Do Cursor's cloud agents ask before they run commands?</h3>
+<p>No. They run in an isolated VM on a branch of your repository and hand back a pull request without stopping for approval, which is why the first setup step is a spend limit. Claude Code in the terminal asks by default; you can widen that with per-tool allow rules, auto-approve edits, or run it in a container with prompts off. Which model you prefer matters less than which of those two defaults suits the task.</p>
+
+<h3>Which one keeps working when my laptop is closed?</h3>
+<p>Both, with different amounts of preparation. Cursor's cloud agents run on its infrastructure and can be started from the web, the iOS app, Slack, Linear, a GitHub comment or the API. Claude Code has cloud sessions you enter with <code>--cloud</code> and pull back with <code>--teleport</code>, cloud scheduled tasks created with <code>/schedule</code>, and <code>claude -p</code> for pipelines. Cursor's version needs an environment built first, which cost us 26 minutes and two failed builds.</p>
+
+
+
+
+  </section>
+
+  <!-- Hands-On Test — real prompt, real output -->
+  <section class="hands-on">
+    <span class="hands-on-label">&#128247; Hands-On Test</span>
+    <h2>We Actually Ran This</h2>
+    <p class="hands-on-intro">October 28 to November 3, 2026. One Rust workspace for a telemetry ingest service: 14 crates, 26,412 lines, 318 tests under <code>cargo nextest</code>, Postgres 17 through sqlx 0.8, tokio 1.44, with clippy under <code>-D warnings</code> and <code>cargo fmt --check</code> both gating CI. The model was Opus 5.5 on both sides on purpose, so the harness was the only variable. Claude Code ran in the terminal from the repository root after <code>/init</code>. Cursor ran cloud agents on Premium against an environment built from a <code>.cursor/environment.json</code> with libpq and a warmed sqlx offline cache; the first two builds failed, on the headers and then on the cache. Every task began on a clean branch. A task counted as merged only when all 318 tests passed, clippy was clean, formatting passed, and the public API was unchanged where the prompt forbade it. One retry per task, logged as a follow-up.</p>
+    <div class="hands-on-prompt-wrap">
+      <div class="hands-on-prompt-label">&#128220; The exact prompt / task we used</div>
+      <div class="hands-on-prompt">The four tasks, verbatim. <strong>1. Idempotency:</strong> &ldquo;Add Idempotency-Key handling to the ingest POST handler in crates/ingest/src/http.rs. A duplicate key inside 24 hours must return the original 201 body, not an error. Add the sqlx migration and two tests, one of them concurrent.&rdquo; <strong>2. Flaky test:</strong> &ldquo;tests/pipeline_retry.rs fails about one run in six on CI with a backoff assertion. Find the cause. Do not add sleeps and do not raise the timeout.&rdquo; <strong>3. Unwraps:</strong> &ldquo;Remove the 23 unwrap and expect calls on the config load path across crates/config, crates/api-gateway and crates/worker. Use thiserror. Keep clippy -D warnings clean.&rdquo; <strong>4. Split:</strong> &ldquo;Split crates/pipeline/src/pipeline.rs into four stage modules. 1,840 lines, 63 public items, public API must not change. cargo test must pass.&rdquo;</div>
+    </div>
+    <table class="hands-on-result">
+      <thead><tr><th>Metric</th><th>Claude Code (Max, Opus 5.5)</th><th>Cursor (Premium, cloud agents)</th></tr></thead>
+      <tbody>
+<tr><td>Setup before the first task</td><td class="win">4 min, <code>/init</code> wrote a 61-line CLAUDE.md &#10003;</td><td>26 min, two failed environment builds</td></tr>
+<tr><td>Agent time, all four tasks</td><td>2 h 30 m</td><td class="win">1 h 22 m &#10003;</td></tr>
+<tr><td>Approval prompts answered</td><td>41</td><td class="win">0 &#10003;</td></tr>
+<tr><td>Human review time</td><td>3 h 05 m</td><td class="win">2 h 25 m &#10003;</td></tr>
+<tr><td>Task 1: idempotency key</td><td class="win">Merged first pass &#10003;</td><td>Merged, 1 follow-up (returned 409 instead of replaying the 201)</td></tr>
+<tr><td>Task 2: the flaky retry test</td><td class="win">Merged, found the paused clock &#10003;</td><td>Missed; proposed <code>--test-threads=1</code> and a 500 ms sleep</td></tr>
+<tr><td>Task 3: 23 unwraps across 3 crates</td><td class="win">Merged, clippy clean &#10003;</td><td>Merged, 2 follow-ups on <code>map_err</code> types</td></tr>
+<tr><td>Task 4: split a 1,840-line module</td><td>Merged, one review comment, 1 h 12 m</td><td class="win">Merged in 38 m from 3 PRs, 1 conflict &#10003;</td></tr>
+<tr><td>Tasks merged (of 4)</td><td class="win">4 of 4 &#10003;</td><td>3 of 4</td></tr>
+<tr><td>Follow-ups filed against the agent</td><td class="win">1 &#10003;</td><td>4</td></tr>
+<tr><td>Public API changed without being asked</td><td class="win">0 &#10003;</td><td>1, <code>run_pipeline</code> renamed to <code>execute_pipeline</code></td></tr>
+<tr><td>Repository hook active from the first edit</td><td class="win">Yes &#10003;</td><td>No, started after the read-only phase</td></tr>
+<tr><td>Files re-read after the agent had edited them</td><td class="win">None &#10003;</td><td>3, all in Task 4</td></tr>
+<tr><td>Model spend for the week</td><td class="win">$0 on Max &#10003;</td><td>$38.40 at Opus list price</td></tr>
+<tr><td>Plan cost</td><td>$100 a month</td><td class="win">$30 a month &#10003;</td></tr>
+<tr><td><strong>Winner</strong></td><td class="win"><strong>&#127942; Claude Code: 4 of 4, one follow-up</strong></td><td>1.8x faster, one task lost</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Affiliate CTA + disclosure -->
+  <section class="verdict" style="padding-top:0;">
+    <div class="cta-box">
+      <h3>The agent that merged every task we gave it</h3>
+      <p>Claude Code is included in Claude Pro at $20 and Max at $100, draws on the same usage pool as chat, and asks before it edits a file. That last part is why four of four landed.</p>
+      <div class="cta-options">
+        <a class="cta-option winner" href="https://claude.com/product/claude-code" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--primary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try Claude Code &rarr;</span><span class="cta-option-sub">Our pick for delegated work &middot; included from Claude Pro</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="cta-option" href="https://cursor.com" target="_blank" rel="sponsored noopener">
+          <span class="cta-option-icon" style="background:var(--secondary);">&#9733;</span>
+          <span class="cta-option-text"><span class="cta-option-name">Try Cursor &rarr;</span><span class="cta-option-sub">Cloud agents from $30 &middot; best for many small tasks</span></span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+    <div class="affiliate-note">
+      <strong>Affiliate disclosure:</strong> AI vs Tool is reader-supported. Some links above are affiliate links, meaning we may earn a commission if you sign up &mdash; at <em>no extra cost to you</em>. This never influences our testing or rankings. Read our full <a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a>.
+    </div>
+  </section>
+
+  <!-- Related (filled by link_and_register.py) -->
+  <section class="compare-section">
+    <h2>More AI Coding Guides</h2>
+    <p>Keep exploring — these related comparisons and guides help you decide.</p>
+    <div class="related-links">
+      <a href="../blog/cursor-vs-claude-code" class="related-card">
+        <h3>Cursor vs Claude Code (2026): 4 Days on a 55,000-Line Repo</h3>
+        <p>Cursor vs Claude Code, tested on the same 55,000-line monorepo: a 52-file migration, a 30-minute interactive bug hunt, a&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../compare/claude-code-vs-aider" class="related-card">
+        <h3>Claude Code vs Aider (2026) — Head-to-Head Comparison</h3>
+        <p>Claude Code (Opus 5) vs Aider on a 61-file Python service: a 48-call-site migration, a test-driven loop, approval behavi&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+      <a href="../blog/is-cursor-worth-it" class="related-card">
+        <h3>Is Cursor Worth It? (2026) We Tracked the Hours and the Bill for 7 Days</h3>
+        <p>Cursor Pro costs $20 a month and Copilot Pro costs $10. We ran the same three real tasks in a 19,600-line Django and Rea&hellip;</p>
+        <span>Read guide &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color:white; margin-bottom:4px;"><span class="logo-icon">AI</span> AI vs Tool</div>
+          <p>Independent AI tool reviews and comparisons. We research and analyze every tool to provide updated content monthly.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="../#categories">AI Chatbots</a></li>
+            <li><a href="../#categories">AI Writing</a></li>
+            <li><a href="../#categories">AI Coding</a></li>
+            <li><a href="../#categories">AI Image</a></li>
+            <li><a href="../#categories">AI Video</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Popular</h4>
+          <ul>
+            <li><a href="../compare/chatgpt-vs-claude">ChatGPT vs Claude</a></li>
+            <li><a href="../compare/midjourney-vs-dalle">Midjourney vs DALL-E</a></li>
+            <li><a href="../compare/cursor-vs-copilot">Cursor vs Copilot</a></li>
+            <li><a href="../best/best-ai-writer">Best AI Writer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="../about">About AI vs Tool</a></li>
+            <li><a href="../how-we-test">How We Evaluate</a></li>
+            <li><a href="../editorial-policy">Editorial Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../legal/privacy-policy">Privacy Policy</a></li>
+            <li><a href="../legal/terms-of-service">Terms of Service</a></li>
+            <li><a href="../legal/disclaimer">Disclaimer</a></li>
+            <li><a href="../legal/cookie-policy">Cookie Policy</a></li>
+            <li><a href="../legal/disclaimer#affiliate">Affiliate Disclosure</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI vs Tool. All rights reserved. AI vs Tool is an independent review site. We may earn affiliate commissions from links on this page. This does not affect our editorial integrity. All trademarks are property of their respective owners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
